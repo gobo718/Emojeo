@@ -15,7 +15,7 @@ Do not delete a subsystem merely because its current Genreactrix meaning is irre
 - Matrix UI/mechanics (the PrimFusion taxonomy is product-specific; the matrix mechanism is reusable)
 - Validation, history/event logging, failure handling and housekeeping
 
-## Preserved but disabled in the Emojeo extraction profile
+## Preserved but disabled in the reusable-engine extraction profile
 - Research Dashboard and Research Sessions
 - Predictive Classification Laboratory
 - Adaptive Research Intelligence
@@ -48,3 +48,10 @@ The engine now supports unlimited typed tags and relationships between tags. Gen
 
 ## Pass 7 — classification assignments
 The generic tag layer now separates vocabulary/relationships from assignments. Arbitrary subjects can receive unlimited typed tags while preserving weight, confidence, provenance/source, evidence, status, and metadata. This is additive: specialized Genreactrix Reaction, Theme, PrimFusion, Director, AI, and SLOP implementations remain intact.
+
+## Pass 8 — tag rule evaluation + first real smoke tests
+Typed tag relationships are now executable through a generic, non-destructive rule evaluator. Explicit tags can imply/contain other tags, component sets can suggest composite tags, and derived results preserve provenance when deliberately materialized. Specialized Genreactrix classification behavior remains intact beside this generic capability. Pass 8 also adds the first actual automated smoke tests for the extracted engine.
+
+
+## Pass 9 — application detachment boundary
+Application identity, namespaces, vocabulary/configuration, defaults, and compatibility metadata can now live in declarative application definitions rather than being assumed to be engine identity. Genreactrix is preserved as an optional application definition, including its legacy namespace knowledge and specialized-capability profile. This does not migrate or delete the working `genreactrix-*` storage/global/API contracts; it creates the safe compatibility boundary needed before any such migration is considered. Personalized instance records remain outside the reusable definition.
