@@ -58,3 +58,6 @@ Application identity, namespaces, vocabulary/configuration, defaults, and compat
 
 ## Pass 10 — capability directory boundary
 Pass 10 introduces one shallow architectural split: reusable capability implementations live under `/engine/`, while application identity, meaning, compatibility, entry points, deployment files, and application definitions remain at root. This is a detachment boundary, not a cleanup/deletion pass. Specialized Genreactrix-derived implementations are preserved when they encode reusable engineering knowledge. Automated tests remain 5/5 passing after path rewiring.
+
+## Pass 11 — generic staged AI pipeline beside specialized Genreactrix AI
+Pass 11 extracts a product-neutral staged AI pipeline mechanism without replacing or simplifying Genreactrix's proven AI Analysis Engine. Applications can supply arbitrary stages, validators, retries, timeouts, fallbacks, metadata, and lifecycle hooks; application vocabulary and policy remain external. The specialized Genreactrix AI pipeline—including Theme-derived Reactions, SLOP handling, Theme reruns/sweeps, provider behavior, diagnostics, lifecycle guards, and accumulated production fixes—remains intact as a reusable specialized implementation beside the generic mechanism.

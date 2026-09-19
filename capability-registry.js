@@ -8,7 +8,7 @@ const CAPABILITIES={
   tags:{label:'Unlimited Tags / Typed Tag Relationships',kind:'generic+specialized',defaultEnabled:true,implementations:['tag-engine.js','tag-assignment-engine.js','tag-rule-engine.js','genreactrix-tag-compatibility.js']},
   matrix:{label:'Classification Matrix',kind:'generic+specialized',defaultEnabled:true,implementations:['classification-matrix-engine.js','classification-matrix-ui.js']},
   interlockedMatrix:{label:'Interlocked Matrix',kind:'generic+specialized',defaultEnabled:true,implementations:['interlocked-matrix-ui.js']},
-  aiPipeline:{label:'AI Analysis Pipeline',kind:'specialized-reusable',defaultEnabled:true,implementations:['ai-analysis-engine.js','ai-artifact-engine.js']},
+  aiPipeline:{label:'AI Analysis Pipeline',kind:'specialized-reusable',defaultEnabled:true,implementations:['engine/ai-pipeline-engine.js','engine/ai-analysis-engine.js','engine/ai-artifact-engine.js']},
   promptLibrary:{label:'Prompt Library',kind:'specialized-reusable',defaultEnabled:true,implementations:['prompt-library-engine.js','prompt-evaluation-engine.js','prompt-diagnostics-engine.js']},
   themeSweep:{label:'Theme Sweep / Adversarial Theme Review',kind:'specialized',defaultEnabled:true,implementations:['theme-sweep-engine.js']},
   slopDetection:{label:'SLOP Detection and Director Review',kind:'specialized',defaultEnabled:true,implementations:['ai-analysis-engine.js','ai-artifact-engine.js','app.js','styles.css']},
