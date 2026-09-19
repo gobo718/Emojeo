@@ -61,3 +61,21 @@ Pass 10 introduces one shallow architectural split: reusable capability implemen
 
 ## Pass 11 — generic staged AI pipeline beside specialized Genreactrix AI
 Pass 11 extracts a product-neutral staged AI pipeline mechanism without replacing or simplifying Genreactrix's proven AI Analysis Engine. Applications can supply arbitrary stages, validators, retries, timeouts, fallbacks, metadata, and lifecycle hooks; application vocabulary and policy remain external. The specialized Genreactrix AI pipeline—including Theme-derived Reactions, SLOP handling, Theme reruns/sweeps, provider behavior, diagnostics, lifecycle guards, and accumulated production fixes—remains intact as a reusable specialized implementation beside the generic mechanism.
+
+## Pass 12 — Work processing
+Added `engine/work-processing-engine.js` as a product-neutral orchestration capability for concurrent queued work, retries, persistence/resumption, pause/resume, safe stop, and immediate kill. Existing Genreactrix Queue/Batch/Lifecycle implementations remain preserved beside it; this is an additive abstraction, not a replacement.
+
+## Pass 13 — Persistent record layer
+Added `engine/record-store-engine.js` as an application-neutral record capability for arbitrary data, schema migration/versioning, status/flags, provenance/evidence, history/undo, import/export, validation, and pluggable persistence. Existing Genreactrix persistence/dataset/import/history machinery remains preserved beside it; this is additive detachment, not replacement.
+
+## Pass 14 — Workspace / console capability
+Added an application-neutral workspace state/action/panel engine while preserving Genreactrix's specialized Image Console, Director workspace, Investigation UI, and other consoles intact. Generic extraction does not replace specialized implementations.
+
+## Pass 15 — query / analysis / report extraction
+Added generic query, analysis, and report-composition capabilities beside the preserved Genreactrix analytics/report/research implementations. Specialized Genreactrix heuristics and application vocabulary remain available; generic capability does not replace encoded application knowledge.
+
+## Pass 16 — storage / API / namespace boundary
+Added a product-neutral namespace resolver for application-owned storage keys, database names, events, globals, and API routes, with explicit legacy compatibility candidates. Existing Genreactrix `genreactrix-*` contracts were preserved rather than mass-renamed; the new boundary is additive and lets future applications supply their own namespaces without erasing proven compatibility behavior.
+
+## Pass 17 — Neutral qualification / Baseline v1
+A neutral non-Genreactrix, non-emoji qualification fixture now exercises the generic engine across application activation, namespaces, tags, classification intersections, records, querying, workspace editing, and work processing. This establishes **Reusable Engine Baseline v1** without deleting or flattening preserved specialized Genreactrix implementations. See `ENGINE_EXTRACTION_PASS17.md` and `ENGINE_BASELINE_V1.md`.

@@ -6,9 +6,9 @@
 const registry=window.reusableApplicationDefinitions;if(!registry)return;
 registry.register({
   id:'genreactrix',name:'Genreactrix',
-  namespaces:{storage:'genreactrix',database:'genreactrix',events:'genreactrix',globals:'genreactrix'},
+  namespaces:{storage:'genreactrix',database:'genreactrix',events:'genreactrix',globals:'genreactrix',api:'genreactrix'},
   capabilities:{tags:true,matrix:true,interlockedMatrix:true,aiPipeline:true,promptLibrary:true,themeSweep:true,slopDetection:true,reactions:true,themes:true,director:true,queue:true,batch:true,reports:true,research:true,publication:true,prediction:true,persistence:true,maintenance:true},
-  compatibility:{legacyStoragePrefix:'genreactrix-',preserveLegacyGlobals:true,preserveSpecializedImplementations:true},
+  compatibility:{legacyStoragePrefix:'genreactrix-',legacyApiBase:'/api/genreactrix',preserveLegacyGlobals:true,preserveSpecializedImplementations:true},
   metadata:{kind:'preserved-specialized-application-definition',instanceDataIncluded:false}
 });
 })();
