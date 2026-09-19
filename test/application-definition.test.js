@@ -7,7 +7,7 @@ function load(){
  class CE{constructor(type,init={}){this.type=type;this.detail=init.detail}}
  const window={dispatchEvent:e=>events.push(e)};
  const context=vm.createContext({structuredClone,console,window,CustomEvent:CE});
- for(const file of ['tag-engine.js','application-definition-engine.js','genreactrix-application-definition.js']) vm.runInContext(fs.readFileSync(new URL(`../${file}`,import.meta.url),'utf8'),context,{filename:file});
+ for(const file of ['../engine/tag-engine.js','../engine/application-definition-engine.js','../genreactrix-application-definition.js']) vm.runInContext(fs.readFileSync(new URL(file,import.meta.url),'utf8'),context,{filename:file});
  return {w:context.window,events};
 }
 test('application definitions keep identity/configuration outside reusable mechanisms',()=>{

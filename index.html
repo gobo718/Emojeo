@@ -1435,25 +1435,25 @@
 </dialog>
 <script src="engine-profile.js"></script>
 <script src="capability-registry.js"></script>
-<script src="tag-engine.js"></script>
-<script src="application-definition-engine.js"></script>
+<script src="engine/tag-engine.js"></script>
+<script src="engine/application-definition-engine.js"></script>
 <script src="genreactrix-application-definition.js"></script>
-<script src="tag-assignment-engine.js"></script>
-<script src="tag-rule-engine.js"></script>
+<script src="engine/tag-assignment-engine.js"></script>
+<script src="engine/tag-rule-engine.js"></script>
 <script src="genreactrix-tag-compatibility.js"></script>
-<script src="classification-matrix-engine.js"></script>
-<script src="classification-matrix-ui.js"></script>
+<script src="engine/classification-matrix-engine.js"></script>
+<script src="engine/classification-matrix-ui.js"></script>
 <script src="interlocked-matrix-ui.js"></script>
-<script src="project-runtime-engine.js?v=0.9.40.193"></script>
-<script src="persistence-engine.js?v=0.9.40.193"></script>
-<script src="validation-engine.js?v=0.9.24.0"></script>
-<script src="import-job-engine.js?v=0.9.40.193"></script>
-<script src="origin-pack-engine.js?v=0.9.40.193"></script>
-<script src="origin-gate-engine.js?v=0.9.40.193"></script>
-<script src="import-engine.js?v=0.9.40.193"></script>
-<script src="maintenance-engine.js?v=0.9.40.193"></script>
-<script src="settings-engine.js?v=0.9.40.193"></script>
-<script src="director-classification-engine.js?v=0.9.40.193"></script>
+<script src="engine/project-runtime-engine.js?v=0.9.40.193"></script>
+<script src="engine/persistence-engine.js?v=0.9.40.193"></script>
+<script src="engine/validation-engine.js?v=0.9.24.0"></script>
+<script src="engine/import-job-engine.js?v=0.9.40.193"></script>
+<script src="engine/origin-pack-engine.js?v=0.9.40.193"></script>
+<script src="engine/origin-gate-engine.js?v=0.9.40.193"></script>
+<script src="engine/import-engine.js?v=0.9.40.193"></script>
+<script src="engine/maintenance-engine.js?v=0.9.40.193"></script>
+<script src="engine/settings-engine.js?v=0.9.40.193"></script>
+<script src="engine/director-classification-engine.js?v=0.9.40.193"></script>
 <dialog class="custom-library-dialog" id="customReactionDialog">
 <form class="custom-library-shell" method="dialog" onsubmit="return false;">
 <header><h2 id="customReactionDialogTitle">Add Custom Reaction</h2><button aria-label="Close" data-close-custom-dialog="customReactionDialog" type="button">×</button></header>
@@ -1483,11 +1483,11 @@ window.grxOpenCustomDialog=function(dialogId){
 };
 </script>
 <script src="event-log.js?v=0.9.39.90"></script>
-<script src="lifecycle-engine.js?v=0.9.40.193"></script>
-<script src="bundle-engine.js?v=0.9.40.193"></script>
-<script src="ama-engine.js?v=0.9.40.193"></script>
+<script src="engine/lifecycle-engine.js?v=0.9.40.193"></script>
+<script src="engine/bundle-engine.js?v=0.9.40.193"></script>
+<script src="engine/ama-engine.js?v=0.9.40.193"></script>
 <script src="app.js?v=0.9.40.212"></script>
-<script src="danger-zone-engine.js?v=0.9.40.193"></script>
+<script src="engine/danger-zone-engine.js?v=0.9.40.193"></script>
 <script src="images-console.js?v=0.9.40.193"></script>
 
 <dialog class="notifications-dialog" id="notificationsDialog">
@@ -1501,14 +1501,14 @@ window.grxOpenCustomDialog=function(dialogId){
 <section class="notifications-list" id="notificationsList"></section>
 </div>
 </dialog>
-<script src="notifications-engine.js?v=0.9.14.0"></script>
-<script src="quarantine-engine.js?v=0.9.40.193"></script>
-<script src="queue-engine.js?v=0.9.40.193"></script>
+<script src="engine/notifications-engine.js?v=0.9.14.0"></script>
+<script src="engine/quarantine-engine.js?v=0.9.40.193"></script>
+<script src="engine/queue-engine.js?v=0.9.40.193"></script>
 <script src="investigation-ui.js?v=0.9.40.193"></script>
 <script src="genreactrix-cloud-api.js?v=0.9.40.206"></script>
-<script src="prompt-diagnostics-engine.js?v=0.9.40.193"></script>
-<script src="reports-engine.js?v=0.9.40.193"></script>
-<script src="analytics-engine.js?v=0.9.20.0"></script>
+<script src="engine/prompt-diagnostics-engine.js?v=0.9.40.193"></script>
+<script src="engine/reports-engine.js?v=0.9.40.193"></script>
+<script src="engine/analytics-engine.js?v=0.9.20.0"></script>
 <dialog class="analytics-dialog" id="analyticsDialog">
 <section class="analytics-shell">
 <header><div><h2>Research Analytics</h2><p id="analyticsSummary">0 records</p></div><button aria-label="Close" id="analyticsClose" type="button">×</button></header>
@@ -1518,15 +1518,15 @@ window.grxOpenCustomDialog=function(dialogId){
 </section>
 </dialog>
 
-<script src="post-processing-engine.js?v=0.9.40.193"></script>
-<script src="housekeeping-engine.js?v=0.9.40.193"></script>
-<script src="batch-engine.js?v=0.9.40.193"></script>
-<script src="prompt-library-engine.js?v=0.9.26.0"></script>
-<script src="prompt-evaluation-engine.js?v=0.9.26.0"></script>
-<script src="ai-artifact-engine.js?v=0.9.40.193"></script>
-<script src="theme-sweep-engine.js?v=0.9.40.193"></script>
-<script src="ai-analysis-engine.js?v=0.9.40.193"></script>
-<script src="home-count-engine.js?v=0.9.40.193"></script>
+<script src="engine/post-processing-engine.js?v=0.9.40.193"></script>
+<script src="engine/housekeeping-engine.js?v=0.9.40.193"></script>
+<script src="engine/batch-engine.js?v=0.9.40.193"></script>
+<script src="engine/prompt-library-engine.js?v=0.9.26.0"></script>
+<script src="engine/prompt-evaluation-engine.js?v=0.9.26.0"></script>
+<script src="engine/ai-artifact-engine.js?v=0.9.40.193"></script>
+<script src="engine/theme-sweep-engine.js?v=0.9.40.193"></script>
+<script src="engine/ai-analysis-engine.js?v=0.9.40.193"></script>
+<script src="engine/home-count-engine.js?v=0.9.40.193"></script>
 
 <dialog class="research-session-dialog" id="researchSessionDialog">
 <section class="research-session-shell">
@@ -1535,7 +1535,7 @@ window.grxOpenCustomDialog=function(dialogId){
 <div class="research-session-grid"><section><h3>Sessions</h3><div id="researchSessionList"></div></section><section><h3>Session</h3><label>Name<input id="researchSessionName" type="text"/></label><label>Description<textarea id="researchSessionDescription"></textarea></label><label>Objectives<textarea id="researchSessionObjectives"></textarea></label><label>Questions<textarea id="researchSessionQuestions"></textarea></label><label>Conclusions<textarea id="researchSessionConclusions"></textarea></label><div class="research-session-actions"><button id="researchSessionSave" type="button">Save</button><button id="researchSessionBookmarkImage" type="button">Bookmark current image</button></div><h3>Snapshots</h3><div id="researchSnapshotList"></div><h3>Bookmarks</h3><div id="researchBookmarkList"></div><h3>Working sets</h3><div id="researchWorkingSetList"></div><h3>Recent activity</h3><div id="researchActivityList"></div></section></div>
 </section>
 </dialog>
-<script src="research-session-engine.js?v=0.9.22.0"></script>
+<script src="engine/research-session-engine.js?v=0.9.22.0"></script>
 
 <dialog class="research-dashboard-dialog" id="researchDashboardDialog">
 <section class="research-dashboard-shell">
@@ -1545,7 +1545,7 @@ window.grxOpenCustomDialog=function(dialogId){
 <div class="research-dashboard-columns"><section><h3>Priority queue</h3><div class="research-dashboard-priorities" id="researchDashboardPriorities"></div></section><section><h3>Research goals</h3><div class="dashboard-goal-form"><input id="dashboardGoalName" placeholder="Goal name"><select id="dashboardGoalMetric"><option value="directorComplete">Post-Batch images</option><option value="images">Images</option><option value="saved">Saved</option><option value="reports">Reports</option></select><input id="dashboardGoalTarget" type="number" min="1" value="100"><button id="researchDashboardAddGoal" type="button">Add</button></div><div id="researchDashboardGoals"></div></section></div>
 <section><h3>Research timeline</h3><div class="research-dashboard-timeline" id="researchDashboardTimeline"></div></section>
 </section></dialog>
-<script src="research-dashboard-engine.js?v=0.9.40.193"></script>
+<script src="engine/research-dashboard-engine.js?v=0.9.40.193"></script>
 <dialog class="correlation-dialog" id="correlationDialog">
 <section class="correlation-shell">
 <header><div><h2>Correlation Discovery Laboratory</h2><p id="correlationStatus">Ready</p></div><button id="correlationClose" type="button" aria-label="Close">×</button></header>
@@ -1553,9 +1553,9 @@ window.grxOpenCustomDialog=function(dialogId){
 <div class="correlation-tabs"><button data-correlation-view="discoveries" type="button">Discoveries</button><button data-correlation-view="library" type="button">Finding library</button><button data-correlation-view="hypotheses" type="button">Hypotheses</button></div>
 <section id="correlationBody"></section>
 </section></dialog>
-<script src="correlation-engine.js?v=0.9.27.0"></script>
-<script src="finding-library-engine.js?v=0.9.27.0"></script>
-<script src="correlation-ui.js?v=0.9.27.0"></script>
+<script src="engine/correlation-engine.js?v=0.9.27.0"></script>
+<script src="engine/finding-library-engine.js?v=0.9.27.0"></script>
+<script src="engine/correlation-ui.js?v=0.9.27.0"></script>
 
 <dialog class="prediction-dialog" id="predictionDialog">
 <section class="prediction-shell">
@@ -1563,8 +1563,8 @@ window.grxOpenCustomDialog=function(dialogId){
 <div class="prediction-toolbar"><label>Image ID <input id="predictionImageId" type="text" placeholder="Current image"></label><button id="predictionRun" type="button">Predict</button><button id="predictionAccept" type="button">Accept prediction</button><button id="predictionPartial" type="button">Partial match</button><button id="predictionReject" type="button">Reject</button></div>
 <section id="predictionBody"></section>
 </section></dialog>
-<script src="prediction-engine.js?v=0.9.28.0"></script>
-<script src="prediction-evaluation-engine.js?v=0.9.28.0"></script>
+<script src="engine/prediction-engine.js?v=0.9.28.0"></script>
+<script src="engine/prediction-evaluation-engine.js?v=0.9.28.0"></script>
 <script src="prediction-ui.js?v=0.9.28.0"></script>
 
 <dialog class="adaptive-intelligence-dialog" id="adaptiveIntelligenceDialog">
@@ -1574,8 +1574,8 @@ window.grxOpenCustomDialog=function(dialogId){
 <section><h3>Trends</h3><div class="adaptive-trends" id="adaptiveTrends"></div></section>
 <section><h3>Research opportunities</h3><div id="adaptiveRecommendations"></div></section>
 </section></dialog>
-<script src="adaptive-intelligence-engine.js?v=0.9.29.0"></script>
-<script src="recommendation-engine.js?v=0.9.29.0"></script>
+<script src="engine/adaptive-intelligence-engine.js?v=0.9.29.0"></script>
+<script src="engine/recommendation-engine.js?v=0.9.29.0"></script>
 <script src="adaptive-intelligence-ui.js?v=0.9.29.0"></script>
 
 <dialog class="knowledge-base-dialog" id="knowledgeBaseDialog">
@@ -1585,8 +1585,8 @@ window.grxOpenCustomDialog=function(dialogId){
 <section class="knowledge-compose"><select id="knowledgeType"><option value="article">Research article</option><option value="finding">Finding</option><option value="definition">Definition</option><option value="methodology">Methodology</option></select><input id="knowledgeTitle" placeholder="Title"><input id="knowledgeSummary" placeholder="Summary"><textarea id="knowledgeBodyText" placeholder="Research content"></textarea><button id="knowledgeCreate" type="button">Create draft</button></section>
 <section id="knowledgeBaseBody"></section>
 </section></dialog>
-<script src="knowledge-base-engine.js?v=0.9.30.0"></script>
-<script src="publication-engine.js?v=0.9.30.0"></script>
+<script src="engine/knowledge-base-engine.js?v=0.9.30.0"></script>
+<script src="engine/publication-engine.js?v=0.9.30.0"></script>
 <script>document.addEventListener('DOMContentLoaded',()=>document.getElementById('openKnowledgeBase')?.addEventListener('click',()=>window.openGenreactrixKnowledgeBase?.()));</script>
 <dialog class="knowledge-base-dialog" id="terminologyMethodologyDialog">
 <form method="dialog" class="console-shell">
@@ -1598,9 +1598,9 @@ window.grxOpenCustomDialog=function(dialogId){
 <section id="terminologyMethodologyBody"></section>
 </form>
 </dialog>
-<script src="terminology-engine.js?v=0.9.31.0"></script>
-<script src="methodology-engine.js?v=0.9.31.0"></script>
-<script src="terminology-methodology-ui.js?v=0.9.31.0"></script>
+<script src="engine/terminology-engine.js?v=0.9.31.0"></script>
+<script src="engine/methodology-engine.js?v=0.9.31.0"></script>
+<script src="engine/terminology-methodology-ui.js?v=0.9.31.0"></script>
 
 <script>document.addEventListener('DOMContentLoaded',()=>document.getElementById('openTerminologyMethodology')?.addEventListener('click',()=>window.openGenreactrixTerminologyMethodology?.()));</script>
 
@@ -1613,8 +1613,8 @@ window.grxOpenCustomDialog=function(dialogId){
 <section class="knowledge-compose citation-compose"><select id="citationKind"><option value="external">External source</option><option value="dataset">Dataset</option><option value="report">Genreactrix report</option><option value="finding">Finding</option><option value="publication">Publication</option><option value="methodology">Methodology</option></select><input id="citationTitle" placeholder="Citation title"><input id="citationAuthors" placeholder="Authors"><input id="citationPublisher" placeholder="Publisher"><input id="citationDate" placeholder="Published date"><input id="citationLocator" placeholder="URL, DOI, report ID, or source locator"><textarea id="citationNotes" placeholder="Notes, quoted claim, or relevance"></textarea><button id="citationSave" type="button">Save citation</button></section>
 <section id="citationEvidenceBody"></section>
 </section></dialog>
-<script src="citation-evidence-engine.js?v=0.9.32.0"></script>
-<script src="citation-evidence-ui.js?v=0.9.32.0"></script>
+<script src="engine/citation-evidence-engine.js?v=0.9.32.0"></script>
+<script src="engine/citation-evidence-ui.js?v=0.9.32.0"></script>
 
 <dialog class="knowledge-base-dialog" id="datasetVersionDialog">
 <section class="knowledge-base-shell dataset-version-shell">
@@ -1623,8 +1623,8 @@ window.grxOpenCustomDialog=function(dialogId){
 <section class="knowledge-compose"><input id="datasetName" placeholder="Dataset name"><select id="datasetScope"><option value="all-records">All records</option><option value="submitted">Submitted</option><option value="saved">Saved</option><option value="flagged">Flagged</option></select><textarea id="datasetDescription" placeholder="Purpose and inclusion rules"></textarea><button id="datasetCreate" type="button">Create dataset</button></section>
 <section id="datasetVersionBody"></section>
 </section></dialog>
-<script src="dataset-version-engine.js?v=0.9.33.0"></script>
-<script src="dataset-version-ui.js?v=0.9.33.0"></script>
+<script src="engine/dataset-version-engine.js?v=0.9.33.0"></script>
+<script src="engine/dataset-version-ui.js?v=0.9.33.0"></script>
 
 <dialog class="knowledge-base-dialog" id="paperComposerDialog">
 <section class="knowledge-base-shell paper-composer-shell">
@@ -1632,9 +1632,9 @@ window.grxOpenCustomDialog=function(dialogId){
 <section class="paper-create"><input id="paperNewTitle" placeholder="Paper title"><input id="paperNewAuthors" placeholder="Authors"><button id="paperCreate" type="button">Create from canonical research</button></section>
 <div class="paper-composer-grid"><aside id="paperComposerList"></aside><main><section id="paperValidationResults"></section><section id="paperComposerBody"></section></main></div>
 </section></dialog>
-<script src="paper-composer-engine.js?v=0.9.34.0"></script>
-<script src="publication-validator-engine.js?v=0.9.34.0"></script>
-<script src="paper-composer-ui.js?v=0.9.34.0"></script>
+<script src="engine/paper-composer-engine.js?v=0.9.34.0"></script>
+<script src="engine/publication-validator-engine.js?v=0.9.34.0"></script>
+<script src="engine/paper-composer-ui.js?v=0.9.34.0"></script>
 
 <dialog class="knowledge-base-dialog" id="communityInputDialog">
 <section class="knowledge-base-shell community-input-shell">
@@ -1643,7 +1643,7 @@ window.grxOpenCustomDialog=function(dialogId){
 <section id="communityInputPreview" class="community-input-preview"></section>
 <section><h3>Import history</h3><div id="communityInputHistory" class="community-input-history"></div></section>
 </section></dialog>
-<script src="community-input-engine.js?v=0.9.35.0"></script>
+<script src="engine/community-input-engine.js?v=0.9.35.0"></script>
 <script src="community-input-ui.js?v=0.9.35.0"></script>
 
 <dialog class="knowledge-base-dialog" id="consensusDialog">
@@ -1652,8 +1652,8 @@ window.grxOpenCustomDialog=function(dialogId){
 <div class="knowledge-toolbar"><button id="consensusCalculate" type="button">Calculate consensus</button><select id="consensusVoteType"><option value="">All vote types</option><option value="reaction">Reactions</option><option value="theme">Themes</option><option value="primfusion">PrimFusion</option></select><select id="consensusAgreement"><option value="">All Director comparisons</option><option value="agree">Director agrees</option><option value="disagree">Director differs</option></select><label><input id="consensusControversialOnly" type="checkbox"> Controversial only</label></div>
 <section id="consensusBody" class="consensus-body"></section>
 </section></dialog>
-<script src="consensus-engine.js?v=0.9.36.0"></script>
-<script src="consensus-ui.js?v=0.9.36.0"></script>
+<script src="engine/consensus-engine.js?v=0.9.36.0"></script>
+<script src="engine/consensus-ui.js?v=0.9.36.0"></script>
 
 <dialog class="knowledge-base-dialog" id="aiTrainingDialog">
 <section class="knowledge-base-shell ai-training-shell">
@@ -1665,7 +1665,7 @@ window.grxOpenCustomDialog=function(dialogId){
 </section>
 <aside id="aiTrainingRunList" class="ai-training-run-list"></aside><main id="aiTrainingRunBody" class="ai-training-run-body"></main>
 </div></section></dialog>
-<script src="ai-training-comparison-engine.js?v=0.9.37.0"></script>
+<script src="engine/ai-training-comparison-engine.js?v=0.9.37.0"></script>
 <script src="ai-training-comparison-ui.js?v=0.9.37.0"></script>
 
 <dialog class="knowledge-base-dialog" id="publicResearchDialog">
@@ -1675,8 +1675,8 @@ window.grxOpenCustomDialog=function(dialogId){
 <section class="public-research-compose"><h3>Create public snapshot</h3><input id="publicResearchTitle" value="Genreactrix Public Research" placeholder="Public title"><input id="publicResearchSubtitle" value="Evidence-backed research from Genreactrix" placeholder="Subtitle"><textarea id="publicResearchDescription" placeholder="Public description"></textarea><div class="public-research-includes"><label><input id="publicIncludeKnowledge" type="checkbox" checked> Published knowledge</label><label><input id="publicIncludeMethodology" type="checkbox" checked> Methodology</label><label><input id="publicIncludeConsensus" type="checkbox" checked> Community consensus</label><label><input id="publicIncludeAi" type="checkbox" checked> AI comparisons</label><label><input id="publicIncludeDatasets" type="checkbox" checked> Dataset manifests</label></div><button id="publicResearchCreate" type="button">Create snapshot</button><h3>Snapshots</h3><div id="publicResearchList" class="public-research-list"></div></section>
 <main><section id="publicResearchBody"></section><section><h3>Public research feed</h3><div id="publicResearchFeed" class="public-research-feed"></div></section></main>
 </div></section></dialog>
-<script src="public-research-engine.js?v=0.9.38.0"></script>
-<script src="public-research-ui.js?v=0.9.38.0"></script>
+<script src="engine/public-research-engine.js?v=0.9.38.0"></script>
+<script src="engine/public-research-ui.js?v=0.9.38.0"></script>
 
 
 

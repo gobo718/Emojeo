@@ -55,3 +55,6 @@ Typed tag relationships are now executable through a generic, non-destructive ru
 
 ## Pass 9 — application detachment boundary
 Application identity, namespaces, vocabulary/configuration, defaults, and compatibility metadata can now live in declarative application definitions rather than being assumed to be engine identity. Genreactrix is preserved as an optional application definition, including its legacy namespace knowledge and specialized-capability profile. This does not migrate or delete the working `genreactrix-*` storage/global/API contracts; it creates the safe compatibility boundary needed before any such migration is considered. Personalized instance records remain outside the reusable definition.
+
+## Pass 10 — capability directory boundary
+Pass 10 introduces one shallow architectural split: reusable capability implementations live under `/engine/`, while application identity, meaning, compatibility, entry points, deployment files, and application definitions remain at root. This is a detachment boundary, not a cleanup/deletion pass. Specialized Genreactrix-derived implementations are preserved when they encode reusable engineering knowledge. Automated tests remain 5/5 passing after path rewiring.

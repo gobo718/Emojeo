@@ -5,8 +5,8 @@ import vm from 'node:vm';
 
 function load(){
   const context=vm.createContext({structuredClone,console,window:{}});
-  for(const file of ['tag-engine.js','tag-assignment-engine.js','tag-rule-engine.js']){
-    vm.runInContext(fs.readFileSync(new URL(`../${file}`,import.meta.url),'utf8'),context,{filename:file});
+  for(const file of ['../engine/tag-engine.js','../engine/tag-assignment-engine.js','../engine/tag-rule-engine.js']){
+    vm.runInContext(fs.readFileSync(new URL(file,import.meta.url),'utf8'),context,{filename:file});
   }
   return context.window;
 }
