@@ -64,8 +64,8 @@ function allReactionRecords(){return[...PRIMITIVES.map(p=>({id:p.id,label:p.name
 function reactionRecordFromRef(ref){if(!ref)return null;if(ref.type==="custom")return(state.customReactions||[]).find(r=>r.id===ref.id)||{id:ref.id,label:"Missing custom reaction",emoji:"?",kind:"missingReaction",type:"custom"};const p=PRIMITIVE_BY_ID[ref.id];return p?{id:p.id,label:p.name,emoji:p.symbol,kind:"canonicalReaction",type:"canonical"}:null;}
 function customReactionSelectionToken(id){return`custom:${id}`;}
 
-const primitivePairId=(a,b)=>[a,b].sort().join("|");
-const primFusionCellId=(a,b)=>`CELL:${primitivePairId(a,b)}`;
+const primitivePairId=(a,b)=>window.classificationMatrixEngine?.pairKey?.(a,b)||[a,b].sort().join("|");
+const primFusionCellId=(a,b)=>window.classificationMatrixEngine?.intersection?.(a,b)?.id||`CELL:${primitivePairId(a,b)}`;
 
 
 
@@ -151,8 +151,31 @@ const CANONICAL_PRIMFUSION_LABELS = {
 };
 
 function canonicalPrimFusionLabel(firstName, secondName){
+  const first=PRIMITIVE_BY_NAME[firstName],second=PRIMITIVE_BY_NAME[secondName];
+  const generic=first&&second?genericMatrixIntersectionLabel(first.id,second.id):null;
+  if(generic)return generic;
   const key=[firstName,secondName].sort().join("|");
   return CANONICAL_PRIMFUSION_LABELS[key] || (firstName===secondName ? firstName : `${firstName} + ${secondName}`);
+}
+
+// Compatibility adapter: Genreactrix supplies the vocabulary; the matrix engine supplies
+// product-neutral item/intersection mechanics. Future applications replace this definition,
+// not the matrix implementation.
+const GENREACTRIX_MATRIX_DEFINITION = {
+  id:"genreactrix-primfusion",
+  label:"PrimFusion Matrix",
+  items:PRIMITIVES.map(p=>({id:p.id,label:p.name,symbol:p.symbol})),
+  intersections:Object.fromEntries(Object.entries(CANONICAL_PRIMFUSION_LABELS).map(([names,label])=>{
+    const ids=names.split("|").map(name=>PRIMITIVE_BY_NAME[name]?.id).filter(Boolean);
+    return ids.length===2 ? [window.classificationMatrixEngine.pairKey(ids[0],ids[1]),label] : null;
+  }).filter(Boolean)),
+  orderedPairs:false,
+  allowSelfPairs:true
+};
+window.classificationMatrixEngine?.configure?.(GENREACTRIX_MATRIX_DEFINITION);
+
+function genericMatrixIntersectionLabel(firstId,secondId){
+  return window.classificationMatrixEngine?.intersection?.(firstId,secondId)?.label || null;
 }
 
 // v0.9.40.166 — fresh independent Reaction and Theme/Description Worker requests now launch concurrently; local commits remain serialized.
@@ -171,6 +194,20 @@ const BASE_THEMES = [
   "Dreamlike","Mechanical","Aquatic","Celestial","Domestic","Gothic",
   "Royalty","Sports","Music","Transportation","Weather","Horror","Mystery"
 ];
+
+// Reusable-engine compatibility view. This exposes Genreactrix vocabulary to the
+// generic tag layer without changing the specialized Reaction/Theme implementation.
+window.genreactrixTagSource = Object.freeze({
+  reactions:Object.freeze(PRIMITIVES.map(p=>Object.freeze({id:p.id,label:p.name,symbol:p.symbol,metadata:{legacySelectionToken:primitiveSelectionToken(p)}}))),
+  themes:Object.freeze([
+    ...BASE_THEMES.map(label=>Object.freeze({id:`base-theme:${slugifyCustom(label)}`,label,kind:"baseTheme"})),
+    ...Object.entries(CANONICAL_PRIMFUSION_LABELS).map(([names,label])=>{
+      const reactionRefs=names.split("|").map(name=>PRIMITIVE_BY_NAME[name]).filter(Boolean).map(p=>({type:"reaction",id:p.id}));
+      return Object.freeze({id:`fusion-theme:${slugifyCustom(label)}`,label,kind:"primFusionTheme",reactionRefs});
+    })
+  ])
+});
+window.genreactrixTagCompatibility?.register?.();
 
 const DEMOS = [
   {
@@ -1703,11 +1740,10 @@ window.genreactrixDescriptionRerunWorkspace={autoSaveForBatch:autoSaveDescriptio
 
 function renderLandscapeInterlockedMatrix(targetId="tabletWorkbenchMatrix"){
   const root=$(targetId);
-  if(!root) return;
-  root.innerHTML="";
+  if(!root || !window.interlockedMatrixUI) return;
 
-  // Interlocked geometry remains derived from the canonical PrimFusion matrix; the retired Smart column is removed.
-  // Current 12-Prim PrimFusion interlocked matrix: 66 assigned Themes and 0 open pair slots. Ticket and Smart are retired; former P14 Angry occupies P07 and Celebration occupies P12.
+  // Genreactrix compatibility definition. The reusable renderer below this layer
+  // knows nothing about Prims, Themes, symbols, or Genreactrix taxonomy.
   const topSymbols=["🧸", "✨", "🤣", "😭", "🌶️", "🎉"];
   const bottomSymbols=["🌀", "🌌", "🤢", "👻", "💥", "🤬"];
   const leftSymbols=["🤬", "💥", "👻", "🤢", "🌌", "🌀", "🧸", "🌀", "🌌", "🤢", "👻", "💥", "🤬"];
@@ -1727,91 +1763,19 @@ function renderLandscapeInterlockedMatrix(targetId="tabletWorkbenchMatrix"){
     [{"value":"Chaotic","tone":"peach"},{"value":"Ethereal","tone":"peach"},{"value":"Collapse","tone":"peach"},{"value":"Corrupted","tone":"peach"},{"value":"💥","tone":"green"},{"value":"🎉","tone":"green"}],
     [{"value":"Monstrous","tone":"peach"},{"value":"Cursed","tone":"peach"},{"value":"Outrage","tone":"peach"},{"value":"Paranoia","tone":"peach"},{"value":"Aggressive","tone":"peach"},{"value":"🤬","tone":"green"}]
   ];
-
   const primitiveForSymbol=symbol=>PRIMITIVES.find(p=>p.symbol===symbol);
-  const pairForLabel=(label)=>{
-    const match=Object.entries(CANONICAL_PRIMFUSION_LABELS).find(([,value])=>value===label);
-    return match ? match[0].split("|") : null;
-  };
-  const choosePrimitive=primitive=>{
-    if(!primitive || tabletLandscapeView.activeThemeSlot===null) return;
-    state.targetSlot=tabletLandscapeView.activeThemeSlot;
-    selectTheme({id:`primitive:${primitive.id}`,label:primitive.name,kind:"primitive",primitiveId:primitive.id});
-  };
-  const appendAxisButton=(holder,symbol)=>{
-    const primitive=primitiveForSymbol(symbol);
-    const button=document.createElement("button");
-    button.type="button";
-    button.title=primitive?`Select ${primitive.name}`:symbol;
-    button.textContent=symbol;
-    button.addEventListener("click",()=>choosePrimitive(primitive));
-    holder.appendChild(button);
-  };
-
-  const shell=document.createElement("div");
-  shell.className="interlocked-matrix-shell";
-  const top=document.createElement("div");
-  top.className="interlocked-axis interlocked-axis-top";
-  topSymbols.forEach(symbol=>appendAxisButton(top,symbol));
-  shell.appendChild(top);
-
-  const body=document.createElement("div");
-  body.className="interlocked-matrix-body";
-  const left=document.createElement("div");
-  left.className="interlocked-axis interlocked-axis-left";
-  const grid=document.createElement("div");
-  grid.className="interlocked-matrix-grid";
-  const right=document.createElement("div");
-  right.className="interlocked-axis interlocked-axis-right";
-
-  matrixRows.forEach((row,rowIndex)=>{
-    appendAxisButton(left,leftSymbols[rowIndex]);
-    appendAxisButton(right,rightSymbols[rowIndex]);
-    row.forEach((entry,columnIndex)=>{
-      const cell=document.createElement("button");
-      cell.type="button";
-      cell.className=`interlocked-cell interlocked-${entry.tone}`;
-      if(entry.value==="OPEN") cell.classList.add("interlocked-open");
-      if(entry.tone==="green"){
-        const nextIsGreen=row[columnIndex+1]?.tone==="green";
-        const bottomRightAngry=rowIndex===matrixRows.length-1 && columnIndex===row.length-1 && entry.value==="🤬";
-        cell.classList.add((nextIsGreen||bottomRightAngry)?"interlocked-diagonal-lower":"interlocked-diagonal-upper");
-        if(bottomRightAngry) cell.classList.add("interlocked-bottom-right-angry");
-      }
-      cell.textContent=entry.value;
-      const primitive=primitiveForSymbol(entry.value);
-      if(primitive){
-        const cellTheme={id:`primitive:${primitive.id}`,label:primitive.name,kind:"primitive",primitiveId:primitive.id};
-        cell.dataset.themeId=cellTheme.id;
-        cell.title=`Select ${primitive.name}`;
-        cell.addEventListener("click",()=>choosePrimitive(primitive));
-      }else{
-        const pair=pairForLabel(entry.value);
-        const primitives=pair?.map(name=>PRIMITIVE_BY_NAME[name]).filter(Boolean) || [];
-        const cellTheme=primitives.length===2 ? {id:primFusionCellId(primitives[0].id,primitives[1].id),label:entry.value,kind:"primFusion",primitiveIds:[primitives[0].id,primitives[1].id].sort()} : null;
-        if(cellTheme){
-          cell.dataset.themeId=cellTheme.id;
-          }
-        cell.title=primitives.length===2 ? `${primitives[0].symbol}${primitives[1].symbol} ${entry.value}` : entry.value;
-        cell.addEventListener("click",()=>{
-          if(!cellTheme || tabletLandscapeView.activeThemeSlot===null) return;
-          state.targetSlot=tabletLandscapeView.activeThemeSlot;
-          selectTheme(cellTheme);
-        });
-      }
-      grid.appendChild(cell);
-    });
+  const pairForLabel=label=>{const match=Object.entries(CANONICAL_PRIMFUSION_LABELS).find(([,value])=>value===label);return match?match[0].split("|"):null;};
+  const choosePrimitive=primitive=>{if(!primitive||tabletLandscapeView.activeThemeSlot===null)return;state.targetSlot=tabletLandscapeView.activeThemeSlot;selectTheme({id:`primitive:${primitive.id}`,label:primitive.name,kind:"primitive",primitiveId:primitive.id});};
+  window.interlockedMatrixUI.render({
+    target:root, top:topSymbols, bottom:bottomSymbols, left:leftSymbols, right:rightSymbols, rows:matrixRows,
+    axisLabel:symbol=>primitiveForSymbol(symbol)?.name||symbol,
+    onSelectAxis:symbol=>choosePrimitive(primitiveForSymbol(symbol)),
+    cellText:entry=>entry.value,
+    cellTitle:entry=>{const primitive=primitiveForSymbol(entry.value);if(primitive)return `Select ${primitive.name}`;const pair=pairForLabel(entry.value);const primitives=pair?.map(name=>PRIMITIVE_BY_NAME[name]).filter(Boolean)||[];return primitives.length===2?`${primitives[0].symbol}${primitives[1].symbol} ${entry.value}`:entry.value;},
+    cellId:entry=>{const primitive=primitiveForSymbol(entry.value);if(primitive)return `primitive:${primitive.id}`;const pair=pairForLabel(entry.value);const primitives=pair?.map(name=>PRIMITIVE_BY_NAME[name]).filter(Boolean)||[];return primitives.length===2?primFusionCellId(primitives[0].id,primitives[1].id):'';},
+    onSelectCell:entry=>{const primitive=primitiveForSymbol(entry.value);if(primitive){choosePrimitive(primitive);return;}const pair=pairForLabel(entry.value);const primitives=pair?.map(name=>PRIMITIVE_BY_NAME[name]).filter(Boolean)||[];if(primitives.length!==2||tabletLandscapeView.activeThemeSlot===null)return;state.targetSlot=tabletLandscapeView.activeThemeSlot;selectTheme({id:primFusionCellId(primitives[0].id,primitives[1].id),label:entry.value,kind:"primFusion",primitiveIds:[primitives[0].id,primitives[1].id].sort()});}
   });
-
-  body.append(left,grid,right);
-  shell.appendChild(body);
-  const bottom=document.createElement("div");
-  bottom.className="interlocked-axis interlocked-axis-bottom";
-  bottomSymbols.forEach(symbol=>appendAxisButton(bottom,symbol));
-  shell.appendChild(bottom);
-  root.appendChild(shell);
 }
-
 
 
 function fitLandscapeAiDescription(){
@@ -2212,79 +2176,29 @@ function renderTargetSlot(blink=false){
 function renderPrimFusionMatrix(filter, targetId="primFusionMatrix"){
   const primFusion=$(targetId);
   if(!primFusion) return;
-  primFusion.innerHTML="";
 
   const q=(filter||"").trim().toLowerCase();
   const landscapeSingleGrid=targetId==="primFusionMatrix" && window.innerWidth > window.innerHeight;
   const singleGrid=targetId==="tabletPrimFusionMatrix" || targetId==="tabletWorkbenchMatrix" || landscapeSingleGrid;
-  const bands=singleGrid
-    ? [PRIMITIVES.map((_,index)=>index)]
-    : [[0,1,2,3],[4,5,6,7],[8,9,10,11]];
 
-  bands.forEach((columnIndexes,bandIndex)=>{
-    const section=document.createElement("section");
-    section.className="true-primfusion-band";
-    if(singleGrid) section.classList.add("single-primfusion-primFusion");
-
-    if(!singleGrid){
-      const title=document.createElement("div");
-      title.className="primfusion-band-title";
-      title.textContent=`PrimFusion Matrix ${bandIndex+1} of ${bands.length}`;
-      section.appendChild(title);
-    }
-
-    const scroller=document.createElement("div");
-    scroller.className="primfusion-scroller";
-
-    const grid=document.createElement("div");
-    grid.className="true-primfusion-grid";
-    grid.style.setProperty("--band-columns", columnIndexes.length);
-
-    const corner=document.createElement("div");
-    corner.className="primfusion-corner";
-    corner.textContent="×";
-    grid.appendChild(corner);
-
-    columnIndexes.forEach(ci=>{
-      const col=PRIMITIVES[ci];
-      const head=document.createElement("button");
-      head.className="primfusion-axis-header primfusion-column-header";
-      head.type="button";
-      head.innerHTML=`<span>${col.symbol}</span><small>${col.name}</small>`;
-      head.title=`Select ${col.name}`;
-      head.addEventListener("click",()=>selectTheme({id:`primitive:${col.id}`,label:col.name,kind:"primitive",primitiveId:col.id}));
-      grid.appendChild(head);
-    });
-
-    PRIMITIVES.forEach((row,ri)=>{
-      const rowHead=document.createElement("button");
-      rowHead.className="primfusion-axis-header primfusion-row-header";
-      rowHead.type="button";
-      rowHead.innerHTML=`<span>${row.symbol}</span><small>${row.name}</small>`;
-      rowHead.title=`Select ${row.name}`;
-      rowHead.addEventListener("click",()=>selectTheme({id:`primitive:${row.id}`,label:row.name,kind:"primitive",primitiveId:row.id}));
-      grid.appendChild(rowHead);
-
-      columnIndexes.forEach(ci=>{
-        const col=PRIMITIVES[ci];
-        const combo = canonicalPrimFusionLabel(row.name,col.name);
-        const cell=document.createElement("button");
-        cell.type="button";
-        cell.className="primfusion-intersection";
-        cell.innerHTML=ri===ci
-          ? `<span class="primfusion-combo-symbol">${row.symbol}</span><small class="primfusion-combo-label">${row.name}</small>`
-          : `<span class="primfusion-combo-symbol">${row.symbol}${col.symbol}</span><small class="primfusion-combo-label">${combo}</small>`;
-        cell.title=combo;
-        const visible=!q || combo.toLowerCase().includes(q);
-        cell.hidden=!visible;
-        cell.addEventListener("click",()=>selectTheme({id:primFusionCellId(row.id,col.id),label:combo,kind:"primFusion",primitiveIds:[row.id,col.id].sort()}));
-        grid.appendChild(cell);
-      });
-    });
-
-    scroller.appendChild(grid);
-    section.appendChild(scroller);
-    primFusion.appendChild(section);
+  // Genreactrix compatibility wrapper. Rendering mechanics now live in the
+  // product-neutral Classification Matrix UI; this function only translates a
+  // selected generic item/intersection back into Genreactrix Theme semantics.
+  window.classificationMatrixUI?.render?.({
+    target:primFusion,
+    engine:window.classificationMatrixEngine,
+    filter:q,
+    singleGrid,
+    bandSize:4,
+    emptyCorner:"×",
+    sectionLabel:"Classification Matrix",
+    onSelectItem:item=>selectTheme({id:`primitive:${item.id}`,label:item.label,kind:"primitive",primitiveId:item.id}),
+    onSelectIntersection:cell=>selectTheme({
+      id:cell.id,
+      label:cell.label,
+      kind:"primFusion",
+      primitiveIds:[cell.leftId,cell.rightId].sort()
+    })
   });
 
   const directMatches=[...BASE_THEMES.map(label=>({id:`theme:${slugifyCustom(label)}`,label,kind:"established"})),...(state.customThemes||[])]
