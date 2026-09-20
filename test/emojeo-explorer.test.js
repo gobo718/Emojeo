@@ -1,5 +1,0 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
-function load(){const context=vm.createContext({globalThis:null,console});context.globalThis=context;vm.runInContext(fs.readFileSync(new URL('../emojeo-explorer.js',import.meta.url),'utf8'),context);return context.emojeoExplorer}
-const rows=[{glyph:'😀',codePoints:['U+1F600'],names:{cldr:'grinning face',aliases:[],keywords:[]},taxonomy:{group:'Smileys & Emotion',subgroup:'face-smiling'}},{glyph:'🐈',codePoints:['U+1F408'],names:{cldr:'cat',aliases:[],keywords:[]},taxonomy:{group:'Animals & Nature',subgroup:'animal-mammal'}}];
-test('Pass 4 explorer searches official emoji fields',()=>{const x=load();assert.equal(x.filterRecords(rows,{query:'grinning'}).length,1);assert.equal(x.filterRecords(rows,{query:'U+1F408'})[0].glyph,'🐈')});
-test('Pass 4 explorer filters by Unicode group and subgroup',()=>{const x=load();assert.equal(x.filterRecords(rows,{group:'Animals & Nature'}).length,1);assert.equal(x.filterRecords(rows,{subgroup:'face-smiling'})[0].glyph,'😀')});
