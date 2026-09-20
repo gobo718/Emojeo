@@ -14,3 +14,6 @@ See `EMOJEO_PASS1.md` for this pass and `STRINGBOARD_ENGINE_V1.md` / `ENGINE_BAS
 - Pass 1: application boundary and StringBoard child identity.
 - Pass 2: extensible Emoji Record model.
 - Pass 3: official Unicode Emoji 18.0 catalog loader/importer; RGI subjects remain separate from later Emojeo interpretation.
+
+## Emojeo Pass 4
+The root application surface is now the Emoji Explorer: a responsive browser/search/filter/inspection UI over the official Unicode Emoji universe. See `EMOJEO_PASS4.md`.
