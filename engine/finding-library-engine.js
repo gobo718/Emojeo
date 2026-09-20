@@ -1,0 +1,13 @@
+(()=>{
+'use strict';
+const DB='genreactrix-finding-library-v1',FINDINGS='findings',HYPOTHESES='hypotheses',VERSION=1;
+const now=()=>new Date().toISOString();const uid=p=>`${p}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;
+function openDb(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB,VERSION);r.onupgradeneeded=()=>{const db=r.result;if(!db.objectStoreNames.contains(FINDINGS)){const s=db.createObjectStore(FINDINGS,{keyPath:'id'});s.createIndex('status','status');s.createIndex('createdAt','createdAt')}if(!db.objectStoreNames.contains(HYPOTHESES)){const s=db.createObjectStore(HYPOTHESES,{keyPath:'id'});s.createIndex('status','status')}};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function all(store){const db=await openDb();return new Promise((resolve,reject)=>{const r=db.transaction(store).objectStore(store).getAll();r.onsuccess=()=>resolve((r.result||[]).sort((a,b)=>String(b.updatedAt||b.createdAt).localeCompare(String(a.updatedAt||a.createdAt))));r.onerror=()=>reject(r.error)})}
+async function put(store,value){const db=await openDb();return new Promise((resolve,reject)=>{const r=db.transaction(store,'readwrite').objectStore(store).put(value);r.onsuccess=()=>resolve(value);r.onerror=()=>reject(r.error)})}
+async function importRun(run){const existing=await all(FINDINGS);const keys=new Set(existing.map(x=>x.dedupKey));let added=0;for(const f of run.findings||[]){const key=`${f.kind}:${f.title}`;if(keys.has(key))continue;await put(FINDINGS,{id:uid('finding'),schemaVersion:1,dedupKey:key,runId:run.id,title:f.title,description:f.description,kind:f.kind,strength:f.strength,count:f.count||0,details:f,status:'new',notes:'',imageIds:f.imageIds||[],createdAt:now(),updatedAt:now()});keys.add(key);added++}return added}
+async function updateFinding(id,patch){const rows=await all(FINDINGS),old=rows.find(x=>x.id===id);if(!old)throw new Error('Finding not found');return put(FINDINGS,{...old,...patch,updatedAt:now()})}
+async function createHypothesis(input={}){return put(HYPOTHESES,{id:uid('hypothesis'),schemaVersion:1,statement:String(input.statement||'').trim(),supportingFindingIds:[...(input.supportingFindingIds||[])],contradictoryFindingIds:[...(input.contradictoryFindingIds||[])],notes:String(input.notes||''),status:input.status||'open',createdAt:now(),updatedAt:now()})}
+async function updateHypothesis(id,patch){const rows=await all(HYPOTHESES),old=rows.find(x=>x.id===id);if(!old)throw new Error('Hypothesis not found');return put(HYPOTHESES,{...old,...patch,updatedAt:now()})}
+window.genreactrixFindingLibraryEngine={allFindings:()=>all(FINDINGS),allHypotheses:()=>all(HYPOTHESES),importRun,updateFinding,createHypothesis,updateHypothesis};
+})();

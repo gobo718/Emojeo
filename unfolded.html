@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Genreactrix v0.9.40.202 — Unfolded</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:#f4eef8;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+  #unfoldedStage{position:fixed;inset:0;overflow:hidden;background:#000}
+  #unfoldedMirror{position:absolute;left:50%;top:50%;border:0;background:#0f0d14;transform-origin:center center;box-shadow:0 0 0 1px #25202b}
+  #unfoldedControls{position:fixed;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));z-index:20;display:flex;gap:8px;align-items:center;max-width:calc(100vw - 20px);flex-wrap:wrap}
+  #unfoldedControls button{border:1px solid #51465c;background:#221e2a;color:#f4eef8;border-radius:9px;padding:9px 12px;font:700 13px/1 system-ui,-apple-system,"Segoe UI",sans-serif;box-shadow:0 3px 12px #0009}
+  #unfoldedControls button[aria-pressed="true"]{border-color:#c29cff;color:#c29cff}
+</style>
+</head>
+<body>
+<div id="unfoldedStage"><iframe id="unfoldedMirror" title="Genreactrix mirrored layout" src="about:blank"></iframe></div>
+<div id="unfoldedControls" aria-label="Unfolded layout controls">
+  <button id="swapLayout" type="button">Swap Layout</button>
+  <button id="lockOrientation" type="button" aria-pressed="false">Lock Orientation</button>
+</div>
+<script>
+(()=>{
+  const frame=document.getElementById('unfoldedMirror');
+  const mirrorUrl=new URL('index.html',location.href);
+  const mirrorParams=new URLSearchParams(location.search);
+  mirrorParams.set('unfoldedMirror','1');
+  mirrorParams.set('v','0.9.40.193');
+  mirrorUrl.search=mirrorParams.toString();
+  mirrorUrl.hash=location.hash;
+  frame.src=mirrorUrl.href;
+  const swap=document.getElementById('swapLayout');
+  const lock=document.getElementById('lockOrientation');
+  const LOGICAL_SHORT=540;
+  const LOGICAL_LONG=1200;
+  const shape=(w,h)=>{
+    w=Math.max(1,Number(w)||0);
+    h=Math.max(1,Number(h)||0);
+    const short=Math.min(w,h), long=Math.max(w,h);
+    return {short,long,ratio:long/short};
+  };
+  const viewport=()=>({
+    w:Math.max(1,window.visualViewport?.width||window.innerWidth),
+    h:Math.max(1,window.visualViewport?.height||window.innerHeight)
+  });
+
+  // Do NOT decide "folded" from the viewport. Browser chrome and rotation make
+  // viewport dimensions jump and caused the index.html <-> unfolded.html loop.
+  const stronglyFoldedPhysicalScreen=()=>{
+    const s=shape(screen?.width,screen?.height);
+    return s.ratio>=1.80;
+  };
+
+  const physicalLayout=()=>{
+    const type=String(screen?.orientation?.type||'').toLowerCase();
+    if(type.startsWith('portrait')) return 'portrait';
+    if(type.startsWith('landscape')) return 'landscape';
+    const angle=Number.isFinite(Number(screen?.orientation?.angle)) ? Number(screen.orientation.angle) : Number(window.orientation);
+    if(Number.isFinite(angle)) return Math.abs(angle)%180===90?'landscape':'portrait';
+    if(Number(screen?.width)>0 && Number(screen?.height)>0 && Number(screen.width)!==Number(screen.height)){
+      return Number(screen.width)>Number(screen.height)?'landscape':'portrait';
+    }
+    const v=viewport();
+    return v.w>v.h?'landscape':'portrait';
+  };
+
+  let locked=false;
+  let chosen=physicalLayout();
+  let manualOverride=false;
+  let lastPhysical=chosen;
+
+  function render(){
+    const physical=physicalLayout();
+    if(!locked && physical!==lastPhysical){
+      chosen=physical;
+      manualOverride=false;
+    }
+    if(!locked && !manualOverride) chosen=physical;
+    lastPhysical=physical;
+
+    const cw=chosen==='portrait'?LOGICAL_SHORT:LOGICAL_LONG;
+    const ch=chosen==='portrait'?LOGICAL_LONG:LOGICAL_SHORT;
+    const v=viewport();
+
+    // Keep the unfolded controls completely outside the mirrored app canvas.
+    // First try the full-viewport proportional scale. If the natural black
+    // letterbox margin already has room for the controls, use that space.
+    // Otherwise reserve a bottom control gutter and shrink only enough to fit.
+    const PAD=10;
+    const controlRect=document.getElementById('unfoldedControls').getBoundingClientRect();
+    const controlW=Math.ceil(controlRect.width);
+    const controlH=Math.ceil(controlRect.height);
+    const fullScale=Math.min(v.w/cw,v.h/ch);
+    const fullW=cw*fullScale;
+    const fullH=ch*fullScale;
+    const sideMargin=Math.max(0,(v.w-fullW)/2);
+    const bottomMargin=Math.max(0,(v.h-fullH)/2);
+    const controlsFitInBottom=bottomMargin>=controlH+(PAD*2);
+    const controlsFitAtLeft=sideMargin>=controlW+(PAD*2);
+
+    let scale=fullScale;
+    let centerX=v.w/2;
+    let centerY=v.h/2;
+    if(!controlsFitInBottom && !controlsFitAtLeft){
+      const gutterH=Math.min(v.h-1,controlH+(PAD*2));
+      const usableH=Math.max(1,v.h-gutterH);
+      scale=Math.min(v.w/cw,usableH/ch);
+      centerY=usableH/2;
+    }
+
+    frame.style.width=cw+'px';
+    frame.style.height=ch+'px';
+    frame.style.left=centerX+'px';
+    frame.style.top=centerY+'px';
+    frame.style.transform=`translate(-50%,-50%) scale(${scale})`;
+    frame.dataset.layout=chosen;
+    document.documentElement.dataset.physicalOrientation=physical;
+    lock.setAttribute('aria-pressed',String(locked));
+    lock.textContent=locked?'Unlock Orientation':'Lock Orientation';
+  }
+
+  swap.addEventListener('click',()=>{
+    chosen=chosen==='portrait'?'landscape':'portrait';
+    manualOverride=true;
+    render();
+  });
+  lock.addEventListener('click',()=>{
+    locked=!locked;
+    if(!locked){
+      manualOverride=false;
+      chosen=physicalLayout();
+    }
+    render();
+  });
+
+  let foldCheckTimer=0;
+  function scheduleFoldCheck(){
+    clearTimeout(foldCheckTimer);
+    foldCheckTimer=setTimeout(()=>{
+      // Require the strongly phone-shaped physical screen to persist.
+      // This is intentionally conservative: rotation must never kick us out.
+      if(stronglyFoldedPhysicalScreen()){
+        const target=new URL('index.html',location.href);
+        target.search=location.search;
+        target.hash=location.hash;
+        location.replace(target);
+      }
+    },900);
+  }
+  window.addEventListener('resize',()=>{render();scheduleFoldCheck();},{passive:true});
+  window.visualViewport?.addEventListener?.('resize',render,{passive:true});
+  window.addEventListener('orientationchange',()=>{setTimeout(render,120);scheduleFoldCheck();},{passive:true});
+  try{ screen.orientation?.addEventListener?.('change',()=>{setTimeout(render,100);scheduleFoldCheck();}); }catch(_){ }
+  window.addEventListener('pageshow',()=>{render();scheduleFoldCheck();},{passive:true});
+  render();
+  scheduleFoldCheck();
+})();
+</script>
+</body>
+</html>
