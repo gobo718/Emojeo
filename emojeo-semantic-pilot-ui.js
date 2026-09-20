@@ -28,6 +28,6 @@ async function init(){
  catch(err){$('pilotMeta').textContent='Pilot unavailable';$('pilotStatus').textContent=String(err?.message||err);return}
  $('pilotTestRun').onclick=()=>execute(1,true);$('pilotFullRun').onclick=()=>execute(state.manifest.subjects.length,false);$('pilotStop').onclick=()=>state.controller?.abort();$('pilotDownload').onclick=download;
 }
-if(typeof document!=='undefined'){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();}
-globalThis.emojeoSemanticPilotUi=Object.freeze({summarize,init});
+if(typeof document!=='undefined')document.addEventListener('DOMContentLoaded',init);
+globalThis.emojeoSemanticPilotUi=Object.freeze({summarize});
 })();
