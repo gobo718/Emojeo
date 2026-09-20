@@ -1,0 +1,20 @@
+EMOJEO PASS 23 QUICK HANDOFF — 2026-09-20
+
+BASELINE
+- Pass 22: Design Checkpoints & Recovery
+- 163/163 tests passing
+
+PASS 23
+- Integrated Design Runtime
+- Adds emojeo-design-runtime.js
+- One shared graph + canon ledger across progression, health, impact, decisions, transactional application, reconciliation, workbench, operations, and recovery.
+- Installs existing design vocabulary but seeds no MASHPEDITION game content.
+- Root application now loads reconciliation, operations, recovery, and runtime in dependency order.
+- Existing Emoji Explorer layout is unchanged.
+- Human authorization/mutation boundaries remain intact.
+
+VERIFICATION
+- npm test: 169/169 passing
+
+NEXT
+- Continue practical workflow integration / durable operational persistence and hardening.
