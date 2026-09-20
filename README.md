@@ -71,3 +71,6 @@ Adds `emojeo-design-workbench.js`: a practical read-only multi-domain browser an
 
 ## Emojeo Pass 21
 Adds `emojeo-design-operations.js`: a read-only Design Operations Center that combines health findings, active decisions, and unresolved import reconciliation into one prioritized human work queue without creating any new mutation path. See `EMOJEO_PASS21.md`.
+
+## Emojeo Pass 22
+Adds `emojeo-design-recovery.js`: portable checksum-verified graph/canon checkpoints, storage round-trips, recovery previews, and explicit human-approved reconstruction into fresh state without silent live-state overwrite. See `EMOJEO_PASS22.md`.

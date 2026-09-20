@@ -1,0 +1,20 @@
+EMOJEO PASS 22 QUICK HANDOFF — 2026-09-20
+
+Baseline: Pass 21, 156/156 tests passing.
+Pass 22: Design Checkpoints & Recovery.
+Verified: 163/163 tests passing.
+
+Added:
+- emojeo-design-recovery.js
+- test/emojeo-design-recovery.test.js
+- EMOJEO_PASS22.md
+- README Pass 22 entry
+- index.html loads recovery module and identifies Pass 22
+
+Safety boundary:
+- Checkpoints are read-only snapshots.
+- Integrity is checksum verified.
+- Restore requires explicit human approval + actor identity.
+- Restore creates fresh graph/canon state; it never silently overwrites live state.
+
+Next likely work: workflow integration / practical operational persistence and final hardening.
