@@ -51,3 +51,7 @@ Progression and dependency analysis: reachability, chains, cycles, bottlenecks, 
 
 ## Emojeo Pass 15
 Pass 15 adds `emojeo-design-health.js`, a read-only health report and attention queue combining catalog gaps, progression diagnostics, domain coverage, and canon contradictions. Findings never automatically alter design or canon.
+
+
+## Emojeo Pass 16
+Adds read-only change-impact / what-if previews so proposed design changes can be traced through connected MASHPEDITION content before a human chooses whether to apply them. See `EMOJEO_PASS16.md`.
