@@ -65,3 +65,6 @@ Adds `emojeo-design-change-application.js`: human-authorized transactional appli
 
 ## Emojeo Pass 19
 Adds `emojeo-import-reconciliation.js`: provenance-aware identity matching and conflict surfacing for incoming design evidence. Machine matches remain advisory; an identified human must resolve each item before a downstream import plan can be exported. See `EMOJEO_PASS19.md`.
+
+## Emojeo Pass 20
+Adds `emojeo-design-workbench.js`: a practical read-only multi-domain browser and inspector over the MASHPEDITION design graph, with composable filters, linked-Thing inspection, exportable view state, and a mountable browser surface. See `EMOJEO_PASS20.md`.
