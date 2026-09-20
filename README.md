@@ -96,3 +96,6 @@ Closes the architecture sequence with a verified release baseline: complete pass
 ## Post-baseline product work
 
 - Pass 28 — AI inheritance diagnostics + official Unicode Emoji 18.0 semantic pilot planning. See `EMOJEO_PASS28.md`.
+
+### Pass 30 — canonical AI credential inheritance
+The root Emojeo UI now loads the inherited Genreactrix Settings Engine before the Cloud API so Worker URL/access-key resolution uses the canonical shared IndexedDB settings registry rather than relying only on legacy localStorage fallback values. No secret is embedded in the repository.
