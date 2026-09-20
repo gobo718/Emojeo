@@ -68,3 +68,6 @@ Adds `emojeo-import-reconciliation.js`: provenance-aware identity matching and c
 
 ## Emojeo Pass 20
 Adds `emojeo-design-workbench.js`: a practical read-only multi-domain browser and inspector over the MASHPEDITION design graph, with composable filters, linked-Thing inspection, exportable view state, and a mountable browser surface. See `EMOJEO_PASS20.md`.
+
+## Emojeo Pass 21
+Adds `emojeo-design-operations.js`: a read-only Design Operations Center that combines health findings, active decisions, and unresolved import reconciliation into one prioritized human work queue without creating any new mutation path. See `EMOJEO_PASS21.md`.

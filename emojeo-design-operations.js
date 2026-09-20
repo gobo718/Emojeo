@@ -1,0 +1,21 @@
+/* Emojeo Design Operations Center — Pass 21
+   One read-only operational queue across design health, decisions, reconciliation,
+   and the multi-domain workbench. It surfaces work; it never performs it. */
+(()=>{'use strict';
+const clone=v=>v==null?v:structuredClone(v), clean=v=>String(v??'').trim(), esc=v=>clean(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rank=Object.freeze({critical:0,warning:1,review:2,unresolved:3,approved:4,notice:5,info:6});
+function createDesignOperations({workbench,health=null,decisions=null,reconciliation=null}={}){
+ if(!workbench)throw new Error('Design operations requires the design workbench.');
+ function healthItems(){if(!health)return[];const r=health.report();return (r.findings||[]).map((f,i)=>({id:`health-${i+1}`,source:'health',priority:f.severity||'notice',kind:f.kind,label:f.thing?.name||f.thing?.id||f.subject?.id||f.kind,payload:clone(f),action:'inspect'}));}
+ function decisionItems(){if(!decisions)return[];return decisions.list().filter(d=>['draft','review','approved'].includes(d.state)).map(d=>({id:`decision-${d.id}`,source:'decision',priority:d.state==='review'?'review':d.state==='approved'?'approved':'info',kind:`decision-${d.state}`,label:d.title,payload:clone(d),action:d.state==='draft'?'prepare-review':d.state==='review'?'human-decision':'apply-approved-plan'}));}
+ function reconciliationItems(){if(!reconciliation)return[];const out=[];for(const s of reconciliation.list())for(const item of s.items||[])if(item.status==='unresolved')out.push({id:`reconciliation-${s.id}-${item.id}`,source:'reconciliation',priority:item.conflicts?.length?'warning':'unresolved',kind:item.conflicts?.length?'import-conflict':'identity-resolution',label:item.payload?.name||item.payload?.title||item.id,payload:{sessionId:s.id,item:clone(item)},action:'human-resolution'});return out;}
+ function queue({source='all'}={}){return [...healthItems(),...decisionItems(),...reconciliationItems()].filter(x=>source==='all'||x.source===source).sort((a,b)=>(rank[a.priority]??99)-(rank[b.priority]??99)||a.source.localeCompare(b.source)||a.label.localeCompare(b.label));}
+ function summary(){const items=queue(),bySource={health:0,decision:0,reconciliation:0};for(const x of items)bySource[x.source]=(bySource[x.source]||0)+1;return {kind:'emojeo-design-operations-summary',open:items.length,bySource,design:workbench.summary(),policy:{readOnly:true,humanActionsRemainExplicit:true,noAutomaticFixes:true,noAutomaticDecisions:true,noAutomaticImportResolution:true}};}
+ function inspect(itemId){const item=queue().find(x=>x.id===clean(itemId));return item?clone(item):null;}
+ function exportQueue(){return {schemaVersion:1,kind:'emojeo-design-operations-queue',generatedAt:new Date().toISOString(),summary:summary(),items:queue(),policy:{readOnly:true,coordinationOnly:true,mutatesGraph:false,mutatesCanon:false}};}
+ function render(){const s=summary(),items=queue();return `<section class="emojeo-design-operations" data-pass="21"><header><h2>MASHPEDITION Design Operations</h2><p>${s.open} open items · ${s.design.total} design Things</p></header><div class="operations-summary"><span>Health <b>${s.bySource.health}</b></span><span>Decisions <b>${s.bySource.decision}</b></span><span>Imports <b>${s.bySource.reconciliation}</b></span></div><div class="operations-queue">${items.map(x=>`<button type="button" data-operation-id="${esc(x.id)}"><strong>${esc(x.label)}</strong><small>${esc(x.source)} · ${esc(x.kind)} · ${esc(x.priority)}</small></button>`).join('')||'<p>No open design operations.</p>'}</div></section>`;}
+ function mount(root,{onInspect}={}){if(!root||typeof root.innerHTML!=='string')throw new Error('Design operations mount root is required.');root.innerHTML=render();root.querySelectorAll?.('[data-operation-id]').forEach(el=>el.addEventListener('click',()=>onInspect?.(inspect(el.dataset.operationId))));return root;}
+ return Object.freeze({queue,summary,inspect,exportQueue,render,mount});
+}
+const api=Object.freeze({createDesignOperations});if(typeof window!=='undefined')window.emojeoDesignOperations=api;if(typeof globalThis!=='undefined')globalThis.emojeoDesignOperations=api;
+})();

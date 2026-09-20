@@ -1,0 +1,18 @@
+EMOJEO PASS 21 QUICK HANDOFF — 2026-09-20
+
+Baseline: Pass 20 practical multi-domain design workbench.
+Pass 21: Design Operations Center.
+
+Added:
+- emojeo-design-operations.js
+- test/emojeo-design-operations.test.js
+- EMOJEO_PASS21.md
+- README Pass 21 entry
+
+Behavior:
+- One prioritized read-only queue for design-health findings, active decisions, and unresolved import reconciliation.
+- Higher-risk warnings/conflicts sort before ordinary review work.
+- Inspection, filtering, summary, export, and mountable UI surface.
+- No automatic fixes, approvals, import resolutions, graph mutations, or canon mutations.
+
+Verification: npm test = 156 passed, 0 failed.
