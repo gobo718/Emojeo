@@ -41,3 +41,6 @@ Adds the MASHPEDITION-facing multi-domain design catalog and shared connection v
 
 ## Emojeo Pass 12 — Canon Ledger
 Pass 12 adds provenance-aware design assertions, lifecycle states, contradiction detection, and a protected current-canon view across every Emojeo design domain.
+
+## Pass 13 — Evidence Intake
+Recovered/design evidence can now be staged and previewed before it mutates the design graph. Source provenance is mandatory and commit requires explicit human approval. See `EMOJEO_PASS13.md`.
