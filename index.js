@@ -2455,6 +2455,33 @@ RECOVERY REQUIREMENT: Your previous attempt did not produce three unique valid T
   };
 }
 
+
+
+const EMOJEO_DISCOVERY_SCHEMA = {
+  type:'object',
+  properties:{
+    summary:{type:'string'},
+    observations:{type:'array',items:{type:'object',properties:{phrase:{type:'string'},dimension:{type:'string'},description:{type:'string'},evidence:{type:'array',items:{type:'string'}},confidence:{type:'number'}},required:['phrase','dimension','description','evidence','confidence'],additionalProperties:false}},
+    ambiguities:{type:'array',items:{type:'string'}},
+    rawNotes:{type:'array',items:{type:'string'}}
+  },
+  required:['summary','observations','ambiguities','rawNotes'],
+  additionalProperties:false
+};
+
+async function runEmojeoSemanticDiscovery(env,body){
+  if(!env.AI?.run) throw new Error('Workers AI binding AI is not configured');
+  const subject=body?.subject||{};
+  const glyph=String(subject.glyph||'').trim(), name=String(subject.name||'').trim(), id=String(subject.id||'').trim();
+  if(!id||!glyph) throw new Error('subject.id and subject.glyph are required');
+  const prompt=String(body?.prompt||'').trim();
+  if(!prompt) throw new Error('prompt is required');
+  const model=env.WORKERS_AI_VISION_MODEL||DEFAULT_MODEL;
+  const raw=await runStructured(env,model,null,`${prompt}\n\nReturn JSON only with this shape: {"summary":"...","observations":[{"phrase":"...","dimension":"visual|object|expression|action|relationship|setting|symbolic|situational|structural|other","description":"...","evidence":["..."],"confidence":0.0}],"ambiguities":["..."],"rawNotes":["..."]}`,EMOJEO_DISCOVERY_SCHEMA,2600,'json_schema',{temperature:0.12});
+  const result=(raw&&typeof raw==='object')?raw:parseProviderResponse(raw);
+  return {schemaVersion:1,kind:'emojeo-open-discovery',subject:{id,glyph,name},analyzedAt:new Date().toISOString(),provider:{id:'cloudflare-workers-ai',model},rawDiscovery:result};
+}
+
 export default {
   async fetch(request,env={}){
     const url = new URL(request.url);
@@ -2485,6 +2512,15 @@ export default {
     }
 
     try{
+
+      if (request.method === 'POST' && url.pathname === '/api/emojeo/semantic-discovery'){
+        if (!env.ANALYSIS_KEY) return json({ok:false,error:'Analysis access is not configured'},{status:503});
+        if (request.headers.get('x-analysis-key') !== env.ANALYSIS_KEY) return json({ok:false,error:'Unauthorized'},{status:401});
+        const body = await request.json().catch(()=>null);
+        if (!body) return json({ok:false,error:'JSON body required'},{status:400});
+        return json({ok:true,result:await runEmojeoSemanticDiscovery(env,body)});
+      }
+
       if (request.method === 'POST' && url.pathname === '/api/genreactrix/image'){
         if (!env.ANALYSIS_KEY){
           return json({ok:false,error:'Analysis access is not configured'},{status:503});

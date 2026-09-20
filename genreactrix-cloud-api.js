@@ -60,6 +60,7 @@
   health:()=>request('/api/health',{method:'GET'}),verifyConnection,
   createServerJob,serverJobStatus,serverJobItem,startServerJob,controlServerJob,harvestServerJobItem,uploadServerJobImage,getProviderRouting:()=>currentProviderRouting(),
   providerReadiness:()=>request('/api/genreactrix/provider-readiness',{method:'POST',headers:{'x-analysis-key':storedKey()},body:'{}'}),
+  emojeoSemanticDiscovery:(payload,key=storedKey())=>request('/api/emojeo/semantic-discovery',{method:'POST',headers:{'x-analysis-key':String(key||'')},body:JSON.stringify(payload||{})}),
   contentGate:(description,key=storedKey())=>request('/api/genreactrix/content-gate',{method:'POST',headers:{'x-analysis-key':String(key||'')},body:JSON.stringify({description:String(description||'')})}),
   fetchImage:async(imageUrl,key=storedKey())=>{
     if(!base)throw new Error('AI Worker URL is not configured');
