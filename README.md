@@ -17,3 +17,9 @@ See `EMOJEO_PASS1.md` for this pass and `STRINGBOARD_ENGINE_V1.md` / `ENGINE_BAS
 
 ## Emojeo Pass 4
 The root application surface is now the Emoji Explorer: a responsive browser/search/filter/inspection UI over the official Unicode Emoji universe. See `EMOJEO_PASS4.md`.
+
+## Emojeo Pass 6
+Pass 6 adds the Vocabulary Lab: corpus-wide recurring-phrase inventory, advisory synonym/concept proposals, explicit approval/rejection, and curated-trait materialization without altering raw discovery evidence. See `EMOJEO_PASS6.md`.
+
+## Emojeo Pass 7
+Pass 7 adds full-vocabulary reclassification: every emoji can be evaluated consistently against every approved curated trait while Unicode Group/Subgroup remain authoritative traits. Decisions preserve present/absent/uncertain/unreviewed state and provenance. See `EMOJEO_PASS7.md`.
