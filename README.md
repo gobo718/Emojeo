@@ -48,3 +48,6 @@ Recovered/design evidence can now be staged and previewed before it mutates the 
 
 ## Emojeo Pass 14
 Progression and dependency analysis: reachability, chains, cycles, bottlenecks, roots, sinks, and unreachable content. Advisory relationships are excluded by default.
+
+## Emojeo Pass 15
+Pass 15 adds `emojeo-design-health.js`, a read-only health report and attention queue combining catalog gaps, progression diagnostics, domain coverage, and canon contradictions. Findings never automatically alter design or canon.
