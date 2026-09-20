@@ -26,3 +26,7 @@ Pass 7 adds full-vocabulary reclassification: every emoji can be evaluated consi
 
 ## Emojeo Pass 8
 Feature intersections and advisory cluster/Mosaic-candidate discovery are implemented in `emojeo-cluster-discovery.js`. See `EMOJEO_PASS8.md`.
+
+
+## Emojeo Pass 9 — Mosaic Candidate Review
+Pass 9 adds an explicit human review boundary between advisory cluster discovery and canonical Mosaic creation. See `EMOJEO_PASS9.md`.
