@@ -23,3 +23,6 @@ Pass 6 adds the Vocabulary Lab: corpus-wide recurring-phrase inventory, advisory
 
 ## Emojeo Pass 7
 Pass 7 adds full-vocabulary reclassification: every emoji can be evaluated consistently against every approved curated trait while Unicode Group/Subgroup remain authoritative traits. Decisions preserve present/absent/uncertain/unreviewed state and provenance. See `EMOJEO_PASS7.md`.
+
+## Emojeo Pass 8
+Feature intersections and advisory cluster/Mosaic-candidate discovery are implemented in `emojeo-cluster-discovery.js`. See `EMOJEO_PASS8.md`.
