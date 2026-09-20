@@ -1,0 +1,13 @@
+EMOJEO PASS 24 QUICK HANDOFF — 2026-09-20
+
+Baseline: Pass 23 Integrated Design Runtime.
+Pass 24: Durable Design Runtime Persistence.
+Verified: 171/171 tests passing.
+
+Added explicit runtime save/load using an injected key/value storage adapter. Reload reconstructs a fresh shared runtime and restores graph, canon, decision workflow state, and reconciliation resolutions through established APIs. Derived services are rebuilt against restored state. No automatic approval, application, reconciliation, or live-state overwrite was introduced.
+
+Primary changed file: emojeo-design-runtime.js
+Tests: test/emojeo-design-runtime.test.js
+Pass note: EMOJEO_PASS24.md
+
+Recommended next pass: end-to-end workflow verification / operational hardening across persistence, recovery, decision application, and reconciliation boundaries.
