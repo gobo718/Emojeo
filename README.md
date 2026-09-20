@@ -55,3 +55,7 @@ Pass 15 adds `emojeo-design-health.js`, a read-only health report and attention 
 
 ## Emojeo Pass 16
 Adds read-only change-impact / what-if previews so proposed design changes can be traced through connected MASHPEDITION content before a human chooses whether to apply them. See `EMOJEO_PASS16.md`.
+
+
+## Emojeo Pass 17
+Adds `emojeo-decision-workspace.js`: a human-controlled decision lifecycle over Pass 16 what-if previews. Draft, review, approve/reject, implementation-plan generation, and implementation confirmation preserve history without silently mutating graph or canon. See `EMOJEO_PASS17.md`.
