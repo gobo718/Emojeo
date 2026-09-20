@@ -32,7 +32,7 @@ Feature intersections and advisory cluster/Mosaic-candidate discovery are implem
 Pass 9 adds an explicit human review boundary between advisory cluster discovery and canonical Mosaic creation. See `EMOJEO_PASS9.md`.
 
 
-## Emojeo Pass 11 — Multi-Domain Design Graph
+## Emojeo Pass 10 — Multi-Domain Design Graph
 Pass 10 establishes Emojeo as the MASHPEDITION-wide design graph. Emoji and human-approved Mosaics are the first connected domains; future design domains are extensible rather than prematurely hard-coded. See `EMOJEO_PASS10.md`.
 
 
@@ -78,3 +78,16 @@ Adds `emojeo-design-recovery.js`: portable checksum-verified graph/canon checkpo
 
 ## Emojeo Pass 23
 Adds `emojeo-design-runtime.js`: one explicit shared runtime wiring canon, analysis, decisions, transactional application, reconciliation, workbench, operations, and recovery around the same design graph. No game content is seeded and human mutation boundaries remain intact. See `EMOJEO_PASS23.md`.
+
+
+## Emojeo Pass 24
+Adds durable runtime persistence and restoration for the shared design graph, canon, decision workflow, and reconciliation state while rebuilding derived services from restored source state. See `EMOJEO_PASS24.md`.
+
+## Emojeo Pass 25
+Adds end-to-end workflow hardening across human-approved application, durable persistence/restoration, advisory reconciliation, and isolated checkpoint recovery. See `EMOJEO_PASS25.md`.
+
+## Emojeo Pass 26
+Adds `emojeo-release-qualification.js`: a read-only release qualification gate that verifies runtime invariants and reports blockers without repairing or mutating state. See `EMOJEO_PASS26.md`.
+
+## Emojeo Pass 27 — Release Baseline v1
+Closes the architecture sequence with a verified release baseline: complete pass documentation, root integration wiring checks, qualification-gate presence, and a frozen handoff statement. No new subsystem or game content is introduced. See `EMOJEO_PASS27.md` and `EMOJEO_RELEASE_BASELINE_V1.md`.
