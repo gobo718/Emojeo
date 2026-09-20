@@ -1,9 +1,9 @@
-# StringBoard Engine
+# Emojeo
 
-StringBoard Engine is a reusable capability engine extracted from the proven Genreactrix codebase. Applications provide meaning; StringBoard provides capability.
+Emojeo is a child application of **StringBoard Engine v1**.
 
-Baseline v1 was qualified after extraction Pass 17 with a neutral non-Genreactrix, non-emoji fixture. The engine supports application definitions and namespaces, typed tags and relationships, classification/intersection matrices, persistent records, querying and analysis, workspaces, resumable work processing, AI pipelines, and preserved specialized Genreactrix-derived machinery.
+Pass 1 establishes the application boundary only: Emojeo has its own identity and application namespaces while inheriting the qualified StringBoard capability baseline. No emoji catalog, tag vocabulary, classifications, Mosaic candidates, or other emoji-content decisions are seeded in this pass.
 
-The extraction is preservation-first: specialized implementations remain when they encode useful engineering knowledge, while application-specific meaning and instance data stay outside the reusable capability layer.
+The reusable engine remains preservation-first. Genreactrix-derived specialized implementations and compatibility machinery remain available as encoded know-how; Emojeo supplies its own application meaning separately.
 
-See `ENGINE_BASELINE_V1.md` for qualification details and `ENGINE_EXTRACTION.md` for extraction history. The inherited Genreactrix release history is preserved in `GENREACTRIX_INHERITED_RELEASE_HISTORY.md`.
+See `EMOJEO_PASS1.md` for this pass and `STRINGBOARD_ENGINE_V1.md` / `ENGINE_BASELINE_V1.md` for the parent engine baseline.
