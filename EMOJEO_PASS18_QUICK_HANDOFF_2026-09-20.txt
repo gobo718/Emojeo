@@ -1,0 +1,28 @@
+EMOJEO PASS 18 QUICK HANDOFF — 2026-09-20
+
+CURRENT BASELINE
+- Pass 18: Human-Authorized Design Change Application.
+- 138/138 tests pass.
+- Continue from Pass 18. Do not restart earlier passes.
+
+PASS 18 ADDS
+- Revalidation of approved Pass 17 implementation plans against live state.
+- Exact, non-mutating application preview.
+- Human-only application and undo.
+- Transactional application with rollback on failure.
+- retire-thing, change-claim, add-connection, remove-connection application paths.
+- Before/after transaction material and decision provenance.
+- Stale-plan rejection.
+- Explicit undo restoring prior graph/canon material.
+- Decision marked implemented only after successful transaction.
+
+TARGETED SUPPORTING API CHANGES
+- Design graph: getRelationship + removeRelationship.
+- Canon ledger: removeClaim + restoreClaim.
+These exist to support transactional apply/undo; no unrelated refactor was performed.
+
+SAFETY / WORKFLOW
+- Machine suggestions still cannot silently become canon.
+- Approval alone still does not mutate graph/canon.
+- Apply requires a separately identified human actor.
+- No UI rewrite in Pass 18.
