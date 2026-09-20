@@ -32,5 +32,12 @@ Feature intersections and advisory cluster/Mosaic-candidate discovery are implem
 Pass 9 adds an explicit human review boundary between advisory cluster discovery and canonical Mosaic creation. See `EMOJEO_PASS9.md`.
 
 
-## Emojeo Pass 10 — Multi-Domain Design Graph
+## Emojeo Pass 11 — Multi-Domain Design Graph
 Pass 10 establishes Emojeo as the MASHPEDITION-wide design graph. Emoji and human-approved Mosaics are the first connected domains; future design domains are extensible rather than prematurely hard-coded. See `EMOJEO_PASS10.md`.
+
+
+## Emojeo Pass 11
+Adds the MASHPEDITION-facing multi-domain design catalog and shared connection vocabulary, plus structural gap detection. No game content is invented by the catalog.
+
+## Emojeo Pass 12 — Canon Ledger
+Pass 12 adds provenance-aware design assertions, lifecycle states, contradiction detection, and a protected current-canon view across every Emojeo design domain.
