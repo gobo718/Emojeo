@@ -1,0 +1,24 @@
+EMOJEO PASS 19 QUICK HANDOFF — 2026-09-20
+
+CURRENT BASELINE
+- Pass 19: Import Reconciliation and Identity Matching.
+- 144/144 tests pass.
+- Continue from Pass 19. Do not restart earlier passes.
+
+PASS 19 ADDS
+- Source-provenance-required reconciliation sessions.
+- Advisory exact-ID, normalized-name, and partial-name identity candidates.
+- Current-canon conflict surfacing for incoming claims.
+- Explicit human resolution: match, create-new, or skip.
+- No graph/canon mutation during matching or resolution.
+- Human-resolved downstream import plan export.
+- Resolution history and no-silent-merge policy.
+
+NEXT KNOWN ARCHITECTURE AREA
+- Practical multi-domain workbench UI is the next area in the established runway after controlled application and richer import reconciliation.
+- Keep it targeted; do not rewrite the root application or disturb settled behavior unnecessarily.
+
+SAFETY / WORKFLOW
+- Machine identity suggestions remain advisory.
+- Human resolution is required before export.
+- Exported reconciliation plans are still non-mutating; downstream commit remains separate.

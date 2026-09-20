@@ -59,3 +59,9 @@ Adds read-only change-impact / what-if previews so proposed design changes can b
 
 ## Emojeo Pass 17
 Adds `emojeo-decision-workspace.js`: a human-controlled decision lifecycle over Pass 16 what-if previews. Draft, review, approve/reject, implementation-plan generation, and implementation confirmation preserve history without silently mutating graph or canon. See `EMOJEO_PASS17.md`.
+
+## Emojeo Pass 18
+Adds `emojeo-design-change-application.js`: human-authorized transactional application and undo for approved Pass 17 decisions, with stale-plan rejection and rollback protection. See `EMOJEO_PASS18.md`.
+
+## Emojeo Pass 19
+Adds `emojeo-import-reconciliation.js`: provenance-aware identity matching and conflict surfacing for incoming design evidence. Machine matches remain advisory; an identified human must resolve each item before a downstream import plan can be exported. See `EMOJEO_PASS19.md`.
