@@ -30,3 +30,7 @@ Feature intersections and advisory cluster/Mosaic-candidate discovery are implem
 
 ## Emojeo Pass 9 — Mosaic Candidate Review
 Pass 9 adds an explicit human review boundary between advisory cluster discovery and canonical Mosaic creation. See `EMOJEO_PASS9.md`.
+
+
+## Emojeo Pass 10 — Multi-Domain Design Graph
+Pass 10 establishes Emojeo as the MASHPEDITION-wide design graph. Emoji and human-approved Mosaics are the first connected domains; future design domains are extensible rather than prematurely hard-coded. See `EMOJEO_PASS10.md`.
