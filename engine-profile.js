@@ -1,12 +1,12 @@
-/* Reusable Engine Profile — extraction baseline
+/* StringBoard Engine Profile — Baseline v1
    This layer disables product-specific surfaces without deleting their proven
    implementation. Future applications can selectively re-enable/adapt them.
    Storage/global names remain unchanged in this pass to avoid destructive migrations. */
 (()=>{'use strict';
 const profile=Object.freeze({
-  id:'reusable-engine-extraction-pass16',
-  appName:'Reusable Engine',
-  mode:'engine-extraction',
+  id:'stringboard-engine-v1',
+  appName:'StringBoard Engine',
+  mode:'stringboard-engine',
   preserveLegacyStorage:true,
   // Capabilities are preservation-first. false means dormant for this profile,
   // never deleted from the engine. Specialized implementations remain assets.

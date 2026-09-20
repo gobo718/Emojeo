@@ -1,5 +1,5 @@
 {
-  "name": "reusable-engine",
+  "name": "stringboard-engine",
   "private": true,
   "type": "module",
   "scripts": {

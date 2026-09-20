@@ -1,4 +1,4 @@
-/* Reusable Engine Capability Registry v1
+/* StringBoard Engine Capability Registry v1
    Preservation-first inventory. A capability may remain available even when a
    particular application profile does not expose it. This registry does not
    remove, rewrite, or replace specialized implementations. */
