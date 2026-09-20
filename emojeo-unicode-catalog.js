@@ -7,6 +7,7 @@
 const SOURCE=Object.freeze({
   version:'18.0',
   url:'https://www.unicode.org/Public/18.0.0/emoji/emoji-test.txt',
+  localUrl:'data/unicode/18.0/emoji-test.txt',
   dated:'2026-04-30',
   standard:'UTS #51'
 });
@@ -49,12 +50,17 @@ function buildRecords(parsed){
     metadata:{unicodeEmojiVersion:parsed.version||SOURCE.version,unicodeSourceDate:parsed.date||SOURCE.dated,source:'Unicode emoji-test.txt'}
   }));
 }
+async function fetchText(url,fetchImpl){const res=await fetchImpl(url,{cache:'no-cache'});if(!res.ok)throw new Error(`Unicode emoji catalog fetch failed: ${res.status}`);return res.text()}
 async function fetchOfficial({url=SOURCE.url,fetchImpl=globalThis.fetch}={}){
   if(typeof fetchImpl!=='function')throw new Error('Fetch is unavailable.');
-  const res=await fetchImpl(url,{cache:'no-cache'}); if(!res.ok)throw new Error(`Unicode emoji catalog fetch failed: ${res.status}`);
-  return res.text();
+  return fetchText(url,fetchImpl);
 }
-async function loadOfficial(options={}){const text=await fetchOfficial(options);const parsed=parse(text);return{source:SOURCE,parsed,records:buildRecords(parsed)}}
+async function loadOfficial({localUrl=SOURCE.localUrl,url=SOURCE.url,fetchImpl=globalThis.fetch}={}){
+  if(typeof fetchImpl!=='function')throw new Error('Fetch is unavailable.');
+  let text,loadedFrom='bundled';
+  try{text=await fetchText(localUrl,fetchImpl)}catch(localErr){loadedFrom='unicode.org';try{text=await fetchText(url,fetchImpl)}catch(remoteErr){const error=new Error(`Bundled Unicode catalog unavailable (${localErr.message}); official fallback unavailable (${remoteErr.message})`);error.cause=remoteErr;throw error}}
+  const parsed=parse(text);return{source:SOURCE,loadedFrom,parsed,records:buildRecords(parsed)}
+}
 const slug=v=>clean(v).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function catalogAuthoritativeTraits(records,{tagEngine=globalThis.reusableTagEngine||globalThis.window?.reusableTagEngine,assignments=globalThis.reusableTagAssignments||globalThis.window?.reusableTagAssignments}={}){
   if(!tagEngine||!assignments)throw new Error('StringBoard tag and assignment engines are required.');
