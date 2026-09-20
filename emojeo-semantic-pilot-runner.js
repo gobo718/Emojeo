@@ -4,7 +4,7 @@
 (()=>{'use strict';
 const clone=v=>v==null?v:structuredClone(v);
 function create(options={}){
- const api=options.api||globalThis.genreactrixCloudApi;
+ const api=options.api||globalThis.GenreactrixCloudApi||globalThis.window?.GenreactrixCloudApi||globalThis.genreactrixCloudApi;
  if(!api||typeof api.emojeoSemanticDiscovery!=='function')throw new Error('Emojeo semantic discovery Worker adapter is unavailable.');
  const normalize=options.normalize||globalThis.emojeoOpenDiscovery?.normalizeResult;
  return async function run(manifest={},runOptions={}){
