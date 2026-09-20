@@ -6,10 +6,9 @@
 (()=>{'use strict';
 const SOURCE=Object.freeze({
   version:'18.0',
-  url:'https://www.unicode.org/Public/emoji/latest/emoji-test.txt',
+  url:'https://www.unicode.org/Public/18.0.0/emoji/emoji-test.txt',
   dated:'2026-04-30',
-  standard:'UTS #51',
-  expectedRgiCount:3972
+  standard:'UTS #51'
 });
 const clean=v=>String(v??'').trim();
 const cpLabel=s=>clean(s).split(/\s+/).filter(Boolean).map(x=>`U+${x.toUpperCase().padStart(4,'0')}`);

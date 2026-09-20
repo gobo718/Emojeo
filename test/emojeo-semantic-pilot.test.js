@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+function load(){const context=vm.createContext({window:{},globalThis:null});context.globalThis=context;vm.runInContext(fs.readFileSync(new URL('../emojeo-semantic-pilot.js',import.meta.url),'utf8'),context);return context.emojeoSemanticPilot}
+const rec=(n,g,s,o)=>({id:`U+${n.toString(16).toUpperCase()}`,glyph:String.fromCodePoint(0x1f600+n),codePoints:[`U+${n.toString(16).toUpperCase()}`],names:{cldr:`item ${n}`},taxonomy:{group:g,subgroup:s,order:o}});
+const records=[...Array(5)].map((_,i)=>rec(i+1,'G1','S1',i+1)).concat([...Array(4)].map((_,i)=>rec(i+20,'G2','S2',i+20)),[...Array(3)].map((_,i)=>rec(i+40,'G3','S3',i+40)),[...Array(8)].map((_,i)=>rec(i+60,'G4','S4',i+60)));
+test('pilot keeps selected Unicode subgroups complete',()=>{const p=load();const pilot=p.create(records,{subgroupCount:3,randomCount:2,maxSubgroupSubjects:10});for(const sg of pilot.selection.completeSubgroups){const expected=records.filter(r=>r.taxonomy.group===sg.group&&r.taxonomy.subgroup===sg.subgroup).length;assert.equal(sg.count,expected);assert.equal(sg.subjectIds.length,expected)}});
+test('random assortment is reproducible by saved seed and excludes subgroup pilot subjects',()=>{const p=load();const a=p.create(records,{subgroupCount:2,randomCount:5,seed:'same'}),b=p.create(records,{subgroupCount:2,randomCount:5,seed:'same'});assert.deepEqual([...a.selection.random.subjectIds],[...b.selection.random.subjectIds]);const subgroupIds=new Set(a.selection.completeSubgroups.flatMap(x=>x.subjectIds));assert.equal(a.selection.random.subjectIds.some(id=>subgroupIds.has(id)),false)});
+test('discovery prompt does not leak Unicode group/subgroup into semantic analysis',()=>{const p=load();const r=records[0];const req=p.discoveryRequest(r);assert.equal(req.sourceMetadata.unicodeGroup,'G1');assert.equal(req.sourceMetadata.unicodeSubgroup,'S1');assert.equal(req.prompt.includes('G1'),false);assert.equal(req.prompt.includes('S1'),false);assert.match(req.prompt,/unconstrained semantic tags/i)});

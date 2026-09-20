@@ -91,3 +91,8 @@ Adds `emojeo-release-qualification.js`: a read-only release qualification gate t
 
 ## Emojeo Pass 27 — Release Baseline v1
 Closes the architecture sequence with a verified release baseline: complete pass documentation, root integration wiring checks, qualification-gate presence, and a frozen handoff statement. No new subsystem or game content is introduced. See `EMOJEO_PASS27.md` and `EMOJEO_RELEASE_BASELINE_V1.md`.
+
+
+## Post-baseline product work
+
+- Pass 28 — AI inheritance diagnostics + official Unicode Emoji 18.0 semantic pilot planning. See `EMOJEO_PASS28.md`.
