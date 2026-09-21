@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-step3-diverse-population-batch",
+  "batchId": "step3-diverse-001",
+  "relationshipInventory": {
+    "count": 857,
+    "source": "Emojeo_STEP3_Semantic_Inventory_857.json",
+    "sha256": "eda008e540e49c55ae588857cb8f50dc93a6d79c5ab61a9f7eb9d9e4886a24f4"
+  },
+  "rules": [
+    "FIND → ADD → PRESERVE",
+    "MULTIPLE TRUE → KEEP ALL",
+    "Relationship = how the emoji connects; tag = exact referent/value.",
+    "Do not suppress broad true assertions because a narrower assertion is also true.",
+    "Preserve raw discovery separately from normalized interpretation.",
+    "If a true connection cannot be expressed by the inventory, emit newRelationshipNeeded."
+  ],
+  "assertionStates": [
+    "present",
+    "absent",
+    "uncertain",
+    "not_evaluated"
+  ],
+  "subjects": [
+    {
+      "glyph": "😀",
+      "name": "grinning face"
+    },
+    {
+      "glyph": "😭",
+      "name": "loudly crying face"
+    },
+    {
+      "glyph": "🤠",
+      "name": "cowboy hat face"
+    },
+    {
+      "glyph": "🥳",
+      "name": "partying face"
+    },
+    {
+      "glyph": "👩‍⚕️",
+      "name": "woman health worker"
+    },
+    {
+      "glyph": "🧑‍🚀",
+      "name": "astronaut"
+    },
+    {
+      "glyph": "🧙",
+      "name": "mage"
+    },
+    {
+      "glyph": "🧛",
+      "name": "vampire"
+    },
+    {
+      "glyph": "🐝",
+      "name": "honeybee"
+    },
+    {
+      "glyph": "🦡",
+      "name": "badger"
+    },
+    {
+      "glyph": "🐷",
+      "name": "pig face"
+    },
+    {
+      "glyph": "🦇",
+      "name": "bat"
+    },
+    {
+      "glyph": "🦋",
+      "name": "butterfly"
+    },
+    {
+      "glyph": "🐍",
+      "name": "snake"
+    },
+    {
+      "glyph": "🐄",
+      "name": "cow"
+    },
+    {
+      "glyph": "🐑",
+      "name": "ewe"
+    },
+    {
+      "glyph": "🌻",
+      "name": "sunflower"
+    },
+    {
+      "glyph": "🌵",
+      "name": "cactus"
+    },
+    {
+      "glyph": "🍯",
+      "name": "honey pot"
+    },
+    {
+      "glyph": "🥛",
+      "name": "glass of milk"
+    },
+    {
+      "glyph": "🧀",
+      "name": "cheese wedge"
+    },
+    {
+      "glyph": "🥚",
+      "name": "egg"
+    },
+    {
+      "glyph": "🍣",
+      "name": "sushi"
+    },
+    {
+      "glyph": "🌮",
+      "name": "taco"
+    },
+    {
+      "glyph": "🥓",
+      "name": "bacon"
+    },
+    {
+      "glyph": "🍄",
+      "name": "mushroom"
+    },
+    {
+      "glyph": "🍺",
+      "name": "beer mug"
+    },
+    {
+      "glyph": "🏄",
+      "name": "person surfing"
+    },
+    {
+      "glyph": "⚽",
+      "name": "soccer ball"
+    },
+    {
+      "glyph": "🎸",
+      "name": "guitar"
+    },
+    {
+      "glyph": "🎮",
+      "name": "video game"
+    },
+    {
+      "glyph": "🚝",
+      "name": "monorail"
+    },
+    {
+      "glyph": "🚑",
+      "name": "ambulance"
+    },
+    {
+      "glyph": "✈️",
+      "name": "airplane"
+    },
+    {
+      "glyph": "🚲",
+      "name": "bicycle"
+    },
+    {
+      "glyph": "🔋",
+      "name": "battery"
+    },
+    {
+      "glyph": "📱",
+      "name": "mobile phone"
+    },
+    {
+      "glyph": "💻",
+      "name": "laptop"
+    },
+    {
+      "glyph": "🧽",
+      "name": "sponge"
+    },
+    {
+      "glyph": "💊",
+      "name": "pill"
+    },
+    {
+      "glyph": "🩹",
+      "name": "adhesive bandage"
+    },
+    {
+      "glyph": "🧯",
+      "name": "fire extinguisher"
+    },
+    {
+      "glyph": "🛒",
+      "name": "shopping cart"
+    },
+    {
+      "glyph": "💳",
+      "name": "credit card"
+    },
+    {
+      "glyph": "🧳",
+      "name": "luggage"
+    },
+    {
+      "glyph": "🔒",
+      "name": "locked"
+    },
+    {
+      "glyph": "🔓",
+      "name": "unlocked"
+    },
+    {
+      "glyph": "⚠️",
+      "name": "warning"
+    },
+    {
+      "glyph": "♻️",
+      "name": "recycling symbol"
+    },
+    {
+      "glyph": "♌",
+      "name": "Leo"
+    },
+    {
+      "glyph": "🇯🇵",
+      "name": "flag: Japan"
+    },
+    {
+      "glyph": "🇲🇽",
+      "name": "flag: Mexico"
+    },
+    {
+      "glyph": "🏳️‍🌈",
+      "name": "rainbow flag"
+    },
+    {
+      "glyph": "❤️",
+      "name": "red heart"
+    },
+    {
+      "glyph": "💔",
+      "name": "broken heart"
+    },
+    {
+      "glyph": "🎄",
+      "name": "Christmas tree"
+    },
+    {
+      "glyph": "🎃",
+      "name": "jack-o-lantern"
+    },
+    {
+      "glyph": "🎓",
+      "name": "graduation cap"
+    },
+    {
+      "glyph": "🏆",
+      "name": "trophy"
+    },
+    {
+      "glyph": "☔",
+      "name": "umbrella with rain drops"
+    },
+    {
+      "glyph": "📚",
+      "name": "books"
+    },
+    {
+      "glyph": "🛏️",
+      "name": "bed"
+    },
+    {
+      "glyph": "🧼",
+      "name": "soap"
+    },
+    {
+      "glyph": "🧸",
+      "name": "teddy bear"
+    },
+    {
+      "glyph": "🎲",
+      "name": "game die"
+    },
+    {
+      "glyph": "🧪",
+      "name": "test tube"
+    },
+    {
+      "glyph": "⚖️",
+      "name": "balance scale"
+    },
+    {
+      "glyph": "🗽",
+      "name": "Statue of Liberty"
+    },
+    {
+      "glyph": "🏖️",
+      "name": "beach with umbrella"
+    },
+    {
+      "glyph": "🗺️",
+      "name": "world map"
+    },
+    {
+      "glyph": "💈",
+      "name": "barber pole"
+    },
+    {
+      "glyph": "🍆",
+      "name": "eggplant"
+    },
+    {
+      "glyph": "💦",
+      "name": "sweat droplets"
+    },
+    {
+      "glyph": "👠",
+      "name": "high-heeled shoe"
+    },
+    {
+      "glyph": "⛓️",
+      "name": "chains"
+    },
+    {
+      "glyph": "🎀",
+      "name": "ribbon"
+    },
+    {
+      "glyph": "🦅",
+      "name": "eagle"
+    },
+    {
+      "glyph": "🍕",
+      "name": "pizza"
+    },
+    {
+      "glyph": "☕",
+      "name": "hot beverage"
+    }
+  ],
+  "expectedOutput": {
+    "perSubject": {
+      "assertions": [
+        {
+          "relationshipType": "<inventory relationship>",
+          "tag": "<exact value>",
+          "state": "present|absent|uncertain|not_evaluated",
+          "confidence": "high|medium|low",
+          "evidence": "<brief evidence>"
+        }
+      ],
+      "newTags": [
+        "<new exact tags>"
+      ],
+      "newRelationshipNeeded": [
+        {
+          "proposedRelationshipType": "<name>",
+          "tag": "<exact value>",
+          "reason": "<why current inventory cannot express it>"
+        }
+      ],
+      "rawNotes": "<preserved raw discovery>"
+    }
+  }
+}

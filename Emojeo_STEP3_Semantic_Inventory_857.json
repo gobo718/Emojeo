@@ -1,0 +1,4308 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-step3-semantic-inventory",
+  "relationshipCount": 857,
+  "governingRules": [
+    "FIND → ADD → PRESERVE",
+    "MULTIPLE TRUE → KEEP ALL"
+  ],
+  "assertionStates": [
+    "present",
+    "absent",
+    "uncertain",
+    "not_evaluated"
+  ],
+  "relationships": [
+    {
+      "relationshipType": "HAS_PART",
+      "domain": "visible composition",
+      "definition": "A visible constitutive component/anatomical/structural part."
+    },
+    {
+      "relationshipType": "HAS_OBJECT",
+      "domain": "visible composition",
+      "definition": "A discrete accompanying, held, worn, or used object/prop."
+    },
+    {
+      "relationshipType": "HAS_COLOR",
+      "domain": "visible/encoded property",
+      "definition": "A represented or encoded color/tone."
+    },
+    {
+      "relationshipType": "HAS_MATERIAL",
+      "domain": "",
+      "definition": "What something is represented as being made of: fur, metal, wood, glass, fabric, stone, etc."
+    },
+    {
+      "relationshipType": "HAS_TEXTURE",
+      "domain": "",
+      "definition": "Surface/tactile quality: soft, fuzzy, smooth, rough, glossy, coarse, etc."
+    },
+    {
+      "relationshipType": "HAS_SHAPE",
+      "domain": "visible property",
+      "definition": "Geometric or silhouette property."
+    },
+    {
+      "relationshipType": "HAS_COMPOSITION",
+      "domain": "visible structure",
+      "definition": "Arrangement among parts/entities: stacked, grouped, overlapping, symmetrical, segmented, etc."
+    },
+    {
+      "relationshipType": "HAS_QUANTITY",
+      "domain": "visible/encoded property",
+      "definition": "Count or multiplicity of salient entities/components."
+    },
+    {
+      "relationshipType": "HAS_ORIENTATION_POSITION",
+      "domain": "visible structure",
+      "definition": "Direction, facing, relative position, or spatial placement."
+    },
+    {
+      "relationshipType": "HAS_VISIBLE_SETTING",
+      "domain": "",
+      "definition": "Environment/background actually depicted."
+    },
+    {
+      "relationshipType": "PERFORMS_ACTION",
+      "domain": "action",
+      "definition": "Action or activity depicted or strongly entailed."
+    },
+    {
+      "relationshipType": "HAS_POSE_GESTURE",
+      "domain": "visible action cue",
+      "definition": "Body posture or gesture, independently retained from action."
+    },
+    {
+      "relationshipType": "HAS_EXPRESSION",
+      "domain": "visible expression",
+      "definition": "Visible facial/bodily expression."
+    },
+    {
+      "relationshipType": "CONVEYS_EMOTION",
+      "domain": "semantic interpretation",
+      "definition": "Emotion conveyed or semantically associated; retained independently from expression."
+    },
+    {
+      "relationshipType": "HAS_ROLE",
+      "domain": "semantic role",
+      "definition": "Role, occupation, participant type, or social function."
+    },
+    {
+      "relationshipType": "HAS_ENCODED_IDENTITY",
+      "domain": "encoded metadata/semantic property",
+      "definition": "Identity/modifier information explicitly encoded by the emoji sequence/concept."
+    },
+    {
+      "relationshipType": "RELATES_TO",
+      "domain": "inter-entity relation",
+      "definition": "Broad represented relationship between entities; retained even when narrower relations also apply."
+    },
+    {
+      "relationshipType": "HAS_KINSHIP_OR_CARE_RELATION",
+      "domain": "inter-entity relation",
+      "definition": "Family, generational, caregiving, dependence, support, or related narrower relation."
+    },
+    {
+      "relationshipType": "IMPLIES_SETTING",
+      "domain": "context",
+      "definition": "Environment/context implied even when it is not visibly depicted."
+    },
+    {
+      "relationshipType": "HAS_FUNCTION",
+      "domain": "functional semantics",
+      "definition": "Conventional function, use, or affordance."
+    },
+    {
+      "relationshipType": "HAS_STATE_CONDITION",
+      "domain": "state",
+      "definition": "Represented state or condition."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_ASSOCIATES_WITH",
+      "domain": "conventional/interpretive semantics",
+      "definition": "Conventional, symbolic, metaphorical, or interpretive association."
+    },
+    {
+      "relationshipType": "SIMILAR_TO",
+      "domain": "cross-emoji relation",
+      "definition": "Cross-emoji/concept similarity, with basis retained."
+    },
+    {
+      "relationshipType": "CONTRASTS_WITH",
+      "domain": "cross-emoji relation",
+      "definition": "Cross-emoji/concept contrast, with basis retained."
+    },
+    {
+      "relationshipType": "SEXUAL_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_ACTIVITY_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "EROTIC_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "AROUSAL_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_DESIRE_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_BEHAVIOR_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_SLANG_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_INNUENDO_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_DOUBLE_MEANING_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXTING_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "FLIRTING_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "ADULT_ENTERTAINMENT_REFERENCE",
+      "domain": "Sexuality & erotic reference",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "MASTURBATION_REFERENCE",
+      "domain": "Solo sexuality & masturbation",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SOLO_SEX_REFERENCE",
+      "domain": "Solo sexuality & masturbation",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEX_TOY_REFERENCE",
+      "domain": "Solo sexuality & masturbation",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "KINK_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "FETISH_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "BDSM_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "ROLEPLAY_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "RESTRAINT_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "DOMINANCE_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SUBMISSION_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "POWER_EXCHANGE_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SENSATION_PLAY_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "IMPACT_PLAY_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "LEATHER_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "LATEX_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "FOOT_FETISH_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "VOYEURISM_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "EXHIBITIONISM_REFERENCE",
+      "domain": "Kink & fetish",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_BODY_PART_REFERENCE",
+      "domain": "Sexual anatomy & embodied associations",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "GENITAL_REFERENCE",
+      "domain": "Sexual anatomy & embodied associations",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "BREAST_REFERENCE",
+      "domain": "Sexual anatomy & embodied associations",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "BUTTOCKS_REFERENCE",
+      "domain": "Sexual anatomy & embodied associations",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "ORAL_SEX_REFERENCE",
+      "domain": "Sexual anatomy & embodied associations",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "ANAL_SEX_REFERENCE",
+      "domain": "Sexual anatomy & embodied associations",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_ROLE_REFERENCE",
+      "domain": "Sexual roles, relationships & contexts",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_DYNAMIC_REFERENCE",
+      "domain": "Sexual roles, relationships & contexts",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_PARTNER_REFERENCE",
+      "domain": "Sexual roles, relationships & contexts",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "HOOKUP_REFERENCE",
+      "domain": "Sexual roles, relationships & contexts",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "CASUAL_SEX_REFERENCE",
+      "domain": "Sexual roles, relationships & contexts",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "GROUP_SEX_REFERENCE",
+      "domain": "Sexual roles, relationships & contexts",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "ROMANTIC_SEXUAL_REFERENCE",
+      "domain": "Sexual roles, relationships & contexts",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEX_WORK_REFERENCE",
+      "domain": "Sexual roles, relationships & contexts",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "CONTRACEPTION_REFERENCE",
+      "domain": "Sexual health & reproduction",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SAFER_SEX_REFERENCE",
+      "domain": "Sexual health & reproduction",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "PREGNANCY_REFERENCE",
+      "domain": "Sexual health & reproduction",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "FERTILITY_REFERENCE",
+      "domain": "Sexual health & reproduction",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "REPRODUCTION_REFERENCE",
+      "domain": "Sexual health & reproduction",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "SEXUAL_HEALTH_REFERENCE",
+      "domain": "Sexual health & reproduction",
+      "definition": "Generic relationship; exact act, kink, fetish, role, slang meaning, object, or concept belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_MEMBER_OF_COMMUNITY",
+      "domain": "",
+      "definition": "Community membership is more specific than generic affiliation/member-of-group and supports social intersections."
+    },
+    {
+      "relationshipType": "PARTICIPATES_IN_CULTURE_TRADITION",
+      "domain": "",
+      "definition": "Subject participates in or is embedded in a cultural/traditional practice; distinct from generic event participation."
+    },
+    {
+      "relationshipType": "IS_USED_IN_RITUAL_CEREMONY",
+      "domain": "",
+      "definition": "Object/sign/action→ritual/ceremony relation; distinct from symbolization or function."
+    },
+    {
+      "relationshipType": "CELEBRATES",
+      "domain": "",
+      "definition": "Agent/group→occasion/event relation; distinct from generic participation and conveyed emotion."
+    },
+    {
+      "relationshipType": "COMMEMORATES",
+      "domain": "",
+      "definition": "Subject/action/sign→remembered event/person/concept relation; not equivalent to celebration."
+    },
+    {
+      "relationshipType": "IS_SHARED_WITH",
+      "domain": "",
+      "definition": "Entity/resource is shared with another participant/group; distinct from ownership and transfer."
+    },
+    {
+      "relationshipType": "SHARES_WITH",
+      "domain": "",
+      "definition": "Directed sharer→co-user/recipient/resource relation."
+    },
+    {
+      "relationshipType": "POSES_RISK_TO",
+      "domain": "",
+      "definition": "Subject/state poses risk to another entity/activity; broader probabilistic relation than explicit threat."
+    },
+    {
+      "relationshipType": "IS_AT_RISK_FROM",
+      "domain": "",
+      "definition": "Inverse risk relation."
+    },
+    {
+      "relationshipType": "POWERS_ENERGIZES",
+      "domain": "",
+      "definition": "Source/resource→device/process relation; distinct from generic provision or function."
+    },
+    {
+      "relationshipType": "IS_POWERED_ENERGIZED_BY",
+      "domain": "",
+      "definition": "Inverse energy-source relation."
+    },
+    {
+      "relationshipType": "PUSHES",
+      "domain": "",
+      "definition": "Agent/force→object directional force relation."
+    },
+    {
+      "relationshipType": "PULLS",
+      "domain": "",
+      "definition": "Agent/force→object directional force relation distinct from pushing."
+    },
+    {
+      "relationshipType": "IS_PUSHED_BY",
+      "domain": "",
+      "definition": "Inverse push relation."
+    },
+    {
+      "relationshipType": "IS_PULLED_BY",
+      "domain": "",
+      "definition": "Inverse pull relation."
+    },
+    {
+      "relationshipType": "HAS_SPEED",
+      "domain": "",
+      "definition": "Moving subject/action→speed property relation; distinct from generic state or motion."
+    },
+    {
+      "relationshipType": "IS_FASTER_THAN",
+      "domain": "",
+      "definition": "Directional speed comparison."
+    },
+    {
+      "relationshipType": "IS_SLOWER_THAN",
+      "domain": "",
+      "definition": "Inverse speed comparison."
+    },
+    {
+      "relationshipType": "HAS_RANK_ORDER",
+      "domain": "",
+      "definition": "Subject→rank/order position relation; distinct from social status and sequence."
+    },
+    {
+      "relationshipType": "IS_HIGHER_RANKED_THAN",
+      "domain": "",
+      "definition": "Directional rank comparison."
+    },
+    {
+      "relationshipType": "IS_LOWER_RANKED_THAN",
+      "domain": "",
+      "definition": "Inverse rank comparison."
+    },
+    {
+      "relationshipType": "HAS_GEOGRAPHIC_ORIGIN",
+      "domain": "",
+      "definition": "Subject/entity→geographic origin relation; narrower than generic source/origin."
+    },
+    {
+      "relationshipType": "COMFORTS_CONSOLES",
+      "domain": "",
+      "definition": "Directed social-emotional support relation; distinct from generic help, care, or conveyed emotion."
+    },
+    {
+      "relationshipType": "ENCOURAGES",
+      "domain": "",
+      "definition": "Agent→recipient/action encouragement relation; distinct from command, help, and communication."
+    },
+    {
+      "relationshipType": "CONGRATULATES",
+      "domain": "",
+      "definition": "Directed social response to another's achievement/event."
+    },
+    {
+      "relationshipType": "GREETS",
+      "domain": "",
+      "definition": "Directed social-contact/communication relation marking encounter or welcome."
+    },
+    {
+      "relationshipType": "THANKS",
+      "domain": "",
+      "definition": "Directed gratitude-expression relation; distinct from conveyed emotion alone."
+    },
+    {
+      "relationshipType": "ACCEPTS",
+      "domain": "",
+      "definition": "Agent→offer/entity/condition acceptance relation."
+    },
+    {
+      "relationshipType": "REFUSES_REJECTS",
+      "domain": "",
+      "definition": "Agent→offer/request/entity rejection relation; semantic counterpart to acceptance."
+    },
+    {
+      "relationshipType": "ATTENDS_TO_FOCUSES_ON",
+      "domain": "",
+      "definition": "Attention relation broader than visual OBSERVES_LOOKS_AT; can target nonvisual concepts/events."
+    },
+    {
+      "relationshipType": "REMEMBERS_MEMORIALIZES",
+      "domain": "",
+      "definition": "Subject/action/sign→remembered referent relation; related to but broader than commemoration."
+    },
+    {
+      "relationshipType": "ANTICIPATES_EXPECTS",
+      "domain": "",
+      "definition": "Agent→future event/state expectation relation; distinct from temporal ordering."
+    },
+    {
+      "relationshipType": "WINS_DEFEATS",
+      "domain": "",
+      "definition": "Competitor→contest/opponent victory relation; narrower than competition/opposition."
+    },
+    {
+      "relationshipType": "LOSES_TO_IS_DEFEATED_BY",
+      "domain": "",
+      "definition": "Inverse defeat relation."
+    },
+    {
+      "relationshipType": "MANAGES_CONTROLS",
+      "domain": "",
+      "definition": "Manager/controller→managed entity/process relation; distinct from social-power control and device operation."
+    },
+    {
+      "relationshipType": "IMITATES_COPIES",
+      "domain": "",
+      "definition": "Entity/agent→model/source imitation relation; distinct from resemblance."
+    },
+    {
+      "relationshipType": "IS_COPY_REPLICA_OF",
+      "domain": "",
+      "definition": "Artifact/entity→original relation; structural provenance distinct from general derivation."
+    },
+    {
+      "relationshipType": "GUARDS_DEFENDS",
+      "domain": "",
+      "definition": "Protector→protected entity against threat relation; narrower than generic PROTECTS."
+    },
+    {
+      "relationshipType": "IS_GUARDED_DEFENDED_BY",
+      "domain": "",
+      "definition": "Inverse guard/defense relation."
+    },
+    {
+      "relationshipType": "SELECTS_CHOOSES",
+      "domain": "",
+      "definition": "Agent→selected option/entity relation; distinct from preference because choice is an act."
+    },
+    {
+      "relationshipType": "IS_SELECTED_CHOSEN_BY",
+      "domain": "",
+      "definition": "Inverse selection relation."
+    },
+    {
+      "relationshipType": "ACQUIRES_OBTAINS",
+      "domain": "",
+      "definition": "Agent→newly possessed/resource entity relation; distinct from static ownership and receiving."
+    },
+    {
+      "relationshipType": "LOSES",
+      "domain": "",
+      "definition": "Agent/entity→lost possession/resource relation; distinct from transfer or defeat."
+    },
+    {
+      "relationshipType": "SEARCHES_SEEKS",
+      "domain": "",
+      "definition": "Agent→target sought relation; distinct from observation and goal."
+    },
+    {
+      "relationshipType": "FINDS_DISCOVERS",
+      "domain": "",
+      "definition": "Agent→found/discovered entity/information relation; distinct from searching and learning."
+    },
+    {
+      "relationshipType": "COMPLETES_FINISHES",
+      "domain": "",
+      "definition": "Agent/event→task/process completion relation; distinct from temporal ENDS_FINISHES as an event boundary."
+    },
+    {
+      "relationshipType": "OPENS",
+      "domain": "",
+      "definition": "Agent/tool→opened object/access relation; earlier sparse candidate now has enough cumulative family evidence."
+    },
+    {
+      "relationshipType": "CLOSES",
+      "domain": "",
+      "definition": "Agent/tool→closed object/access relation."
+    },
+    {
+      "relationshipType": "LOCKS_SECURES",
+      "domain": "",
+      "definition": "Agent/tool→locked entity/access relation; distinct from generic fastening/security."
+    },
+    {
+      "relationshipType": "UNLOCKS_OPENS_ACCESS",
+      "domain": "",
+      "definition": "Agent/tool→unlocked entity/access relation; distinct from generic access possession."
+    },
+    {
+      "relationshipType": "BUILDS_CONSTRUCTS",
+      "domain": "",
+      "definition": "Agent/process→constructed artifact/entity relation; narrower than generic creation/production."
+    },
+    {
+      "relationshipType": "DESTROYS",
+      "domain": "",
+      "definition": "Agent/event→destroyed entity relation; stronger than damage."
+    },
+    {
+      "relationshipType": "FILLS",
+      "domain": "",
+      "definition": "Agent/material→container/entity filling relation; dynamic counterpart to HAS_CONTENT."
+    },
+    {
+      "relationshipType": "EMPTIES",
+      "domain": "",
+      "definition": "Agent/process→container/content removal relation."
+    },
+    {
+      "relationshipType": "INCREASES",
+      "domain": "",
+      "definition": "Cause/process→quantity/intensity increase relation."
+    },
+    {
+      "relationshipType": "DECREASES",
+      "domain": "",
+      "definition": "Cause/process→quantity/intensity decrease relation."
+    },
+    {
+      "relationshipType": "ARRIVES_AT",
+      "domain": "",
+      "definition": "Moving entity→destination arrival relation; distinct from merely having a destination."
+    },
+    {
+      "relationshipType": "DEPARTS_LEAVES_FROM",
+      "domain": "",
+      "definition": "Moving entity→source departure relation."
+    },
+    {
+      "relationshipType": "SENDS_TRANSMITS",
+      "domain": "",
+      "definition": "Sender→message/object/recipient transmission relation; distinct from generic transfer and communication."
+    },
+    {
+      "relationshipType": "INVITES",
+      "domain": "",
+      "definition": "Inviter→invitee/event/place relation; directed social act."
+    },
+    {
+      "relationshipType": "HOSTS",
+      "domain": "",
+      "definition": "Host→guest/event relation; distinct from service provision."
+    },
+    {
+      "relationshipType": "VISITS",
+      "domain": "",
+      "definition": "Visitor→person/place/event relation; distinct from static location."
+    },
+    {
+      "relationshipType": "ORGANIZES_ARRANGES",
+      "domain": "",
+      "definition": "Agent→items/group ordering relation; distinct from classification and rank."
+    },
+    {
+      "relationshipType": "SPEAKS_SAYS_TO",
+      "domain": "",
+      "definition": "Speaker→utterance/recipient relation; narrower than generic communication."
+    },
+    {
+      "relationshipType": "ASKS_QUESTIONS_OF",
+      "domain": "",
+      "definition": "Questioner→recipient/topic relation; distinct from requesting action/service."
+    },
+    {
+      "relationshipType": "ANSWERS_QUESTION",
+      "domain": "",
+      "definition": "Responder→question/questioner relation; narrower than generic response."
+    },
+    {
+      "relationshipType": "INSTRUCTS_DIRECTS",
+      "domain": "",
+      "definition": "Instructor/director→recipient/action relation; distinct from teaching and command."
+    },
+    {
+      "relationshipType": "ADVISES",
+      "domain": "",
+      "definition": "Advisor→recipient/course-of-action relation; non-command guidance."
+    },
+    {
+      "relationshipType": "MOURNS_GRIEVES_FOR",
+      "domain": "",
+      "definition": "Mourner→person/event/loss relation; distinct from conveyed sadness."
+    },
+    {
+      "relationshipType": "HEALS_TREATS",
+      "domain": "",
+      "definition": "Caregiver/tool/treatment→patient/condition relation; distinct from generic care."
+    },
+    {
+      "relationshipType": "IS_HEALED_TREATED_BY",
+      "domain": "",
+      "definition": "Inverse treatment relation."
+    },
+    {
+      "relationshipType": "FEEDS_NOURISHES",
+      "domain": "",
+      "definition": "Provider/caregiver→consumer/dependent nourishment relation."
+    },
+    {
+      "relationshipType": "IS_FED_NOURISHED_BY",
+      "domain": "",
+      "definition": "Inverse nourishment relation."
+    },
+    {
+      "relationshipType": "TRAINS_PRACTICES_FOR",
+      "domain": "",
+      "definition": "Agent→skill/activity/goal training relation."
+    },
+    {
+      "relationshipType": "PLAYS_PERFORMS",
+      "domain": "",
+      "definition": "Agent→game/music/performance/activity relation."
+    },
+    {
+      "relationshipType": "TRAVELS_TO_THROUGH",
+      "domain": "",
+      "definition": "Traveler→destination/path relation; distinct from static destination/path."
+    },
+    {
+      "relationshipType": "RESIDES_LIVES_IN",
+      "domain": "",
+      "definition": "Entity/person→habitual residence/habitat relation; distinct from current location."
+    },
+    {
+      "relationshipType": "WORKS_AT_IN",
+      "domain": "",
+      "definition": "Worker→workplace/domain relation; distinct from WORKS_FOR employer relation."
+    },
+    {
+      "relationshipType": "RESCUES_SAVES",
+      "domain": "",
+      "definition": "Rescuer→entity-in-danger; narrower than help/protection."
+    },
+    {
+      "relationshipType": "IS_RESCUED_SAVED_BY",
+      "domain": "",
+      "definition": "Inverse rescue relation."
+    },
+    {
+      "relationshipType": "OBEYS_COMPLIES_WITH",
+      "domain": "",
+      "definition": "Agent→command/rule/authority compliance relation."
+    },
+    {
+      "relationshipType": "IS_OBEYED_COMPLIED_WITH_BY",
+      "domain": "",
+      "definition": "Inverse compliance relation."
+    },
+    {
+      "relationshipType": "VIOLATES_BREAKS_RULE",
+      "domain": "",
+      "definition": "Agent/action→rule/norm violation relation."
+    },
+    {
+      "relationshipType": "REWARDS_AWARDS",
+      "domain": "",
+      "definition": "Agent/institution→recipient/achievement reward relation."
+    },
+    {
+      "relationshipType": "IS_REWARDED_AWARDED_BY",
+      "domain": "",
+      "definition": "Inverse reward relation."
+    },
+    {
+      "relationshipType": "PUNISHES_PENALIZES",
+      "domain": "",
+      "definition": "Agent/institution→subject/action penalty relation."
+    },
+    {
+      "relationshipType": "IS_PUNISHED_PENALIZED_BY",
+      "domain": "",
+      "definition": "Inverse punishment relation."
+    },
+    {
+      "relationshipType": "MONITORS_WATCHES",
+      "domain": "",
+      "definition": "Observer/system→target sustained-observation relation."
+    },
+    {
+      "relationshipType": "IS_MONITORED_WATCHED_BY",
+      "domain": "",
+      "definition": "Inverse monitoring relation."
+    },
+    {
+      "relationshipType": "DONATES_GIFTS",
+      "domain": "",
+      "definition": "Donor→recipient/entity transfer with gifting semantics."
+    },
+    {
+      "relationshipType": "IS_DONATED_GIFTED_TO",
+      "domain": "",
+      "definition": "Gift/entity→recipient directed relation."
+    },
+    {
+      "relationshipType": "IS_FRIEND_OF",
+      "domain": "",
+      "definition": "Friendship relation distinct from generic social bond/partnership."
+    },
+    {
+      "relationshipType": "IS_COMPANION_OF",
+      "domain": "",
+      "definition": "Companionship distinct from mere co-occurrence or friendship."
+    },
+    {
+      "relationshipType": "FEARS_IS_AFRAID_OF",
+      "domain": "",
+      "definition": "Directed experiencer→fear target; distinct from conveying fear."
+    },
+    {
+      "relationshipType": "HAS_RESPONSIBILITY_FOR",
+      "domain": "",
+      "definition": "Agent/role→person/task/outcome responsibility."
+    },
+    {
+      "relationshipType": "IS_RESPONSIBILITY_OF",
+      "domain": "",
+      "definition": "Task/person/outcome→responsible agent."
+    },
+    {
+      "relationshipType": "IS_AWARE_OF",
+      "domain": "",
+      "definition": "Agent→known situation/entity; distinct from visual observation."
+    },
+    {
+      "relationshipType": "INDICATES_EVIDENCE_OF",
+      "domain": "",
+      "definition": "Sign/trace/state→claim/event/condition evidential relation."
+    },
+    {
+      "relationshipType": "IS_SUPPORTED_BY_EVIDENCE",
+      "domain": "",
+      "definition": "Claim/inference→evidence relation; not physical/social support."
+    },
+    {
+      "relationshipType": "IS_AVAILABLE_TO",
+      "domain": "",
+      "definition": "Resource/service/entity→potential user availability."
+    },
+    {
+      "relationshipType": "IS_INACCESSIBLE_TO",
+      "domain": "",
+      "definition": "Resource/entity→agent access exclusion."
+    },
+    {
+      "relationshipType": "IS_COMPATIBLE_WITH",
+      "domain": "",
+      "definition": "Entity/system compatibility relation."
+    },
+    {
+      "relationshipType": "FITS",
+      "domain": "",
+      "definition": "Concrete spatial/functional fit relation."
+    },
+    {
+      "relationshipType": "LACKS_IS_WITHOUT",
+      "domain": "",
+      "definition": "Subject→absent property/part/resource/feature; promotes long-open lack territory."
+    },
+    {
+      "relationshipType": "EXCLUDES",
+      "domain": "",
+      "definition": "Container/group/rule→excluded entity/category."
+    },
+    {
+      "relationshipType": "PERCEIVES_SENSES",
+      "domain": "",
+      "definition": "General perceiver→stimulus relation spanning visual/auditory/tactile/etc.; existing OBSERVES_LOOKS_AT only covers visual attention."
+    },
+    {
+      "relationshipType": "HAS_SENSORY_QUALITY",
+      "domain": "",
+      "definition": "Subject→sensory-quality relation (e.g. tactile/visual/scent-like quality) is broader than texture and color and can support cross-modal intersections."
+    },
+    {
+      "relationshipType": "INTENDS_AIMS_TO",
+      "domain": "",
+      "definition": "Agent→intended action/outcome relation; purpose belongs to an object, while intention belongs to an agent."
+    },
+    {
+      "relationshipType": "HAS_GOAL",
+      "domain": "",
+      "definition": "Agent/action→goal/outcome relation; can coexist with intention and purpose."
+    },
+    {
+      "relationshipType": "IS_CAPABLE_OF",
+      "domain": "",
+      "definition": "Entity/agent→possible action/function relation; distinct from what it actually does or is used for."
+    },
+    {
+      "relationshipType": "HAS_DURATION",
+      "domain": "",
+      "definition": "Event/state→temporal duration relation; not covered by before/after or generic temporal relation."
+    },
+    {
+      "relationshipType": "RECURS_REPEATS",
+      "domain": "",
+      "definition": "Event/state→recurrence pattern relation; distinct from sequence and duration."
+    },
+    {
+      "relationshipType": "HAS_DISTANCE_FROM",
+      "domain": "",
+      "definition": "Entity↔entity/place metric/proximity relation; broad spatial relation exists, but distance is a distinct semantic axis."
+    },
+    {
+      "relationshipType": "IS_NEAR",
+      "domain": "",
+      "definition": "Specific proximity relation."
+    },
+    {
+      "relationshipType": "IS_FAR_FROM",
+      "domain": "",
+      "definition": "Specific remoteness relation."
+    },
+    {
+      "relationshipType": "HAS_ENVIRONMENTAL_CONDITION",
+      "domain": "",
+      "definition": "Subject/setting→weather/climate/temperature/environment condition; distinct from visible/implied setting."
+    },
+    {
+      "relationshipType": "HAS_STATUS",
+      "domain": "",
+      "definition": "Subject→social/institutional status relation; distinct from role and encoded identity."
+    },
+    {
+      "relationshipType": "IS_MEMBER_OF_NAMED_COLOR_SET",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_IN_SAME_NAMED_COLOR_SET_AS",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SEASONAL_COLOR_OF",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "HAS_SEASONAL_COLOR",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_COLOR_OF",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "HAS_HOLIDAY_COLOR",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_OCCASION_COLOR_OF",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_TRADITIONAL_COLOR_OF",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_FASHION_SEASON_COLOR_OF",
+      "domain": "Color & palette systems",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_FORM_OF_AWARD",
+      "domain": "Recognition & awards",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNIFIES_ACHIEVEMENT",
+      "domain": "Recognition & awards",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNIFIES_PLACEMENT",
+      "domain": "Recognition & awards",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNIFIES_HONOR",
+      "domain": "Recognition & awards",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "CERTIFIES_QUALIFICATION",
+      "domain": "Recognition & awards",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_AWARDED_FOR",
+      "domain": "Recognition & awards",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_CHAMPIONSHIP_AWARD",
+      "domain": "Recognition & awards",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "REQUIRES_BATTERY",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_BATTERY_POWERED",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "REQUIRES_ELECTRICITY",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_RECHARGEABLE",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "REQUIRES_CHARGING",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SOLAR_POWERED",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "USES_REPLACEABLE_BATTERIES",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "USES_BUILT_IN_BATTERY",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_POWER_SOURCE_FOR",
+      "domain": "Power & operating requirements",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_BREAKFAST_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_BRUNCH_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_LUNCH_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DINNER_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SNACK_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_FAST_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_TAKEOUT_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_CONCESSION_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HEALTH_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_WHOLE_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_COMFORT_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_PARTY_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SEASONAL_FOOD",
+      "domain": "Food roles & meal culture",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "HAS_POSITIVE_VALENCE",
+      "domain": "Valence, scary & supernatural",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "HAS_NEGATIVE_VALENCE",
+      "domain": "Valence, scary & supernatural",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "HAS_MIXED_VALENCE",
+      "domain": "Valence, scary & supernatural",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SCARY",
+      "domain": "Valence, scary & supernatural",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SUPERNATURAL",
+      "domain": "Valence, scary & supernatural",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HORROR_RELATED",
+      "domain": "Valence, scary & supernatural",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_OCCULT_RELATED",
+      "domain": "Valence, scary & supernatural",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_SYMBOL",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_CHARACTER",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_DECORATION",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_GIFT",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_ACTIVITY",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_COSTUME",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_CREATURE",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_RELIGIOUS_ELEMENT",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_HOLIDAY_TRADITION",
+      "domain": "Holiday association roles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "ENTERTAINMENT_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "TV_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "CARTOON_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "COMICS_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "BOOK_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "MOVIE_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "VIDEO_GAME_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "SERIES_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "FRANCHISE_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "EPISODE_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "CHARACTER_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "PUBLISHER_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "STUDIO_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_FACTION_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_ORGANIZATION_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_SCHOOL_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_HOUSE_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_LOCATION_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_OBJECT_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "MASCOT_REFERENCE",
+      "domain": "Pop culture reference hierarchy",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_PART_OF_OUTING",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_PART_OF_ROUTINE",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_ROUTINE_STEP",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "COMMONLY_PRECEDES_IN_ROUTINE",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "COMMONLY_FOLLOWS_IN_ROUTINE",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_TIME_OF_DAY_ACTIVITY",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_BEACH_DAY_ACTIVITY",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_BEACH_GEAR",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_RAINY_DAY_ACTIVITY",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_INDOOR_ACTIVITY",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_COZY_ACTIVITY",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH_STAYING_INSIDE",
+      "domain": "Experience & routine bundles",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_PART_OF_MAKEOVER",
+      "domain": "Transformation & makeover",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_GROOMING_ACTIVITY",
+      "domain": "Transformation & makeover",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SELF_PRESENTATION_ACTIVITY",
+      "domain": "Transformation & makeover",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_BEFORE_STATE_OF",
+      "domain": "Transformation & makeover",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_AFTER_STATE_OF",
+      "domain": "Transformation & makeover",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "TRANSFORMS_APPEARANCE_OF",
+      "domain": "Transformation & makeover",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DISASTER",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_NATURAL_DISASTER",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DISASTER_CAUSE",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DISASTER_EFFECT",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DISASTER_WARNING",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_EMERGENCY_RESPONSE",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DISASTER_PREPAREDNESS_ITEM",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_EVACUATION_RELATED",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_RECOVERY_RELATED",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DOOMSDAY_SCENARIO",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_APOCALYPSE_TROPE",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DOOMSDAY_PREP_ITEM",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SURVIVAL_SUPPLY",
+      "domain": "Disaster, emergency & doomsday",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SINGLE_USE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DISPOSABLE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_CONSUMABLE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_REUSABLE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_REFILLABLE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_REPLACEABLE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_RECYCLABLE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_COMPOSTABLE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "BECOMES_WASTE_AFTER_USE",
+      "domain": "Use-cycle & disposability",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_MOOD_ALTERING",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_PSYCHOACTIVE",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_INTOXICATING",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_STIMULANT",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DEPRESSANT",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_SEDATIVE",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "AFFECTS_ALERTNESS",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "AFFECTS_MOOD",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "AFFECTS_PERCEPTION",
+      "domain": "Altered-state / body effects",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_FASHION_PRINT_SOURCE_FOR",
+      "domain": "Fashion, print & motif",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_PATTERN_MOTIF_FOR",
+      "domain": "Fashion, print & motif",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "INSPIRES_PATTERN",
+      "domain": "Fashion, print & motif",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "APPEARS_AS_PRINT_ON",
+      "domain": "Fashion, print & motif",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_TEXTILE_PATTERN",
+      "domain": "Fashion, print & motif",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DECORATIVE_MOTIF",
+      "domain": "Fashion, print & motif",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_FOOD_SOURCE_FOR",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_MEAT_SOURCE_FOR",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_INGREDIENT_SOURCE_FOR",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_PROCESSED_INTO",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_PREPARED_AS",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DAIRY_SOURCE_FOR",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "PRODUCES_EDIBLE_PRODUCT",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_EDIBLE_PRODUCT_OF",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_MATERIAL_SOURCE_FOR",
+      "domain": "Organism/source → food/product",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_OPPOSITE_OF",
+      "domain": "Opposites & conceptual duals",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_COLOR_OPPOSITE_OF",
+      "domain": "Opposites & conceptual duals",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_DIRECTIONAL_OPPOSITE_OF",
+      "domain": "Opposites & conceptual duals",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_STATE_OPPOSITE_OF",
+      "domain": "Opposites & conceptual duals",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_TEMPERATURE_OPPOSITE_OF",
+      "domain": "Opposites & conceptual duals",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_TEMPORAL_OPPOSITE_OF",
+      "domain": "Opposites & conceptual duals",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_EMOTIONAL_OPPOSITE_OF",
+      "domain": "Opposites & conceptual duals",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "IS_MATHEMATICAL_OPPOSITE_OF",
+      "domain": "Opposites & conceptual duals",
+      "definition": "Relationship is generic; exact entity/category belongs in tag value."
+    },
+    {
+      "relationshipType": "HOMONYM_OF",
+      "domain": "",
+      "definition": "Same lexical form has distinct meanings/referents."
+    },
+    {
+      "relationshipType": "HOMOPHONE_OF",
+      "domain": "",
+      "definition": "Different lexical forms share pronunciation."
+    },
+    {
+      "relationshipType": "HOMOGRAPH_OF",
+      "domain": "",
+      "definition": "Same written form has distinct meanings and may differ in pronunciation."
+    },
+    {
+      "relationshipType": "PERFECT_RHYMES_WITH",
+      "domain": "",
+      "definition": "Stressed vowel and following sounds match exactly."
+    },
+    {
+      "relationshipType": "NEAR_RHYMES_WITH",
+      "domain": "",
+      "definition": "Strong but imperfect phonological rhyme/slant rhyme."
+    },
+    {
+      "relationshipType": "ALLITERATES_WITH",
+      "domain": "",
+      "definition": "Salient initial sound is shared."
+    },
+    {
+      "relationshipType": "ASSONATES_WITH",
+      "domain": "",
+      "definition": "Salient vowel sound pattern is shared."
+    },
+    {
+      "relationshipType": "CONSONATES_WITH",
+      "domain": "",
+      "definition": "Salient consonant sound pattern is shared."
+    },
+    {
+      "relationshipType": "STARTS_WITH_SAME_SOUND_AS",
+      "domain": "",
+      "definition": "Initial phoneme/sound sequence matches."
+    },
+    {
+      "relationshipType": "ENDS_WITH_SAME_SOUND_AS",
+      "domain": "",
+      "definition": "Final phoneme/sound sequence matches."
+    },
+    {
+      "relationshipType": "STARTS_WITH_SAME_LETTER_AS",
+      "domain": "",
+      "definition": "Orthographic initial letter/grapheme matches."
+    },
+    {
+      "relationshipType": "ENDS_WITH_SAME_LETTER_AS",
+      "domain": "",
+      "definition": "Orthographic final letter/grapheme matches."
+    },
+    {
+      "relationshipType": "SHARES_PREFIX_WITH",
+      "domain": "",
+      "definition": "Lexical labels share a prefix."
+    },
+    {
+      "relationshipType": "SHARES_SUFFIX_WITH",
+      "domain": "",
+      "definition": "Lexical labels share a suffix."
+    },
+    {
+      "relationshipType": "SHARES_WORD_WITH",
+      "domain": "",
+      "definition": "Multiword labels share a lexical word/token."
+    },
+    {
+      "relationshipType": "IS_ANAGRAM_OF",
+      "domain": "",
+      "definition": "Same letters/graphemes can be rearranged into the other lexical form."
+    },
+    {
+      "relationshipType": "IS_PALINDROME_OF_ITSELF",
+      "domain": "",
+      "definition": "Lexical form reads identically forward and backward; unary lexical property represented relationally to its label."
+    },
+    {
+      "relationshipType": "IS_ABBREVIATION_OF",
+      "domain": "",
+      "definition": "Lexical form abbreviates another form."
+    },
+    {
+      "relationshipType": "IS_ACRONYM_OF",
+      "domain": "",
+      "definition": "Lexical form is an acronym/initialism of another form."
+    },
+    {
+      "relationshipType": "IS_SINGULAR_OF",
+      "domain": "",
+      "definition": "Lexical form is the singular counterpart of another."
+    },
+    {
+      "relationshipType": "IS_PLURAL_OF",
+      "domain": "",
+      "definition": "Lexical form is the plural counterpart of another."
+    },
+    {
+      "relationshipType": "IS_DERIVED_WORD_FORM_OF",
+      "domain": "",
+      "definition": "Morphologically derived lexical form relation."
+    },
+    {
+      "relationshipType": "IS_SYNONYM_OF",
+      "domain": "",
+      "definition": "Lexical labels have the same or closely equivalent meaning."
+    },
+    {
+      "relationshipType": "IS_ANTONYM_OF",
+      "domain": "",
+      "definition": "Lexical labels have opposed meanings."
+    },
+    {
+      "relationshipType": "IS_HYPERNYM_OF",
+      "domain": "",
+      "definition": "Lexical label denotes a broader semantic class."
+    },
+    {
+      "relationshipType": "IS_HYPONYM_OF",
+      "domain": "",
+      "definition": "Lexical label denotes a narrower semantic class."
+    },
+    {
+      "relationshipType": "IS_MERONYM_OF",
+      "domain": "",
+      "definition": "Lexical label denotes a part of the other's referent/class."
+    },
+    {
+      "relationshipType": "IS_HOLONYM_OF",
+      "domain": "",
+      "definition": "Lexical label denotes a whole containing the other's referent/class."
+    },
+    {
+      "relationshipType": "HAS_DOUBLE_MEANING_WITH",
+      "domain": "",
+      "definition": "Word/phrase supports multiple contextually relevant readings, including conventional wordplay not captured cleanly by strict homonymy."
+    },
+    {
+      "relationshipType": "IS_PUNNABLE_WITH",
+      "domain": "",
+      "definition": "Two labels/forms support a conventional or readily interpretable pun/wordplay relation."
+    },
+    {
+      "relationshipType": "SOUNDS_LIKE",
+      "domain": "",
+      "definition": "Broad phonological resemblance retained alongside narrower homophone/rhyme relations."
+    },
+    {
+      "relationshipType": "IS_SPELLED_SIMILARLY_TO",
+      "domain": "",
+      "definition": "Broad orthographic resemblance retained alongside exact/narrower spelling relations."
+    },
+    {
+      "relationshipType": "IS_WORN_BY",
+      "domain": "",
+      "definition": "Inverse wearer/item relation to WEARS; independently queryable."
+    },
+    {
+      "relationshipType": "IS_HELD_BY",
+      "domain": "",
+      "definition": "Inverse of holding relation; preserve with HAS_OBJECT/HOLDS_CARRIES."
+    },
+    {
+      "relationshipType": "IS_CARRIED_BY",
+      "domain": "",
+      "definition": "Inverse carrier relation; carrying remains distinct from static holding."
+    },
+    {
+      "relationshipType": "IS_USED_BY",
+      "domain": "",
+      "definition": "Inverse user/tool relation; preserve alongside USES_OPERATES."
+    },
+    {
+      "relationshipType": "IS_OPERATED_BY",
+      "domain": "",
+      "definition": "Inverse operator/device relation; operation is narrower than generic use."
+    },
+    {
+      "relationshipType": "IS_SUPPORTED_BY",
+      "domain": "",
+      "definition": "Inverse of SUPPORTS; captures physical or structural support direction."
+    },
+    {
+      "relationshipType": "IS_COVERED_BY",
+      "domain": "",
+      "definition": "Inverse of COVERS_CONCEALS/COVERS; covering need not imply concealment."
+    },
+    {
+      "relationshipType": "IS_CONCEALED_BY",
+      "domain": "",
+      "definition": "Inverse concealment relation; semantically distinct from mere covering."
+    },
+    {
+      "relationshipType": "IS_TARGETED_AT",
+      "domain": "",
+      "definition": "Action/signal/object is directed toward a target."
+    },
+    {
+      "relationshipType": "IS_TARGET_OF",
+      "domain": "",
+      "definition": "Inverse target relation; entity is target/recipient of directed action."
+    },
+    {
+      "relationshipType": "PROTECTS",
+      "domain": "",
+      "definition": "Directed protector→protected relation; narrower than broad protective relation."
+    },
+    {
+      "relationshipType": "IS_PROTECTED_BY",
+      "domain": "",
+      "definition": "Inverse protected→protector relation."
+    },
+    {
+      "relationshipType": "GIVES_TRANSFERS",
+      "domain": "",
+      "definition": "Directed giver/source→transferred entity/recipient relation."
+    },
+    {
+      "relationshipType": "IS_GIVEN_TRANSFERRED_TO",
+      "domain": "",
+      "definition": "Directed transfer toward recipient; coexist with RECEIVES."
+    },
+    {
+      "relationshipType": "FOLLOWS",
+      "domain": "",
+      "definition": "Directed follower→leader/path relation; distinct from generic sequence."
+    },
+    {
+      "relationshipType": "IS_FOLLOWED_BY",
+      "domain": "",
+      "definition": "Inverse following relation."
+    },
+    {
+      "relationshipType": "OPPOSES_RESISTS",
+      "domain": "",
+      "definition": "Directed opposition/resistance relation; narrower than broad conflict."
+    },
+    {
+      "relationshipType": "COOPERATES_WITH",
+      "domain": "",
+      "definition": "Specific cooperative relation; preserve alongside broad cooperation/social bond."
+    },
+    {
+      "relationshipType": "IS_SIMILAR_TO",
+      "domain": "",
+      "definition": "Explicit similarity predicate; preserve alongside existing SIMILAR_TO if normalization later distinguishes naming/provenance."
+    },
+    {
+      "relationshipType": "IS_DIFFERENT_FROM",
+      "domain": "",
+      "definition": "Explicit difference relation; distinct from CONTRASTS_WITH."
+    },
+    {
+      "relationshipType": "IS_DETACHED_FROM",
+      "domain": "",
+      "definition": "Explicit non-attachment/separation relation, counterpart to IS_ATTACHED_TO."
+    },
+    {
+      "relationshipType": "CREATES_PRODUCES",
+      "domain": "",
+      "definition": "Creator/producer→product relation now has enough repeated source-language support to promote the earlier open creator-product family."
+    },
+    {
+      "relationshipType": "IS_CREATED_PRODUCED_BY",
+      "domain": "",
+      "definition": "Product→creator/producer inverse relation."
+    },
+    {
+      "relationshipType": "CAUSES",
+      "domain": "",
+      "definition": "Cause→effect relation is semantically fundamental and source signals recur; preserve despite some explanatory-prose noise."
+    },
+    {
+      "relationshipType": "RESULTS_FROM",
+      "domain": "",
+      "definition": "Effect→cause inverse relation."
+    },
+    {
+      "relationshipType": "DAMAGES_HARMS",
+      "domain": "",
+      "definition": "Agent/event/state→damaged entity relation."
+    },
+    {
+      "relationshipType": "IS_DAMAGED_HARMED_BY",
+      "domain": "",
+      "definition": "Inverse damage relation."
+    },
+    {
+      "relationshipType": "REPAIRS_RESTORES",
+      "domain": "",
+      "definition": "Agent/tool/action→repaired entity relation."
+    },
+    {
+      "relationshipType": "IS_REPAIRED_RESTORED_BY",
+      "domain": "",
+      "definition": "Inverse repair relation."
+    },
+    {
+      "relationshipType": "CONSUMES",
+      "domain": "",
+      "definition": "Consumer→consumed entity/resource relation; previously open candidate now promoted."
+    },
+    {
+      "relationshipType": "IS_CONSUMED_BY",
+      "domain": "",
+      "definition": "Consumed entity/resource→consumer inverse relation."
+    },
+    {
+      "relationshipType": "NEEDS_REQUIRES",
+      "domain": "",
+      "definition": "Subject→needed entity/state relation; preserve alongside general REQUIRES_DEPENDS_ON."
+    },
+    {
+      "relationshipType": "IS_NEEDED_REQUIRED_BY",
+      "domain": "",
+      "definition": "Inverse requirement relation."
+    },
+    {
+      "relationshipType": "TEACHES_INSTRUCTS",
+      "domain": "",
+      "definition": "Teacher/instructor→learner/content relation."
+    },
+    {
+      "relationshipType": "LEARNS_FROM",
+      "domain": "",
+      "definition": "Learner→teacher/source/content relation."
+    },
+    {
+      "relationshipType": "NAMES_LABELS",
+      "domain": "",
+      "definition": "Label/name/sign→referent relation; distinct from DENOTES because naming is an explicit labeling act/relation."
+    },
+    {
+      "relationshipType": "IS_NAMED_LABELED_BY",
+      "domain": "",
+      "definition": "Referent→label/name inverse relation."
+    },
+    {
+      "relationshipType": "IS_EQUAL_EQUIVALENT_TO",
+      "domain": "",
+      "definition": "Explicit equivalence relation; distinct from similarity."
+    },
+    {
+      "relationshipType": "IS_GREATER_MORE_THAN",
+      "domain": "",
+      "definition": "Directional comparative quantity relation."
+    },
+    {
+      "relationshipType": "IS_LESS_FEWER_THAN",
+      "domain": "",
+      "definition": "Inverse comparative quantity relation."
+    },
+    {
+      "relationshipType": "IS_DERIVED_FROM",
+      "domain": "",
+      "definition": "Subject/material/concept→source derivation relation; narrower than broad source/origin."
+    },
+    {
+      "relationshipType": "IS_SOURCE_FOR",
+      "domain": "",
+      "definition": "Source→derived entity/material/concept inverse relation."
+    },
+    {
+      "relationshipType": "BENEFITS",
+      "domain": "",
+      "definition": "Benefactor/action/resource↔beneficiary relation; distinct from helping, providing, or receiving."
+    },
+    {
+      "relationshipType": "ENABLES_ALLOWS",
+      "domain": "",
+      "definition": "Entity/state/action makes another action/state possible or permitted; distinct from normative permission alone."
+    },
+    {
+      "relationshipType": "RESTRICTS_PREVENTS",
+      "domain": "",
+      "definition": "Entity/state/action constrains or prevents another action/state; broad enough to include physical and functional restriction while normative prohibition may also coexist."
+    },
+    {
+      "relationshipType": "REPLACES_SUBSTITUTES_FOR",
+      "domain": "",
+      "definition": "One entity/sign stands in place of another entity/sign; distinct from resemblance and representation."
+    },
+    {
+      "relationshipType": "REQUIRES_DEPENDS_ON",
+      "domain": "",
+      "definition": "Dependency/requirement between entities, actions, or states; retained alongside social dependency because this is general semantic dependency."
+    },
+    {
+      "relationshipType": "IS_TYPE_OF",
+      "domain": "",
+      "definition": "Subject is a kind/type/category member of another concept; taxonomic relation."
+    },
+    {
+      "relationshipType": "IS_EXAMPLE_OF",
+      "domain": "",
+      "definition": "Subject serves as an instance/example of a broader concept; related to but independently queryable from IS_TYPE_OF."
+    },
+    {
+      "relationshipType": "IS_PART_OF",
+      "domain": "",
+      "definition": "Inverse of HAS_PART: subject is a constitutive part/component of another entity."
+    },
+    {
+      "relationshipType": "HAS_CONTENT",
+      "domain": "",
+      "definition": "Container↔content relation; distinct from generic HAS_OBJECT and spatial CONTAINS."
+    },
+    {
+      "relationshipType": "IS_CONTENT_OF",
+      "domain": "",
+      "definition": "Inverse content↔container relation."
+    },
+    {
+      "relationshipType": "HAS_SOURCE_ORIGIN",
+      "domain": "",
+      "definition": "Subject/event/material derives or originates from a source/origin."
+    },
+    {
+      "relationshipType": "HAS_DESTINATION",
+      "domain": "",
+      "definition": "Movement/action/entity has a destination/endpoint."
+    },
+    {
+      "relationshipType": "IS_MEDIUM_FOR",
+      "domain": "",
+      "definition": "Entity acts as a medium/channel for communication or expression; distinct from communicative act itself."
+    },
+    {
+      "relationshipType": "GUIDES",
+      "domain": "",
+      "definition": "Guidance is a directed social relation and can coexist with support, care, hierarchy, communication, and dependency."
+    },
+    {
+      "relationshipType": "HELPS_ASSISTS",
+      "domain": "",
+      "definition": "Assistance is a directed relation between helper and beneficiary; it need not imply kinship, dependency, or protection."
+    },
+    {
+      "relationshipType": "CONTROLS_REGULATES",
+      "domain": "",
+      "definition": "Controller↔controlled relation is distinct from the normative concept of regulation itself."
+    },
+    {
+      "relationshipType": "PROVIDES_SUPPLIES",
+      "domain": "",
+      "definition": "Provider↔resource/service/recipient relation captures provision even outside a transaction."
+    },
+    {
+      "relationshipType": "RECEIVES",
+      "domain": "",
+      "definition": "Recipient↔received entity relation is the inverse/directional counterpart to giving/provision/transfer."
+    },
+    {
+      "relationshipType": "MEASURES_INDICATES",
+      "domain": "",
+      "definition": "Instrument/sign↔measured or indicated value/state is distinct from generic function."
+    },
+    {
+      "relationshipType": "MODIFIES",
+      "domain": "",
+      "definition": "Agent/tool/event↔modified entity relation captures alteration without requiring a specific transformation outcome."
+    },
+    {
+      "relationshipType": "TRANSPORTS",
+      "domain": "",
+      "definition": "Carrier/vehicle↔transported entity is distinct from carrying/holding when relocation is the semantic relation."
+    },
+    {
+      "relationshipType": "EMERGES_FROM",
+      "domain": "",
+      "definition": "Entity↔source/container relation for emergence/hatching; can coexist with transformation and spatial containment."
+    },
+    {
+      "relationshipType": "IS_MEMBER_OF",
+      "domain": "",
+      "definition": "Entity↔group/community relation is more explicit than general affiliation and can coexist with it."
+    },
+    {
+      "relationshipType": "IS_OLDER_THAN",
+      "domain": "",
+      "definition": "Directional age comparison is distinct from encoded identity or generic comparison."
+    },
+    {
+      "relationshipType": "IS_YOUNGER_THAN",
+      "domain": "",
+      "definition": "Inverse directional age comparison; preserve independently under the both rule."
+    },
+    {
+      "relationshipType": "IS_LARGER_THAN",
+      "domain": "",
+      "definition": "Directional relative-size relation; distinct from HAS_QUANTITY and intrinsic shape/composition."
+    },
+    {
+      "relationshipType": "IS_SMALLER_THAN",
+      "domain": "",
+      "definition": "Inverse directional relative-size relation."
+    },
+    {
+      "relationshipType": "OWNS_POSSESSES",
+      "domain": "",
+      "definition": "Repeated ownership/possession semantics now justify promoting the previously open candidate."
+    },
+    {
+      "relationshipType": "BELONGS_TO",
+      "domain": "",
+      "definition": "Inverse possessed-entity→owner relation; independently queryable under directional multiplicity."
+    },
+    {
+      "relationshipType": "ENTERS",
+      "domain": "",
+      "definition": "Agent/entity moves into a place/container; event relation distinct from static IS_INSIDE."
+    },
+    {
+      "relationshipType": "EXITS",
+      "domain": "",
+      "definition": "Agent/entity moves out of a place/container; inverse transition counterpart to entering."
+    },
+    {
+      "relationshipType": "WARNS",
+      "domain": "",
+      "definition": "Communicator/sign warns a recipient about hazard/state; narrower than generic communication or indication."
+    },
+    {
+      "relationshipType": "NOTIFIES_INFORMS",
+      "domain": "",
+      "definition": "Directed information transfer relation; distinct from requesting and generic communication."
+    },
+    {
+      "relationshipType": "COMMANDS_DIRECTS",
+      "domain": "",
+      "definition": "Agent/sign directs another agent/action; narrower than broad social power or communication."
+    },
+    {
+      "relationshipType": "PERMITS",
+      "domain": "",
+      "definition": "Agent/sign/rule permits an action; narrower than ENABLES_ALLOWS and regulatory relation."
+    },
+    {
+      "relationshipType": "PROHIBITS",
+      "domain": "",
+      "definition": "Agent/sign/rule forbids an action; narrower than RESTRICTS_PREVENTS."
+    },
+    {
+      "relationshipType": "CARES_FOR",
+      "domain": "",
+      "definition": "Directed caregiver→recipient relation; broad kinship/care relation remains too."
+    },
+    {
+      "relationshipType": "IS_CARED_FOR_BY",
+      "domain": "",
+      "definition": "Inverse care-recipient→caregiver relation."
+    },
+    {
+      "relationshipType": "RELIES_ON",
+      "domain": "",
+      "definition": "Directed reliance relation; more specific than general dependency."
+    },
+    {
+      "relationshipType": "SERVES_AS_WORKER_FOR",
+      "domain": "",
+      "definition": "Worker/professional→institution/client/service relation; distinct from occupational role alone."
+    },
+    {
+      "relationshipType": "IS_CUSTOMER_CLIENT_OF",
+      "domain": "",
+      "definition": "Recipient/client→provider relation; inverse perspective to service provision."
+    },
+    {
+      "relationshipType": "COMPETES_WITH",
+      "domain": "",
+      "definition": "Competitive relation is not identical to opposition/conflict and may coexist with both."
+    },
+    {
+      "relationshipType": "JOINS_CONNECTS_TO",
+      "domain": "",
+      "definition": "Dynamic joining/connection relation; distinct from static IS_CONNECTED_TO."
+    },
+    {
+      "relationshipType": "SEPARATES_FROM",
+      "domain": "",
+      "definition": "Dynamic separation relation; distinct from static IS_DETACHED_FROM."
+    },
+    {
+      "relationshipType": "TRANSFORMS_INTO",
+      "domain": "",
+      "definition": "Directed source-state/entity→result-state/entity relation; narrower than broad transformation/transition."
+    },
+    {
+      "relationshipType": "TRANSFORMS_FROM",
+      "domain": "",
+      "definition": "Result-state/entity→source-state/entity provenance relation."
+    },
+    {
+      "relationshipType": "STANDS_ON",
+      "domain": "",
+      "definition": "Specific support/spatial relation; coexist with IS_ON and IS_SUPPORTED_BY."
+    },
+    {
+      "relationshipType": "SITS_ON",
+      "domain": "",
+      "definition": "Specific posture/support relation; coexist with pose, IS_ON, and support."
+    },
+    {
+      "relationshipType": "RIDES_ON",
+      "domain": "",
+      "definition": "Specific rider→mount/vehicle relation; preserve alongside RIDES and spatial/support relations."
+    },
+    {
+      "relationshipType": "HAS_SPATIAL_RELATION",
+      "domain": "",
+      "definition": "Captures relational spatial topology between entities (inside, on, under, surrounding, adjacent), beyond a subject's own orientation/position."
+    },
+    {
+      "relationshipType": "HAS_SEQUENCE_RELATION",
+      "domain": "",
+      "definition": "Captures before/after/first/last/order relations. Kept distinct from general temporal relation because sequence can be ordinal without a clock/date/duration."
+    },
+    {
+      "relationshipType": "HAS_OPPOSITION_CONFLICT_RELATION",
+      "domain": "",
+      "definition": "Captures adversarial, resistant, competitive, or conflict relations between participants/concepts."
+    },
+    {
+      "relationshipType": "HAS_COOPERATION_RELATION",
+      "domain": "",
+      "definition": "Captures collaboration, coordinated joint action, mutual participation, or teamwork."
+    },
+    {
+      "relationshipType": "HAS_TRANSFER_EXCHANGE_RELATION",
+      "domain": "",
+      "definition": "Captures giving, receiving, passing, trading, or movement of something between source and recipient. More general than service/transaction."
+    },
+    {
+      "relationshipType": "HAS_TARGET_RECIPIENT_RELATION",
+      "domain": "",
+      "definition": "Captures that an action, signal, object, or communication is directed toward a target/recipient."
+    },
+    {
+      "relationshipType": "HAS_PROTECTIVE_RELATION",
+      "domain": "",
+      "definition": "Captures guarding, shielding, sheltering, or protecting another entity; can coexist with dependency/care."
+    },
+    {
+      "relationshipType": "TOUCHES",
+      "domain": "",
+      "definition": "Directed/relational physical contact can be asserted specifically while HAS_PHYSICAL_CONTACT_RELATION remains broad."
+    },
+    {
+      "relationshipType": "GRASPS",
+      "domain": "",
+      "definition": "Grasping is a specific contact/control relation, distinct from merely holding/carrying."
+    },
+    {
+      "relationshipType": "EMBRACES",
+      "domain": "",
+      "definition": "Embrace relation is independently useful for intersections and can coexist with contact, social bond, care, and emotion."
+    },
+    {
+      "relationshipType": "ENCLOSES",
+      "domain": "",
+      "definition": "Entity physically encloses another; narrower than SURROUNDS/CONTAINS and can coexist with both."
+    },
+    {
+      "relationshipType": "HAS_ACCESS_TO",
+      "domain": "",
+      "definition": "Subject has access to a place/resource/service; distinct from location, membership, or possession."
+    },
+    {
+      "relationshipType": "OBSERVES_LOOKS_AT",
+      "domain": "",
+      "definition": "Observer↔target perceptual relation; distinct from merely facing toward."
+    },
+    {
+      "relationshipType": "DISPLAYS_SHOWS",
+      "domain": "",
+      "definition": "Subject/entity visibly presents or displays another entity/sign/content."
+    },
+    {
+      "relationshipType": "IDENTIFIES_MARKS",
+      "domain": "",
+      "definition": "Sign/feature identifies, marks, or distinguishes an entity/category; distinct from denotation and generic indication."
+    },
+    {
+      "relationshipType": "QUANTIFIES",
+      "domain": "",
+      "definition": "Sign/entity expresses number or amount of another entity/category; distinct from HAS_QUANTITY, which records the subject's own quantity."
+    },
+    {
+      "relationshipType": "IS_PAIRED_WITH",
+      "domain": "",
+      "definition": "Explicit pairing/coupling relation; more specific than co-occurrence or social bond."
+    },
+    {
+      "relationshipType": "IS_PARTNER_OF",
+      "domain": "",
+      "definition": "Partnership relation can be social, functional, or collaborative without forcing romance/kinship."
+    },
+    {
+      "relationshipType": "IS_PARENT_OF",
+      "domain": "",
+      "definition": "Directed kinship relation; preserve alongside broad kinship/care relation."
+    },
+    {
+      "relationshipType": "IS_CHILD_OF",
+      "domain": "",
+      "definition": "Inverse directed kinship relation."
+    },
+    {
+      "relationshipType": "HAS_LIFE_STAGE",
+      "domain": "",
+      "definition": "Subject is related to a developmental/life stage; distinct from encoded identity and age comparisons."
+    },
+    {
+      "relationshipType": "PARTICIPATES_IN",
+      "domain": "",
+      "definition": "Entity/person participates in an activity/event; inverse/role perspective to activity/action relations."
+    },
+    {
+      "relationshipType": "HAS_OCCUPATIONAL_ROLE",
+      "domain": "",
+      "definition": "Subject has an occupational/professional role; narrower than generic HAS_ROLE."
+    },
+    {
+      "relationshipType": "IS_AGENT_OF",
+      "domain": "",
+      "definition": "Entity performs/initiates an action or event; useful inverse/role relation alongside PERFORMS_ACTION."
+    },
+    {
+      "relationshipType": "IS_AFFECTED_BY",
+      "domain": "",
+      "definition": "Entity is the patient/affected participant of an action/event; not captured by performer-centric action assertions."
+    },
+    {
+      "relationshipType": "IS_INSTRUMENT_OF",
+      "domain": "",
+      "definition": "Tool/object serves as instrument for an action; inverse perspective complements USES_OPERATES and HAS_FUNCTION."
+    },
+    {
+      "relationshipType": "HAS_PURPOSE",
+      "domain": "",
+      "definition": "Subject has an intended purpose/use; narrower and more relationally explicit than generic HAS_FUNCTION."
+    },
+    {
+      "relationshipType": "IS_LOCATED_AT",
+      "domain": "",
+      "definition": "Subject/entity is located at a depicted or semantically asserted place; distinct from setting being visible/implied."
+    },
+    {
+      "relationshipType": "HAS_PATH_ROUTE",
+      "domain": "",
+      "definition": "Movement/action follows or is associated with a route/path; distinct from destination and intrinsic orientation."
+    },
+    {
+      "relationshipType": "STARTS_BEGINS",
+      "domain": "",
+      "definition": "Event/action/state has a beginning relation; retain alongside temporal and sequence relations."
+    },
+    {
+      "relationshipType": "ENDS_FINISHES",
+      "domain": "",
+      "definition": "Event/action/state has an ending relation; directional counterpart to beginning."
+    },
+    {
+      "relationshipType": "OCCURS_BEFORE",
+      "domain": "",
+      "definition": "Explicit temporal ordering relation between two entities/events."
+    },
+    {
+      "relationshipType": "OCCURS_AFTER",
+      "domain": "",
+      "definition": "Inverse temporal ordering relation."
+    },
+    {
+      "relationshipType": "CO_OCCURS_WITH",
+      "domain": "",
+      "definition": "Entities/events occur together; distinct from association because co-occurrence is relational/event-based."
+    },
+    {
+      "relationshipType": "RESPONDS_REACTS_TO",
+      "domain": "",
+      "definition": "Subject's action/state is a response or reaction to another stimulus/event/entity."
+    },
+    {
+      "relationshipType": "REQUESTS_CALLS_FOR",
+      "domain": "",
+      "definition": "Subject/act requests or calls for an action/service/attention; distinct from generic communication."
+    },
+    {
+      "relationshipType": "SERVES_PROVIDES_SERVICE_TO",
+      "domain": "",
+      "definition": "Directed service-provider↔recipient relation; can coexist with PROVIDES_SUPPLIES and transaction relations."
+    },
+    {
+      "relationshipType": "TRUSTS",
+      "domain": "",
+      "definition": "Trust is a directed interpersonal relation; distinct from dependency even when both are present."
+    },
+    {
+      "relationshipType": "DOMINATES",
+      "domain": "",
+      "definition": "Directed dominance relation; narrower than broad social-power relation."
+    },
+    {
+      "relationshipType": "IS_SUBORDINATE_TO",
+      "domain": "",
+      "definition": "Directed subordinate relation; inverse/companion to dominance."
+    },
+    {
+      "relationshipType": "IS_CONNECTED_TO",
+      "domain": "",
+      "definition": "General structural/physical connection relation; can coexist with attachment and adjacency."
+    },
+    {
+      "relationshipType": "IS_COMPOSED_OF",
+      "domain": "",
+      "definition": "Whole↔components composition relation; explicit relational counterpart to HAS_COMPOSITION/HAS_PART."
+    },
+    {
+      "relationshipType": "REVEALS_EXPOSES",
+      "domain": "",
+      "definition": "Entity/action makes another entity/content perceptible; semantic inverse of concealment but independently queryable."
+    },
+    {
+      "relationshipType": "IS_REVEALED_EXPOSED_BY",
+      "domain": "",
+      "definition": "Directed inverse of reveal/expose."
+    },
+    {
+      "relationshipType": "HIDES_CONCEALS",
+      "domain": "",
+      "definition": "Specific hider→hidden relation retained alongside broad COVERS_CONCEALS."
+    },
+    {
+      "relationshipType": "IS_HIDDEN_CONCEALED_BY",
+      "domain": "",
+      "definition": "Explicit inverse concealment relation; preserve even with prior IS_CONCEALED_BY naming variant until normalization stage."
+    },
+    {
+      "relationshipType": "FASTENS_SECURES",
+      "domain": "",
+      "definition": "Entity fastens/secures another entity; narrower than generic attachment."
+    },
+    {
+      "relationshipType": "IS_FASTENED_SECURED_TO",
+      "domain": "",
+      "definition": "Inverse fastening relation."
+    },
+    {
+      "relationshipType": "OCCUPIES",
+      "domain": "",
+      "definition": "Entity occupies a place/container/position; distinct from generic IS_LOCATED_AT and IS_INSIDE."
+    },
+    {
+      "relationshipType": "ACCOMPANIES",
+      "domain": "",
+      "definition": "Entity/person accompanies another; distinct from co-occurrence, pairing, and social bond."
+    },
+    {
+      "relationshipType": "IS_ACCOMPANIED_BY",
+      "domain": "",
+      "definition": "Inverse accompaniment relation."
+    },
+    {
+      "relationshipType": "BUYS_PURCHASES",
+      "domain": "",
+      "definition": "Buyer→goods/service relation; narrower than transaction/service."
+    },
+    {
+      "relationshipType": "SELLS",
+      "domain": "",
+      "definition": "Seller→goods/service/buyer relation."
+    },
+    {
+      "relationshipType": "TRADES_EXCHANGES_WITH",
+      "domain": "",
+      "definition": "Reciprocal trading/exchange relation; preserve with broad transfer/exchange."
+    },
+    {
+      "relationshipType": "PAYS",
+      "domain": "",
+      "definition": "Payer→recipient/obligation relation."
+    },
+    {
+      "relationshipType": "COSTS_HAS_PRICE",
+      "domain": "",
+      "definition": "Goods/service→price relation; distinct from transaction event."
+    },
+    {
+      "relationshipType": "HAS_AUTHORITY_OVER",
+      "domain": "",
+      "definition": "Directed authority-holder→subject/domain relation; narrower than social power."
+    },
+    {
+      "relationshipType": "IS_UNDER_AUTHORITY_OF",
+      "domain": "",
+      "definition": "Inverse authority relation."
+    },
+    {
+      "relationshipType": "WORKS_FOR",
+      "domain": "",
+      "definition": "Worker→employer/institution relation; distinct from occupational role."
+    },
+    {
+      "relationshipType": "EMPLOYS",
+      "domain": "",
+      "definition": "Employer→worker relation; inverse employment direction."
+    },
+    {
+      "relationshipType": "IS_REPRESENTATIVE_OF",
+      "domain": "",
+      "definition": "Subject/person/sign acts as representative of group/institution/category; distinct from figurative REPRESENTS."
+    },
+    {
+      "relationshipType": "HATCHES_FROM",
+      "domain": "",
+      "definition": "Entity emerges developmentally from egg/source; narrower than generic EMERGES_FROM."
+    },
+    {
+      "relationshipType": "GROWS_DEVELOPS_INTO",
+      "domain": "",
+      "definition": "Developmental progression relation; narrower than general TRANSFORMS_INTO."
+    },
+    {
+      "relationshipType": "THREATENS_ENDANGERS",
+      "domain": "",
+      "definition": "Entity/state poses danger to another entity/state."
+    },
+    {
+      "relationshipType": "IS_THREATENED_ENDANGERED_BY",
+      "domain": "",
+      "definition": "Inverse threat relation."
+    },
+    {
+      "relationshipType": "WEARS",
+      "domain": "",
+      "definition": "Wearer↔worn-item is more specific than object presence or generic agent–instrument use."
+    },
+    {
+      "relationshipType": "HOLDS_CARRIES",
+      "domain": "",
+      "definition": "Holder/carrier↔held/carried entity is a stable relational fact distinct from object presence."
+    },
+    {
+      "relationshipType": "USES_OPERATES",
+      "domain": "",
+      "definition": "Agent↔tool/device use deserves its own relation; an object may be present/held without being used."
+    },
+    {
+      "relationshipType": "RIDES",
+      "domain": "",
+      "definition": "Rider↔mount/vehicle/board relation is distinct from merely being on something."
+    },
+    {
+      "relationshipType": "SUPPORTS",
+      "domain": "",
+      "definition": "Supporter↔supported entity captures load-bearing or bodily support; distinct from care/dependency."
+    },
+    {
+      "relationshipType": "COVERS_CONCEALS",
+      "domain": "",
+      "definition": "Covering/concealment is a relation between entities, not merely their spatial position."
+    },
+    {
+      "relationshipType": "LOOKS_FACES_TOWARD",
+      "domain": "",
+      "definition": "Directed gaze/facing toward another entity is relational; keep separate from intrinsic orientation."
+    },
+    {
+      "relationshipType": "MADE_OF",
+      "domain": "",
+      "definition": "Entity↔material relation is relationally explicit and can coexist with HAS_MATERIAL."
+    },
+    {
+      "relationshipType": "RESEMBLES",
+      "domain": "",
+      "definition": "Resemblance relation is useful independently of broad SIMILAR_TO when visual/form resemblance is the claim."
+    },
+    {
+      "relationshipType": "IS_VARIATION_OF",
+      "domain": "Unicode / encoding",
+      "definition": "Same semantic base represented by a standardized variation form."
+    },
+    {
+      "relationshipType": "HAS_VARIATION_SELECTOR",
+      "domain": "Unicode / encoding",
+      "definition": "Encoded form includes a variation selector relationship to its base."
+    },
+    {
+      "relationshipType": "HAS_SKIN_TONE_VARIANT",
+      "domain": "Unicode / encoding",
+      "definition": "Emoji has a standardized skin-tone-modified variant."
+    },
+    {
+      "relationshipType": "IS_SKIN_TONE_VARIANT_OF",
+      "domain": "Unicode / encoding",
+      "definition": "Modified emoji is a skin-tone variant of a base emoji."
+    },
+    {
+      "relationshipType": "HAS_GENDER_VARIANT",
+      "domain": "Unicode / encoding",
+      "definition": "Emoji has standardized gendered presentation variants."
+    },
+    {
+      "relationshipType": "IS_GENDER_VARIANT_OF",
+      "domain": "Unicode / encoding",
+      "definition": "Emoji is a gendered variant of a base emoji."
+    },
+    {
+      "relationshipType": "HAS_HAIR_VARIANT",
+      "domain": "Unicode / encoding",
+      "definition": "Emoji has standardized hair-component variants."
+    },
+    {
+      "relationshipType": "IS_HAIR_VARIANT_OF",
+      "domain": "Unicode / encoding",
+      "definition": "Emoji is a hair-component variant of a base emoji."
+    },
+    {
+      "relationshipType": "IS_ZWJ_SEQUENCE_OF",
+      "domain": "Unicode / encoding",
+      "definition": "Rendered emoji is encoded as a ZWJ composition of components."
+    },
+    {
+      "relationshipType": "IS_COMPONENT_OF_ZWJ_SEQUENCE",
+      "domain": "Unicode / encoding",
+      "definition": "Emoji/component participates in a ZWJ sequence."
+    },
+    {
+      "relationshipType": "IS_FLAG_SEQUENCE_FOR",
+      "domain": "Unicode / encoding",
+      "definition": "Emoji sequence encodes a flag for a region/entity."
+    },
+    {
+      "relationshipType": "IS_KEYCAP_SEQUENCE_OF",
+      "domain": "Unicode / encoding",
+      "definition": "Keycap emoji sequence derives from a base character."
+    },
+    {
+      "relationshipType": "HAS_UNICODE_ALIAS",
+      "domain": "Unicode / encoding",
+      "definition": "Emoji/character has another standardized Unicode name or alias."
+    },
+    {
+      "relationshipType": "IS_IN_SAME_UNICODE_GROUP_AS",
+      "domain": "Taxonomic / classification",
+      "definition": "Two emoji share a Unicode/CLDR grouping."
+    },
+    {
+      "relationshipType": "IS_IN_SAME_UNICODE_SUBGROUP_AS",
+      "domain": "Taxonomic / classification",
+      "definition": "Two emoji share a Unicode/CLDR subgroup."
+    },
+    {
+      "relationshipType": "IS_TAXONOMIC_SIBLING_OF",
+      "domain": "Taxonomic / classification",
+      "definition": "Two referents share an immediate semantic parent/class."
+    },
+    {
+      "relationshipType": "HAS_COMMON_ANCESTOR_CLASS_WITH",
+      "domain": "Taxonomic / classification",
+      "definition": "Referents share a broader taxonomic ancestor."
+    },
+    {
+      "relationshipType": "IS_BREED_VARIETY_OF",
+      "domain": "Taxonomic / classification",
+      "definition": "Referent is a breed/variety/cultivar/type of another biological/cultural class."
+    },
+    {
+      "relationshipType": "HAS_SAME_QUANTITY_AS",
+      "domain": "Numeric / quantitative",
+      "definition": "Depicted/encoded quantities are equal."
+    },
+    {
+      "relationshipType": "HAS_MORE_OF_THAN",
+      "domain": "Numeric / quantitative",
+      "definition": "Subject has a greater count/amount of a comparable feature/entity."
+    },
+    {
+      "relationshipType": "HAS_FEWER_OF_THAN",
+      "domain": "Numeric / quantitative",
+      "definition": "Subject has a smaller count/amount of a comparable feature/entity."
+    },
+    {
+      "relationshipType": "IS_DOUBLE_OF",
+      "domain": "Numeric / quantitative",
+      "definition": "Quantity/value is twice another."
+    },
+    {
+      "relationshipType": "IS_HALF_OF",
+      "domain": "Numeric / quantitative",
+      "definition": "Quantity/value is half another."
+    },
+    {
+      "relationshipType": "HAS_SAME_NUMBER_OF_PARTS_AS",
+      "domain": "Numeric / quantitative",
+      "definition": "Comparable part counts are equal."
+    },
+    {
+      "relationshipType": "IS_MIRROR_IMAGE_OF",
+      "domain": "Visual / geometric comparison",
+      "definition": "Forms correspond under left-right reflection."
+    },
+    {
+      "relationshipType": "IS_ROTATION_OF",
+      "domain": "Visual / geometric comparison",
+      "definition": "Form corresponds under geometric rotation."
+    },
+    {
+      "relationshipType": "IS_INVERTED_VERSION_OF",
+      "domain": "Visual / geometric comparison",
+      "definition": "Form corresponds under inversion/reversal."
+    },
+    {
+      "relationshipType": "HAS_SAME_SILHOUETTE_AS",
+      "domain": "Visual / geometric comparison",
+      "definition": "Forms share a salient silhouette despite semantic differences."
+    },
+    {
+      "relationshipType": "HAS_SAME_SYMMETRY_AS",
+      "domain": "Visual / geometric comparison",
+      "definition": "Forms share symmetry structure."
+    },
+    {
+      "relationshipType": "HAS_SAME_LAYOUT_AS",
+      "domain": "Visual / geometric comparison",
+      "definition": "Compositions share spatial arrangement/layout."
+    },
+    {
+      "relationshipType": "HAS_SAME_NUMBER_OF_VISIBLE_ELEMENTS_AS",
+      "domain": "Visual / geometric comparison",
+      "definition": "Rendered compositions contain equal visible element counts."
+    },
+    {
+      "relationshipType": "HAS_SAME_COLOR_AS",
+      "domain": "Color relations",
+      "definition": "Subjects share a color value/category."
+    },
+    {
+      "relationshipType": "IS_LIGHTER_THAN",
+      "domain": "Color relations",
+      "definition": "Color/appearance is lighter than another."
+    },
+    {
+      "relationshipType": "IS_DARKER_THAN",
+      "domain": "Color relations",
+      "definition": "Color/appearance is darker than another."
+    },
+    {
+      "relationshipType": "IS_COMPLEMENTARY_COLOR_TO",
+      "domain": "Color relations",
+      "definition": "Colors stand in a complementary-color relation."
+    },
+    {
+      "relationshipType": "IS_ANALOGOUS_COLOR_TO",
+      "domain": "Color relations",
+      "definition": "Colors are neighboring/analogous in hue space."
+    },
+    {
+      "relationshipType": "OCCURS_ON_SAME_DATE_AS",
+      "domain": "Temporal / calendar",
+      "definition": "Events/observances share a calendar date."
+    },
+    {
+      "relationshipType": "OCCURS_IN_SAME_SEASON_AS",
+      "domain": "Temporal / calendar",
+      "definition": "Events/phenomena share a season."
+    },
+    {
+      "relationshipType": "IS_ANNIVERSARY_OF",
+      "domain": "Temporal / calendar",
+      "definition": "Date/event marks recurrence of an earlier event."
+    },
+    {
+      "relationshipType": "IS_TIMEZONE_EQUIVALENT_TO",
+      "domain": "Temporal / calendar",
+      "definition": "Displayed times denote the same instant under differing zones."
+    },
+    {
+      "relationshipType": "IS_FROM_SAME_COUNTRY_AS",
+      "domain": "Geographic / real-world",
+      "definition": "Referents have the same geographic/national origin."
+    },
+    {
+      "relationshipType": "IS_FROM_SAME_REGION_AS",
+      "domain": "Geographic / real-world",
+      "definition": "Referents share a geographic region."
+    },
+    {
+      "relationshipType": "IS_NORTH_OF",
+      "domain": "Geographic / real-world",
+      "definition": "Place/referent is geographically north of another."
+    },
+    {
+      "relationshipType": "IS_SOUTH_OF",
+      "domain": "Geographic / real-world",
+      "definition": "Place/referent is geographically south of another."
+    },
+    {
+      "relationshipType": "IS_EAST_OF",
+      "domain": "Geographic / real-world",
+      "definition": "Place/referent is geographically east of another."
+    },
+    {
+      "relationshipType": "IS_WEST_OF",
+      "domain": "Geographic / real-world",
+      "definition": "Place/referent is geographically west of another."
+    },
+    {
+      "relationshipType": "IS_PART_OF_CONVENTIONAL_SET_WITH",
+      "domain": "Cultural / conventional sets",
+      "definition": "Referents belong to a culturally recognized set/series."
+    },
+    {
+      "relationshipType": "IS_TRADITIONALLY_PAIRED_WITH",
+      "domain": "Cultural / conventional sets",
+      "definition": "Referents are conventionally paired in culture/use."
+    },
+    {
+      "relationshipType": "IS_ALTERNATIVE_TO",
+      "domain": "Cultural / conventional sets",
+      "definition": "Referents conventionally serve as alternatives/substitutes."
+    },
+    {
+      "relationshipType": "IS_COUNTERPART_OF",
+      "domain": "Cultural / conventional sets",
+      "definition": "Referents form recognized complementary/counterpart roles."
+    },
+    {
+      "relationshipType": "HAS_PLATFORM_RENDERING_VARIANT",
+      "domain": "Emoji-platform / rendering",
+      "definition": "Same encoded emoji has renderer-specific visual forms."
+    },
+    {
+      "relationshipType": "IS_RENDERING_OF_SAME_EMOJI_AS",
+      "domain": "Emoji-platform / rendering",
+      "definition": "Two rendered glyphs instantiate the same encoded emoji."
+    },
+    {
+      "relationshipType": "DIFFERS_IN_RENDERING_FROM",
+      "domain": "Emoji-platform / rendering",
+      "definition": "Same encoded emoji differs visually across renderers/platforms."
+    },
+    {
+      "relationshipType": "RADIO_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "STREAMING_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "WEB_SERIES_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "PODCAST_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "THEATER_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "MUSICAL_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ANIME_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "MANGA_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "NEWSPAPER_COMIC_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "COMIC_STRIP_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GRAPHIC_NOVEL_REFERENCE",
+      "domain": "Media & format",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "NETWORK_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "STREAMING_SERVICE_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "RECORD_LABEL_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_DEVELOPER_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_PUBLISHER_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "COMICS_IMPRINT_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ANIMATION_STUDIO_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FILM_STUDIO_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "PRODUCTION_COMPANY_REFERENCE",
+      "domain": "Production & distribution",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_TEAM_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_SPECIES_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_RACE_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_PLANET_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_CITY_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_BUILDING_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_VEHICLE_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_WEAPON_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_ARTIFACT_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_FOOD_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_CURRENCY_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_SPORT_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_EVENT_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_RELIGION_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FICTIONAL_LANGUAGE_REFERENCE",
+      "domain": "Fictional world structure",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ALTER_EGO_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SECRET_IDENTITY_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIDEKICK_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "VILLAIN_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "HERO_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "LOVE_INTEREST_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FAMILY_MEMBER_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "RIVAL_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ARCHENEMY_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "DUO_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ENSEMBLE_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CROSSOVER_REFERENCE",
+      "domain": "Character identity & relationships",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SEASON_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "STORY_ARC_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ISSUE_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CHAPTER_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SCENE_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "PLOT_EVENT_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "STORYLINE_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ORIGIN_STORY_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FINALE_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CAMEO_REFERENCE",
+      "domain": "Narrative granularity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "RECURRING_GAG_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CATCHPHRASE_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_FOOD_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_DRINK_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_CLOTHING_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_COLOR_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_SYMBOL_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_POWER_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_ABILITY_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_VEHICLE_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SIGNATURE_WEAPON_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "THEME_SONG_REFERENCE",
+      "domain": "Signature & recurring associations",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GENRE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SUBGENRE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "TROPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CHARACTER_ARCHETYPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "STOCK_CHARACTER_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "PLOT_TROPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "VISUAL_TROPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "HORROR_TROPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SCIENCE_FICTION_TROPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FANTASY_TROPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ROMANCE_TROPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "COMEDY_TROPE_REFERENCE",
+      "domain": "Genre, trope & archetype",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_SERIES_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_CHARACTER_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_ITEM_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_POWERUP_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_ENEMY_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_BOSS_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_LEVEL_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_LOCATION_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_MECHANIC_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "GAME_CONSOLE_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ARCADE_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ESPORTS_REFERENCE",
+      "domain": "Games & play culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "MUSIC_ARTIST_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "BAND_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SONG_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ALBUM_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "MUSIC_VIDEO_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CONCERT_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "MUSIC_GENRE_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "DANCE_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "PERFORMER_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "STAGE_PERSONA_REFERENCE",
+      "domain": "Music & performance culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CELEBRITY_REFERENCE",
+      "domain": "Celebrity & public entertainment persona",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ACTOR_REFERENCE",
+      "domain": "Celebrity & public entertainment persona",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "COMEDIAN_REFERENCE",
+      "domain": "Celebrity & public entertainment persona",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "HOST_REFERENCE",
+      "domain": "Celebrity & public entertainment persona",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ENTERTAINER_REFERENCE",
+      "domain": "Celebrity & public entertainment persona",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CELEBRITY_PERSONA_REFERENCE",
+      "domain": "Celebrity & public entertainment persona",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CELEBRITY_SIGNATURE_REFERENCE",
+      "domain": "Celebrity & public entertainment persona",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "TOY_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "TOY_LINE_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "DOLL_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ACTION_FIGURE_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "BOARD_GAME_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "TRADING_CARD_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "BRAND_CHARACTER_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ADVERTISING_MASCOT_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "PRODUCT_MASCOT_REFERENCE",
+      "domain": "Toys, brands & mascots",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "MEME_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "VIRAL_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "INTERNET_CULTURE_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "REACTION_IMAGE_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "EMOTICON_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ONLINE_COMMUNITY_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FANDOM_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FANWORK_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "COSPLAY_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "FAN_THEORY_REFERENCE",
+      "domain": "Internet & participatory culture",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ADAPTATION_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SOURCE_MATERIAL_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "REMAKE_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "REBOOT_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SEQUEL_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "PREQUEL_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "SPINOFF_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ALTERNATE_UNIVERSE_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CONTINUITY_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "VERSION_INCARNATION_REFERENCE",
+      "domain": "Adaptation & continuity",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "AWARD_SHOW_REFERENCE",
+      "domain": "Recognition & cultural status",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ENTERTAINMENT_AWARD_REFERENCE",
+      "domain": "Recognition & cultural status",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "CULT_CLASSIC_REFERENCE",
+      "domain": "Recognition & cultural status",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ICONIC_SCENE_REFERENCE",
+      "domain": "Recognition & cultural status",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "ICONIC_PROP_REFERENCE",
+      "domain": "Recognition & cultural status",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "POP_CULTURE_ICON_REFERENCE",
+      "domain": "Recognition & cultural status",
+      "definition": "Exact title, character, episode, publisher, studio, franchise, object, meme, etc. belongs in tag value."
+    },
+    {
+      "relationshipType": "HAS_TEMPORAL_RELATION",
+      "domain": "",
+      "definition": "Links the subject to a time, duration, recurrence, season, sequence, or temporal transition."
+    },
+    {
+      "relationshipType": "HAS_SOCIAL_POWER_RELATION",
+      "domain": "",
+      "definition": "Captures authority, dominance, deference, hierarchy, coercion, or power imbalance."
+    },
+    {
+      "relationshipType": "HAS_DEPENDENCY_RELATION",
+      "domain": "",
+      "definition": "Captures reliance, support, protection, care-dependence, or another dependency between roles/entities."
+    },
+    {
+      "relationshipType": "HAS_COMMUNICATIVE_RELATION",
+      "domain": "",
+      "definition": "Captures sender/receiver/message or signaling/speaking/calling relations rather than merely communication as a function."
+    },
+    {
+      "relationshipType": "REPRESENTS_OR_DENOTES",
+      "domain": "",
+      "definition": "Captures a stands-for/denotes/shorthand relation, distinct from looser cultural association."
+    },
+    {
+      "relationshipType": "HAS_AGENT_INSTRUMENT_RELATION",
+      "domain": "",
+      "definition": "Captures an agent using/holding/wearing/operating an object as an instrument or functional prop."
+    },
+    {
+      "relationshipType": "HAS_TRANSACTION_SERVICE_RELATION",
+      "domain": "",
+      "definition": "Captures provider/consumer, caller/responder, exchange, provision, or service relations."
+    },
+    {
+      "relationshipType": "HAS_MEMBERSHIP_AFFILIATION_RELATION",
+      "domain": "",
+      "definition": "Captures belonging, solidarity, collective identity, movement/community affiliation, or allegiance."
+    },
+    {
+      "relationshipType": "HAS_IDENTITY_REPRESENTATION_RELATION",
+      "domain": "",
+      "definition": "Captures semantic representation of an identity category, distinct from merely recording encoded Unicode modifiers."
+    },
+    {
+      "relationshipType": "HAS_TRANSFORMATION_TRANSITION_RELATION",
+      "domain": "",
+      "definition": "Captures becoming, emergence, developmental change, modification, or movement from one state to another."
+    },
+    {
+      "relationshipType": "HAS_REGULATORY_NORMATIVE_RELATION",
+      "domain": "",
+      "definition": "Captures permission, prohibition, obligation, enforcement, command, compliance, or rule-governed control."
+    },
+    {
+      "relationshipType": "HAS_TRACE_EVIDENCE_RELATION",
+      "domain": "",
+      "definition": "Captures a trace, residue, record, or indicator from which another entity/event/state is inferred."
+    },
+    {
+      "relationshipType": "HAS_SOCIAL_BOND_RELATION",
+      "domain": "",
+      "definition": "Captures friendship, romance, partnership, intimacy, companionship, or another interpersonal bond without forcing kinship."
+    },
+    {
+      "relationshipType": "HAS_PHYSICAL_CONTACT_RELATION",
+      "domain": "",
+      "definition": "Captures depicted touching, holding, embracing, grasping, cutting/contact, or other direct physical contact between entities."
+    },
+    {
+      "relationshipType": "DENOTES",
+      "domain": "",
+      "definition": "Literal/base referent"
+    },
+    {
+      "relationshipType": "REPRESENTS",
+      "domain": "",
+      "definition": "Figurative concept the emoji stands for in communicative usage"
+    },
+    {
+      "relationshipType": "SYMBOLIZES",
+      "domain": "",
+      "definition": "Intentional/deep/convention-based figurative shorthand for an abstract concept"
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH",
+      "domain": "",
+      "definition": "Psychological/experiential/habitual/correlational connection"
+    },
+    {
+      "relationshipType": "IS_INSIDE",
+      "domain": "",
+      "definition": "Subject is spatially inside another entity/container/boundary."
+    },
+    {
+      "relationshipType": "CONTAINS",
+      "domain": "",
+      "definition": "Subject spatially contains another entity."
+    },
+    {
+      "relationshipType": "IS_ON",
+      "domain": "",
+      "definition": "Subject is on/support-contacting the surface of another entity."
+    },
+    {
+      "relationshipType": "IS_UNDER",
+      "domain": "",
+      "definition": "Subject is below/under another entity in a relational sense."
+    },
+    {
+      "relationshipType": "IS_ABOVE",
+      "domain": "",
+      "definition": "Subject is above another entity in a relational sense."
+    },
+    {
+      "relationshipType": "IS_ADJACENT_TO",
+      "domain": "",
+      "definition": "Subject is next to/beside another entity."
+    },
+    {
+      "relationshipType": "SURROUNDS",
+      "domain": "",
+      "definition": "Subject spatially surrounds/encloses another entity."
+    },
+    {
+      "relationshipType": "IS_SURROUNDED_BY",
+      "domain": "",
+      "definition": "Subject is spatially surrounded/enclosed by another entity or entities."
+    },
+    {
+      "relationshipType": "IS_ATTACHED_TO",
+      "domain": "",
+      "definition": "Subject is physically attached/fastened/joined to another entity."
+    },
+    {
+      "relationshipType": "IS_ALLOWED_BY_DIET",
+      "domain": "Dietary systems",
+      "definition": "Distinct diet-permission relation; exact diet stays in tag."
+    },
+    {
+      "relationshipType": "IS_AVOIDED_BY_DIET",
+      "domain": "Dietary systems",
+      "definition": "Inverse/avoidance is independently useful and true assertions are preserved."
+    },
+    {
+      "relationshipType": "CONTAINS_ANIMAL_DERIVED_INGREDIENT",
+      "domain": "Dietary systems",
+      "definition": "Composition is not the same as dietary classification."
+    },
+    {
+      "relationshipType": "IS_DAIRY_PRODUCT",
+      "domain": "Dietary systems",
+      "definition": "Being dairy differs from merely containing dairy."
+    },
+    {
+      "relationshipType": "CONTAINS_DAIRY",
+      "domain": "Dietary systems",
+      "definition": "Ingredient composition distinct from product identity."
+    },
+    {
+      "relationshipType": "CONTAINS_EGG",
+      "domain": "Dietary systems",
+      "definition": "Specific ingredient relation useful for dietary intersections."
+    },
+    {
+      "relationshipType": "CONTAINS_HONEY",
+      "domain": "Dietary systems",
+      "definition": "Specific animal-derived ingredient relation useful for vegan boundary cases."
+    },
+    {
+      "relationshipType": "IS_NATIVE_TO",
+      "domain": "Geographic provenance",
+      "definition": "Biological/native range differs from general geographic origin."
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Place association is broader than origin and narrower than generic IS_ASSOCIATED_WITH."
+    },
+    {
+      "relationshipType": "IS_TRADITIONAL_TO_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Tradition is independent of origin, production, and popularity."
+    },
+    {
+      "relationshipType": "IS_CULTURALLY_ASSOCIATED_WITH_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Cultural association warrants its own geographic layer."
+    },
+    {
+      "relationshipType": "IS_PRODUCED_IN_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Production location differs from geographic origin."
+    },
+    {
+      "relationshipType": "IS_GROWN_IN_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Agricultural growing location differs from native/origin."
+    },
+    {
+      "relationshipType": "IS_FOUND_IN_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Occurrence differs from native/endemic."
+    },
+    {
+      "relationshipType": "IS_ENDEMIC_TO_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Endemic is narrower than native."
+    },
+    {
+      "relationshipType": "IS_INVENTED_IN_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Invention location differs from production/origin."
+    },
+    {
+      "relationshipType": "IS_POPULAR_IN_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Popularity in a place must not imply origin."
+    },
+    {
+      "relationshipType": "IS_CUISINE_OF_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Cuisine membership is a distinct food/geography relation."
+    },
+    {
+      "relationshipType": "IS_SYMBOL_OF_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Narrow geographic-symbol relation can coexist with SYMBOLIZES."
+    },
+    {
+      "relationshipType": "IS_LANDMARK_OF_PLACE",
+      "domain": "Geographic provenance",
+      "definition": "Landmark membership is distinct from mere location/association."
+    },
+    {
+      "relationshipType": "EATS_FEEDS_ON",
+      "domain": "Ecology",
+      "definition": "What an organism consumes as food."
+    },
+    {
+      "relationshipType": "IS_EATEN_PREYED_ON_BY",
+      "domain": "Ecology",
+      "definition": "Inverse food/prey relation."
+    },
+    {
+      "relationshipType": "POLLINATES",
+      "domain": "Ecology",
+      "definition": "Organism pollinates a plant/flower."
+    },
+    {
+      "relationshipType": "IS_POLLINATED_BY",
+      "domain": "Ecology",
+      "definition": "Inverse pollination relation."
+    },
+    {
+      "relationshipType": "IS_PARASITE_OF",
+      "domain": "Ecology",
+      "definition": "Parasite-to-host relation."
+    },
+    {
+      "relationshipType": "IS_HOST_TO",
+      "domain": "Ecology",
+      "definition": "Host-to-parasite relation."
+    },
+    {
+      "relationshipType": "SHARES_HABITAT_WITH",
+      "domain": "Ecology",
+      "definition": "Two organisms characteristically share a habitat."
+    },
+    {
+      "relationshipType": "IS_DOMESTICATED_FORM_OF",
+      "domain": "Ecology",
+      "definition": "Domesticated form relative to wild ancestor/type."
+    },
+    {
+      "relationshipType": "IS_WILD_RELATIVE_OF",
+      "domain": "Ecology",
+      "definition": "Wild relative of domesticated organism."
+    },
+    {
+      "relationshipType": "HIBERNATES",
+      "domain": "Ecology",
+      "definition": "Characteristic hibernation behavior."
+    },
+    {
+      "relationshipType": "MIGRATES",
+      "domain": "Ecology",
+      "definition": "Characteristic seasonal/periodic migration behavior."
+    },
+    {
+      "relationshipType": "IS_HARVESTED_FOR",
+      "domain": "Plants & agriculture",
+      "definition": "What a crop/organism is harvested to obtain."
+    },
+    {
+      "relationshipType": "GROWS_ON",
+      "domain": "Plants & agriculture",
+      "definition": "Plant part/product grows on a plant/tree/vine."
+    },
+    {
+      "relationshipType": "IS_SEED_OF",
+      "domain": "Plants & agriculture",
+      "definition": "Seed-to-plant relation."
+    },
+    {
+      "relationshipType": "IS_FRUIT_OF",
+      "domain": "Plants & agriculture",
+      "definition": "Fruit-to-plant relation."
+    },
+    {
+      "relationshipType": "IS_FLOWER_OF",
+      "domain": "Plants & agriculture",
+      "definition": "Flower-to-plant relation."
+    },
+    {
+      "relationshipType": "HAS_BODILY_FUNCTION",
+      "domain": "Anatomy & medicine",
+      "definition": "Physiological function associated with body part/organ."
+    },
+    {
+      "relationshipType": "IS_SYMPTOM_OF",
+      "domain": "Anatomy & medicine",
+      "definition": "Symptom-to-condition relation."
+    },
+    {
+      "relationshipType": "HAS_SYMPTOM",
+      "domain": "Anatomy & medicine",
+      "definition": "Condition-to-symptom relation."
+    },
+    {
+      "relationshipType": "PREVENTS_CONDITION",
+      "domain": "Anatomy & medicine",
+      "definition": "Preventive measure-to-condition relation."
+    },
+    {
+      "relationshipType": "IS_DIAGNOSTIC_TEST_FOR",
+      "domain": "Anatomy & medicine",
+      "definition": "Test-to-condition relation."
+    },
+    {
+      "relationshipType": "CONNECTS_TO",
+      "domain": "Technology",
+      "definition": "Device/service connectivity relation."
+    },
+    {
+      "relationshipType": "TRANSMITS_DATA_TO",
+      "domain": "Technology",
+      "definition": "Data transmission destination."
+    },
+    {
+      "relationshipType": "RECEIVES_DATA_FROM",
+      "domain": "Technology",
+      "definition": "Inverse data transmission."
+    },
+    {
+      "relationshipType": "IS_INPUT_DEVICE_FOR",
+      "domain": "Technology",
+      "definition": "Input-device relation."
+    },
+    {
+      "relationshipType": "IS_OUTPUT_DEVICE_FOR",
+      "domain": "Technology",
+      "definition": "Output-device relation."
+    },
+    {
+      "relationshipType": "STORES_DATA",
+      "domain": "Technology",
+      "definition": "Data-storage function."
+    },
+    {
+      "relationshipType": "DISPLAYS_OUTPUT_FROM",
+      "domain": "Technology",
+      "definition": "Display/output relation."
+    },
+    {
+      "relationshipType": "REQUIRES_NETWORK_CONNECTION",
+      "domain": "Technology",
+      "definition": "Operating requirement for network access."
+    },
+    {
+      "relationshipType": "IS_WIRELESS",
+      "domain": "Technology",
+      "definition": "Wireless operation/connection property."
+    },
+    {
+      "relationshipType": "TRAVELS_ON",
+      "domain": "Transportation",
+      "definition": "Vehicle-to-infrastructure/surface relation."
+    },
+    {
+      "relationshipType": "TRAVELS_BY",
+      "domain": "Transportation",
+      "definition": "Mode-of-transport relation."
+    },
+    {
+      "relationshipType": "STOPS_AT",
+      "domain": "Transportation",
+      "definition": "Vehicle/route-to-stop relation."
+    },
+    {
+      "relationshipType": "IS_STATION_FOR",
+      "domain": "Transportation",
+      "definition": "Station/terminal-to-mode relation."
+    },
+    {
+      "relationshipType": "IS_FUEL_FOR",
+      "domain": "Transportation",
+      "definition": "Fuel-to-vehicle/device relation."
+    },
+    {
+      "relationshipType": "USES_FUEL",
+      "domain": "Transportation",
+      "definition": "Vehicle/device-to-fuel relation."
+    },
+    {
+      "relationshipType": "IS_TOOL_OF_TRADE_FOR",
+      "domain": "Occupations & tools",
+      "definition": "Tool/equipment-to-occupation relation."
+    },
+    {
+      "relationshipType": "WEARS_UNIFORM_OF",
+      "domain": "Occupations & tools",
+      "definition": "Uniform/clothing-to-role relation."
+    },
+    {
+      "relationshipType": "IS_WORKPLACE_OF",
+      "domain": "Occupations & tools",
+      "definition": "Place-to-occupation relation."
+    },
+    {
+      "relationshipType": "IS_PROTECTIVE_EQUIPMENT_FOR",
+      "domain": "Occupations & tools",
+      "definition": "PPE-to-activity/occupation relation."
+    },
+    {
+      "relationshipType": "IS_USED_TO_STUDY",
+      "domain": "Education",
+      "definition": "Study tool/material relation."
+    },
+    {
+      "relationshipType": "IS_GRADE_EVALUATION_OF",
+      "domain": "Education",
+      "definition": "Grade/mark-to-work/performance relation."
+    },
+    {
+      "relationshipType": "IS_TYPICALLY_FOUND_IN_ROOM",
+      "domain": "Household",
+      "definition": "Object-to-household-room relation."
+    },
+    {
+      "relationshipType": "IS_SOLD_AT",
+      "domain": "Commerce",
+      "definition": "Product-to-retail venue relation."
+    },
+    {
+      "relationshipType": "IS_PURCHASED_AT",
+      "domain": "Commerce",
+      "definition": "Item-to-purchase venue relation."
+    },
+    {
+      "relationshipType": "IS_RENTED_FROM",
+      "domain": "Commerce",
+      "definition": "Rental item-to-provider/venue relation."
+    },
+    {
+      "relationshipType": "IS_DISCOUNTED_BY",
+      "domain": "Commerce",
+      "definition": "Item-to-discount mechanism relation."
+    },
+    {
+      "relationshipType": "IS_PACKAGED_IN",
+      "domain": "Commerce",
+      "definition": "Product-to-package/container relation."
+    },
+    {
+      "relationshipType": "IS_USED_AT_AIRPORT",
+      "domain": "Travel",
+      "definition": "Airport-use association."
+    },
+    {
+      "relationshipType": "IS_ILLEGAL_IN",
+      "domain": "Legal & safety",
+      "definition": "Act/item-to-jurisdiction prohibition relation."
+    },
+    {
+      "relationshipType": "IS_REQUIRED_BY_LAW_IN",
+      "domain": "Legal & safety",
+      "definition": "Requirement-to-jurisdiction relation."
+    },
+    {
+      "relationshipType": "IS_EVIDENCE_OF_CRIME",
+      "domain": "Legal & safety",
+      "definition": "Evidence-to-offense relation."
+    },
+    {
+      "relationshipType": "PROTECTS_FROM_HAZARD",
+      "domain": "Legal & safety",
+      "definition": "Protective item/action-to-hazard relation."
+    },
+    {
+      "relationshipType": "WARNS_OF_HAZARD",
+      "domain": "Legal & safety",
+      "definition": "Warning/sign-to-hazard relation."
+    },
+    {
+      "relationshipType": "PLAYS_INSTRUMENT",
+      "domain": "Music",
+      "definition": "Performer/person-to-instrument relation."
+    },
+    {
+      "relationshipType": "PRODUCES_SOUND",
+      "domain": "Music",
+      "definition": "Object/instrument-to-sound relation."
+    },
+    {
+      "relationshipType": "IS_PLAYING_SURFACE_FOR",
+      "domain": "Sports",
+      "definition": "Surface/field/court-to-sport relation."
+    },
+    {
+      "relationshipType": "IS_SCORING_OBJECT_IN",
+      "domain": "Sports",
+      "definition": "Ball/puck/etc.-to-sport relation."
+    },
+    {
+      "relationshipType": "IS_GOAL_TARGET_IN",
+      "domain": "Sports",
+      "definition": "Goal/hoop/net-to-sport relation."
+    },
+    {
+      "relationshipType": "IS_WORN_FOR_SPORT",
+      "domain": "Sports",
+      "definition": "Clothing/protective gear-to-sport relation."
+    },
+    {
+      "relationshipType": "IS_WARNING_SYMBOL_FOR",
+      "domain": "Signs & symbols",
+      "definition": "Symbol-to-warning meaning relation."
+    },
+    {
+      "relationshipType": "IS_INSTRUCTION_SYMBOL_FOR",
+      "domain": "Signs & symbols",
+      "definition": "Symbol-to-instruction meaning relation."
+    },
+    {
+      "relationshipType": "IS_MAP_SYMBOL_FOR",
+      "domain": "Signs & symbols",
+      "definition": "Map-symbol-to-feature relation."
+    },
+    {
+      "relationshipType": "IS_CURRENCY_SYMBOL_FOR",
+      "domain": "Signs & symbols",
+      "definition": "Symbol-to-currency relation."
+    },
+    {
+      "relationshipType": "IS_MATHEMATICAL_SYMBOL_FOR",
+      "domain": "Signs & symbols",
+      "definition": "Symbol-to-mathematical concept relation."
+    },
+    {
+      "relationshipType": "IS_UNIT_OF",
+      "domain": "Measurement",
+      "definition": "Unit-to-quantity relation."
+    },
+    {
+      "relationshipType": "HAS_UNIT",
+      "domain": "Measurement",
+      "definition": "Quantity-to-unit relation."
+    },
+    {
+      "relationshipType": "IS_CONTAINER_FOR",
+      "domain": "Containers",
+      "definition": "Functional container-to-typical-content relation."
+    },
+    {
+      "relationshipType": "IS_PACKAGING_FOR",
+      "domain": "Containers",
+      "definition": "Package-to-product relation."
+    },
+    {
+      "relationshipType": "IS_INGREDIENT_IN",
+      "domain": "Food composition",
+      "definition": "Ingredient-to-dish relation."
+    },
+    {
+      "relationshipType": "CONTAINS_INGREDIENT",
+      "domain": "Food composition",
+      "definition": "Dish-to-ingredient relation."
+    },
+    {
+      "relationshipType": "IS_GARNISH_FOR",
+      "domain": "Food composition",
+      "definition": "Garnish-to-dish/drink relation."
+    },
+    {
+      "relationshipType": "IS_CONDIMENT_FOR",
+      "domain": "Food composition",
+      "definition": "Condiment-to-food relation."
+    },
+    {
+      "relationshipType": "IS_BEVERAGE_INGREDIENT",
+      "domain": "Food composition",
+      "definition": "Ingredient-to-beverage relation."
+    },
+    {
+      "relationshipType": "IS_SYMBOL_OF_ZODIAC_SIGN",
+      "domain": "Astrology & astronomy",
+      "definition": "Symbol/entity-to-zodiac-sign relation."
+    },
+    {
+      "relationshipType": "ORBITS",
+      "domain": "Astrology & astronomy",
+      "definition": "Astronomical orbit relation."
+    },
+    {
+      "relationshipType": "IS_ORBITED_BY",
+      "domain": "Astrology & astronomy",
+      "definition": "Inverse astronomical orbit relation."
+    }
+  ],
+  "tagPolicy": {
+    "openVocabulary": true,
+    "exactReferentAsTag": true,
+    "preserveRawDiscovery": true,
+    "newRelationshipEscapeHatch": true
+  }
+}

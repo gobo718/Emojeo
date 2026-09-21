@@ -1,0 +1,1302 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-step3-batch-run-spec",
+  "batchId": "step3-diverse-001",
+  "subjectCount": 79,
+  "relationshipCount": 857,
+  "strategy": {
+    "unit": "subject × relationship-domain",
+    "reason": "Keeps prompts bounded while evaluating the full inventory.",
+    "retainAllTrue": true,
+    "openTagDiscovery": true,
+    "newRelationshipEscapeHatch": true,
+    "checkpointAfterEachSubject": true,
+    "resumeFromCheckpoint": true
+  },
+  "relationshipDomains": [
+    {
+      "domain": "visible composition",
+      "relationshipTypes": [
+        "HAS_PART",
+        "HAS_OBJECT"
+      ]
+    },
+    {
+      "domain": "visible/encoded property",
+      "relationshipTypes": [
+        "HAS_COLOR",
+        "HAS_QUANTITY"
+      ]
+    },
+    {
+      "domain": "Unclassified",
+      "relationshipTypes": [
+        "HAS_MATERIAL",
+        "HAS_TEXTURE",
+        "HAS_VISIBLE_SETTING",
+        "IS_MEMBER_OF_COMMUNITY",
+        "PARTICIPATES_IN_CULTURE_TRADITION",
+        "IS_USED_IN_RITUAL_CEREMONY",
+        "CELEBRATES",
+        "COMMEMORATES",
+        "IS_SHARED_WITH",
+        "SHARES_WITH",
+        "POSES_RISK_TO",
+        "IS_AT_RISK_FROM",
+        "POWERS_ENERGIZES",
+        "IS_POWERED_ENERGIZED_BY",
+        "PUSHES",
+        "PULLS",
+        "IS_PUSHED_BY",
+        "IS_PULLED_BY",
+        "HAS_SPEED",
+        "IS_FASTER_THAN",
+        "IS_SLOWER_THAN",
+        "HAS_RANK_ORDER",
+        "IS_HIGHER_RANKED_THAN",
+        "IS_LOWER_RANKED_THAN",
+        "HAS_GEOGRAPHIC_ORIGIN",
+        "COMFORTS_CONSOLES",
+        "ENCOURAGES",
+        "CONGRATULATES",
+        "GREETS",
+        "THANKS",
+        "ACCEPTS",
+        "REFUSES_REJECTS",
+        "ATTENDS_TO_FOCUSES_ON",
+        "REMEMBERS_MEMORIALIZES",
+        "ANTICIPATES_EXPECTS",
+        "WINS_DEFEATS",
+        "LOSES_TO_IS_DEFEATED_BY",
+        "MANAGES_CONTROLS",
+        "IMITATES_COPIES",
+        "IS_COPY_REPLICA_OF",
+        "GUARDS_DEFENDS",
+        "IS_GUARDED_DEFENDED_BY",
+        "SELECTS_CHOOSES",
+        "IS_SELECTED_CHOSEN_BY",
+        "ACQUIRES_OBTAINS",
+        "LOSES",
+        "SEARCHES_SEEKS",
+        "FINDS_DISCOVERS",
+        "COMPLETES_FINISHES",
+        "OPENS",
+        "CLOSES",
+        "LOCKS_SECURES",
+        "UNLOCKS_OPENS_ACCESS",
+        "BUILDS_CONSTRUCTS",
+        "DESTROYS",
+        "FILLS",
+        "EMPTIES",
+        "INCREASES",
+        "DECREASES",
+        "ARRIVES_AT",
+        "DEPARTS_LEAVES_FROM",
+        "SENDS_TRANSMITS",
+        "INVITES",
+        "HOSTS",
+        "VISITS",
+        "ORGANIZES_ARRANGES",
+        "SPEAKS_SAYS_TO",
+        "ASKS_QUESTIONS_OF",
+        "ANSWERS_QUESTION",
+        "INSTRUCTS_DIRECTS",
+        "ADVISES",
+        "MOURNS_GRIEVES_FOR",
+        "HEALS_TREATS",
+        "IS_HEALED_TREATED_BY",
+        "FEEDS_NOURISHES",
+        "IS_FED_NOURISHED_BY",
+        "TRAINS_PRACTICES_FOR",
+        "PLAYS_PERFORMS",
+        "TRAVELS_TO_THROUGH",
+        "RESIDES_LIVES_IN",
+        "WORKS_AT_IN",
+        "RESCUES_SAVES",
+        "IS_RESCUED_SAVED_BY",
+        "OBEYS_COMPLIES_WITH",
+        "IS_OBEYED_COMPLIED_WITH_BY",
+        "VIOLATES_BREAKS_RULE",
+        "REWARDS_AWARDS",
+        "IS_REWARDED_AWARDED_BY",
+        "PUNISHES_PENALIZES",
+        "IS_PUNISHED_PENALIZED_BY",
+        "MONITORS_WATCHES",
+        "IS_MONITORED_WATCHED_BY",
+        "DONATES_GIFTS",
+        "IS_DONATED_GIFTED_TO",
+        "IS_FRIEND_OF",
+        "IS_COMPANION_OF",
+        "FEARS_IS_AFRAID_OF",
+        "HAS_RESPONSIBILITY_FOR",
+        "IS_RESPONSIBILITY_OF",
+        "IS_AWARE_OF",
+        "INDICATES_EVIDENCE_OF",
+        "IS_SUPPORTED_BY_EVIDENCE",
+        "IS_AVAILABLE_TO",
+        "IS_INACCESSIBLE_TO",
+        "IS_COMPATIBLE_WITH",
+        "FITS",
+        "LACKS_IS_WITHOUT",
+        "EXCLUDES",
+        "PERCEIVES_SENSES",
+        "HAS_SENSORY_QUALITY",
+        "INTENDS_AIMS_TO",
+        "HAS_GOAL",
+        "IS_CAPABLE_OF",
+        "HAS_DURATION",
+        "RECURS_REPEATS",
+        "HAS_DISTANCE_FROM",
+        "IS_NEAR",
+        "IS_FAR_FROM",
+        "HAS_ENVIRONMENTAL_CONDITION",
+        "HAS_STATUS",
+        "HOMONYM_OF",
+        "HOMOPHONE_OF",
+        "HOMOGRAPH_OF",
+        "PERFECT_RHYMES_WITH",
+        "NEAR_RHYMES_WITH",
+        "ALLITERATES_WITH",
+        "ASSONATES_WITH",
+        "CONSONATES_WITH",
+        "STARTS_WITH_SAME_SOUND_AS",
+        "ENDS_WITH_SAME_SOUND_AS",
+        "STARTS_WITH_SAME_LETTER_AS",
+        "ENDS_WITH_SAME_LETTER_AS",
+        "SHARES_PREFIX_WITH",
+        "SHARES_SUFFIX_WITH",
+        "SHARES_WORD_WITH",
+        "IS_ANAGRAM_OF",
+        "IS_PALINDROME_OF_ITSELF",
+        "IS_ABBREVIATION_OF",
+        "IS_ACRONYM_OF",
+        "IS_SINGULAR_OF",
+        "IS_PLURAL_OF",
+        "IS_DERIVED_WORD_FORM_OF",
+        "IS_SYNONYM_OF",
+        "IS_ANTONYM_OF",
+        "IS_HYPERNYM_OF",
+        "IS_HYPONYM_OF",
+        "IS_MERONYM_OF",
+        "IS_HOLONYM_OF",
+        "HAS_DOUBLE_MEANING_WITH",
+        "IS_PUNNABLE_WITH",
+        "SOUNDS_LIKE",
+        "IS_SPELLED_SIMILARLY_TO",
+        "IS_WORN_BY",
+        "IS_HELD_BY",
+        "IS_CARRIED_BY",
+        "IS_USED_BY",
+        "IS_OPERATED_BY",
+        "IS_SUPPORTED_BY",
+        "IS_COVERED_BY",
+        "IS_CONCEALED_BY",
+        "IS_TARGETED_AT",
+        "IS_TARGET_OF",
+        "PROTECTS",
+        "IS_PROTECTED_BY",
+        "GIVES_TRANSFERS",
+        "IS_GIVEN_TRANSFERRED_TO",
+        "FOLLOWS",
+        "IS_FOLLOWED_BY",
+        "OPPOSES_RESISTS",
+        "COOPERATES_WITH",
+        "IS_SIMILAR_TO",
+        "IS_DIFFERENT_FROM",
+        "IS_DETACHED_FROM",
+        "CREATES_PRODUCES",
+        "IS_CREATED_PRODUCED_BY",
+        "CAUSES",
+        "RESULTS_FROM",
+        "DAMAGES_HARMS",
+        "IS_DAMAGED_HARMED_BY",
+        "REPAIRS_RESTORES",
+        "IS_REPAIRED_RESTORED_BY",
+        "CONSUMES",
+        "IS_CONSUMED_BY",
+        "NEEDS_REQUIRES",
+        "IS_NEEDED_REQUIRED_BY",
+        "TEACHES_INSTRUCTS",
+        "LEARNS_FROM",
+        "NAMES_LABELS",
+        "IS_NAMED_LABELED_BY",
+        "IS_EQUAL_EQUIVALENT_TO",
+        "IS_GREATER_MORE_THAN",
+        "IS_LESS_FEWER_THAN",
+        "IS_DERIVED_FROM",
+        "IS_SOURCE_FOR",
+        "BENEFITS",
+        "ENABLES_ALLOWS",
+        "RESTRICTS_PREVENTS",
+        "REPLACES_SUBSTITUTES_FOR",
+        "REQUIRES_DEPENDS_ON",
+        "IS_TYPE_OF",
+        "IS_EXAMPLE_OF",
+        "IS_PART_OF",
+        "HAS_CONTENT",
+        "IS_CONTENT_OF",
+        "HAS_SOURCE_ORIGIN",
+        "HAS_DESTINATION",
+        "IS_MEDIUM_FOR",
+        "GUIDES",
+        "HELPS_ASSISTS",
+        "CONTROLS_REGULATES",
+        "PROVIDES_SUPPLIES",
+        "RECEIVES",
+        "MEASURES_INDICATES",
+        "MODIFIES",
+        "TRANSPORTS",
+        "EMERGES_FROM",
+        "IS_MEMBER_OF",
+        "IS_OLDER_THAN",
+        "IS_YOUNGER_THAN",
+        "IS_LARGER_THAN",
+        "IS_SMALLER_THAN",
+        "OWNS_POSSESSES",
+        "BELONGS_TO",
+        "ENTERS",
+        "EXITS",
+        "WARNS",
+        "NOTIFIES_INFORMS",
+        "COMMANDS_DIRECTS",
+        "PERMITS",
+        "PROHIBITS",
+        "CARES_FOR",
+        "IS_CARED_FOR_BY",
+        "RELIES_ON",
+        "SERVES_AS_WORKER_FOR",
+        "IS_CUSTOMER_CLIENT_OF",
+        "COMPETES_WITH",
+        "JOINS_CONNECTS_TO",
+        "SEPARATES_FROM",
+        "TRANSFORMS_INTO",
+        "TRANSFORMS_FROM",
+        "STANDS_ON",
+        "SITS_ON",
+        "RIDES_ON",
+        "HAS_SPATIAL_RELATION",
+        "HAS_SEQUENCE_RELATION",
+        "HAS_OPPOSITION_CONFLICT_RELATION",
+        "HAS_COOPERATION_RELATION",
+        "HAS_TRANSFER_EXCHANGE_RELATION",
+        "HAS_TARGET_RECIPIENT_RELATION",
+        "HAS_PROTECTIVE_RELATION",
+        "TOUCHES",
+        "GRASPS",
+        "EMBRACES",
+        "ENCLOSES",
+        "HAS_ACCESS_TO",
+        "OBSERVES_LOOKS_AT",
+        "DISPLAYS_SHOWS",
+        "IDENTIFIES_MARKS",
+        "QUANTIFIES",
+        "IS_PAIRED_WITH",
+        "IS_PARTNER_OF",
+        "IS_PARENT_OF",
+        "IS_CHILD_OF",
+        "HAS_LIFE_STAGE",
+        "PARTICIPATES_IN",
+        "HAS_OCCUPATIONAL_ROLE",
+        "IS_AGENT_OF",
+        "IS_AFFECTED_BY",
+        "IS_INSTRUMENT_OF",
+        "HAS_PURPOSE",
+        "IS_LOCATED_AT",
+        "HAS_PATH_ROUTE",
+        "STARTS_BEGINS",
+        "ENDS_FINISHES",
+        "OCCURS_BEFORE",
+        "OCCURS_AFTER",
+        "CO_OCCURS_WITH",
+        "RESPONDS_REACTS_TO",
+        "REQUESTS_CALLS_FOR",
+        "SERVES_PROVIDES_SERVICE_TO",
+        "TRUSTS",
+        "DOMINATES",
+        "IS_SUBORDINATE_TO",
+        "IS_CONNECTED_TO",
+        "IS_COMPOSED_OF",
+        "REVEALS_EXPOSES",
+        "IS_REVEALED_EXPOSED_BY",
+        "HIDES_CONCEALS",
+        "IS_HIDDEN_CONCEALED_BY",
+        "FASTENS_SECURES",
+        "IS_FASTENED_SECURED_TO",
+        "OCCUPIES",
+        "ACCOMPANIES",
+        "IS_ACCOMPANIED_BY",
+        "BUYS_PURCHASES",
+        "SELLS",
+        "TRADES_EXCHANGES_WITH",
+        "PAYS",
+        "COSTS_HAS_PRICE",
+        "HAS_AUTHORITY_OVER",
+        "IS_UNDER_AUTHORITY_OF",
+        "WORKS_FOR",
+        "EMPLOYS",
+        "IS_REPRESENTATIVE_OF",
+        "HATCHES_FROM",
+        "GROWS_DEVELOPS_INTO",
+        "THREATENS_ENDANGERS",
+        "IS_THREATENED_ENDANGERED_BY",
+        "WEARS",
+        "HOLDS_CARRIES",
+        "USES_OPERATES",
+        "RIDES",
+        "SUPPORTS",
+        "COVERS_CONCEALS",
+        "LOOKS_FACES_TOWARD",
+        "MADE_OF",
+        "RESEMBLES",
+        "HAS_TEMPORAL_RELATION",
+        "HAS_SOCIAL_POWER_RELATION",
+        "HAS_DEPENDENCY_RELATION",
+        "HAS_COMMUNICATIVE_RELATION",
+        "REPRESENTS_OR_DENOTES",
+        "HAS_AGENT_INSTRUMENT_RELATION",
+        "HAS_TRANSACTION_SERVICE_RELATION",
+        "HAS_MEMBERSHIP_AFFILIATION_RELATION",
+        "HAS_IDENTITY_REPRESENTATION_RELATION",
+        "HAS_TRANSFORMATION_TRANSITION_RELATION",
+        "HAS_REGULATORY_NORMATIVE_RELATION",
+        "HAS_TRACE_EVIDENCE_RELATION",
+        "HAS_SOCIAL_BOND_RELATION",
+        "HAS_PHYSICAL_CONTACT_RELATION",
+        "DENOTES",
+        "REPRESENTS",
+        "SYMBOLIZES",
+        "IS_ASSOCIATED_WITH",
+        "IS_INSIDE",
+        "CONTAINS",
+        "IS_ON",
+        "IS_UNDER",
+        "IS_ABOVE",
+        "IS_ADJACENT_TO",
+        "SURROUNDS",
+        "IS_SURROUNDED_BY",
+        "IS_ATTACHED_TO"
+      ]
+    },
+    {
+      "domain": "visible property",
+      "relationshipTypes": [
+        "HAS_SHAPE"
+      ]
+    },
+    {
+      "domain": "visible structure",
+      "relationshipTypes": [
+        "HAS_COMPOSITION",
+        "HAS_ORIENTATION_POSITION"
+      ]
+    },
+    {
+      "domain": "action",
+      "relationshipTypes": [
+        "PERFORMS_ACTION"
+      ]
+    },
+    {
+      "domain": "visible action cue",
+      "relationshipTypes": [
+        "HAS_POSE_GESTURE"
+      ]
+    },
+    {
+      "domain": "visible expression",
+      "relationshipTypes": [
+        "HAS_EXPRESSION"
+      ]
+    },
+    {
+      "domain": "semantic interpretation",
+      "relationshipTypes": [
+        "CONVEYS_EMOTION"
+      ]
+    },
+    {
+      "domain": "semantic role",
+      "relationshipTypes": [
+        "HAS_ROLE"
+      ]
+    },
+    {
+      "domain": "encoded metadata/semantic property",
+      "relationshipTypes": [
+        "HAS_ENCODED_IDENTITY"
+      ]
+    },
+    {
+      "domain": "inter-entity relation",
+      "relationshipTypes": [
+        "RELATES_TO",
+        "HAS_KINSHIP_OR_CARE_RELATION"
+      ]
+    },
+    {
+      "domain": "context",
+      "relationshipTypes": [
+        "IMPLIES_SETTING"
+      ]
+    },
+    {
+      "domain": "functional semantics",
+      "relationshipTypes": [
+        "HAS_FUNCTION"
+      ]
+    },
+    {
+      "domain": "state",
+      "relationshipTypes": [
+        "HAS_STATE_CONDITION"
+      ]
+    },
+    {
+      "domain": "conventional/interpretive semantics",
+      "relationshipTypes": [
+        "SYMBOLIZES_ASSOCIATES_WITH"
+      ]
+    },
+    {
+      "domain": "cross-emoji relation",
+      "relationshipTypes": [
+        "SIMILAR_TO",
+        "CONTRASTS_WITH"
+      ]
+    },
+    {
+      "domain": "Sexuality & erotic reference",
+      "relationshipTypes": [
+        "SEXUAL_REFERENCE",
+        "SEXUAL_ACTIVITY_REFERENCE",
+        "EROTIC_REFERENCE",
+        "AROUSAL_REFERENCE",
+        "SEXUAL_DESIRE_REFERENCE",
+        "SEXUAL_BEHAVIOR_REFERENCE",
+        "SEXUAL_SLANG_REFERENCE",
+        "SEXUAL_INNUENDO_REFERENCE",
+        "SEXUAL_DOUBLE_MEANING_REFERENCE",
+        "SEXTING_REFERENCE",
+        "FLIRTING_REFERENCE",
+        "ADULT_ENTERTAINMENT_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Solo sexuality & masturbation",
+      "relationshipTypes": [
+        "MASTURBATION_REFERENCE",
+        "SOLO_SEX_REFERENCE",
+        "SEX_TOY_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Kink & fetish",
+      "relationshipTypes": [
+        "KINK_REFERENCE",
+        "FETISH_REFERENCE",
+        "BDSM_REFERENCE",
+        "ROLEPLAY_REFERENCE",
+        "RESTRAINT_REFERENCE",
+        "DOMINANCE_REFERENCE",
+        "SUBMISSION_REFERENCE",
+        "POWER_EXCHANGE_REFERENCE",
+        "SENSATION_PLAY_REFERENCE",
+        "IMPACT_PLAY_REFERENCE",
+        "LEATHER_REFERENCE",
+        "LATEX_REFERENCE",
+        "FOOT_FETISH_REFERENCE",
+        "VOYEURISM_REFERENCE",
+        "EXHIBITIONISM_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Sexual anatomy & embodied associations",
+      "relationshipTypes": [
+        "SEXUAL_BODY_PART_REFERENCE",
+        "GENITAL_REFERENCE",
+        "BREAST_REFERENCE",
+        "BUTTOCKS_REFERENCE",
+        "ORAL_SEX_REFERENCE",
+        "ANAL_SEX_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Sexual roles, relationships & contexts",
+      "relationshipTypes": [
+        "SEXUAL_ROLE_REFERENCE",
+        "SEXUAL_DYNAMIC_REFERENCE",
+        "SEXUAL_PARTNER_REFERENCE",
+        "HOOKUP_REFERENCE",
+        "CASUAL_SEX_REFERENCE",
+        "GROUP_SEX_REFERENCE",
+        "ROMANTIC_SEXUAL_REFERENCE",
+        "SEX_WORK_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Sexual health & reproduction",
+      "relationshipTypes": [
+        "CONTRACEPTION_REFERENCE",
+        "SAFER_SEX_REFERENCE",
+        "PREGNANCY_REFERENCE",
+        "FERTILITY_REFERENCE",
+        "REPRODUCTION_REFERENCE",
+        "SEXUAL_HEALTH_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Color & palette systems",
+      "relationshipTypes": [
+        "IS_MEMBER_OF_NAMED_COLOR_SET",
+        "IS_IN_SAME_NAMED_COLOR_SET_AS",
+        "IS_SEASONAL_COLOR_OF",
+        "HAS_SEASONAL_COLOR",
+        "IS_HOLIDAY_COLOR_OF",
+        "HAS_HOLIDAY_COLOR",
+        "IS_OCCASION_COLOR_OF",
+        "IS_TRADITIONAL_COLOR_OF",
+        "IS_FASHION_SEASON_COLOR_OF"
+      ]
+    },
+    {
+      "domain": "Recognition & awards",
+      "relationshipTypes": [
+        "IS_FORM_OF_AWARD",
+        "SIGNIFIES_ACHIEVEMENT",
+        "SIGNIFIES_PLACEMENT",
+        "SIGNIFIES_HONOR",
+        "CERTIFIES_QUALIFICATION",
+        "IS_AWARDED_FOR",
+        "IS_CHAMPIONSHIP_AWARD"
+      ]
+    },
+    {
+      "domain": "Power & operating requirements",
+      "relationshipTypes": [
+        "REQUIRES_BATTERY",
+        "IS_BATTERY_POWERED",
+        "REQUIRES_ELECTRICITY",
+        "IS_RECHARGEABLE",
+        "REQUIRES_CHARGING",
+        "IS_SOLAR_POWERED",
+        "USES_REPLACEABLE_BATTERIES",
+        "USES_BUILT_IN_BATTERY",
+        "IS_POWER_SOURCE_FOR"
+      ]
+    },
+    {
+      "domain": "Food roles & meal culture",
+      "relationshipTypes": [
+        "IS_BREAKFAST_FOOD",
+        "IS_BRUNCH_FOOD",
+        "IS_LUNCH_FOOD",
+        "IS_DINNER_FOOD",
+        "IS_SNACK_FOOD",
+        "IS_FAST_FOOD",
+        "IS_TAKEOUT_FOOD",
+        "IS_CONCESSION_FOOD",
+        "IS_HEALTH_FOOD",
+        "IS_WHOLE_FOOD",
+        "IS_COMFORT_FOOD",
+        "IS_PARTY_FOOD",
+        "IS_HOLIDAY_FOOD",
+        "IS_SEASONAL_FOOD"
+      ]
+    },
+    {
+      "domain": "Valence, scary & supernatural",
+      "relationshipTypes": [
+        "HAS_POSITIVE_VALENCE",
+        "HAS_NEGATIVE_VALENCE",
+        "HAS_MIXED_VALENCE",
+        "IS_SCARY",
+        "IS_SUPERNATURAL",
+        "IS_HORROR_RELATED",
+        "IS_OCCULT_RELATED"
+      ]
+    },
+    {
+      "domain": "Holiday association roles",
+      "relationshipTypes": [
+        "IS_HOLIDAY_SYMBOL",
+        "IS_HOLIDAY_CHARACTER",
+        "IS_HOLIDAY_DECORATION",
+        "IS_HOLIDAY_GIFT",
+        "IS_HOLIDAY_ACTIVITY",
+        "IS_HOLIDAY_COSTUME",
+        "IS_HOLIDAY_CREATURE",
+        "IS_HOLIDAY_RELIGIOUS_ELEMENT",
+        "IS_HOLIDAY_TRADITION"
+      ]
+    },
+    {
+      "domain": "Pop culture reference hierarchy",
+      "relationshipTypes": [
+        "ENTERTAINMENT_REFERENCE",
+        "TV_REFERENCE",
+        "CARTOON_REFERENCE",
+        "COMICS_REFERENCE",
+        "BOOK_REFERENCE",
+        "MOVIE_REFERENCE",
+        "VIDEO_GAME_REFERENCE",
+        "SERIES_REFERENCE",
+        "FRANCHISE_REFERENCE",
+        "EPISODE_REFERENCE",
+        "CHARACTER_REFERENCE",
+        "PUBLISHER_REFERENCE",
+        "STUDIO_REFERENCE",
+        "FICTIONAL_FACTION_REFERENCE",
+        "FICTIONAL_ORGANIZATION_REFERENCE",
+        "FICTIONAL_SCHOOL_REFERENCE",
+        "FICTIONAL_HOUSE_REFERENCE",
+        "FICTIONAL_LOCATION_REFERENCE",
+        "SIGNATURE_OBJECT_REFERENCE",
+        "MASCOT_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Experience & routine bundles",
+      "relationshipTypes": [
+        "IS_PART_OF_OUTING",
+        "IS_PART_OF_ROUTINE",
+        "IS_ROUTINE_STEP",
+        "COMMONLY_PRECEDES_IN_ROUTINE",
+        "COMMONLY_FOLLOWS_IN_ROUTINE",
+        "IS_TIME_OF_DAY_ACTIVITY",
+        "IS_BEACH_DAY_ACTIVITY",
+        "IS_BEACH_GEAR",
+        "IS_RAINY_DAY_ACTIVITY",
+        "IS_INDOOR_ACTIVITY",
+        "IS_COZY_ACTIVITY",
+        "IS_ASSOCIATED_WITH_STAYING_INSIDE"
+      ]
+    },
+    {
+      "domain": "Transformation & makeover",
+      "relationshipTypes": [
+        "IS_PART_OF_MAKEOVER",
+        "IS_GROOMING_ACTIVITY",
+        "IS_SELF_PRESENTATION_ACTIVITY",
+        "IS_BEFORE_STATE_OF",
+        "IS_AFTER_STATE_OF",
+        "TRANSFORMS_APPEARANCE_OF"
+      ]
+    },
+    {
+      "domain": "Disaster, emergency & doomsday",
+      "relationshipTypes": [
+        "IS_DISASTER",
+        "IS_NATURAL_DISASTER",
+        "IS_DISASTER_CAUSE",
+        "IS_DISASTER_EFFECT",
+        "IS_DISASTER_WARNING",
+        "IS_EMERGENCY_RESPONSE",
+        "IS_DISASTER_PREPAREDNESS_ITEM",
+        "IS_EVACUATION_RELATED",
+        "IS_RECOVERY_RELATED",
+        "IS_DOOMSDAY_SCENARIO",
+        "IS_APOCALYPSE_TROPE",
+        "IS_DOOMSDAY_PREP_ITEM",
+        "IS_SURVIVAL_SUPPLY"
+      ]
+    },
+    {
+      "domain": "Use-cycle & disposability",
+      "relationshipTypes": [
+        "IS_SINGLE_USE",
+        "IS_DISPOSABLE",
+        "IS_CONSUMABLE",
+        "IS_REUSABLE",
+        "IS_REFILLABLE",
+        "IS_REPLACEABLE",
+        "IS_RECYCLABLE",
+        "IS_COMPOSTABLE",
+        "BECOMES_WASTE_AFTER_USE"
+      ]
+    },
+    {
+      "domain": "Altered-state / body effects",
+      "relationshipTypes": [
+        "IS_MOOD_ALTERING",
+        "IS_PSYCHOACTIVE",
+        "IS_INTOXICATING",
+        "IS_STIMULANT",
+        "IS_DEPRESSANT",
+        "IS_SEDATIVE",
+        "AFFECTS_ALERTNESS",
+        "AFFECTS_MOOD",
+        "AFFECTS_PERCEPTION"
+      ]
+    },
+    {
+      "domain": "Fashion, print & motif",
+      "relationshipTypes": [
+        "IS_FASHION_PRINT_SOURCE_FOR",
+        "IS_PATTERN_MOTIF_FOR",
+        "INSPIRES_PATTERN",
+        "APPEARS_AS_PRINT_ON",
+        "IS_TEXTILE_PATTERN",
+        "IS_DECORATIVE_MOTIF"
+      ]
+    },
+    {
+      "domain": "Organism/source → food/product",
+      "relationshipTypes": [
+        "IS_FOOD_SOURCE_FOR",
+        "IS_MEAT_SOURCE_FOR",
+        "IS_INGREDIENT_SOURCE_FOR",
+        "IS_PROCESSED_INTO",
+        "IS_PREPARED_AS",
+        "IS_DAIRY_SOURCE_FOR",
+        "PRODUCES_EDIBLE_PRODUCT",
+        "IS_EDIBLE_PRODUCT_OF",
+        "IS_MATERIAL_SOURCE_FOR"
+      ]
+    },
+    {
+      "domain": "Opposites & conceptual duals",
+      "relationshipTypes": [
+        "IS_OPPOSITE_OF",
+        "IS_COLOR_OPPOSITE_OF",
+        "IS_DIRECTIONAL_OPPOSITE_OF",
+        "IS_STATE_OPPOSITE_OF",
+        "IS_TEMPERATURE_OPPOSITE_OF",
+        "IS_TEMPORAL_OPPOSITE_OF",
+        "IS_EMOTIONAL_OPPOSITE_OF",
+        "IS_MATHEMATICAL_OPPOSITE_OF"
+      ]
+    },
+    {
+      "domain": "Unicode / encoding",
+      "relationshipTypes": [
+        "IS_VARIATION_OF",
+        "HAS_VARIATION_SELECTOR",
+        "HAS_SKIN_TONE_VARIANT",
+        "IS_SKIN_TONE_VARIANT_OF",
+        "HAS_GENDER_VARIANT",
+        "IS_GENDER_VARIANT_OF",
+        "HAS_HAIR_VARIANT",
+        "IS_HAIR_VARIANT_OF",
+        "IS_ZWJ_SEQUENCE_OF",
+        "IS_COMPONENT_OF_ZWJ_SEQUENCE",
+        "IS_FLAG_SEQUENCE_FOR",
+        "IS_KEYCAP_SEQUENCE_OF",
+        "HAS_UNICODE_ALIAS"
+      ]
+    },
+    {
+      "domain": "Taxonomic / classification",
+      "relationshipTypes": [
+        "IS_IN_SAME_UNICODE_GROUP_AS",
+        "IS_IN_SAME_UNICODE_SUBGROUP_AS",
+        "IS_TAXONOMIC_SIBLING_OF",
+        "HAS_COMMON_ANCESTOR_CLASS_WITH",
+        "IS_BREED_VARIETY_OF"
+      ]
+    },
+    {
+      "domain": "Numeric / quantitative",
+      "relationshipTypes": [
+        "HAS_SAME_QUANTITY_AS",
+        "HAS_MORE_OF_THAN",
+        "HAS_FEWER_OF_THAN",
+        "IS_DOUBLE_OF",
+        "IS_HALF_OF",
+        "HAS_SAME_NUMBER_OF_PARTS_AS"
+      ]
+    },
+    {
+      "domain": "Visual / geometric comparison",
+      "relationshipTypes": [
+        "IS_MIRROR_IMAGE_OF",
+        "IS_ROTATION_OF",
+        "IS_INVERTED_VERSION_OF",
+        "HAS_SAME_SILHOUETTE_AS",
+        "HAS_SAME_SYMMETRY_AS",
+        "HAS_SAME_LAYOUT_AS",
+        "HAS_SAME_NUMBER_OF_VISIBLE_ELEMENTS_AS"
+      ]
+    },
+    {
+      "domain": "Color relations",
+      "relationshipTypes": [
+        "HAS_SAME_COLOR_AS",
+        "IS_LIGHTER_THAN",
+        "IS_DARKER_THAN",
+        "IS_COMPLEMENTARY_COLOR_TO",
+        "IS_ANALOGOUS_COLOR_TO"
+      ]
+    },
+    {
+      "domain": "Temporal / calendar",
+      "relationshipTypes": [
+        "OCCURS_ON_SAME_DATE_AS",
+        "OCCURS_IN_SAME_SEASON_AS",
+        "IS_ANNIVERSARY_OF",
+        "IS_TIMEZONE_EQUIVALENT_TO"
+      ]
+    },
+    {
+      "domain": "Geographic / real-world",
+      "relationshipTypes": [
+        "IS_FROM_SAME_COUNTRY_AS",
+        "IS_FROM_SAME_REGION_AS",
+        "IS_NORTH_OF",
+        "IS_SOUTH_OF",
+        "IS_EAST_OF",
+        "IS_WEST_OF"
+      ]
+    },
+    {
+      "domain": "Cultural / conventional sets",
+      "relationshipTypes": [
+        "IS_PART_OF_CONVENTIONAL_SET_WITH",
+        "IS_TRADITIONALLY_PAIRED_WITH",
+        "IS_ALTERNATIVE_TO",
+        "IS_COUNTERPART_OF"
+      ]
+    },
+    {
+      "domain": "Emoji-platform / rendering",
+      "relationshipTypes": [
+        "HAS_PLATFORM_RENDERING_VARIANT",
+        "IS_RENDERING_OF_SAME_EMOJI_AS",
+        "DIFFERS_IN_RENDERING_FROM"
+      ]
+    },
+    {
+      "domain": "Media & format",
+      "relationshipTypes": [
+        "RADIO_REFERENCE",
+        "STREAMING_REFERENCE",
+        "WEB_SERIES_REFERENCE",
+        "PODCAST_REFERENCE",
+        "THEATER_REFERENCE",
+        "MUSICAL_REFERENCE",
+        "ANIME_REFERENCE",
+        "MANGA_REFERENCE",
+        "NEWSPAPER_COMIC_REFERENCE",
+        "COMIC_STRIP_REFERENCE",
+        "GRAPHIC_NOVEL_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Production & distribution",
+      "relationshipTypes": [
+        "NETWORK_REFERENCE",
+        "STREAMING_SERVICE_REFERENCE",
+        "RECORD_LABEL_REFERENCE",
+        "GAME_DEVELOPER_REFERENCE",
+        "GAME_PUBLISHER_REFERENCE",
+        "COMICS_IMPRINT_REFERENCE",
+        "ANIMATION_STUDIO_REFERENCE",
+        "FILM_STUDIO_REFERENCE",
+        "PRODUCTION_COMPANY_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Fictional world structure",
+      "relationshipTypes": [
+        "FICTIONAL_TEAM_REFERENCE",
+        "FICTIONAL_SPECIES_REFERENCE",
+        "FICTIONAL_RACE_REFERENCE",
+        "FICTIONAL_PLANET_REFERENCE",
+        "FICTIONAL_CITY_REFERENCE",
+        "FICTIONAL_BUILDING_REFERENCE",
+        "FICTIONAL_VEHICLE_REFERENCE",
+        "FICTIONAL_WEAPON_REFERENCE",
+        "FICTIONAL_ARTIFACT_REFERENCE",
+        "FICTIONAL_FOOD_REFERENCE",
+        "FICTIONAL_CURRENCY_REFERENCE",
+        "FICTIONAL_SPORT_REFERENCE",
+        "FICTIONAL_EVENT_REFERENCE",
+        "FICTIONAL_RELIGION_REFERENCE",
+        "FICTIONAL_LANGUAGE_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Character identity & relationships",
+      "relationshipTypes": [
+        "ALTER_EGO_REFERENCE",
+        "SECRET_IDENTITY_REFERENCE",
+        "SIDEKICK_REFERENCE",
+        "VILLAIN_REFERENCE",
+        "HERO_REFERENCE",
+        "LOVE_INTEREST_REFERENCE",
+        "FAMILY_MEMBER_REFERENCE",
+        "RIVAL_REFERENCE",
+        "ARCHENEMY_REFERENCE",
+        "DUO_REFERENCE",
+        "ENSEMBLE_REFERENCE",
+        "CROSSOVER_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Narrative granularity",
+      "relationshipTypes": [
+        "SEASON_REFERENCE",
+        "STORY_ARC_REFERENCE",
+        "ISSUE_REFERENCE",
+        "CHAPTER_REFERENCE",
+        "SCENE_REFERENCE",
+        "PLOT_EVENT_REFERENCE",
+        "STORYLINE_REFERENCE",
+        "ORIGIN_STORY_REFERENCE",
+        "FINALE_REFERENCE",
+        "CAMEO_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Signature & recurring associations",
+      "relationshipTypes": [
+        "RECURRING_GAG_REFERENCE",
+        "CATCHPHRASE_REFERENCE",
+        "SIGNATURE_FOOD_REFERENCE",
+        "SIGNATURE_DRINK_REFERENCE",
+        "SIGNATURE_CLOTHING_REFERENCE",
+        "SIGNATURE_COLOR_REFERENCE",
+        "SIGNATURE_SYMBOL_REFERENCE",
+        "SIGNATURE_POWER_REFERENCE",
+        "SIGNATURE_ABILITY_REFERENCE",
+        "SIGNATURE_VEHICLE_REFERENCE",
+        "SIGNATURE_WEAPON_REFERENCE",
+        "THEME_SONG_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Genre, trope & archetype",
+      "relationshipTypes": [
+        "GENRE_REFERENCE",
+        "SUBGENRE_REFERENCE",
+        "TROPE_REFERENCE",
+        "CHARACTER_ARCHETYPE_REFERENCE",
+        "STOCK_CHARACTER_REFERENCE",
+        "PLOT_TROPE_REFERENCE",
+        "VISUAL_TROPE_REFERENCE",
+        "HORROR_TROPE_REFERENCE",
+        "SCIENCE_FICTION_TROPE_REFERENCE",
+        "FANTASY_TROPE_REFERENCE",
+        "ROMANCE_TROPE_REFERENCE",
+        "COMEDY_TROPE_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Games & play culture",
+      "relationshipTypes": [
+        "GAME_SERIES_REFERENCE",
+        "GAME_CHARACTER_REFERENCE",
+        "GAME_ITEM_REFERENCE",
+        "GAME_POWERUP_REFERENCE",
+        "GAME_ENEMY_REFERENCE",
+        "GAME_BOSS_REFERENCE",
+        "GAME_LEVEL_REFERENCE",
+        "GAME_LOCATION_REFERENCE",
+        "GAME_MECHANIC_REFERENCE",
+        "GAME_CONSOLE_REFERENCE",
+        "ARCADE_REFERENCE",
+        "ESPORTS_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Music & performance culture",
+      "relationshipTypes": [
+        "MUSIC_ARTIST_REFERENCE",
+        "BAND_REFERENCE",
+        "SONG_REFERENCE",
+        "ALBUM_REFERENCE",
+        "MUSIC_VIDEO_REFERENCE",
+        "CONCERT_REFERENCE",
+        "MUSIC_GENRE_REFERENCE",
+        "DANCE_REFERENCE",
+        "PERFORMER_REFERENCE",
+        "STAGE_PERSONA_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Celebrity & public entertainment persona",
+      "relationshipTypes": [
+        "CELEBRITY_REFERENCE",
+        "ACTOR_REFERENCE",
+        "COMEDIAN_REFERENCE",
+        "HOST_REFERENCE",
+        "ENTERTAINER_REFERENCE",
+        "CELEBRITY_PERSONA_REFERENCE",
+        "CELEBRITY_SIGNATURE_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Toys, brands & mascots",
+      "relationshipTypes": [
+        "TOY_REFERENCE",
+        "TOY_LINE_REFERENCE",
+        "DOLL_REFERENCE",
+        "ACTION_FIGURE_REFERENCE",
+        "BOARD_GAME_REFERENCE",
+        "TRADING_CARD_REFERENCE",
+        "BRAND_CHARACTER_REFERENCE",
+        "ADVERTISING_MASCOT_REFERENCE",
+        "PRODUCT_MASCOT_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Internet & participatory culture",
+      "relationshipTypes": [
+        "MEME_REFERENCE",
+        "VIRAL_REFERENCE",
+        "INTERNET_CULTURE_REFERENCE",
+        "REACTION_IMAGE_REFERENCE",
+        "EMOTICON_REFERENCE",
+        "ONLINE_COMMUNITY_REFERENCE",
+        "FANDOM_REFERENCE",
+        "FANWORK_REFERENCE",
+        "COSPLAY_REFERENCE",
+        "FAN_THEORY_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Adaptation & continuity",
+      "relationshipTypes": [
+        "ADAPTATION_REFERENCE",
+        "SOURCE_MATERIAL_REFERENCE",
+        "REMAKE_REFERENCE",
+        "REBOOT_REFERENCE",
+        "SEQUEL_REFERENCE",
+        "PREQUEL_REFERENCE",
+        "SPINOFF_REFERENCE",
+        "ALTERNATE_UNIVERSE_REFERENCE",
+        "CONTINUITY_REFERENCE",
+        "VERSION_INCARNATION_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Recognition & cultural status",
+      "relationshipTypes": [
+        "AWARD_SHOW_REFERENCE",
+        "ENTERTAINMENT_AWARD_REFERENCE",
+        "CULT_CLASSIC_REFERENCE",
+        "ICONIC_SCENE_REFERENCE",
+        "ICONIC_PROP_REFERENCE",
+        "POP_CULTURE_ICON_REFERENCE"
+      ]
+    },
+    {
+      "domain": "Dietary systems",
+      "relationshipTypes": [
+        "IS_ALLOWED_BY_DIET",
+        "IS_AVOIDED_BY_DIET",
+        "CONTAINS_ANIMAL_DERIVED_INGREDIENT",
+        "IS_DAIRY_PRODUCT",
+        "CONTAINS_DAIRY",
+        "CONTAINS_EGG",
+        "CONTAINS_HONEY"
+      ]
+    },
+    {
+      "domain": "Geographic provenance",
+      "relationshipTypes": [
+        "IS_NATIVE_TO",
+        "IS_ASSOCIATED_WITH_PLACE",
+        "IS_TRADITIONAL_TO_PLACE",
+        "IS_CULTURALLY_ASSOCIATED_WITH_PLACE",
+        "IS_PRODUCED_IN_PLACE",
+        "IS_GROWN_IN_PLACE",
+        "IS_FOUND_IN_PLACE",
+        "IS_ENDEMIC_TO_PLACE",
+        "IS_INVENTED_IN_PLACE",
+        "IS_POPULAR_IN_PLACE",
+        "IS_CUISINE_OF_PLACE",
+        "IS_SYMBOL_OF_PLACE",
+        "IS_LANDMARK_OF_PLACE"
+      ]
+    },
+    {
+      "domain": "Ecology",
+      "relationshipTypes": [
+        "EATS_FEEDS_ON",
+        "IS_EATEN_PREYED_ON_BY",
+        "POLLINATES",
+        "IS_POLLINATED_BY",
+        "IS_PARASITE_OF",
+        "IS_HOST_TO",
+        "SHARES_HABITAT_WITH",
+        "IS_DOMESTICATED_FORM_OF",
+        "IS_WILD_RELATIVE_OF",
+        "HIBERNATES",
+        "MIGRATES"
+      ]
+    },
+    {
+      "domain": "Plants & agriculture",
+      "relationshipTypes": [
+        "IS_HARVESTED_FOR",
+        "GROWS_ON",
+        "IS_SEED_OF",
+        "IS_FRUIT_OF",
+        "IS_FLOWER_OF"
+      ]
+    },
+    {
+      "domain": "Anatomy & medicine",
+      "relationshipTypes": [
+        "HAS_BODILY_FUNCTION",
+        "IS_SYMPTOM_OF",
+        "HAS_SYMPTOM",
+        "PREVENTS_CONDITION",
+        "IS_DIAGNOSTIC_TEST_FOR"
+      ]
+    },
+    {
+      "domain": "Technology",
+      "relationshipTypes": [
+        "CONNECTS_TO",
+        "TRANSMITS_DATA_TO",
+        "RECEIVES_DATA_FROM",
+        "IS_INPUT_DEVICE_FOR",
+        "IS_OUTPUT_DEVICE_FOR",
+        "STORES_DATA",
+        "DISPLAYS_OUTPUT_FROM",
+        "REQUIRES_NETWORK_CONNECTION",
+        "IS_WIRELESS"
+      ]
+    },
+    {
+      "domain": "Transportation",
+      "relationshipTypes": [
+        "TRAVELS_ON",
+        "TRAVELS_BY",
+        "STOPS_AT",
+        "IS_STATION_FOR",
+        "IS_FUEL_FOR",
+        "USES_FUEL"
+      ]
+    },
+    {
+      "domain": "Occupations & tools",
+      "relationshipTypes": [
+        "IS_TOOL_OF_TRADE_FOR",
+        "WEARS_UNIFORM_OF",
+        "IS_WORKPLACE_OF",
+        "IS_PROTECTIVE_EQUIPMENT_FOR"
+      ]
+    },
+    {
+      "domain": "Education",
+      "relationshipTypes": [
+        "IS_USED_TO_STUDY",
+        "IS_GRADE_EVALUATION_OF"
+      ]
+    },
+    {
+      "domain": "Household",
+      "relationshipTypes": [
+        "IS_TYPICALLY_FOUND_IN_ROOM"
+      ]
+    },
+    {
+      "domain": "Commerce",
+      "relationshipTypes": [
+        "IS_SOLD_AT",
+        "IS_PURCHASED_AT",
+        "IS_RENTED_FROM",
+        "IS_DISCOUNTED_BY",
+        "IS_PACKAGED_IN"
+      ]
+    },
+    {
+      "domain": "Travel",
+      "relationshipTypes": [
+        "IS_USED_AT_AIRPORT"
+      ]
+    },
+    {
+      "domain": "Legal & safety",
+      "relationshipTypes": [
+        "IS_ILLEGAL_IN",
+        "IS_REQUIRED_BY_LAW_IN",
+        "IS_EVIDENCE_OF_CRIME",
+        "PROTECTS_FROM_HAZARD",
+        "WARNS_OF_HAZARD"
+      ]
+    },
+    {
+      "domain": "Music",
+      "relationshipTypes": [
+        "PLAYS_INSTRUMENT",
+        "PRODUCES_SOUND"
+      ]
+    },
+    {
+      "domain": "Sports",
+      "relationshipTypes": [
+        "IS_PLAYING_SURFACE_FOR",
+        "IS_SCORING_OBJECT_IN",
+        "IS_GOAL_TARGET_IN",
+        "IS_WORN_FOR_SPORT"
+      ]
+    },
+    {
+      "domain": "Signs & symbols",
+      "relationshipTypes": [
+        "IS_WARNING_SYMBOL_FOR",
+        "IS_INSTRUCTION_SYMBOL_FOR",
+        "IS_MAP_SYMBOL_FOR",
+        "IS_CURRENCY_SYMBOL_FOR",
+        "IS_MATHEMATICAL_SYMBOL_FOR"
+      ]
+    },
+    {
+      "domain": "Measurement",
+      "relationshipTypes": [
+        "IS_UNIT_OF",
+        "HAS_UNIT"
+      ]
+    },
+    {
+      "domain": "Containers",
+      "relationshipTypes": [
+        "IS_CONTAINER_FOR",
+        "IS_PACKAGING_FOR"
+      ]
+    },
+    {
+      "domain": "Food composition",
+      "relationshipTypes": [
+        "IS_INGREDIENT_IN",
+        "CONTAINS_INGREDIENT",
+        "IS_GARNISH_FOR",
+        "IS_CONDIMENT_FOR",
+        "IS_BEVERAGE_INGREDIENT"
+      ]
+    },
+    {
+      "domain": "Astrology & astronomy",
+      "relationshipTypes": [
+        "IS_SYMBOL_OF_ZODIAC_SIGN",
+        "ORBITS",
+        "IS_ORBITED_BY"
+      ]
+    }
+  ],
+  "resultContract": {
+    "assertions": [
+      {
+        "relationshipType": "<inventory relationship>",
+        "tag": "<exact value>",
+        "state": "present|absent|uncertain|not_evaluated",
+        "confidence": "high|medium|low",
+        "evidence": "<brief evidence>"
+      }
+    ],
+    "newTags": [
+      "<new exact tags>"
+    ],
+    "newRelationshipNeeded": [
+      {
+        "proposedRelationshipType": "<name>",
+        "tag": "<exact value>",
+        "reason": "<why current inventory cannot express it>"
+      }
+    ],
+    "rawNotes": "<preserved raw discovery>"
+  }
+}
