@@ -1,6 +1,4 @@
-/* Emojeo Semantic Pilot Runner — Pass 38
-   Executes only an explicitly supplied pilot manifest. Raw provider discovery is
-   retained separately from normalized open-discovery interpretation. */
+/* Emojeo Semantic Pilot Runner — resumable */
 (()=>{'use strict';
 const clone=v=>v==null?v:structuredClone(v);
 function create(options={}){
@@ -10,11 +8,13 @@ function create(options={}){
  return async function run(manifest={},runOptions={}){
   const subjects=Array.isArray(manifest.subjects)?manifest.subjects:[];
   const limit=Math.max(0,Math.min(subjects.length,Number(runOptions.limit??subjects.length)||0));
-  const rows=[];
-  for(const [index,subject] of subjects.slice(0,limit).entries()){
+  const startIndex=Math.max(0,Math.min(limit,Number(runOptions.startIndex||0)||0));
+  const rows=Array.isArray(runOptions.initialRows)?runOptions.initialRows.map(clone):[];
+  for(let index=startIndex;index<limit;index++){
+   const subject=subjects[index];
    if(runOptions.signal?.aborted)throw new DOMException('Aborted','AbortError');
    const startedAt=Date.now();
-   const stage=(name,extra={})=>runOptions.onStage?.({stage:name,subject:clone(subject),index:index+1,total:limit,completed:rows.length,failed:0,remaining:limit-rows.length,...extra});
+   const stage=(name,extra={})=>runOptions.onStage?.({stage:name,subject:clone(subject),index:index+1,total:limit,completed:rows.length,failed:0,remaining:Math.max(0,limit-rows.length),...extra});
    stage('preparing');
    const request=globalThis.emojeoSemanticPilot.discoveryRequest({id:subject.id,glyph:subject.glyph,codePoints:subject.codePoints,names:{cldr:subject.name},taxonomy:{group:subject.group,subgroup:subject.subgroup,order:subject.sourceOrder}});
    stage('awaiting-worker');
@@ -27,7 +27,7 @@ function create(options={}){
    stage('retaining-result',{elapsedMs:Date.now()-startedAt,provider:raw?.provider||null});
    rows.push({subject:clone(subject),request:clone(request),raw,normalized});
    runOptions.onResult?.(rows.at(-1),rows.length,limit);
-   stage('completed',{elapsedMs:Date.now()-startedAt,completed:rows.length,remaining:limit-rows.length,provider:raw?.provider||null});
+   stage('completed',{elapsedMs:Date.now()-startedAt,completed:rows.length,remaining:Math.max(0,limit-rows.length),provider:raw?.provider||null});
   }
   return {schemaVersion:1,kind:'emojeo-semantic-pilot-run',pilotSeed:manifest.seed||null,startedSubjectCount:limit,completedSubjectCount:rows.length,results:rows};
  };
