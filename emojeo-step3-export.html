@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emojeo Step 3 Snapshot Export</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 18px;background:#111;color:#eee}button{font:inherit;font-weight:700;padding:14px 18px;border-radius:10px;border:0;cursor:pointer}.meta{margin:16px 0;line-height:1.5;color:#ccc}.ok{color:#9fe3a6}.bad{color:#ff9b9b}
+</style>
+</head>
+<body>
+<h1>Step 3 Snapshot Export</h1>
+<p class="meta">Read-only exporter. It does not stop, reset, clear, or modify the running Step 3 checkpoint.</p>
+<div id="status" class="meta">Reading saved checkpoint…</div>
+<button id="download" type="button">DOWNLOAD CURRENT RESULTS</button>
+<script>
+(()=>{'use strict';
+const KEY='emojeo-step3-population-checkpoint-v1',status=document.getElementById('status'),button=document.getElementById('download');
+function snapshot(){try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}}
+function refresh(){const cp=snapshot(),done=cp?.results?.length||0,total=cp?.totalUnits||6399,p=total?(done/total*100).toFixed(2):'0.00';status.className=`meta ${cp?'ok':'bad'}`;status.textContent=cp?`${p}% saved · ${done}/${total} units available for export`:'No saved Step 3 checkpoint found on this site origin.';button.disabled=!cp}
+button.addEventListener('click',()=>{const cp=snapshot();if(!cp)return refresh();const blob=new Blob([JSON.stringify(cp,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`emojeo-step3-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;a.style.display='none';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000)});
+refresh();setInterval(refresh,2000);
+})();
+</script>
+</body>
+</html>
