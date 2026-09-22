@@ -1,11 +1,11 @@
-/* Emojeo Step 3 Recovery Mapper — Pass 47
+/* Emojeo Step 3 Recovery Mapper — Pass 48
    Browser orchestration only. AI normalization runs on the Worker, three providers in parallel.
    Original imported JSON is never mutated; recovered data is appended under recoveryResults.
    Safety gate: 1 subject -> 3 total -> 10 total -> full run. */
 (()=>{'use strict';
 const $=id=>document.getElementById(id),clean=v=>String(v??'').trim();
 const BASE_KEY='genreactrix-ai-worker-base',KEY_KEY='genreactrix-ai-analysis-key';
-const DB_NAME='emojeo-step3-recovery-v3',STORE='jobs';
+const DB_NAME='emojeo-step3-recovery-v4',STORE='jobs';
 let input=null,spec=null,job=null,aborter=null,running=false;
 function base(){return clean(localStorage.getItem(BASE_KEY)||window.GENREACTRIX_AI_WORKER_BASE||'').replace(/\/+$/,'')}
 function key(){return clean(localStorage.getItem(KEY_KEY)||'')}
@@ -47,7 +47,7 @@ async function runTo(target){
   }catch(e){if(e?.name==='AbortError')setStatus('STOPPED · saved after the last completed subject.');else setStatus(`STOPPED · ${e?.message||e}`)}finally{running=false;render()}
 }
 function stop(){aborter?.abort()}
-function download(){if(!job||!input)return;const out={...input,recoverySchemaVersion:3,recoveryKind:'emojeo-step3-raw-notes-recovery',recoveryCreatedAt:new Date().toISOString(),recoveryStrategy:'one subject per wave; 857 relationships sharded across Mistral / GPT-4.1 mini / Qwen 3.7 Plus concurrently; notes-only normalization; full-ontology reference prevents cross-shard substitution; strict PRESENT/UNCERTAIN parser; negative rows omitted; existing relationship proposals separated from genuinely new types; original results preserved; gated 1 -> 3 -> 10 -> full',recoveryResults:job.recovered};const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`emojeo-step3-recovered-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)}
+function download(){if(!job||!input)return;const out={...input,recoverySchemaVersion:4,recoveryKind:'emojeo-step3-raw-notes-recovery',recoveryCreatedAt:new Date().toISOString(),recoveryStrategy:'one subject per wave; 857 relationships sharded across Mistral / GPT-4.1 mini / Qwen 3.7 Plus concurrently; notes-only normalization; exact relationship-name protocol; suspicious mapper shards auto-repaired; final semantic reconciliation preserves rejected/reassigned candidates; strict PRESENT/UNCERTAIN parser; negative rows omitted; existing relationship proposals separated from genuinely new types; original results preserved; gated 1 -> 3 -> 10 -> full',recoveryResults:job.recovered};const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`emojeo-step3-recovered-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)}
 async function loadFile(file){input=JSON.parse(await file.text());if(!Array.isArray(input?.results))throw new Error('Selected file has no Step 3 results array');if(Number(input.completedUnits)!==Number(input.totalUnits))throw new Error(`This recovery pass expects a completed Step 3 export; file is ${input.completedUnits||0}/${input.totalUnits||0}`);spec=await fetch('Emojeo_STEP3_Diverse_Batch_001_RunSpec.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(`RunSpec load failed (${r.status})`);return r.json()});const id=fingerprint(input,file),prior=await dbGet(id),subjects=groupSubjects(input);job=prior&&Array.isArray(prior.recovered)?{...prior,subjects}:{id,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),subjects,recovered:[]};await dbPut(job);setStatus(prior?`Loaded saved recovery checkpoint · ${job.recovered.length}/${subjects.length} subjects already recovered.`:`Ready · completed Step 3 export verified · ${subjects.length} subjects found · first gate is exactly 1 subject.`);render()}
 $('file').addEventListener('change',async e=>{try{const f=e.target.files?.[0];if(!f)return;await loadFile(f)}catch(err){job=null;setStatus(`LOAD FAILED · ${err?.message||err}`);render()}});
 $('run1').addEventListener('click',()=>runTo('next'));
