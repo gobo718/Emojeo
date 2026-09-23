@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Emojeo · Step 3 Delta Backfill · Pass 57</title>
+<title>Emojeo · Step 3 Delta Backfill · Pass 58</title>
 <style>
 body{font-family:system-ui,sans-serif;max-width:860px;margin:0 auto;padding:20px;background:#111;color:#eee}
 h1{font-size:1.45rem}
@@ -21,18 +21,18 @@ code{word-break:break-word}
 </style>
 </head>
 <body>
-<h1>Emojeo · Step 3 Delta Backfill · Pass 57</h1>
+<h1>Emojeo · Step 3 Delta Backfill · Pass 58</h1>
 
 <div class="card">
 <p><strong>Purpose:</strong> run the 79 already-completed Step 3 emoji against only the 354 relationship types added by the v013 ontology review.</p>
-<p class="small">Pass 57 keeps the Pass 56 pipeline and strengthens only the deterministic evidence gate. It now also rejects accepted assertions whose evidence directly contradicts the subject itself, plus unsupported numerical/time-series claims that provide no source provenance. Existing Pass 56 checkpoints are re-audited locally; completed discovery and mapper AI calls are not rerun.</p>
+<p class="small">Pass 58 keeps the Pass 57 discovery, mapper/reconciliation, and strict evidence logic unchanged. It adds durable browser recovery: the latest IndexedDB checkpoint is restored automatically on refresh/reopen, an interrupted run remembers its requested gate, and the page resumes that run without making you choose the JSON or press RUN again. A manual STOP still cancels auto-resume.</p>
 </div>
 
 <div class="card">
-<label><strong>Completed recovered JSON or Pass 56 checkpoint JSON</strong>
+<label><strong>Recovered/checkpoint JSON (only needed to seed a new browser or enable final download)</strong>
 <input id="file" type="file" accept="application/json,.json">
 </label>
-<div id="summary">Load the original 79/79 recovered JSON or a downloaded Pass 56 delta-backfill checkpoint.</div>
+<div id="summary">Checking this browser for the latest saved backfill checkpoint…</div>
 <p id="status" class="status">IDLE</p>
 <button id="run1" disabled>RUN NEXT 1</button>
 <button id="run3" disabled>RUN THROUGH 3</button>
@@ -43,10 +43,10 @@ code{word-break:break-word}
 </div>
 
 <div class="card small">
-<strong>Safety gate:</strong> 1 subject → 3 total → 10 total → all 79. Pass 57 reuses the completed <strong>fresh delta discovery</strong> + <strong>mapper/reconciliation</strong> work and upgrades only the <strong>strict evidence gate</strong>. Rejected assertions remain preserved for audit. The original <code>results</code> and <code>recoveryResults</code> remain unchanged.
+<strong>Safety gate:</strong> 1 subject → 3 total → 10 total → all 79. Pass 58 remembers the gate you actually started. If Android closes or refreshes the page during that gate, the latest saved shard/subject is restored and the interrupted gate resumes automatically. A deliberate <strong>STOP AFTER CURRENT REQUEST</strong> cancels auto-resume. Rejected assertions remain preserved for audit; original <code>results</code> and <code>recoveryResults</code> remain unchanged.
 </div>
 
-<script src="genreactrix-cloud-api.js?v=57"></script>
-<script src="emojeo-step3-delta-backfill.js?v=57"></script>
+<script src="genreactrix-cloud-api.js?v=58"></script>
+<script src="emojeo-step3-delta-backfill.js?v=58"></script>
 </body>
 </html>

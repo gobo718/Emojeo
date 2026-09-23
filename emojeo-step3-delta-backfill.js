@@ -1,4 +1,4 @@
-/* Emojeo Step 3 Delta Backfill — Pass 57
+/* Emojeo Step 3 Delta Backfill — Pass 58
    Pass 54 generated useful fresh raw notes but the Semantic Discovery route's
    structured schema is observations/rawNotes, not relationship assertions.
    Pass 55 preserves those shard calls, then normalizes/reconciles each emoji's
@@ -11,6 +11,8 @@ const clean=v=>String(v??'').trim();
 const clone=v=>v==null?v:structuredClone(v);
 const DB_NAME='emojeo-step3-delta-backfill-v1'; // intentionally unchanged: resume Pass 54
 const STORE='jobs';
+const LATEST_ID='__latest__';
+const SOURCE_PREFIX='__source__:';
 const SHARD_SIZE=30;
 
 let input=null,spec=null,job=null,running=false,aborter=null;
@@ -225,6 +227,31 @@ async function dbPut(value){
     tx.onerror=()=>reject(tx.error);
   });
 }
+async function dbGetAll(){
+  const db=await openDb();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(STORE,'readonly'),r=tx.objectStore(STORE).getAll();
+    r.onsuccess=()=>resolve(Array.isArray(r.result)?r.result:[]);
+    r.onerror=()=>reject(r.error);
+  });
+}
+async function dbRememberLatest(jobId){
+  await dbPut({id:LATEST_ID,kind:'emojeo-step3-delta-backfill-latest',jobId,updatedAt:new Date().toISOString()});
+}
+async function dbSaveSource(jobId,value){
+  await dbPut({id:`${SOURCE_PREFIX}${jobId}`,kind:'emojeo-step3-delta-backfill-source',input:clone(value),updatedAt:new Date().toISOString()});
+}
+async function dbLatestJob(){
+  const pointer=await dbGet(LATEST_ID);
+  if(pointer?.jobId){
+    const pointed=await dbGet(pointer.jobId);
+    if(pointed?.kind==='emojeo-step3-delta-backfill-job')return pointed;
+  }
+  const rows=await dbGetAll();
+  return rows
+    .filter(x=>x?.kind==='emojeo-step3-delta-backfill-job')
+    .sort((a,b)=>String(b?.updatedAt||b?.createdAt||'').localeCompare(String(a?.updatedAt||a?.createdAt||'')))[0]||null;
+}
 const sleep=(ms,signal)=>new Promise((resolve,reject)=>{
   const id=setTimeout(resolve,ms);
   signal?.addEventListener('abort',()=>{clearTimeout(id);reject(new DOMException('Aborted','AbortError'))},{once:true});
@@ -292,7 +319,7 @@ function render(){
   $('run10').disabled=running||done<3||done>=10||done>=subjectTotal;
   $('runall').disabled=running||done<10||done>=subjectTotal;
   $('stop').disabled=!running;
-  $('download').disabled=!done;
+  $('download').disabled=!done||!input;
 }
 async function ensureDiscoveryForSubject(si){
   const subject=job.subjects[si];
@@ -316,6 +343,9 @@ async function runTo(target){
   const totalSubjects=job.subjects.length,startDone=mappedSubjects();
   const stopSubject=target==='all'?totalSubjects:Math.min(totalSubjects,target==='next'?startDone+1:Number(target));
   if(!Number.isFinite(stopSubject)||stopSubject<=startDone)return;
+  job.runIntent={active:true,stopSubject,requestedAt:new Date().toISOString()};
+  await dbPut(job);
+  await dbRememberLatest(job.id);
   running=true;aborter=new AbortController();render();
   try{
     for(let si=startDone;si<stopSubject;si++){
@@ -328,17 +358,33 @@ async function runTo(target){
       job.updatedAt=new Date().toISOString();
       await dbPut(job);render();
     }
+    if(mappedSubjects()>=stopSubject||mappedSubjects()===totalSubjects){
+      job.runIntent={...(job.runIntent||{}),active:false,completedAt:new Date().toISOString()};
+      await dbPut(job);
+    }
     if(mappedSubjects()===totalSubjects)setStatus('DELTA BACKFILL COMPLETE · 79/79 · Download the backfilled JSON.');
     else if(aborter.signal.aborted)setStatus('STOPPED · every completed discovery shard and mapped subject is saved.');
     else setStatus(`CHECKPOINT REACHED · ${mappedSubjects()}/${totalSubjects} subjects backfilled · download and inspect before the next gate.`);
   }catch(e){
     if(e?.name==='AbortError')setStatus('STOPPED · every completed discovery shard and mapped subject is saved.');
-    else setStatus(`STOPPED · ${e?.message||e}`);
+    else{
+      if(job){
+        job.runIntent={...(job.runIntent||{}),active:true,lastError:clean(e?.message||e),lastErrorAt:new Date().toISOString()};
+        try{await dbPut(job)}catch{}
+      }
+      setStatus(`STOPPED · ${e?.message||e}\nRefresh/reopen this page and Pass 58 will resume the saved run automatically.`);
+    }
   }finally{
     running=false;render();
   }
 }
-function stop(){aborter?.abort()}
+function stop(){
+  if(job){
+    job.runIntent={...(job.runIntent||{}),active:false,stoppedAt:new Date().toISOString()};
+    dbPut(job).catch(()=>{});
+  }
+  aborter?.abort();
+}
 function download(){
   if(!job||!input)return;
   const present=(job.mapped||[]).reduce((n,r)=>n+(r?.assertions||[]).filter(x=>x?.state==='present').length,0);
@@ -413,6 +459,8 @@ async function loadFile(file){
     rawNotes:Array.isArray(r.rawNotes)?r.rawNotes:[]
   }));
   await dbPut(job);
+  await dbSaveSource(id,input);
+  await dbRememberLatest(id);
   if(job.mapped.length){
     const strictRejected=job.mapped.reduce((n,r)=>n+Number(r?.strictEvidenceValidation?.rejectedCount||0),0);
     setStatus(`RESUMED + RE-AUDITED · ${job.mapped.length}/79 subjects fully backfilled · ${job.results.length}/${79*shards.length} fresh discovery shards saved.\nPass 57 strict evidence gate rejected ${strictRejected} assertion(s) and preserved them for audit. No completed AI calls were rerun.`);
@@ -422,6 +470,88 @@ async function loadFile(file){
     setStatus(`READY · 79 old emoji · 354 new relationships · ${shards.length} discovery shards/emoji · 27,966 candidate relationship evaluations.\nFirst gate: RUN NEXT 1.`);
   }
   render();
+}
+
+async function restoreLatestCheckpoint(){
+  try{
+    spec=await loadJson('Emojeo_STEP3_Delta_Backfill_v013_RunSpec.json');
+    const relationships=Array.isArray(spec?.relationshipDelta)?spec.relationshipDelta:[];
+    const subjects=(spec?.subjects||[]).map(s=>({glyph:clean(s.glyph),name:clean(s.name)}));
+    if(relationships.length!==354||subjects.length!==79)throw new Error('Current v013 delta RunSpec is not 79 subjects × 354 relationships.');
+    const shards=buildShards(relationships);
+
+    const saved=await dbLatestJob();
+    if(!saved)return false;
+    if(saved.relationshipCount!==354||saved.shards?.length!==shards.length)throw new Error('Latest saved job does not match the current v013 delta.');
+
+    job=saved;
+    job.schemaVersion=3;
+    job.subjects=subjects;
+    job.shards=shards;
+    job.relationshipCount=354;
+    job.results=Array.isArray(job.results)?job.results:[];
+    job.mapped=Array.isArray(job.mapped)?job.mapped:[];
+
+    if(!compatibleDiscoveryPrefix(job.results,subjects,shards))throw new Error('Saved discovery checkpoint no longer matches the v013 subject/shard order.');
+    if(!compatibleMappedPrefix(job.mapped,subjects))throw new Error('Saved mapped checkpoint no longer matches the v013 subject order.');
+
+    job.mapped=job.mapped.map(validateStrictEvidence);
+    job.results=job.results.map(r=>({
+      ...r,
+      kind:'emojeo-step3-delta-backfill-discovery-shard',
+      observations:Array.isArray(r.observations)?r.observations:[],
+      summary:clean(r.summary),
+      ambiguities:Array.isArray(r.ambiguities)?r.ambiguities:[],
+      rawNotes:Array.isArray(r.rawNotes)?r.rawNotes:[]
+    }));
+
+    const source=await dbGet(`${SOURCE_PREFIX}${job.id}`);
+    input=source?.input||null;
+
+    const done=mappedSubjects();
+    const partialSubject=discoveredShardCalls()>done*shards.length;
+
+    // Legacy Pass 54–57 jobs had no runIntent. If a subject is visibly partial,
+    // it was interrupted mid-gate, so resume only that subject automatically.
+    if(!job.runIntent&&partialSubject&&done<79){
+      job.runIntent={
+        active:true,
+        stopSubject:done+1,
+        requestedAt:new Date().toISOString(),
+        restoredFromLegacyPartial:true
+      };
+    }
+
+    await dbPut(job);
+    await dbRememberLatest(job.id);
+
+    const sourceNote=input
+      ? 'Source JSON is cached locally; no file reselect is required.'
+      : 'Run can continue without reselecting a file. Choose the recovered/checkpoint JSON once before final download so the full source can be embedded.';
+
+    const active=Boolean(job.runIntent?.active);
+    const stopSubject=Math.min(79,Math.max(done+1,Number(job.runIntent?.stopSubject)||done+1));
+
+    setStatus(
+      `AUTO-RESTORED · ${done}/79 subjects fully backfilled · ${job.results.length}/${79*shards.length} discovery shards saved.\n`+
+      `${sourceNote}`+
+      (active&&done<stopSubject?`\nAUTO-RESUME · continuing the interrupted run through subject ${stopSubject}…`:'')
+    );
+    render();
+
+    if(active&&done<stopSubject){
+      setTimeout(()=>runTo(stopSubject),700);
+    }else if(active){
+      job.runIntent={...(job.runIntent||{}),active:false,completedAt:new Date().toISOString()};
+      await dbPut(job);
+    }
+    return true;
+  }catch(e){
+    job=null;input=null;
+    setStatus(`AUTO-RESTORE FAILED · ${e?.message||e}\nChoose the recovered/checkpoint JSON manually.`);
+    render();
+    return false;
+  }
 }
 
 $('file').addEventListener('change',async e=>{
@@ -441,5 +571,6 @@ $('runall').addEventListener('click',()=>runTo('all'));
 $('stop').addEventListener('click',stop);
 $('download').addEventListener('click',download);
 render();
+restoreLatestCheckpoint();
 
 })();
