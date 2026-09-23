@@ -1,4 +1,4 @@
-/* Emojeo Step 3 Delta Backfill — Pass 55
+/* Emojeo Step 3 Delta Backfill — Pass 56
    Pass 54 generated useful fresh raw notes but the Semantic Discovery route's
    structured schema is observations/rawNotes, not relationship assertions.
    Pass 55 preserves those shard calls, then normalizes/reconciles each emoji's
@@ -72,6 +72,86 @@ function normalizeDiscoveryResult(raw,subject,shard){
     completedAt:new Date().toISOString()
   };
 }
+
+const STRICT_EVIDENCE_VALIDATOR_VERSION=1;
+const STRICT_WEAK_EVIDENCE_RE=/\b(?:speculative|hypothetical|theoretically|plausible stretch|stretch|niche|not widely exploited|lacks institutional backing|subjective|possible symbolic gesture|could|might|maybe|context-dependent)\b/i;
+function strictValidationKey(a){return [clean(a?.relationshipType),clean(a?.domain),clean(a?.tag),clean(a?.evidence)].join('\u0000')}
+function strictEvidenceReason(a,subject){
+  const confidence=clean(a?.confidence).toLowerCase(),tag=clean(a?.tag),evidence=clean(a?.evidence);
+  if(confidence==='low')return 'low-confidence accepted assertion is not eligible for Pass 56 KEEP';
+  if(clean(subject?.glyph)&&tag.includes(clean(subject.glyph)))return 'target is self-referential prose containing the subject glyph instead of a semantic target';
+  const subjectName=normalizeName(subject?.name),tagName=normalizeName(tag);
+  if(subjectName&&tagName.includes(subjectName))return 'target is self-referential prose containing the subject name instead of a semantic target';
+  if(STRICT_WEAK_EVIDENCE_RE.test(`${tag} ${evidence}`))return 'accepted evidence still contains explicit speculative/context-only language';
+  return '';
+}
+function validateStrictEvidence(result){
+  if(!result||result?.strictEvidenceValidation?.version===STRICT_EVIDENCE_VALIDATOR_VERSION)return result;
+  const current=Array.isArray(result.assertions)?result.assertions:[];
+  const priorStrict=Array.isArray(result.strictEvidenceRejectedAssertions)?result.strictEvidenceRejectedAssertions:[];
+  const source=[],seenSource=new Set();
+  for(const a of [...current,...priorStrict]){
+    const k=strictValidationKey(a);
+    if(!seenSource.has(k)){source.push(a);seenSource.add(k)}
+  }
+  const kept=[],invalid=[];
+  for(const a of source){
+    const reason=strictEvidenceReason(a,result.subject||{});
+    if(reason)invalid.push({...a,reconciliationReason:`Pass 56 strict evidence validator: ${reason}`,strictEvidenceValidator:`client-v${STRICT_EVIDENCE_VALIDATOR_VERSION}`});
+    else{
+      const cleanA={...a};
+      delete cleanA.strictEvidenceValidator;
+      if(clean(cleanA.reconciliationReason).startsWith('Pass 56 strict evidence validator:'))delete cleanA.reconciliationReason;
+      kept.push(cleanA);
+    }
+  }
+  const rejected=(Array.isArray(result.rejectedCandidates)?result.rejectedCandidates:[]).filter(a=>!clean(a?.strictEvidenceValidator).startsWith('client-v'));
+  const seenRejected=new Set(rejected.map(strictValidationKey));
+  for(const a of invalid){
+    const k=strictValidationKey(a);
+    if(!seenRejected.has(k)){rejected.push(a);seenRejected.add(k)}
+  }
+  const invalidTags=new Set(invalid.map(a=>clean(a.tag))),keptTags=new Set(kept.map(a=>clean(a.tag)));
+  const newTags=(Array.isArray(result.newTags)?result.newTags:[]).filter(t=>!invalidTags.has(clean(t))||keptTags.has(clean(t)));
+  const audit={
+    version:STRICT_EVIDENCE_VALIDATOR_VERSION,
+    mode:'client-post-reconciliation',
+    checkedAt:new Date().toISOString(),
+    checkedAssertionCount:source.length,
+    rejectedCount:invalid.length,
+    rejectedRelationships:[...new Set(invalid.map(a=>a.relationshipType))]
+  };
+  return {
+    ...result,
+    assertions:kept,
+    newTags,
+    rejectedCandidates:rejected,
+    strictEvidenceRejectedAssertions:invalid,
+    strictEvidenceValidation:audit,
+    reconciliation:{...(result.reconciliation||{}),strictEvidenceValidation:audit}
+  };
+}
+function compatibleMappedPrefix(list,subjects){
+  const rows=Array.isArray(list)?list:[];
+  if(rows.length>subjects.length)return false;
+  for(let i=0;i<rows.length;i++){
+    const a=rows[i]?.subject||{},b=subjects[i]||{};
+    if(subjectKey(a)!==subjectKey(b))return false;
+  }
+  return true;
+}
+function compatibleDiscoveryPrefix(list,subjects,shards){
+  const rows=Array.isArray(list)?list:[];
+  if(rows.length>subjects.length*shards.length)return false;
+  for(let i=0;i<rows.length;i++){
+    const si=Math.floor(i/shards.length),di=i%shards.length;
+    const row=rows[i]||{},subject=subjects[si]||{},shard=shards[di]||{};
+    if(subjectKey(row.subject||{})!==subjectKey(subject))return false;
+    if(clean(row.shardId)!==clean(shard.id))return false;
+  }
+  return true;
+}
+
 function prompt(subject,shard){
   const allowed=shard.relationships.map(x=>x.definition?`${x.relationshipType} — ${x.definition}`:x.relationshipType);
   return [
@@ -179,14 +259,15 @@ function discoveredSubjects(){return job?Math.floor(discoveredShardCalls()/job.s
 function setStatus(text){$('status').textContent=text}
 function render(){
   if(!job){
-    $('summary').textContent='Load emojeo-step3-recovered-2026-09-23T04-12-14-359Z.json.';
+    $('summary').textContent='Load the original 79/79 recovered JSON or a downloaded Pass 55 delta-backfill checkpoint.';
     for(const id of ['run1','run3','run10','runall','stop','download'])$(id).disabled=true;
     return;
   }
   const done=mappedSubjects(),subjectTotal=job.subjects.length;
   const shardDone=discoveredShardCalls(),shardTotal=subjectTotal*job.shards.length;
   const present=(job.mapped||[]).reduce((n,r)=>n+(r?.assertions||[]).filter(x=>x?.state==='present').length,0);
-  $('summary').innerHTML=`<span class="good">${done}/${subjectTotal} old emoji backfilled</span> · ${shardDone}/${shardTotal} discovery shards saved · ${present} accepted PRESENT assertions · ${job.relationshipCount} new relationships`;
+  const strictRejected=(job.mapped||[]).reduce((n,r)=>n+Number(r?.strictEvidenceValidation?.rejectedCount||0),0);
+  $('summary').innerHTML=`<span class="good">${done}/${subjectTotal} old emoji backfilled</span> · ${shardDone}/${shardTotal} discovery shards saved · ${present} accepted PRESENT assertions · ${strictRejected} strict-evidence rejection(s) · ${job.relationshipCount} new relationships`;
   $('run1').disabled=running||done>=subjectTotal;
   $('run3').disabled=running||done<1||done>=3||done>=subjectTotal;
   $('run10').disabled=running||done<3||done>=10||done>=subjectTotal;
@@ -223,7 +304,7 @@ async function runTo(target){
       const units=await ensureDiscoveryForSubject(si);
       if(aborter.signal.aborted)break;
       setStatus(`MAPPER + RECONCILIATION · ${si+1}/${totalSubjects} · ${subject.glyph} ${subject.name}\nNormalizing the 12 fresh delta-note shards against the 354 approved relationship types…`);
-      const mapped=await callRecoveryMapper(subject,units,aborter.signal);
+      const mapped=validateStrictEvidence(await callRecoveryMapper(subject,units,aborter.signal));
       job.mapped.push(mapped);
       job.updatedAt=new Date().toISOString();
       await dbPut(job);render();
@@ -242,9 +323,10 @@ function stop(){aborter?.abort()}
 function download(){
   if(!job||!input)return;
   const present=(job.mapped||[]).reduce((n,r)=>n+(r?.assertions||[]).filter(x=>x?.state==='present').length,0);
+  const strictRejected=(job.mapped||[]).reduce((n,r)=>n+Number(r?.strictEvidenceValidation?.rejectedCount||0),0);
   const out={
     ...input,
-    deltaBackfillSchemaVersion:2,
+    deltaBackfillSchemaVersion:3,
     deltaBackfillKind:'emojeo-step3-v013-ontology-delta-backfill',
     deltaBackfillCreatedAt:new Date().toISOString(),
     deltaBackfillRelationshipCount:job.relationshipCount,
@@ -253,13 +335,15 @@ function download(){
     deltaBackfillSubjectCount:job.subjects.length,
     deltaBackfillCompletedSubjects:mappedSubjects(),
     deltaBackfillPresentAssertionCount:present,
-    deltaBackfillStrategy:`Pass 55 two-stage delta backfill: fresh Semantic Discovery over only ${job.relationshipCount} v013 additions in ${job.shards.length} deterministic shards, then proven Step 3 recovery mapper/reconciliation over those fresh raw notes; original results and recoveryResults preserved; IndexedDB checkpointing; gated 1 -> 3 -> 10 -> 79`,
+    deltaBackfillStrictEvidenceRejectedAssertionCount:strictRejected,
+    deltaBackfillStrictEvidenceValidatorVersion:STRICT_EVIDENCE_VALIDATOR_VERSION,
+    deltaBackfillStrategy:`Pass 56 strict delta backfill: Pass 55 fresh Semantic Discovery + Step 3 mapper/reconciliation over only ${job.relationshipCount} v013 additions, followed by deterministic strict evidence validation that rejects low-confidence, explicitly speculative/context-only, and self-referential sentence-style targets while preserving rejects for audit; original results and recoveryResults preserved; IndexedDB checkpointing; gated 1 -> 3 -> 10 -> 79`,
     deltaBackfillDiscoveryResults:job.results,
     deltaBackfillResults:job.mapped
   };
   const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'}),a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download=`emojeo-step3-delta-backfilled-pass55-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;
+  a.download=`emojeo-step3-delta-backfilled-pass56-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;
   document.body.appendChild(a);a.click();
   setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);
 }
@@ -287,6 +371,19 @@ async function loadFile(file){
   job.subjects=subjects;job.shards=shards;job.relationshipCount=354;
   job.results=Array.isArray(job.results)?job.results:[];
   job.mapped=Array.isArray(job.mapped)?job.mapped:[];
+  const embeddedDiscovery=Array.isArray(input?.deltaBackfillDiscoveryResults)?input.deltaBackfillDiscoveryResults:[];
+  const embeddedMapped=Array.isArray(input?.deltaBackfillResults)?input.deltaBackfillResults:[];
+  if(embeddedDiscovery.length||embeddedMapped.length){
+    if(!compatibleDiscoveryPrefix(embeddedDiscovery,subjects,shards))throw new Error('Embedded deltaBackfillDiscoveryResults do not match the v013 subject/shard order');
+    if(!compatibleMappedPrefix(embeddedMapped,subjects))throw new Error('Embedded deltaBackfillResults do not match the v013 subject order');
+    const embeddedProgress=embeddedMapped.length*10000+embeddedDiscovery.length;
+    const savedProgress=job.mapped.length*10000+job.results.length;
+    if(embeddedProgress>savedProgress){
+      job.results=clone(embeddedDiscovery);
+      job.mapped=clone(embeddedMapped);
+    }
+  }
+  job.mapped=job.mapped.map(validateStrictEvidence);
   // Pass 54 rows used a different kind but already contain the fresh rawNotes we need.
   job.results=job.results.map((r,i)=>({
     ...r,
@@ -298,7 +395,8 @@ async function loadFile(file){
   }));
   await dbPut(job);
   if(job.mapped.length){
-    setStatus(`RESUMED · ${job.mapped.length}/79 subjects fully backfilled · ${job.results.length}/${79*shards.length} fresh discovery shards saved.`);
+    const strictRejected=job.mapped.reduce((n,r)=>n+Number(r?.strictEvidenceValidation?.rejectedCount||0),0);
+    setStatus(`RESUMED + RE-AUDITED · ${job.mapped.length}/79 subjects fully backfilled · ${job.results.length}/${79*shards.length} fresh discovery shards saved.\nPass 56 strict evidence gate rejected ${strictRejected} previously accepted assertion(s) and preserved them for audit.`);
   }else if(job.results.length){
     setStatus(`PASS 54 CHECKPOINT RECOVERED · ${job.results.length}/${79*shards.length} fresh discovery shards already saved.\nNo discovery work will be repeated. Press RUN NEXT 1 to normalize/reconcile the first emoji.`);
   }else{

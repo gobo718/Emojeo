@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Emojeo · Step 3 Delta Backfill · Pass 55</title>
+<title>Emojeo · Step 3 Delta Backfill · Pass 56</title>
 <style>
 body{font-family:system-ui,sans-serif;max-width:860px;margin:0 auto;padding:20px;background:#111;color:#eee}
 h1{font-size:1.45rem}
@@ -21,18 +21,18 @@ code{word-break:break-word}
 </style>
 </head>
 <body>
-<h1>Emojeo · Step 3 Delta Backfill · Pass 55</h1>
+<h1>Emojeo · Step 3 Delta Backfill · Pass 56</h1>
 
 <div class="card">
 <p><strong>Purpose:</strong> run the 79 already-completed Step 3 emoji against only the 354 relationship types added by the v013 ontology review.</p>
-<p class="small">Pass 55 keeps the Pass 54 fresh-discovery shards, then sends those new raw notes through the proven Step 3 recovery mapper/reconciler before an emoji counts as complete. This fixes Pass 54 recording useful raw notes while producing zero structured assertions. Existing Pass 54 IndexedDB shard checkpoints are reused; completed discovery calls are not rerun.</p>
+<p class="small">Pass 56 keeps the Pass 55 two-stage discovery + mapper/reconciliation pipeline, then applies a strict deterministic evidence gate to accepted assertions. Low-confidence, explicitly speculative/context-only, or self-referential sentence-style targets are rejected and preserved for audit. Existing discovery and mapped checkpoints are re-audited locally; completed AI calls are not rerun.</p>
 </div>
 
 <div class="card">
-<label><strong>Completed 79/79 recovered Step 3 JSON</strong>
+<label><strong>Completed recovered JSON or Pass 55 checkpoint JSON</strong>
 <input id="file" type="file" accept="application/json,.json">
 </label>
-<div id="summary">Load <code>emojeo-step3-recovered-2026-09-23T04-12-14-359Z.json</code>.</div>
+<div id="summary">Load the original 79/79 recovered JSON or a downloaded Pass 55 delta-backfill checkpoint.</div>
 <p id="status" class="status">IDLE</p>
 <button id="run1" disabled>RUN NEXT 1</button>
 <button id="run3" disabled>RUN THROUGH 3</button>
@@ -43,10 +43,10 @@ code{word-break:break-word}
 </div>
 
 <div class="card small">
-<strong>Safety gate:</strong> 1 subject → 3 total → 10 total → all 79. Each emoji has two stages: <strong>fresh delta discovery</strong> across 12 shards, then <strong>mapper/reconciliation</strong> against those same 354 new relationship types. The original <code>results</code> and <code>recoveryResults</code> remain unchanged. Pass 55 appends the fresh discovery evidence plus the structured delta assertions.
+<strong>Safety gate:</strong> 1 subject → 3 total → 10 total → all 79. Each emoji keeps the Pass 55 <strong>fresh delta discovery</strong> + <strong>mapper/reconciliation</strong> stages, followed by the Pass 56 <strong>strict evidence gate</strong>. Rejected assertions are retained for audit rather than deleted. The original <code>results</code> and <code>recoveryResults</code> remain unchanged.
 </div>
 
-<script src="genreactrix-cloud-api.js?v=55"></script>
-<script src="emojeo-step3-delta-backfill.js?v=55"></script>
+<script src="genreactrix-cloud-api.js?v=56"></script>
+<script src="emojeo-step3-delta-backfill.js?v=56"></script>
 </body>
 </html>
