@@ -1,14 +1,15 @@
-/* Emojeo Step 3 Delta Backfill — Pass 54
-   Fresh discovery against only the 354 v013 ontology additions.
-   Existing Step 3 results and recoveryResults are never mutated.
-   Every completed shard is checkpointed in IndexedDB.
-   Safety gate: 1 subject -> 3 total -> 10 total -> full 79. */
+/* Emojeo Step 3 Delta Backfill — Pass 55
+   Pass 54 generated useful fresh raw notes but the Semantic Discovery route's
+   structured schema is observations/rawNotes, not relationship assertions.
+   Pass 55 preserves those shard calls, then normalizes/reconciles each emoji's
+   12 new-note shards through the proven /api/emojeo/step3-recovery/subject route.
+   Existing IndexedDB Pass 54 discovery checkpoints are reused. */
 (()=>{'use strict';
 
 const $=id=>document.getElementById(id);
 const clean=v=>String(v??'').trim();
 const clone=v=>v==null?v:structuredClone(v);
-const DB_NAME='emojeo-step3-delta-backfill-v1';
+const DB_NAME='emojeo-step3-delta-backfill-v1'; // intentionally unchanged: resume Pass 54
 const STORE='jobs';
 const SHARD_SIZE=30;
 
@@ -54,30 +55,19 @@ function parseJsonish(v){
   if(v&&typeof v==='object')return v;
   return JSON.parse(clean(v).replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,''));
 }
-function normalizeResult(raw,subject,shard){
+function normalizeDiscoveryResult(raw,subject,shard){
   const body=parseJsonish(raw?.rawDiscovery||raw?.result||raw);
-  const assertions=Array.isArray(body.assertions)?body.assertions:[];
   return {
     schemaVersion:1,
-    kind:'emojeo-step3-delta-backfill-shard',
+    kind:'emojeo-step3-delta-backfill-discovery-shard',
     subject:clone(subject),
     shardId:shard.id,
     shardDomain:shard.domain,
     relationshipTypes:shard.relationships.map(x=>x.relationshipType),
-    assertions:assertions.map(x=>({
-      relationshipType:clean(x.relationshipType),
-      tag:clean(x.tag),
-      state:['present','absent','uncertain','not_evaluated'].includes(clean(x.state))?clean(x.state):'uncertain',
-      confidence:clean(x.confidence)||null,
-      evidence:clean(x.evidence)
-    })).filter(x=>x.relationshipType&&x.tag),
-    newTags:[...new Set((body.newTags||[]).map(clean).filter(Boolean))],
-    newRelationshipNeeded:(body.newRelationshipNeeded||[]).map(x=>({
-      proposedRelationshipType:clean(x.proposedRelationshipType),
-      tag:clean(x.tag),
-      reason:clean(x.reason)
-    })).filter(x=>x.proposedRelationshipType),
-    rawNotes:body.rawNotes??null,
+    observations:Array.isArray(body.observations)?body.observations:[],
+    summary:clean(body.summary),
+    ambiguities:Array.isArray(body.ambiguities)?body.ambiguities:[],
+    rawNotes:Array.isArray(body.rawNotes)?body.rawNotes:(Array.isArray(body.notes)?body.notes:[]),
     provider:raw?.provider||null,
     completedAt:new Date().toISOString()
   };
@@ -85,31 +75,26 @@ function normalizeResult(raw,subject,shard){
 function prompt(subject,shard){
   const allowed=shard.relationships.map(x=>x.definition?`${x.relationshipType} — ${x.definition}`:x.relationshipType);
   return [
-    'EMOJEO STEP 3 V013 DELTA BACKFILL v1',
+    'EMOJEO STEP 3 V013 DELTA BACKFILL DISCOVERY v2',
     `Subject: ${subject.glyph} ${subject.name}`,
     `Relationship shard: ${shard.domain}`,
     '',
-    'This is a DELTA-ONLY discovery pass.',
-    'Evaluate this emoji against EVERY relationship type listed below.',
-    'Do not reevaluate, replace, or summarize the old 857 relationship types.',
-    'The tag vocabulary is open: discover exact semantic tag values freely.',
-    'FIND → ADD → PRESERVE. MULTIPLE TRUE → KEEP ALL.',
-    'Broad and narrow true assertions may coexist.',
-    'Relationship = how the emoji connects. Tag = exact referent/value.',
-    'Do not force a connection. Use absent when evaluated and false, uncertain when evidence is insufficient, and not_evaluated only when genuinely not assessed.',
-    'If a meaningful true connection cannot be expressed by the listed new relationship types, preserve it under newRelationshipNeeded for later review rather than forcing it.',
+    'This is a fresh DELTA-ONLY discovery pass.',
+    'Explore whether this emoji has meaningful connections covered by the NEW relationship types listed below.',
+    'Do not reevaluate or replace the old 857 relationship types.',
+    'The tag vocabulary is open: identify exact semantic targets/values that would matter if a listed relationship applies.',
+    'Preserve broad and narrow true possibilities, odd specific possibilities, ambiguity, and evidence-bearing notes.',
+    'Do not force a connection where none exists.',
+    'These raw notes will be normalized and reconciled in a separate mapper stage, so preserve useful evidence rather than trying to make the notes look canonical.',
     '',
-    'Allowed NEW relationship types:',
-    ...allowed.map(x=>`- ${x}`),
-    '',
-    'Return JSON only:',
-    '{"assertions":[{"relationshipType":"...","tag":"...","state":"present|absent|uncertain|not_evaluated","confidence":"high|medium|low","evidence":"brief evidence"}],"newTags":["..."],"newRelationshipNeeded":[{"proposedRelationshipType":"...","tag":"...","reason":"..."}],"rawNotes":[]}'
+    'NEW relationship types to investigate:',
+    ...allowed.map(x=>`- ${x}`)
   ].join('\n');
 }
 function request(subject,shard){
   return {
     schemaVersion:1,
-    kind:'emojeo-step3-delta-backfill-assertion',
+    kind:'emojeo-step3-delta-backfill-discovery',
     subject:{id:`${subject.glyph}:${subject.name}`,glyph:subject.glyph,name:subject.name},
     domain:shard.domain,
     relationshipTypes:shard.relationships.map(x=>x.relationshipType),
@@ -162,18 +147,35 @@ async function callWithRetry(payload,signal,onRetry){
     }
   }
 }
-function completedSubjects(){
-  if(!job)return 0;
-  return Math.floor(job.results.length/job.shards.length);
+async function callRecoveryMapper(subject,units,signal){
+  const api=globalThis.GenreactrixCloudApi;
+  const b=clean(api?.getBaseUrl?.()),k=clean(api?.getKey?.());
+  if(!b)throw new Error('AI Worker URL is not configured in this browser');
+  if(!k)throw new Error('Analysis key is not configured in this browser');
+  const relationshipDomains=job.shards.map(s=>({
+    domain:s.domain,
+    relationshipTypes:s.relationships.map(x=>x.relationshipType)
+  }));
+  const r=await fetch(`${b}/api/emojeo/step3-recovery/subject`,{
+    method:'POST',
+    headers:{'content-type':'application/json','x-analysis-key':k},
+    body:JSON.stringify({
+      schemaVersion:1,
+      subject:clone(subject),
+      units:units.map(x=>({domain:x.shardDomain,rawNotes:Array.isArray(x.rawNotes)?x.rawNotes:[]})),
+      relationshipDomains
+    }),
+    signal
+  });
+  const payload=await r.json().catch(()=>({}));
+  if(!r.ok)throw new Error(payload.error||`Delta mapper request failed (${r.status})`);
+  const result=payload?.result;
+  if(!result||!Array.isArray(result.assertions))throw new Error('Delta mapper returned no structured assertions array.');
+  return result;
 }
-function currentSubjectIndex(){
-  if(!job)return 0;
-  return Math.floor(job.results.length/job.shards.length);
-}
-function currentShardIndex(){
-  if(!job)return 0;
-  return job.results.length%job.shards.length;
-}
+function mappedSubjects(){return Array.isArray(job?.mapped)?job.mapped.length:0}
+function discoveredShardCalls(){return Array.isArray(job?.results)?job.results.length:0}
+function discoveredSubjects(){return job?Math.floor(discoveredShardCalls()/job.shards.length):0}
 function setStatus(text){$('status').textContent=text}
 function render(){
   if(!job){
@@ -181,43 +183,56 @@ function render(){
     for(const id of ['run1','run3','run10','runall','stop','download'])$(id).disabled=true;
     return;
   }
-  const subjectDone=completedSubjects(),subjectTotal=job.subjects.length;
-  const callDone=job.results.length,callTotal=subjectTotal*job.shards.length;
-  const pct=callTotal?(callDone/callTotal*100).toFixed(2):'0.00';
-  $('summary').innerHTML=`<span class="good">${subjectDone}/${subjectTotal} old emoji backfilled</span> · ${callDone}/${callTotal} shard calls saved · ${pct}% · ${job.relationshipCount} new relationships`;
-  $('run1').disabled=running||subjectDone>=subjectTotal;
-  $('run3').disabled=running||subjectDone<1||subjectDone>=3||subjectDone>=subjectTotal;
-  $('run10').disabled=running||subjectDone<3||subjectDone>=10||subjectDone>=subjectTotal;
-  $('runall').disabled=running||subjectDone<10||subjectDone>=subjectTotal;
+  const done=mappedSubjects(),subjectTotal=job.subjects.length;
+  const shardDone=discoveredShardCalls(),shardTotal=subjectTotal*job.shards.length;
+  const present=(job.mapped||[]).reduce((n,r)=>n+(r?.assertions||[]).filter(x=>x?.state==='present').length,0);
+  $('summary').innerHTML=`<span class="good">${done}/${subjectTotal} old emoji backfilled</span> · ${shardDone}/${shardTotal} discovery shards saved · ${present} accepted PRESENT assertions · ${job.relationshipCount} new relationships`;
+  $('run1').disabled=running||done>=subjectTotal;
+  $('run3').disabled=running||done<1||done>=3||done>=subjectTotal;
+  $('run10').disabled=running||done<3||done>=10||done>=subjectTotal;
+  $('runall').disabled=running||done<10||done>=subjectTotal;
   $('stop').disabled=!running;
-  $('download').disabled=!job.results.length;
+  $('download').disabled=!done;
+}
+async function ensureDiscoveryForSubject(si){
+  const subject=job.subjects[si];
+  const start=si*job.shards.length,end=(si+1)*job.shards.length;
+  if(job.results.length<start)throw new Error(`Discovery checkpoint gap before subject ${si+1}.`);
+  while(job.results.length<end){
+    if(aborter.signal.aborted)throw new DOMException('Aborted','AbortError');
+    const di=job.results.length-start,shard=job.shards[di];
+    setStatus(`DISCOVERY · ${si+1}/${job.subjects.length} · ${subject.glyph} ${subject.name}\nShard ${di+1}/${job.shards.length} · ${shard.relationships.length} new relationships…`);
+    const envelope=await callWithRetry(request(subject,shard),aborter.signal,r=>{
+      setStatus(`DISCOVERY RETRY ${r.attempt}/5 in ${Math.round(r.delay/1000)}s · ${subject.glyph} ${subject.name} · shard ${di+1}/${job.shards.length}\n${r.error?.message||r.error}`);
+    });
+    job.results.push(normalizeDiscoveryResult(envelope?.result||envelope,subject,shard));
+    job.updatedAt=new Date().toISOString();
+    await dbPut(job);render();
+  }
+  return job.results.slice(start,end);
 }
 async function runTo(target){
   if(running||!job)return;
-  const totalSubjects=job.subjects.length,startDone=completedSubjects();
+  const totalSubjects=job.subjects.length,startDone=mappedSubjects();
   const stopSubject=target==='all'?totalSubjects:Math.min(totalSubjects,target==='next'?startDone+1:Number(target));
   if(!Number.isFinite(stopSubject)||stopSubject<=startDone)return;
   running=true;aborter=new AbortController();render();
   try{
-    const stopCalls=stopSubject*job.shards.length;
-    while(job.results.length<stopCalls){
+    for(let si=startDone;si<stopSubject;si++){
+      const subject=job.subjects[si];
+      const units=await ensureDiscoveryForSubject(si);
       if(aborter.signal.aborted)break;
-      const si=currentSubjectIndex(),di=currentShardIndex(),subject=job.subjects[si],shard=job.shards[di];
-      setStatus(`Backfilling ${si+1}/${totalSubjects} · ${subject.glyph} ${subject.name}\nShard ${di+1}/${job.shards.length} · ${shard.relationships.length} new relationships…`);
-      const envelope=await callWithRetry(request(subject,shard),aborter.signal,r=>{
-        setStatus(`Retry ${r.attempt}/5 in ${Math.round(r.delay/1000)}s · ${subject.glyph} ${subject.name} · shard ${di+1}/${job.shards.length}\n${r.error?.message||r.error}`);
-      });
-      const result=normalizeResult(envelope?.result||envelope,subject,shard);
-      job.results.push(result);
+      setStatus(`MAPPER + RECONCILIATION · ${si+1}/${totalSubjects} · ${subject.glyph} ${subject.name}\nNormalizing the 12 fresh delta-note shards against the 354 approved relationship types…`);
+      const mapped=await callRecoveryMapper(subject,units,aborter.signal);
+      job.mapped.push(mapped);
       job.updatedAt=new Date().toISOString();
-      await dbPut(job);
-      render();
+      await dbPut(job);render();
     }
-    if(completedSubjects()===totalSubjects)setStatus('DELTA BACKFILL COMPLETE · 79/79 · Download the backfilled JSON.');
-    else if(aborter.signal.aborted)setStatus('STOPPED · every completed shard is saved.');
-    else setStatus(`CHECKPOINT REACHED · ${completedSubjects()}/${totalSubjects} subjects complete · download and inspect before the next gate.`);
+    if(mappedSubjects()===totalSubjects)setStatus('DELTA BACKFILL COMPLETE · 79/79 · Download the backfilled JSON.');
+    else if(aborter.signal.aborted)setStatus('STOPPED · every completed discovery shard and mapped subject is saved.');
+    else setStatus(`CHECKPOINT REACHED · ${mappedSubjects()}/${totalSubjects} subjects backfilled · download and inspect before the next gate.`);
   }catch(e){
-    if(e?.name==='AbortError')setStatus('STOPPED · every completed shard is saved.');
+    if(e?.name==='AbortError')setStatus('STOPPED · every completed discovery shard and mapped subject is saved.');
     else setStatus(`STOPPED · ${e?.message||e}`);
   }finally{
     running=false;render();
@@ -226,24 +241,25 @@ async function runTo(target){
 function stop(){aborter?.abort()}
 function download(){
   if(!job||!input)return;
-  const present=job.results.flatMap(x=>x.assertions||[]).filter(x=>x.state==='present').length;
+  const present=(job.mapped||[]).reduce((n,r)=>n+(r?.assertions||[]).filter(x=>x?.state==='present').length,0);
   const out={
     ...input,
-    deltaBackfillSchemaVersion:1,
+    deltaBackfillSchemaVersion:2,
     deltaBackfillKind:'emojeo-step3-v013-ontology-delta-backfill',
     deltaBackfillCreatedAt:new Date().toISOString(),
     deltaBackfillRelationshipCount:job.relationshipCount,
     deltaBackfillShardCount:job.shards.length,
-    deltaBackfillCompletedShardCalls:job.results.length,
+    deltaBackfillCompletedDiscoveryShardCalls:job.results.length,
     deltaBackfillSubjectCount:job.subjects.length,
-    deltaBackfillCompletedSubjects:completedSubjects(),
+    deltaBackfillCompletedSubjects:mappedSubjects(),
     deltaBackfillPresentAssertionCount:present,
-    deltaBackfillStrategy:`fresh Semantic Discovery; only ${job.relationshipCount} v013 additions; ${job.shards.length} deterministic shards of at most ${SHARD_SIZE}; original results and recoveryResults preserved; item-level IndexedDB checkpointing; gated 1 -> 3 -> 10 -> 79`,
-    deltaBackfillResults:job.results
+    deltaBackfillStrategy:`Pass 55 two-stage delta backfill: fresh Semantic Discovery over only ${job.relationshipCount} v013 additions in ${job.shards.length} deterministic shards, then proven Step 3 recovery mapper/reconciliation over those fresh raw notes; original results and recoveryResults preserved; IndexedDB checkpointing; gated 1 -> 3 -> 10 -> 79`,
+    deltaBackfillDiscoveryResults:job.results,
+    deltaBackfillResults:job.mapped
   };
   const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'}),a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download=`emojeo-step3-delta-backfilled-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;
+  a.download=`emojeo-step3-delta-backfilled-pass55-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;
   document.body.appendChild(a);a.click();
   setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);
 }
@@ -260,29 +276,33 @@ async function loadFile(file){
   for(let i=0;i<79;i++){
     if(subjectKey(subjects[i])!==subjectKey(recoveredSubjects[i]))throw new Error(`Subject order mismatch at ${i+1}: RunSpec ${subjects[i].glyph} ${subjects[i].name} vs recovered JSON ${recoveredSubjects[i]?.glyph||''} ${recoveredSubjects[i]?.name||''}`);
   }
-  const shards=buildShards(relationships);
-  const id=fingerprint(input,file);
-  const prior=await dbGet(id);
+  const shards=buildShards(relationships),id=fingerprint(input,file),prior=await dbGet(id);
   if(prior&&(prior.relationshipCount!==354||prior.shards?.length!==shards.length))throw new Error('Saved checkpoint does not match the current v013 delta RunSpec.');
   job=prior||{
-    id,
-    schemaVersion:1,
-    kind:'emojeo-step3-delta-backfill-job',
-    batchId:spec.batchId,
-    createdAt:new Date().toISOString(),
-    updatedAt:new Date().toISOString(),
-    relationshipCount:354,
-    candidateEvaluationCount:27966,
-    subjects,
-    shards,
-    results:[]
+    id,schemaVersion:2,kind:'emojeo-step3-delta-backfill-job',
+    batchId:spec.batchId,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),
+    relationshipCount:354,candidateEvaluationCount:27966,subjects,shards,results:[],mapped:[]
   };
-  job.subjects=subjects;job.shards=shards;job.relationshipCount=354;job.results=Array.isArray(job.results)?job.results:[];
+  job.schemaVersion=2;
+  job.subjects=subjects;job.shards=shards;job.relationshipCount=354;
+  job.results=Array.isArray(job.results)?job.results:[];
+  job.mapped=Array.isArray(job.mapped)?job.mapped:[];
+  // Pass 54 rows used a different kind but already contain the fresh rawNotes we need.
+  job.results=job.results.map((r,i)=>({
+    ...r,
+    kind:'emojeo-step3-delta-backfill-discovery-shard',
+    observations:Array.isArray(r.observations)?r.observations:[],
+    summary:clean(r.summary),
+    ambiguities:Array.isArray(r.ambiguities)?r.ambiguities:[],
+    rawNotes:Array.isArray(r.rawNotes)?r.rawNotes:[]
+  }));
   await dbPut(job);
-  if(job.results.length){
-    setStatus(`RESUMED · ${completedSubjects()}/79 subjects complete · ${job.results.length}/${79*shards.length} shard calls already saved.`);
+  if(job.mapped.length){
+    setStatus(`RESUMED · ${job.mapped.length}/79 subjects fully backfilled · ${job.results.length}/${79*shards.length} fresh discovery shards saved.`);
+  }else if(job.results.length){
+    setStatus(`PASS 54 CHECKPOINT RECOVERED · ${job.results.length}/${79*shards.length} fresh discovery shards already saved.\nNo discovery work will be repeated. Press RUN NEXT 1 to normalize/reconcile the first emoji.`);
   }else{
-    setStatus(`READY · 79 old emoji · 354 new relationships · ${shards.length} shards/emoji · 27,966 candidate relationship evaluations.\nFirst gate: RUN NEXT 1.`);
+    setStatus(`READY · 79 old emoji · 354 new relationships · ${shards.length} discovery shards/emoji · 27,966 candidate relationship evaluations.\nFirst gate: RUN NEXT 1.`);
   }
   render();
 }

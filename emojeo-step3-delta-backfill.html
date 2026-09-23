@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Emojeo · Step 3 Delta Backfill · Pass 54</title>
+<title>Emojeo · Step 3 Delta Backfill · Pass 55</title>
 <style>
 body{font-family:system-ui,sans-serif;max-width:860px;margin:0 auto;padding:20px;background:#111;color:#eee}
 h1{font-size:1.45rem}
@@ -16,15 +16,16 @@ input[type=file]{display:block;margin:12px 0;max-width:100%}
 .status{font-weight:700;white-space:pre-wrap}
 .small{opacity:.82;font-size:.92rem}
 .good{color:#a7e7ad}
+.warn{color:#ffd27a}
 code{word-break:break-word}
 </style>
 </head>
 <body>
-<h1>Emojeo · Step 3 Delta Backfill · Pass 54</h1>
+<h1>Emojeo · Step 3 Delta Backfill · Pass 55</h1>
 
 <div class="card">
 <p><strong>Purpose:</strong> run the 79 already-completed Step 3 emoji against only the 354 relationship types added by the v013 ontology review.</p>
-<p class="small">This is a fresh delta discovery pass through the existing Semantic Discovery Worker route. It does <strong>not</strong> rerun the original 857 relationships and does not replace the completed Step 3 or recovery results. The 354 new relationships are split into small deterministic shards for coverage. Each completed shard is checkpointed immediately in IndexedDB, so closing the browser does not discard completed calls.</p>
+<p class="small">Pass 55 keeps the Pass 54 fresh-discovery shards, then sends those new raw notes through the proven Step 3 recovery mapper/reconciler before an emoji counts as complete. This fixes Pass 54 recording useful raw notes while producing zero structured assertions. Existing Pass 54 IndexedDB shard checkpoints are reused; completed discovery calls are not rerun.</p>
 </div>
 
 <div class="card">
@@ -42,10 +43,10 @@ code{word-break:break-word}
 </div>
 
 <div class="card small">
-<strong>Safety gate:</strong> 1 subject → 3 total → 10 total → all 79. A subject is complete only after every new-relationship shard for that emoji is saved. If the browser closes mid-subject, reopening this page and loading the same recovered JSON resumes at the next unsaved shard. Original <code>results</code> and <code>recoveryResults</code> remain unchanged; Pass 54 appends <code>deltaBackfillResults</code>.
+<strong>Safety gate:</strong> 1 subject → 3 total → 10 total → all 79. Each emoji has two stages: <strong>fresh delta discovery</strong> across 12 shards, then <strong>mapper/reconciliation</strong> against those same 354 new relationship types. The original <code>results</code> and <code>recoveryResults</code> remain unchanged. Pass 55 appends the fresh discovery evidence plus the structured delta assertions.
 </div>
 
-<script src="genreactrix-cloud-api.js?v=54"></script>
-<script src="emojeo-step3-delta-backfill.js?v=54"></script>
+<script src="genreactrix-cloud-api.js?v=55"></script>
+<script src="emojeo-step3-delta-backfill.js?v=55"></script>
 </body>
 </html>
