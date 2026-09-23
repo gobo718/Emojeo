@@ -1,4 +1,4 @@
-/* Emojeo Step 3 Recovery Mapper — Pass 52
+/* Emojeo Step 3 Recovery Mapper — Pass 53
    Browser orchestration only. AI normalization runs on the Worker, three providers in parallel.
    Original imported JSON is never mutated; recovered data is appended under recoveryResults.
    Safety gate: 1 subject -> 3 total -> 10 total -> full run. */
