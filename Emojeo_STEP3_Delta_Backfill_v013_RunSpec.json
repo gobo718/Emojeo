@@ -1,0 +1,2112 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-step3-delta-backfill-runspec",
+  "batchId": "step3-v013-ontology-delta-backfill-001",
+  "sourcePopulation": "emojeo-step3-recovered-2026-09-23T04-12-14-359Z.json",
+  "sourceOntology": "Emojeo_STEP3_Semantic_Inventory_857.json",
+  "sourceOntologyRelationshipCount": 857,
+  "integrationDelta": "Emojeo_STEP3_Ontology_Integration_v013_DELTA.json",
+  "targetOntologyRelationshipCount": 1211,
+  "subjectCount": 79,
+  "relationshipDeltaCount": 354,
+  "candidateEvaluationCount": 27966,
+  "subjects": [
+    {
+      "glyph": "😀",
+      "name": "grinning face"
+    },
+    {
+      "glyph": "😭",
+      "name": "loudly crying face"
+    },
+    {
+      "glyph": "🤠",
+      "name": "cowboy hat face"
+    },
+    {
+      "glyph": "🥳",
+      "name": "partying face"
+    },
+    {
+      "glyph": "👩‍⚕️",
+      "name": "woman health worker"
+    },
+    {
+      "glyph": "🧑‍🚀",
+      "name": "astronaut"
+    },
+    {
+      "glyph": "🧙",
+      "name": "mage"
+    },
+    {
+      "glyph": "🧛",
+      "name": "vampire"
+    },
+    {
+      "glyph": "🐝",
+      "name": "honeybee"
+    },
+    {
+      "glyph": "🦡",
+      "name": "badger"
+    },
+    {
+      "glyph": "🐷",
+      "name": "pig face"
+    },
+    {
+      "glyph": "🦇",
+      "name": "bat"
+    },
+    {
+      "glyph": "🦋",
+      "name": "butterfly"
+    },
+    {
+      "glyph": "🐍",
+      "name": "snake"
+    },
+    {
+      "glyph": "🐄",
+      "name": "cow"
+    },
+    {
+      "glyph": "🐑",
+      "name": "ewe"
+    },
+    {
+      "glyph": "🌻",
+      "name": "sunflower"
+    },
+    {
+      "glyph": "🌵",
+      "name": "cactus"
+    },
+    {
+      "glyph": "🍯",
+      "name": "honey pot"
+    },
+    {
+      "glyph": "🥛",
+      "name": "glass of milk"
+    },
+    {
+      "glyph": "🧀",
+      "name": "cheese wedge"
+    },
+    {
+      "glyph": "🥚",
+      "name": "egg"
+    },
+    {
+      "glyph": "🍣",
+      "name": "sushi"
+    },
+    {
+      "glyph": "🌮",
+      "name": "taco"
+    },
+    {
+      "glyph": "🥓",
+      "name": "bacon"
+    },
+    {
+      "glyph": "🍄",
+      "name": "mushroom"
+    },
+    {
+      "glyph": "🍺",
+      "name": "beer mug"
+    },
+    {
+      "glyph": "🏄",
+      "name": "person surfing"
+    },
+    {
+      "glyph": "⚽",
+      "name": "soccer ball"
+    },
+    {
+      "glyph": "🎸",
+      "name": "guitar"
+    },
+    {
+      "glyph": "🎮",
+      "name": "video game"
+    },
+    {
+      "glyph": "🚝",
+      "name": "monorail"
+    },
+    {
+      "glyph": "🚑",
+      "name": "ambulance"
+    },
+    {
+      "glyph": "✈️",
+      "name": "airplane"
+    },
+    {
+      "glyph": "🚲",
+      "name": "bicycle"
+    },
+    {
+      "glyph": "🔋",
+      "name": "battery"
+    },
+    {
+      "glyph": "📱",
+      "name": "mobile phone"
+    },
+    {
+      "glyph": "💻",
+      "name": "laptop"
+    },
+    {
+      "glyph": "🧽",
+      "name": "sponge"
+    },
+    {
+      "glyph": "💊",
+      "name": "pill"
+    },
+    {
+      "glyph": "🩹",
+      "name": "adhesive bandage"
+    },
+    {
+      "glyph": "🧯",
+      "name": "fire extinguisher"
+    },
+    {
+      "glyph": "🛒",
+      "name": "shopping cart"
+    },
+    {
+      "glyph": "💳",
+      "name": "credit card"
+    },
+    {
+      "glyph": "🧳",
+      "name": "luggage"
+    },
+    {
+      "glyph": "🔒",
+      "name": "locked"
+    },
+    {
+      "glyph": "🔓",
+      "name": "unlocked"
+    },
+    {
+      "glyph": "⚠️",
+      "name": "warning"
+    },
+    {
+      "glyph": "♻️",
+      "name": "recycling symbol"
+    },
+    {
+      "glyph": "♌",
+      "name": "Leo"
+    },
+    {
+      "glyph": "🇯🇵",
+      "name": "flag: Japan"
+    },
+    {
+      "glyph": "🇲🇽",
+      "name": "flag: Mexico"
+    },
+    {
+      "glyph": "🏳️‍🌈",
+      "name": "rainbow flag"
+    },
+    {
+      "glyph": "❤️",
+      "name": "red heart"
+    },
+    {
+      "glyph": "💔",
+      "name": "broken heart"
+    },
+    {
+      "glyph": "🎄",
+      "name": "Christmas tree"
+    },
+    {
+      "glyph": "🎃",
+      "name": "jack-o-lantern"
+    },
+    {
+      "glyph": "🎓",
+      "name": "graduation cap"
+    },
+    {
+      "glyph": "🏆",
+      "name": "trophy"
+    },
+    {
+      "glyph": "☔",
+      "name": "umbrella with rain drops"
+    },
+    {
+      "glyph": "📚",
+      "name": "books"
+    },
+    {
+      "glyph": "🛏️",
+      "name": "bed"
+    },
+    {
+      "glyph": "🧼",
+      "name": "soap"
+    },
+    {
+      "glyph": "🧸",
+      "name": "teddy bear"
+    },
+    {
+      "glyph": "🎲",
+      "name": "game die"
+    },
+    {
+      "glyph": "🧪",
+      "name": "test tube"
+    },
+    {
+      "glyph": "⚖️",
+      "name": "balance scale"
+    },
+    {
+      "glyph": "🗽",
+      "name": "Statue of Liberty"
+    },
+    {
+      "glyph": "🏖️",
+      "name": "beach with umbrella"
+    },
+    {
+      "glyph": "🗺️",
+      "name": "world map"
+    },
+    {
+      "glyph": "💈",
+      "name": "barber pole"
+    },
+    {
+      "glyph": "🍆",
+      "name": "eggplant"
+    },
+    {
+      "glyph": "💦",
+      "name": "sweat droplets"
+    },
+    {
+      "glyph": "👠",
+      "name": "high-heeled shoe"
+    },
+    {
+      "glyph": "⛓️",
+      "name": "chains"
+    },
+    {
+      "glyph": "🎀",
+      "name": "ribbon"
+    },
+    {
+      "glyph": "🦅",
+      "name": "eagle"
+    },
+    {
+      "glyph": "🍕",
+      "name": "pizza"
+    },
+    {
+      "glyph": "☕",
+      "name": "hot beverage"
+    }
+  ],
+  "relationshipDelta": [
+    {
+      "relationshipType": "EXPRESSES_EMOTION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Directly captures the emoji’s core function."
+    },
+    {
+      "relationshipType": "IS_WARNING_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a warning for another target."
+    },
+    {
+      "relationshipType": "HAS_TONE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Context-dependent tonal qualities."
+    },
+    {
+      "relationshipType": "IS_METAPHOR_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a metaphor for another target."
+    },
+    {
+      "relationshipType": "IS_RESPONSE_TO",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Implies reactivity to external inputs (e.g., greetings, compliments)."
+    },
+    {
+      "relationshipType": "INDUCES_EMOTION_IN",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Reflects its role in evoking emotions in others."
+    },
+    {
+      "relationshipType": "ANIMAL_SYMBOLISM",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Cultural themes like greed or rural life, as the emoji's symbolic power is cultural rather than media-specific."
+    },
+    {
+      "relationshipType": "HAS_CULTURAL_CONNOTATION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Acknowledges cross-cultural variations."
+    },
+    {
+      "relationshipType": "ENABLES_ACCESS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Broader access scenarios (e.g., \"unlocking access to data\")."
+    },
+    {
+      "relationshipType": "FICTIONAL_MEME_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Niche fictional allegories like 'Pigs on the Wing' or 'Animal Farm'."
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH_CUTENESS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes that playful design and cuteness override literal interpretations, but no authorized relationship captures this emotional projection."
+    },
+    {
+      "relationshipType": "PET_PLAY_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests this would be the least inappropriate relationship for BDSM contexts if forced, but it is not covered by the current taxonomy."
+    },
+    {
+      "relationshipType": "IS_STATE_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the state of another target."
+    },
+    {
+      "relationshipType": "IS_SAFETY_SYMBOL_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a safety symbol for another target."
+    },
+    {
+      "relationshipType": "ANIMAL_ROLE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Niche BDSM contexts where the emoji is used as a submissive metaphor, but it is not in the allowed domain."
+    },
+    {
+      "relationshipType": "CULTURAL_ARCHETYPE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji embodies a rebellious, nature-connected archetype, warranting a new relationship type for broader symbolic connections."
+    },
+    {
+      "relationshipType": "IS_SOURCE_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the source of another target."
+    },
+    {
+      "relationshipType": "INTERNET_SLANG_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Meme/internet uses, distinct from standard pop culture references."
+    },
+    {
+      "relationshipType": "MEMETIC_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Underspecified proposal: recovery mainly says the current domain/relationship set was a poor fit, but it does not preserve a clean semantic target."
+    },
+    {
+      "relationshipType": "THEME_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Narrative granularity where existing types are absent or weak."
+    },
+    {
+      "relationshipType": "POLITICAL_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji functions as a political symbol, not an award or entertainment reference."
+    },
+    {
+      "relationshipType": "INDICATES_CONDITION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed new relationship to capture the emoji’s real-world use as a warning indicator."
+    },
+    {
+      "relationshipType": "IS_SYMBOL_OF_INCLUSION_IN",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji symbolizes inclusion in sports, not a playing surface or equipment."
+    },
+    {
+      "relationshipType": "PRIDE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji could reference Pride themes or events in fictional worlds, but this is not covered by existing types."
+    },
+    {
+      "relationshipType": "TRIGGERS_EMOTION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Useful for nuanced symbolic meanings excluded per constraints."
+    },
+    {
+      "relationshipType": "ALLEGIANCE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Allegiance to LGBTQ+ causes, not direct character relationships."
+    },
+    {
+      "relationshipType": "IS_CULTURAL_REPRESENTATION_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the cultural representation of another target."
+    },
+    {
+      "relationshipType": "IS_TRIGGER_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a trigger for another target."
+    },
+    {
+      "relationshipType": "IS_ALERT_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a alert for another target."
+    },
+    {
+      "relationshipType": "MYTHOLOGICAL_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Better accommodates emoji's breadth than media/format types."
+    },
+    {
+      "relationshipType": "WEATHER_CONDITION_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji implies suitable surfing weather, warranting a new relationship type for environmental dependencies in activities."
+    },
+    {
+      "relationshipType": "SYMBOLIC_EVOLUTION_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji's design changes reflect cultural adaptation, not narrative continuity."
+    },
+    {
+      "relationshipType": "SYMBOLIC_MOTIF_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji serves as a symbolic motif in media, not a direct reference to a specific media format."
+    },
+    {
+      "relationshipType": "IS_INDICATOR_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the indicator of another target."
+    },
+    {
+      "relationshipType": "SYMBOLIC_BRAND_ASSOCIATION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji can symbolically associate with brands, not as a product or mascot."
+    },
+    {
+      "relationshipType": "IS_CONTEXT_DEPENDENT_FOR_HORROR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence states existing valence types don't capture the nuance that horror associations are externally imposed rather than inherent."
+    },
+    {
+      "relationshipType": "ENABLES_TRANSFORMATION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji’s symbolic role often involves enabling or facilitating transformation, which is not covered by existing types."
+    },
+    {
+      "relationshipType": "ACCESS_METAPHOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic role in unlocking as progression (e.g., games, narratives)."
+    },
+    {
+      "relationshipType": "SOCIAL_MOVEMENT_ICON",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji is a cultural icon representing social movements, not just entertainment or awards."
+    },
+    {
+      "relationshipType": "INDICATES_SAFE_SPACE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji can indicate safe spaces, not a legal status or hazard protection."
+    },
+    {
+      "relationshipType": "ASSOCIATED_WITH",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose ASSOCIATED_WITH to link the emoji to relevant locations, which is broader than the authorized IMPLIES_SETTING."
+    },
+    {
+      "relationshipType": "IS_WARNING_SYMBOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "No sports-specific evidence."
+    },
+    {
+      "relationshipType": "STATUS_TO",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic ties to status."
+    },
+    {
+      "relationshipType": "USED_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is used for another target."
+    },
+    {
+      "relationshipType": "IS_HUMAN_WARNING_SYMBOL_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a human warning symbol for another target."
+    },
+    {
+      "relationshipType": "IS_REQUIRED_BY_LAW_ON_DATE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests bridging the emoji’s object role to time-based legal requirements."
+    },
+    {
+      "relationshipType": "IS_WARNING_SYMBOL_IN_ROOM",
+      "domain": "Step 3 recovery expansion",
+      "definition": "No spatial typicality evidence."
+    },
+    {
+      "relationshipType": "IS_HISTORICALLY_ASSOCIATED_WITH_PLACE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Historical relationships could use this type."
+    },
+    {
+      "relationshipType": "GAME_THEME_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Potential new relationship for game-related thematic use."
+    },
+    {
+      "relationshipType": "IS_COMPONENT_OF_CUSTOM_SEQUENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Niche meme sequences outside allowed Unicode types."
+    },
+    {
+      "relationshipType": "SIGNATURE_METAPHOR_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests this for growing memetic use of '🩹 solution'."
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH_SPACEPORT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emoji relates to space travel but no airport or spaceport relationship exists."
+    },
+    {
+      "relationshipType": "SYSTEM_TROPE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Genre/trope domain to capture fantasy or narrative uses of balance."
+    },
+    {
+      "relationshipType": "LIBRARY_FETISH_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes mention niche proposals like LIBRARY_FETISH_REFERENCE for specific subcultures within the Kink domain."
+    },
+    {
+      "relationshipType": "REPRESENTS_ROLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji’s core function is to represent a symbolic archetype (e.g., 'mage'), not just a pose or setting."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_ROLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic culinary or cultural roles not encoded in emoji."
+    },
+    {
+      "relationshipType": "IS_FUNCTIONAL_OPPOSITE_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the functional opposite of another target."
+    },
+    {
+      "relationshipType": "IS_PROCESS_OPPOSITE_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the process opposite of another target."
+    },
+    {
+      "relationshipType": "FICTIONAL_ALLEGORY_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Niche fictional allegory references."
+    },
+    {
+      "relationshipType": "FICTIONAL_MEDIUM_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose FICTIONAL_MEDIUM_REFERENCE to capture the emoji's role as a container for fictional elements."
+    },
+    {
+      "relationshipType": "HAS_CULTURAL_COMPOSITION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes suggest this type to capture symbolic layers excluded by current constraints."
+    },
+    {
+      "relationshipType": "HAS_SYMBOLIC_COMPOSITION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests emoji is a fusion of human and rocket symbolically, not just physical composition."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_STATE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose SYMBOLIZES_STATE to handle metaphorical conditions not covered by HAS_STATE_CONDITION."
+    },
+    {
+      "relationshipType": "IS_SYSTEMIC_OPPOSITE_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the systemic opposite of another target."
+    },
+    {
+      "relationshipType": "IS_ALERT_SYMBOL_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a alert symbol for another target."
+    },
+    {
+      "relationshipType": "ASSOCIATED_WITH_ACTION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Describe how a bandage is used, but it is not authorized in the visible action cue domain."
+    },
+    {
+      "relationshipType": "SIGNIFIES_MOVEMENT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Recognition domain evidence indicates existing award types are misaligned; new type needed for cultural/identity-based roles."
+    },
+    {
+      "relationshipType": "IS_TRANSITION_SYMBOL_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a transition symbol for another target."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_ACCESS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Broader symbolic role in unlocking themes (e.g., freedom, discovery)."
+    },
+    {
+      "relationshipType": "FAN_CULTURE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Recognition & cultural status domain, not in ontology."
+    },
+    {
+      "relationshipType": "IS_EMOTIONAL_OUTCOME_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the emotional outcome of another target."
+    },
+    {
+      "relationshipType": "IS_LIFECYCLE_OPPOSITE_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the lifecycle opposite of another target."
+    },
+    {
+      "relationshipType": "HAS_ASSOCIATED_IDENTITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Indirect identity encoding beyond HAS_ENCODED_IDENTITY."
+    },
+    {
+      "relationshipType": "CRISIS_ARCHETYPE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Character dynamics."
+    },
+    {
+      "relationshipType": "HAS_FIXED_QUANTITY_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is has fixed quantity of another target."
+    },
+    {
+      "relationshipType": "HAS_PARTS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Granular visible structure of bicycle parts."
+    },
+    {
+      "relationshipType": "SPORT_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The allowed relationship types lack SPORT_REFERENCE, which is the emoji’s primary domain."
+    },
+    {
+      "relationshipType": "HAS_BALANCED_COMPOSITION_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is has balanced composition of another target."
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH_SPACE_MISSION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emoji symbolizes space missions but no existing relationship covers this."
+    },
+    {
+      "relationshipType": "REPRESENTS_CONCEPT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose REPRESENTS_CONCEPT to capture symbolic associations like knowledge, which are outside current authorized relationships."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_FREEDOM",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emotional/abstract symbolism of unlocking."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_RENEWAL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Applicable if domain expanded to symbolic systems or mythological cycles."
+    },
+    {
+      "relationshipType": "SYSTEMIC_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Abstract systems like cycles, feedback loops, or processes in internet culture, distinct from standard meme or reaction image references."
+    },
+    {
+      "relationshipType": "HAS_ASSOCIATED_CONCEPT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests broader tags like emergency and risk may require this more permissive relationship type."
+    },
+    {
+      "relationshipType": "IS_CLIMATIC_OF_PLACE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Geographic provenance domain, climatic association."
+    },
+    {
+      "relationshipType": "IS_PART_OF_TRANSITION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Narrative/structural role in transitions."
+    },
+    {
+      "relationshipType": "MEDIA_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose MEDIA_REFERENCE to distinguish between book and movie adaptations."
+    },
+    {
+      "relationshipType": "REPRESENTS_IDENTITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Queer identity and pride, a relationship not covered by existing types."
+    },
+    {
+      "relationshipType": "CONTAINS_MEDIUM",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence proposes this to capture the emoji’s purpose rather than its composition, aligning with its symbolic role in safety contexts."
+    },
+    {
+      "relationshipType": "IMPLIES_ACTION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The evidence suggests the die implies a roll gesture or random selection, but the authorized domain lacks an action relationship type."
+    },
+    {
+      "relationshipType": "IS_SYMBOL_OF_THREAT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic threat indication."
+    },
+    {
+      "relationshipType": "IS_PERMISSION_SYMBOL_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a permission symbol for another target."
+    },
+    {
+      "relationshipType": "OCCUPATIONAL_ARCHETYPE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes in the Genre, trope & archetype domain propose OCCUPATIONAL_ARCHETYPE_REFERENCE to capture the emoji's role as a professional symbol without genre constraints."
+    },
+    {
+      "relationshipType": "TOOL_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Character dynamics."
+    },
+    {
+      "relationshipType": "IMPLIES_CONDITION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IMPLIES_CONDITION for metaphorical cases where HAS_STATE_CONDITION is insufficient."
+    },
+    {
+      "relationshipType": "IS_ALERT_SYMBOL_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the alert symbol of another target."
+    },
+    {
+      "relationshipType": "HAS_PATTERN",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Captures the emoji's textured appearance which is a meaningful but unclassified property."
+    },
+    {
+      "relationshipType": "HAS_SYMBOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence states HAS_SYMBOL would perfectly fit the red cross’s role but is not an authorized relationship in the visible/encoded property domain."
+    },
+    {
+      "relationshipType": "PLAYS_ROLE_IN",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed to capture bacon’s contextual culinary role not covered by HAS_ROLE."
+    },
+    {
+      "relationshipType": "IS_SYMBOL_OF_REBIRTH",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Needed for symbolic cultural role in disaster/emergency domain."
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH_DRUG_CULTURE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence: potential overlap with 💊 in rave memes, but not current primary association."
+    },
+    {
+      "relationshipType": "PLAYER_REACTION_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Games & play culture domain, not in ontology."
+    },
+    {
+      "relationshipType": "IS_CULINARY_VARIETY_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the culinary variety of another target."
+    },
+    {
+      "relationshipType": "IS_SYMBOL_OF_CONCEPT_IN",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Sports domain to represent abstract principles symbolized by the emoji."
+    },
+    {
+      "relationshipType": "CONTAINS_ABSTRACTLY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed to capture metaphorical containment of items not visually present."
+    },
+    {
+      "relationshipType": "IS_SAFETY_SYMBOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "No direct travel domain evidence."
+    },
+    {
+      "relationshipType": "HAS_SYMBOLIC_GESTURE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji's presence can imply a symbolic gesture (e.g., 'displaying pride') in dynamic contexts."
+    },
+    {
+      "relationshipType": "IS_ASTROLOGICAL_SYMBOL_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a astrological symbol for another target."
+    },
+    {
+      "relationshipType": "IS_BREAKFAST_STAPLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Needed for food roles domain to specify meal role."
+    },
+    {
+      "relationshipType": "PROFESSIONAL_ARCHETYPE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emoji represents occupational archetype not covered by existing roles."
+    },
+    {
+      "relationshipType": "FUNCTIONALLY_OPPOSITE_TO",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests FUNCTIONALLY_OPPOSITE_TO as a new relationship type to contrast the die's chance-based nature with deterministic symbols like the hourglass."
+    },
+    {
+      "relationshipType": "IDENTITY_MARKER_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Media domain evidence suggests new types to capture identity representation function."
+    },
+    {
+      "relationshipType": "REPRESENTS_PROFESSION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes in the visible property domain state that REPRESENTS_PROFESSION would better capture the emoji's meaning than HAS_SHAPE."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_CORRUPTION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Legal/safety expansions regarding slang or corruption."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_RESILIENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Suggested new relationship for symbolic traits like tenacity or resilience."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_RESOLUTION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Contexts where the emoji symbolizes overcoming challenges."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_TRANSITION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic abstraction of state change."
+    },
+    {
+      "relationshipType": "IS_CELEBRATORY_SYMBOL_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a celebratory symbol for another target."
+    },
+    {
+      "relationshipType": "HAS_ROLE_PROPERTY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes state that HAS_ROLE_PROPERTY would better capture assertions like 'is_a_health_worker', 'serves_patients', or 'wields_medical_tools' than the authorized relationships in the visible/encoded property domain."
+    },
+    {
+      "relationshipType": "HAS_PLATFORM_STYLING_VARIATION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose HAS_PLATFORM_STYLING_VARIATION to capture non-standardized rendering differences."
+    },
+    {
+      "relationshipType": "LGBTQ_ICON_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Celebrity domain evidence suggests hybrid tag to capture role for activists if domain expanded."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_RECOGNITION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Recognition domain evidence indicates existing award types are misaligned; new type needed for symbolic recognition."
+    },
+    {
+      "relationshipType": "ALERT_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Use as alert in media contexts."
+    },
+    {
+      "relationshipType": "CANON_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose CANON_REFERENCE to indicate if a book is canonical for a series."
+    },
+    {
+      "relationshipType": "LEGAL_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji’s primary symbolic function aligns with courtroom justice, suggesting a new media/format relationship."
+    },
+    {
+      "relationshipType": "MENTOR_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose MENTOR_REFERENCE to capture the instructional role of certain books."
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH_TRAVEL_METAPHOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "New type needed to explore symbolic travel associations."
+    },
+    {
+      "relationshipType": "THEMATIC_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji is used as a thematic element in media rather than a format indicator, requiring a relationship to capture eco-conscious themes in streaming or comics."
+    },
+    {
+      "relationshipType": "IMPLIES_ACTIVITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IMPLIES_ACTIVITY as a better fit for the actions associated with the emoji than the restricted IMPLIES_SETTING."
+    },
+    {
+      "relationshipType": "IMPLIES_ATTRIBUTE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji’s pose and cultural context imply attributes like authority, knowledge, and magic, which are not covered by existing relationship types."
+    },
+    {
+      "relationshipType": "IS_EXPRESSIVE_VARIANT_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the expressive variant of another target."
+    },
+    {
+      "relationshipType": "EMOTIONAL_IMPACT_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Media & format domain, not in ontology."
+    },
+    {
+      "relationshipType": "MITIGATES",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Underspecified proposal: recovery mainly says the current domain/relationship set was a poor fit, but it does not preserve a clean semantic target."
+    },
+    {
+      "relationshipType": "IS_PORTION_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the portion of another target."
+    },
+    {
+      "relationshipType": "CURATOR_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose CURATOR_REFERENCE to capture roles associated with books, such as librarians."
+    },
+    {
+      "relationshipType": "LIBRARY_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose LIBRARY_REFERENCE to capture institutional associations not covered by production types."
+    },
+    {
+      "relationshipType": "HAS_METAPHORICAL_IDENTITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Metaphorical uses beyond encoded identity."
+    },
+    {
+      "relationshipType": "IDENTITY_EMBODIMENT_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Sexual anatomy domain evidence suggests this type would fit queer embodiment better than existing anatomical types."
+    },
+    {
+      "relationshipType": "IS_FOLKLORE_MOTIF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Suggested new relationship for badger’s role in rural legends and folklore."
+    },
+    {
+      "relationshipType": "IS_PROTEIN_SOURCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Needed for food roles domain to specify nutritional role."
+    },
+    {
+      "relationshipType": "HAS_ARCHETYPAL_ROLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Nuanced connections like leader archetype beyond simple role assignment."
+    },
+    {
+      "relationshipType": "IS_SYMBOL_OF_ACADEMIC_STRESS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Education domain, not in ontology."
+    },
+    {
+      "relationshipType": "REPRESENTS_EMERGENCY_ROLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Representing emergency roles like heroism."
+    },
+    {
+      "relationshipType": "TRANSFORMS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji transforms waste into raw material conceptually, representing the core process of the circular economy it denotes."
+    },
+    {
+      "relationshipType": "METAPHOR_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Adaptation & continuity domain, metaphorical narrative use."
+    },
+    {
+      "relationshipType": "IS_EMOTIONAL_STATE_OF_PLAYER_IN",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Sports domain, not in ontology."
+    },
+    {
+      "relationshipType": "IS_ENVIRONMENTAL_SYMBOL_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the environmental symbol of another target."
+    },
+    {
+      "relationshipType": "PHALLIC_SYMBOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Warranted if domain expanded to include mythological/archetypal symbols."
+    },
+    {
+      "relationshipType": "REPRESENTS_GEOGRAPHIC_DATA",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Potential new relationship for technology domain."
+    },
+    {
+      "relationshipType": "REPRESENTS_SINGULAR_ENTITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose REPRESENTS_SINGULAR_ENTITY to handle quantitative symbolism not covered by IS_DOUBLE_OF."
+    },
+    {
+      "relationshipType": "ECONOMIC_AGENT_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Card as actor in financial drama."
+    },
+    {
+      "relationshipType": "IS_SYMBOLIC_MOTIF_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a symbolic motif for another target."
+    },
+    {
+      "relationshipType": "SYMBOLIC_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic interpretations not covered by given relationship types."
+    },
+    {
+      "relationshipType": "SYSTEMIC_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Card as symbol of infrastructure."
+    },
+    {
+      "relationshipType": "IS_ASSOCIATED_WITH_ECOLOGICAL_CONFLICTS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Suggested new relationship for associations like badger culling or disease vector debates."
+    },
+    {
+      "relationshipType": "IS_CULTURAL_VARIANT_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the cultural variant of another target."
+    },
+    {
+      "relationshipType": "IS_WEATHER_COLOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Color & palette systems domain, weather-themed colors."
+    },
+    {
+      "relationshipType": "REPRESENTS_GEOGRAPHICAL_ENTITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emoji is a symbolic depiction of the planet/world, not temporal or narrative."
+    },
+    {
+      "relationshipType": "EMOTIONAL_CLIMAX_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Narrative granularity domain, not in ontology."
+    },
+    {
+      "relationshipType": "EXAGGERATION_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Internet culture domain, not in ontology."
+    },
+    {
+      "relationshipType": "WEATHER_PERSONA_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Character identity domain, persona tied to rain."
+    },
+    {
+      "relationshipType": "PROBABILITY_SYMBOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji serves as a wildcard symbol for probability and chance, which is not fully captured by existing pop culture or semantic types."
+    },
+    {
+      "relationshipType": "BIOLOGICAL_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Primary strength as species reference in fiction."
+    },
+    {
+      "relationshipType": "IS_ECO_CONSCIOUS_MOTIF_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a eco conscious motif for another target."
+    },
+    {
+      "relationshipType": "REPRESENTS_DISCRETE_EVENT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Measurement domain."
+    },
+    {
+      "relationshipType": "PROGRESSION_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Recognition & cultural status domain."
+    },
+    {
+      "relationshipType": "IS_WEATHER_CONTEXT_FOOD",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed to capture associative food-weather link."
+    },
+    {
+      "relationshipType": "SPORT_DISCIPLINE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The sport itself, not a signature of an entity, justifying a new relationship type for sport-specific symbolism."
+    },
+    {
+      "relationshipType": "WEATHER_METAPHOR_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Recognition & cultural status domain, idiomatic uses."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_DOMESTICATION_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is symbolizes domestication of another target."
+    },
+    {
+      "relationshipType": "HAS_CULTURAL_ASSOCIATION_WITH",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose HAS_CULTURAL_ASSOCIATION_WITH for symbolic contexts where geometric comparisons are insufficient."
+    },
+    {
+      "relationshipType": "HAS_TOOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes in the visible action cue domain suggest HAS_TOOL as a better fit for asserting relationships beyond identity."
+    },
+    {
+      "relationshipType": "IS_SYMBOLIC_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the symbolic of another target."
+    },
+    {
+      "relationshipType": "CONVEYS_SOLIDARITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji conveys solidarity with LGBTQ+ social movements and activism."
+    },
+    {
+      "relationshipType": "HAS_ACCESS_STATE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed to capture the emoji’s core encoded state."
+    },
+    {
+      "relationshipType": "IS_USED_IN_MARKETING",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic commerce connections not covered by IS_PURCHASED_AT."
+    },
+    {
+      "relationshipType": "SPORTS_EQUIPMENT_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Consider SPORTS_EQUIPMENT_REFERENCE (broader than toys) or OFFICIAL_SYMBOL_REFERENCE (FIFA/World Cup)."
+    },
+    {
+      "relationshipType": "SUSTAINABILITY_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The symbol has clear true assertions for environmental organizations or sustainability networks, which are not covered by production/distribution network references."
+    },
+    {
+      "relationshipType": "PRIDE_MOTIF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Genre/trope domain evidence suggests potential new tags for cultural role beyond narrow trope categories."
+    },
+    {
+      "relationshipType": "IS_CURATED",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IS_CURATED to describe the use-cycle of books, which is not covered by existing disposability types."
+    },
+    {
+      "relationshipType": "EMOTIONAL_METADATA_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Production & distribution domain, not in ontology."
+    },
+    {
+      "relationshipType": "FOOD_SYMBOLIC_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Metaphorical or entertainment uses not covered by existing types."
+    },
+    {
+      "relationshipType": "IS_SAFETY_ALERT_FOR_FOOD",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Food safety warnings."
+    },
+    {
+      "relationshipType": "METAPHORICAL_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Metaphorical links like 'band-aid for temporary contraception' which lack standard usage."
+    },
+    {
+      "relationshipType": "REGULATES",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The symbol regulates consumer behavior in policy documents and product labels by signaling recyclability or circular economy compliance."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_ABSTRACT_QUANTITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose SYMBOLIZES_ABSTRACT_QUANTITY to handle quantitative symbolism not covered by IS_DOUBLE_OF."
+    },
+    {
+      "relationshipType": "IS_TRANSFORMATION_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Needed for narrative transformation role."
+    },
+    {
+      "relationshipType": "THEMATIC_ELEMENT_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Media domain evidence suggests new types to capture thematic usage in media contexts."
+    },
+    {
+      "relationshipType": "TOOL_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is tool of another target."
+    },
+    {
+      "relationshipType": "IS_PART_OF_PREPAREDNESS_TOOLKIT_WITH",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests this under a broader preparedness domain."
+    },
+    {
+      "relationshipType": "SAFETY_PROTOCOL_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Underspecified proposal: recovery mainly says the current domain/relationship set was a poor fit, but it does not preserve a clean semantic target."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_FOOD_PROPERTY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Needed for symbolic or metaphorical food relationships."
+    },
+    {
+      "relationshipType": "IS_SENTIMENTAL_OBJECT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Cultural role as emotional anchor not covered by existing types."
+    },
+    {
+      "relationshipType": "IS_POWER_HAZARD_WARNING",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Warnings about power hazards."
+    },
+    {
+      "relationshipType": "IS_DISPLAYED_AT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Sports evidence suggests new relationship for display at pride events."
+    },
+    {
+      "relationshipType": "IS_FORMAT_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a format for another target."
+    },
+    {
+      "relationshipType": "IS_THEME_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a theme for another target."
+    },
+    {
+      "relationshipType": "EQUITY_AUDIT_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Suggested for production/distribution domain to capture governance-related balance."
+    },
+    {
+      "relationshipType": "IS_COMFORTING",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic emotional associations exceed current relationship types."
+    },
+    {
+      "relationshipType": "PERFORMING_ROLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes in the visible action cue domain suggest PERFORMING_ROLE as an alternative to HAS_POSE_GESTURE."
+    },
+    {
+      "relationshipType": "IS_PHYSICAL_TRANSFORMATION_ACTIVITY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji’s action (surfing) represents a process of overcoming physical challenges to achieve a new state, fitting a broader \"transformation\" category beyond grooming/makeover."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_SELF_EMPOWERMENT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "New tag to represent symbolic association with self-empowerment."
+    },
+    {
+      "relationshipType": "SYSTEMIC_BALANCE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Games/play culture to represent abstract balance concepts."
+    },
+    {
+      "relationshipType": "IS_COVERING_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a covering for another target."
+    },
+    {
+      "relationshipType": "REPRESENTS_BIOLOGICAL_PROCESS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Useful for nuanced symbolic meanings excluded per constraints."
+    },
+    {
+      "relationshipType": "CULTURAL_HERITAGE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose CULTURAL_HERITAGE_REFERENCE to capture the emoji's role in literacy and participatory culture."
+    },
+    {
+      "relationshipType": "HAS_SIZE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose HAS_SIZE to distinguish between different physical scales of books."
+    },
+    {
+      "relationshipType": "HAS_PROPERTY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes prioritize functional properties like absorption and texture which are not covered by HAS_SHAPE."
+    },
+    {
+      "relationshipType": "REPRESENTS_AUTHORITATIVE_PRESENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "New tag to represent symbolic association with authoritative presence."
+    },
+    {
+      "relationshipType": "RELATES_TO_SEASONAL_ENERGY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "New type needed to better capture nuanced connections to seasonal energy."
+    },
+    {
+      "relationshipType": "IS_INSPIRATION_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a inspiration for another target."
+    },
+    {
+      "relationshipType": "MOOD_OR_SENSORY_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic/emotional links to solo sexuality or mood."
+    },
+    {
+      "relationshipType": "GEOGRAPHIC_NETWORK_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Potential new relationship for production/distribution context."
+    },
+    {
+      "relationshipType": "HAS_STRUCTURE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes suggest HAS_STRUCTURE would better capture visual components like spine and pages than the authorized HAS_SHAPE."
+    },
+    {
+      "relationshipType": "IS_LABEL_FOR_RECYCLABLE_CONTAINERS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji serves as a label for recyclable containers, a role distinct from being the packaging itself or a container for something else."
+    },
+    {
+      "relationshipType": "IS_SYMBOL_OF_CELESTIAL_PHENOMENON",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji could symbolically link to celestial phenomena, but this is speculative and not inherent."
+    },
+    {
+      "relationshipType": "PUBLISHING_HOUSE_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose PUBLISHING_HOUSE_REFERENCE as a more accurate type than PRODUCTION_COMPANY_REFERENCE for books."
+    },
+    {
+      "relationshipType": "SYMBOLIC_PROTECTOR_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Character identity domain, symbolic protector role."
+    },
+    {
+      "relationshipType": "IS_ARCHIVABLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IS_ARCHIVABLE to describe the use-cycle of books, which is not covered by existing disposability types."
+    },
+    {
+      "relationshipType": "IS_LITERARY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IS_LITERARY to describe the emoji's nature beyond valence/supernatural categories."
+    },
+    {
+      "relationshipType": "SYMBOLIC_ADAPTATION_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Capture how emoji meanings evolve across cultures."
+    },
+    {
+      "relationshipType": "IS_SYMBOLIC_OF_COLOR_SYSTEM",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence proposes this new relationship for mapping emoji colors to design systems, as current types are tenuous."
+    },
+    {
+      "relationshipType": "REGULATES_ACCESS_TO",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Potential new relationship for legal/safety domain."
+    },
+    {
+      "relationshipType": "SYMBOLIZES_EXPLORATORY_ACHIEVEMENT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emoji symbolizes achievement in exploration, not covered by existing award types."
+    },
+    {
+      "relationshipType": "IS_HUNTED_FOR_MEAT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Consider if scope expands beyond given dietary types."
+    },
+    {
+      "relationshipType": "IS_NEUTRAL_TINT_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the neutral tint of another target."
+    },
+    {
+      "relationshipType": "HAS_FUNCTIONAL_CATEGORY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests this new type could capture the implied agent type without forcing it into composition."
+    },
+    {
+      "relationshipType": "SYSTEMIC_CONTINUITY_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence proposes this if tied to infrastructure as a continuity mechanism."
+    },
+    {
+      "relationshipType": "METAPHORICAL_ACCESS_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Metaphorical solo sexuality framing."
+    },
+    {
+      "relationshipType": "EMOTIONAL_REACTION_TO",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Experience & routine bundles domain, not in ontology."
+    },
+    {
+      "relationshipType": "IS_RISK_INDICATOR_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a risk indicator for another target."
+    },
+    {
+      "relationshipType": "ENABLES_STATE_CHANGE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Captures unlocking as a systemic relationship (e.g., locked→unlocked)."
+    },
+    {
+      "relationshipType": "INDICATES_STATE_CHANGE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Measurement domain."
+    },
+    {
+      "relationshipType": "REPRESENTS_ARCHETYPAL_SERPENTINE_FORM",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Broader than motif for fashion/print mapping."
+    },
+    {
+      "relationshipType": "ASTROLOGICAL_PERSONA_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Astrological persona references distinct from celebrity personas."
+    },
+    {
+      "relationshipType": "HAS_ATTIRE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Wetsuit is culturally implied attire but not in current vocabulary."
+    },
+    {
+      "relationshipType": "HAS_IMPLIED_MOTION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Could capture slithering if expanded beyond action cues."
+    },
+    {
+      "relationshipType": "IS_EDUCATIONAL_RESOURCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IS_EDUCATIONAL_RESOURCE to capture primary associations in legal/safety domains."
+    },
+    {
+      "relationshipType": "IS_EXPONENTIAL_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the exponential of another target."
+    },
+    {
+      "relationshipType": "IS_MODIFIER",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Modifier function in emoji sequences."
+    },
+    {
+      "relationshipType": "IS_THEMED_AFTER",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic room decoration themes."
+    },
+    {
+      "relationshipType": "COLLECTIVE_IDENTITY_SYMBOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Genre/trope domain evidence suggests potential new tags for cultural role beyond narrow trope categories."
+    },
+    {
+      "relationshipType": "IS_CULTURAL_TABOO_IN_DIET",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Consider if scope expands beyond given dietary types."
+    },
+    {
+      "relationshipType": "INSPIRES_ABSTRACTED_NATURE_MOTIFS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Inspires abstracted nature motifs in fashion."
+    },
+    {
+      "relationshipType": "PREVENTIVE_ADAPTATION_REFERENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Contexts where the emoji symbolizes averting crises."
+    },
+    {
+      "relationshipType": "IS_FOOD_TEXTILE_INSPIRATION_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a food texile inspiration for another target."
+    },
+    {
+      "relationshipType": "IS_MEASUREMENT_TOOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Suggested for measurement domain to capture the emoji’s metaphorical role as a tool of measurement and balance."
+    },
+    {
+      "relationshipType": "GENERATES_STATE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The die functions as a generator of states (random outcomes) rather than an entity in a state, requiring a new relationship type."
+    },
+    {
+      "relationshipType": "IS_UNLOCKED_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a unlocked for another target."
+    },
+    {
+      "relationshipType": "FUNCTIONAL_TO",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed to capture card enabling actions beyond RELATES_TO."
+    },
+    {
+      "relationshipType": "IS_EDUCATIONAL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IS_EDUCATIONAL to describe the emoji's nature beyond valence/supernatural categories."
+    },
+    {
+      "relationshipType": "TRIGGERS_STATE_CHANGE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed to capture core transition meaning."
+    },
+    {
+      "relationshipType": "IS_CONFIDENCE_METAPHOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "New tag to represent metaphorical link to confidence and self-assuredness."
+    },
+    {
+      "relationshipType": "HAS_BIOLOGICAL_CLASS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Broader tag required for biological classification beyond shape."
+    },
+    {
+      "relationshipType": "DOCUMENTS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose DOCUMENTS for botanical or legal texts where direct biological/legal types do not fit."
+    },
+    {
+      "relationshipType": "ENCODES_ARCHETYPE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji functions as an archetypal symbol of the cowboy, which is not fully captured by existing compositional or action relationships."
+    },
+    {
+      "relationshipType": "EVOKES",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Cross-emoji relation evidence suggests EVOKES better captures nuanced connections than allowed types like SIMILAR_TO."
+    },
+    {
+      "relationshipType": "HAS_SYMBOLIC_MEANING",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji's symbolic weight far exceeds its visual/encoded properties, emphasizing its role as a 'symbol of LGBTQ+ pride.'."
+    },
+    {
+      "relationshipType": "IS_HAZARD_INDICATOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Hazard indication in transport."
+    },
+    {
+      "relationshipType": "TRIGGERS_ANTICIPATION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Setting up anticipation of fear/danger."
+    },
+    {
+      "relationshipType": "TRIGGERS_LEGAL_SCRUTINY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Legal/safety evidence suggests new relationship for legal risks/scrutiny."
+    },
+    {
+      "relationshipType": "COMPLEMENTS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emojis with functional dependencies."
+    },
+    {
+      "relationshipType": "DEPENDS_ON",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emojis with functional dependencies (e.g., depends on water)."
+    },
+    {
+      "relationshipType": "HAS_ENVIRONMENT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Wave is implied environment object but not in current vocabulary."
+    },
+    {
+      "relationshipType": "SHARED_SEMANTIC_DOMAIN_WITH",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose SHARED_SEMANTIC_DOMAIN_WITH to link emojis like open book or colored books."
+    },
+    {
+      "relationshipType": "IS_SYMBOLIC_OF_FUTURE_OUTINGS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Potential new relationship for experience/routine bundles."
+    },
+    {
+      "relationshipType": "OCCURS_DURING_FIRE_DRILLS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence suggests bridging the emoji’s object role to time-based systems like fire drills."
+    },
+    {
+      "relationshipType": "IS_ACCESS_GRANTED",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Emoji’s primary meaning is access/permission, not physical state."
+    },
+    {
+      "relationshipType": "IS_EMOJI_INSPIRED_DESIGN_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is a emoji inspired design for another target."
+    },
+    {
+      "relationshipType": "IS_FIRE_SUPPRESSION_TOOL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence proposes this as more specific than IS_EMERGENCY_RESPONSE."
+    },
+    {
+      "relationshipType": "IS_ARCHETYPAL",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji embodies a universal archetype of a fantasy mage, which could be a new relationship type."
+    },
+    {
+      "relationshipType": "IS_HUMAN_IMPACT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Disaster, emergency & doomsday domain, not in ontology."
+    },
+    {
+      "relationshipType": "IS_INSPIRATION_FOR_PALETTE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IS_INSPIRATION_FOR_PALETTE to capture color system connections outside the current authorized types."
+    },
+    {
+      "relationshipType": "TRIGGERS_ALERT_FOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject serves as/is triggers alert for another target."
+    },
+    {
+      "relationshipType": "IS_ECOSYSTEM_COMPONENT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Suggested new relationship for ecological role in woodland ecosystems."
+    },
+    {
+      "relationshipType": "REPRESENTS_SUSTAINABILITY_PRINCIPLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The circular economy framework, a meaning not captured by existing color or palette system relationships."
+    },
+    {
+      "relationshipType": "IS_CONDITIONAL_TRIGGER",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Conditional triggers in routines."
+    },
+    {
+      "relationshipType": "TRIGGERS_EVENT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Rain causing events like cancellations, not in current vocab."
+    },
+    {
+      "relationshipType": "HAS_CULTURAL_FUSION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji encodes a complex cultural archetype rather than simple structural composition, requiring a relationship that captures symbolic fusion."
+    },
+    {
+      "relationshipType": "NEGOTIATION_FRAME",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed to capture the emoji’s process-oriented nature in sexual roles and other domains."
+    },
+    {
+      "relationshipType": "IS_METAPHORICAL_TRIGGER",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic mood/perception effects beyond literal meaning."
+    },
+    {
+      "relationshipType": "IS_SYSTEMIC_RESILIENCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Systemic resilience in preventive and recovery phases of disasters, broader than standard preparedness items."
+    },
+    {
+      "relationshipType": "SIGNALS_SUSTAINABILITY_IN",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The symbol implies ethical sourcing or sustainability in fashion contexts without necessarily being a literal print, requiring a specific signaling relationship."
+    },
+    {
+      "relationshipType": "DEPICTS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Standalone emoji meaning in visible composition domain."
+    },
+    {
+      "relationshipType": "ENABLES",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji enables resource recovery in contexts like gamified apps or policy documents where it triggers rewards or frames circular economy frameworks."
+    },
+    {
+      "relationshipType": "ENCODES_HISTORY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "HAS_ROLE constraint limits granularity; new relationship needed to capture historical context."
+    },
+    {
+      "relationshipType": "HAS_SYMBOLIC_PROPS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The emoji’s symbolic components (e.g., staff, cape) are not captured by existing relationship types."
+    },
+    {
+      "relationshipType": "REMOVES",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose REMOVES as a primary candidate relationship for the emoji's function."
+    },
+    {
+      "relationshipType": "SYSTEM_TO",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Proposed to capture card as part of payment ecosystem."
+    },
+    {
+      "relationshipType": "CULTURAL_STRIPE_ORDER",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Visual/geometric domain evidence proposes this tag under symbolic dimension if expanded beyond visual/geometric."
+    },
+    {
+      "relationshipType": "HAS_CULTURAL_CONTEXT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "HAS_ROLE constraint limits granularity; new relationship needed to capture cultural interpretive differences."
+    },
+    {
+      "relationshipType": "IS_DECISION_WEIGHING",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Suggested for disaster/emergency contexts and broader evaluative uses."
+    },
+    {
+      "relationshipType": "TRIGGERS_ALERT_PROCESS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Triggering alert processes in tech."
+    },
+    {
+      "relationshipType": "EVOKES_CONTEXT",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose EVOKES_CONTEXT as a broader alternative to the restrictive IMPLIES_SETTING."
+    },
+    {
+      "relationshipType": "IS_PENALTY_INDICATOR",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Negative recognition contexts."
+    },
+    {
+      "relationshipType": "REFERS_TO_SLANG",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Legal/safety expansions regarding slang."
+    },
+    {
+      "relationshipType": "IS_SAFETY_INFRASTRUCTURE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Fire extinguishers as part of building safety systems."
+    },
+    {
+      "relationshipType": "IS_ASTROLOGICAL_MASCOT_OF",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Subject is the astrological mascot of another target."
+    },
+    {
+      "relationshipType": "ACCESS_PROVIDER",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic use in digital ecosystems."
+    },
+    {
+      "relationshipType": "THEMATIC_ENTERTAINER_ARCHETYPE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Thematic entertainer archetypes like lion king/queen."
+    },
+    {
+      "relationshipType": "INDICATES_NON_COMPLIANCE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Signaling non-compliance."
+    },
+    {
+      "relationshipType": "HAS_DESIGN_PRINCIPLE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes suggest this type to capture symbolic layers excluded by current constraints."
+    },
+    {
+      "relationshipType": "IS_RISK_INDICATOR_FOR_TRANSFORMATION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Caution in transformation contexts."
+    },
+    {
+      "relationshipType": "IS_ACCESS_TRIGGER",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Symbolic trigger of access or freedom."
+    },
+    {
+      "relationshipType": "IS_EXPRESSIVE_OF_CELESTIAL_ENERGY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence: potential for emotional astrology interpretations beyond current constraints."
+    },
+    {
+      "relationshipType": "IS_EXPRESSIVE_OF_CULTURAL_PRACTICE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence: emoji depicts shared human behaviors (e.g., dancing, masking) without geographic constraints."
+    },
+    {
+      "relationshipType": "VERIFIES_TERRITORIAL_BOUNDARIES",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Potential new relationship for legal/safety domain."
+    },
+    {
+      "relationshipType": "MARKS_THRESHOLD",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Measurement domain."
+    },
+    {
+      "relationshipType": "SYMBOLIC_WEIGHT_TROPE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Suggested for narrative and genre contexts where balance symbolizes outcomes."
+    },
+    {
+      "relationshipType": "IS_METAPHOR_FOR_COSMIC_KNOWLEDGE",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose IS_METAPHOR_FOR_COSMIC_KNOWLEDGE for astrological connections not covered by zodiac symbols."
+    },
+    {
+      "relationshipType": "DOCUMENTS_LAW",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Evidence notes propose DOCUMENTS_LAW to capture legal references more accurately than IS_ILLEGAL_IN."
+    },
+    {
+      "relationshipType": "ENFORCES_RECYCLING_OBLIGATION",
+      "domain": "Step 3 recovery expansion",
+      "definition": "The symbol enforces recycling obligations in jurisdictions where it is legally binding for packaging, triggering audits or fines, which is not captured by general legal safety relationships."
+    },
+    {
+      "relationshipType": "TRIGGERS",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Potential new relationship to capture triggering of alert/emergency states."
+    },
+    {
+      "relationshipType": "SERVES_AS_POLITICAL_MARKER",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Legal/safety evidence suggests new relationship for situational political marking."
+    },
+    {
+      "relationshipType": "QUEER_ICONOGRAPHY",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Genre/trope domain evidence suggests potential new tags for cultural role beyond narrow trope categories."
+    },
+    {
+      "relationshipType": "ENABLES_ECOSYSTEM_DAMAGE_VIA",
+      "domain": "Step 3 recovery expansion",
+      "definition": "Indirect ecological harm via finance."
+    },
+    {
+      "relationshipType": "ALERT_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_ALERT_SYMBOL_FOR, IS_ALERT_SYMBOL_OF."
+    },
+    {
+      "relationshipType": "ASTROLOGICAL_MASCOT_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_ASTROLOGICAL_MASCOT_OF."
+    },
+    {
+      "relationshipType": "ASTROLOGICAL_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_ASTROLOGICAL_SYMBOL_FOR."
+    },
+    {
+      "relationshipType": "CELEBRATORY_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_CELEBRATORY_SYMBOL_FOR."
+    },
+    {
+      "relationshipType": "COVERING_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_COVERING_FOR."
+    },
+    {
+      "relationshipType": "CULINARY_VARIETY_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_CULINARY_VARIETY_OF."
+    },
+    {
+      "relationshipType": "CULTURAL_REPRESENTATION_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_CULTURAL_REPRESENTATION_OF."
+    },
+    {
+      "relationshipType": "CULTURAL_VARIANT_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_CULTURAL_VARIANT_OF."
+    },
+    {
+      "relationshipType": "DOMESTICATION_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for SYMBOLIZES_DOMESTICATION_OF."
+    },
+    {
+      "relationshipType": "ECO_CONSCIOUS_MOTIF_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_ECO_CONSCIOUS_MOTIF_FOR."
+    },
+    {
+      "relationshipType": "EMOJI_INSPIRED_DESIGN_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_EMOJI_INSPIRED_DESIGN_FOR."
+    },
+    {
+      "relationshipType": "EMOTIONAL_OUTCOME_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_EMOTIONAL_OUTCOME_OF."
+    },
+    {
+      "relationshipType": "ENVIRONMENTAL_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_ENVIRONMENTAL_SYMBOL_OF."
+    },
+    {
+      "relationshipType": "EXPONENTIAL_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_EXPONENTIAL_OF."
+    },
+    {
+      "relationshipType": "EXPRESSIVE_VARIANT_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_EXPRESSIVE_VARIANT_OF."
+    },
+    {
+      "relationshipType": "FOOD_TEXTILE_INSPIRATION",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_FOOD_TEXTILE_INSPIRATION_FOR."
+    },
+    {
+      "relationshipType": "FORMAT_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_FORMAT_FOR."
+    },
+    {
+      "relationshipType": "FUNCTIONAL_OPPOSITE_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_FUNCTIONAL_OPPOSITE_OF."
+    },
+    {
+      "relationshipType": "HAS_BALANCED_COMPOSITION",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for HAS_BALANCED_COMPOSITION_OF."
+    },
+    {
+      "relationshipType": "HAS_FIXED_QUANTITY",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for HAS_FIXED_QUANTITY_OF."
+    },
+    {
+      "relationshipType": "HUMAN_WARNING_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_HUMAN_WARNING_SYMBOL_FOR."
+    },
+    {
+      "relationshipType": "INDICATOR_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_INDICATOR_OF."
+    },
+    {
+      "relationshipType": "INSPIRATION_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_INSPIRATION_FOR."
+    },
+    {
+      "relationshipType": "LIFECYCLE_OPPOSITE_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_LIFECYCLE_OPPOSITE_OF."
+    },
+    {
+      "relationshipType": "NEUTRAL_TINT_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_NEUTRAL_TINT_OF."
+    },
+    {
+      "relationshipType": "PERMISSION_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_PERMISSION_SYMBOL_FOR."
+    },
+    {
+      "relationshipType": "PORTION_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_PORTION_OF."
+    },
+    {
+      "relationshipType": "PROCESS_OPPOSITE_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_PROCESS_OPPOSITE_OF."
+    },
+    {
+      "relationshipType": "RISK_INDICATOR_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_RISK_INDICATOR_FOR."
+    },
+    {
+      "relationshipType": "SOURCE_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_SOURCE_OF."
+    },
+    {
+      "relationshipType": "STATE_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_STATE_OF."
+    },
+    {
+      "relationshipType": "SYSTEMIC_OPPOSITE_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_SYSTEMIC_OPPOSITE_OF."
+    },
+    {
+      "relationshipType": "TRANSITION_SYMBOL_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_TRANSITION_SYMBOL_FOR."
+    },
+    {
+      "relationshipType": "TRIGGERS_ALERT",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for TRIGGERS_ALERT_FOR."
+    },
+    {
+      "relationshipType": "TRIGGER_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_TRIGGER_FOR."
+    },
+    {
+      "relationshipType": "UNLOCKED_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_UNLOCKED_FOR."
+    },
+    {
+      "relationshipType": "USE_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for USED_FOR."
+    },
+    {
+      "relationshipType": "WARNING_REFERENCE",
+      "domain": "Step 3 recovery expansion — required base counterpart",
+      "definition": "Non-directional/base counterpart required by the Emojeo base-pair rule for IS_WARNING_FOR."
+    }
+  ],
+  "rules": [
+    "Evaluate only the newly added v013 relationship delta against the 79 already-completed emoji.",
+    "Do not rerun or replace the original 857-relationship Step 3 corpus.",
+    "Preserve all existing assertions and raw evidence.",
+    "Add only evidence-supported new assertions.",
+    "Tag vocabulary remains open; exact semantic targets may be newly discovered.",
+    "A rejected or absent new assertion does not alter any old assertion.",
+    "Checkpoint after each subject."
+  ]
+}
