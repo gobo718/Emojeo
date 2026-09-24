@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-pass70-build-audit",
+  "sourceCheckpoint": {
+    "file": "emojeo-step4-sparse-pass69-24assertions-2026-09-24T19-28-14-700Z.json",
+    "sha256": "2b65441f6ff9a1477f2062c295f1917d096afb7baf8ae593674454b95587ab27"
+  },
+  "preflight": {
+    "screenedAssertionCount": 24,
+    "candidateCellCount": 641,
+    "historicalPass69SingleCellCount": 349,
+    "historicalPass68AssertionBatchCellCount": 280,
+    "historicalOverlapCellCount": 0,
+    "historicalUnionCellCount": 629,
+    "historicallyUnverifiedCandidateCellCount": 12,
+    "pass70FreshVerificationRequiredCellCount": 641
+  },
+  "sourceVerificationModes": {
+    "assertion-native-observation": 280,
+    "single-cell-native-observation": 349
+  },
+  "buildChecks": {
+    "pass70_record_kind_present": true,
+    "pass70_parse_mode_present": true,
+    "ontology_file_loaded": true,
+    "ontology_count_guard_1211": true,
+    "historical_records_quarantined": true,
+    "invented_scenario_rejected": true,
+    "domain_not_hard_gate": true,
+    "legacy_n_maps_absent": true,
+    "full_button_locked": true,
+    "provider_pending_not_verified": true,
+    "html_points_to_v7": true
+  },
+  "files": {
+    "emojeo-step4-sparse-runner-v7.html": {
+      "sha256": "5bdab0510fe324b7de4ba0c5f0ebbe60e76e1bb001a5ba913a4b4ae40d762221"
+    },
+    "emojeo-step4-sparse-runner-v7.js": {
+      "sha256": "d390e9741d357fadd98f115a19284bf98ef0162f50f06c6516bf2c47882fa41f"
+    },
+    "EMOJEO_PASS70.md": {
+      "sha256": "43696abf947999bde76304d661cb7c112d9020f3269746390b12c52b9b779261"
+    }
+  },
+  "syntaxCheck": "node --check PASS"
+}
