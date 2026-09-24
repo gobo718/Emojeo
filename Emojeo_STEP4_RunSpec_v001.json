@@ -1,0 +1,2843 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-step4-run-spec",
+  "version": "v001",
+  "status": "READY_FOR_RUNNER_IMPLEMENTATION",
+  "objective": "Populate the sealed Step 4 assertion universe across the same 79 Step 3 seed emoji without changing the ontology or rewriting assertion targets.",
+  "scope": {
+    "subjectCount": 79,
+    "subjectSource": "sealed Step 3 canonical subject order",
+    "assertionCount": 1278,
+    "matrixCellCount": 100962,
+    "lockedPrefilledCellCount": 1326,
+    "pendingEvaluationCellCount": 99636,
+    "ontologyRelationshipCount": 1211,
+    "allowNewRelationshipTypes": false,
+    "allowAssertionTagRewriting": false
+  },
+  "inputs": {
+    "step3Canonical": {
+      "file": "Emojeo_STEP3_CANONICAL_v013_FINAL.json",
+      "sha256": "5c780e20707ddbeefecbd47dd3c18837efa46dedba0e540cf98b751cd41da748"
+    },
+    "assertionUniverse": {
+      "file": "Emojeo_STEP4_Assertion_Universe_v001.json",
+      "sha256": "e6ce04292d86009705814c8b8a09105a58fa5709440d2c11aa3f636641b87a3b"
+    },
+    "prefill": {
+      "file": "Emojeo_STEP4_Prefill_v001.json",
+      "sha256": "e9357684ff237de64c57d4e00d9afc725964947c012fa9e543d2cbca6f864d24"
+    }
+  },
+  "subjects": [
+    {
+      "subjectIndex": 0,
+      "glyph": "😀",
+      "name": "grinning face"
+    },
+    {
+      "subjectIndex": 1,
+      "glyph": "😭",
+      "name": "loudly crying face"
+    },
+    {
+      "subjectIndex": 2,
+      "glyph": "🤠",
+      "name": "cowboy hat face"
+    },
+    {
+      "subjectIndex": 3,
+      "glyph": "🥳",
+      "name": "partying face"
+    },
+    {
+      "subjectIndex": 4,
+      "glyph": "👩‍⚕️",
+      "name": "woman health worker"
+    },
+    {
+      "subjectIndex": 5,
+      "glyph": "🧑‍🚀",
+      "name": "astronaut"
+    },
+    {
+      "subjectIndex": 6,
+      "glyph": "🧙",
+      "name": "mage"
+    },
+    {
+      "subjectIndex": 7,
+      "glyph": "🧛",
+      "name": "vampire"
+    },
+    {
+      "subjectIndex": 8,
+      "glyph": "🐝",
+      "name": "honeybee"
+    },
+    {
+      "subjectIndex": 9,
+      "glyph": "🦡",
+      "name": "badger"
+    },
+    {
+      "subjectIndex": 10,
+      "glyph": "🐷",
+      "name": "pig face"
+    },
+    {
+      "subjectIndex": 11,
+      "glyph": "🦇",
+      "name": "bat"
+    },
+    {
+      "subjectIndex": 12,
+      "glyph": "🦋",
+      "name": "butterfly"
+    },
+    {
+      "subjectIndex": 13,
+      "glyph": "🐍",
+      "name": "snake"
+    },
+    {
+      "subjectIndex": 14,
+      "glyph": "🐄",
+      "name": "cow"
+    },
+    {
+      "subjectIndex": 15,
+      "glyph": "🐑",
+      "name": "ewe"
+    },
+    {
+      "subjectIndex": 16,
+      "glyph": "🌻",
+      "name": "sunflower"
+    },
+    {
+      "subjectIndex": 17,
+      "glyph": "🌵",
+      "name": "cactus"
+    },
+    {
+      "subjectIndex": 18,
+      "glyph": "🍯",
+      "name": "honey pot"
+    },
+    {
+      "subjectIndex": 19,
+      "glyph": "🥛",
+      "name": "glass of milk"
+    },
+    {
+      "subjectIndex": 20,
+      "glyph": "🧀",
+      "name": "cheese wedge"
+    },
+    {
+      "subjectIndex": 21,
+      "glyph": "🥚",
+      "name": "egg"
+    },
+    {
+      "subjectIndex": 22,
+      "glyph": "🍣",
+      "name": "sushi"
+    },
+    {
+      "subjectIndex": 23,
+      "glyph": "🌮",
+      "name": "taco"
+    },
+    {
+      "subjectIndex": 24,
+      "glyph": "🥓",
+      "name": "bacon"
+    },
+    {
+      "subjectIndex": 25,
+      "glyph": "🍄",
+      "name": "mushroom"
+    },
+    {
+      "subjectIndex": 26,
+      "glyph": "🍺",
+      "name": "beer mug"
+    },
+    {
+      "subjectIndex": 27,
+      "glyph": "🏄",
+      "name": "person surfing"
+    },
+    {
+      "subjectIndex": 28,
+      "glyph": "⚽",
+      "name": "soccer ball"
+    },
+    {
+      "subjectIndex": 29,
+      "glyph": "🎸",
+      "name": "guitar"
+    },
+    {
+      "subjectIndex": 30,
+      "glyph": "🎮",
+      "name": "video game"
+    },
+    {
+      "subjectIndex": 31,
+      "glyph": "🚝",
+      "name": "monorail"
+    },
+    {
+      "subjectIndex": 32,
+      "glyph": "🚑",
+      "name": "ambulance"
+    },
+    {
+      "subjectIndex": 33,
+      "glyph": "✈️",
+      "name": "airplane"
+    },
+    {
+      "subjectIndex": 34,
+      "glyph": "🚲",
+      "name": "bicycle"
+    },
+    {
+      "subjectIndex": 35,
+      "glyph": "🔋",
+      "name": "battery"
+    },
+    {
+      "subjectIndex": 36,
+      "glyph": "📱",
+      "name": "mobile phone"
+    },
+    {
+      "subjectIndex": 37,
+      "glyph": "💻",
+      "name": "laptop"
+    },
+    {
+      "subjectIndex": 38,
+      "glyph": "🧽",
+      "name": "sponge"
+    },
+    {
+      "subjectIndex": 39,
+      "glyph": "💊",
+      "name": "pill"
+    },
+    {
+      "subjectIndex": 40,
+      "glyph": "🩹",
+      "name": "adhesive bandage"
+    },
+    {
+      "subjectIndex": 41,
+      "glyph": "🧯",
+      "name": "fire extinguisher"
+    },
+    {
+      "subjectIndex": 42,
+      "glyph": "🛒",
+      "name": "shopping cart"
+    },
+    {
+      "subjectIndex": 43,
+      "glyph": "💳",
+      "name": "credit card"
+    },
+    {
+      "subjectIndex": 44,
+      "glyph": "🧳",
+      "name": "luggage"
+    },
+    {
+      "subjectIndex": 45,
+      "glyph": "🔒",
+      "name": "locked"
+    },
+    {
+      "subjectIndex": 46,
+      "glyph": "🔓",
+      "name": "unlocked"
+    },
+    {
+      "subjectIndex": 47,
+      "glyph": "⚠️",
+      "name": "warning"
+    },
+    {
+      "subjectIndex": 48,
+      "glyph": "♻️",
+      "name": "recycling symbol"
+    },
+    {
+      "subjectIndex": 49,
+      "glyph": "♌",
+      "name": "Leo"
+    },
+    {
+      "subjectIndex": 50,
+      "glyph": "🇯🇵",
+      "name": "flag: Japan"
+    },
+    {
+      "subjectIndex": 51,
+      "glyph": "🇲🇽",
+      "name": "flag: Mexico"
+    },
+    {
+      "subjectIndex": 52,
+      "glyph": "🏳️‍🌈",
+      "name": "rainbow flag"
+    },
+    {
+      "subjectIndex": 53,
+      "glyph": "❤️",
+      "name": "red heart"
+    },
+    {
+      "subjectIndex": 54,
+      "glyph": "💔",
+      "name": "broken heart"
+    },
+    {
+      "subjectIndex": 55,
+      "glyph": "🎄",
+      "name": "Christmas tree"
+    },
+    {
+      "subjectIndex": 56,
+      "glyph": "🎃",
+      "name": "jack-o-lantern"
+    },
+    {
+      "subjectIndex": 57,
+      "glyph": "🎓",
+      "name": "graduation cap"
+    },
+    {
+      "subjectIndex": 58,
+      "glyph": "🏆",
+      "name": "trophy"
+    },
+    {
+      "subjectIndex": 59,
+      "glyph": "☔",
+      "name": "umbrella with rain drops"
+    },
+    {
+      "subjectIndex": 60,
+      "glyph": "📚",
+      "name": "books"
+    },
+    {
+      "subjectIndex": 61,
+      "glyph": "🛏️",
+      "name": "bed"
+    },
+    {
+      "subjectIndex": 62,
+      "glyph": "🧼",
+      "name": "soap"
+    },
+    {
+      "subjectIndex": 63,
+      "glyph": "🧸",
+      "name": "teddy bear"
+    },
+    {
+      "subjectIndex": 64,
+      "glyph": "🎲",
+      "name": "game die"
+    },
+    {
+      "subjectIndex": 65,
+      "glyph": "🧪",
+      "name": "test tube"
+    },
+    {
+      "subjectIndex": 66,
+      "glyph": "⚖️",
+      "name": "balance scale"
+    },
+    {
+      "subjectIndex": 67,
+      "glyph": "🗽",
+      "name": "Statue of Liberty"
+    },
+    {
+      "subjectIndex": 68,
+      "glyph": "🏖️",
+      "name": "beach with umbrella"
+    },
+    {
+      "subjectIndex": 69,
+      "glyph": "🗺️",
+      "name": "world map"
+    },
+    {
+      "subjectIndex": 70,
+      "glyph": "💈",
+      "name": "barber pole"
+    },
+    {
+      "subjectIndex": 71,
+      "glyph": "🍆",
+      "name": "eggplant"
+    },
+    {
+      "subjectIndex": 72,
+      "glyph": "💦",
+      "name": "sweat droplets"
+    },
+    {
+      "subjectIndex": 73,
+      "glyph": "👠",
+      "name": "high-heeled shoe"
+    },
+    {
+      "subjectIndex": 74,
+      "glyph": "⛓️",
+      "name": "chains"
+    },
+    {
+      "subjectIndex": 75,
+      "glyph": "🎀",
+      "name": "ribbon"
+    },
+    {
+      "subjectIndex": 76,
+      "glyph": "🦅",
+      "name": "eagle"
+    },
+    {
+      "subjectIndex": 77,
+      "glyph": "🍕",
+      "name": "pizza"
+    },
+    {
+      "subjectIndex": 78,
+      "glyph": "☕",
+      "name": "hot beverage"
+    }
+  ],
+  "sharding": {
+    "strategy": "deterministic assertion-order shards",
+    "maxAssertionsPerShard": 30,
+    "shardCount": 43,
+    "shardsPerSubject": 43,
+    "maximumSubjectShardCalls": 3397,
+    "note": "Locked prefilled cells are omitted from evaluation prompts; a shard call may therefore contain fewer than its nominal assertion count."
+  },
+  "shards": [
+    {
+      "shardId": "assertion-01",
+      "startAssertionIndex": 0,
+      "endAssertionIndexExclusive": 30,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0001",
+        "A0002",
+        "A0003",
+        "A0004",
+        "A0005",
+        "A0006",
+        "A0007",
+        "A0008",
+        "A0009",
+        "A0010",
+        "A0011",
+        "A0012",
+        "A0013",
+        "A0014",
+        "A0015",
+        "A0016",
+        "A0017",
+        "A0018",
+        "A0019",
+        "A0020",
+        "A0021",
+        "A0022",
+        "A0023",
+        "A0024",
+        "A0025",
+        "A0026",
+        "A0027",
+        "A0028",
+        "A0029",
+        "A0030"
+      ]
+    },
+    {
+      "shardId": "assertion-02",
+      "startAssertionIndex": 30,
+      "endAssertionIndexExclusive": 60,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0031",
+        "A0032",
+        "A0033",
+        "A0034",
+        "A0035",
+        "A0036",
+        "A0037",
+        "A0038",
+        "A0039",
+        "A0040",
+        "A0041",
+        "A0042",
+        "A0043",
+        "A0044",
+        "A0045",
+        "A0046",
+        "A0047",
+        "A0048",
+        "A0049",
+        "A0050",
+        "A0051",
+        "A0052",
+        "A0053",
+        "A0054",
+        "A0055",
+        "A0056",
+        "A0057",
+        "A0058",
+        "A0059",
+        "A0060"
+      ]
+    },
+    {
+      "shardId": "assertion-03",
+      "startAssertionIndex": 60,
+      "endAssertionIndexExclusive": 90,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0061",
+        "A0062",
+        "A0063",
+        "A0064",
+        "A0065",
+        "A0066",
+        "A0067",
+        "A0068",
+        "A0069",
+        "A0070",
+        "A0071",
+        "A0072",
+        "A0073",
+        "A0074",
+        "A0075",
+        "A0076",
+        "A0077",
+        "A0078",
+        "A0079",
+        "A0080",
+        "A0081",
+        "A0082",
+        "A0083",
+        "A0084",
+        "A0085",
+        "A0086",
+        "A0087",
+        "A0088",
+        "A0089",
+        "A0090"
+      ]
+    },
+    {
+      "shardId": "assertion-04",
+      "startAssertionIndex": 90,
+      "endAssertionIndexExclusive": 120,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0091",
+        "A0092",
+        "A0093",
+        "A0094",
+        "A0095",
+        "A0096",
+        "A0097",
+        "A0098",
+        "A0099",
+        "A0100",
+        "A0101",
+        "A0102",
+        "A0103",
+        "A0104",
+        "A0105",
+        "A0106",
+        "A0107",
+        "A0108",
+        "A0109",
+        "A0110",
+        "A0111",
+        "A0112",
+        "A0113",
+        "A0114",
+        "A0115",
+        "A0116",
+        "A0117",
+        "A0118",
+        "A0119",
+        "A0120"
+      ]
+    },
+    {
+      "shardId": "assertion-05",
+      "startAssertionIndex": 120,
+      "endAssertionIndexExclusive": 150,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0121",
+        "A0122",
+        "A0123",
+        "A0124",
+        "A0125",
+        "A0126",
+        "A0127",
+        "A0128",
+        "A0129",
+        "A0130",
+        "A0131",
+        "A0132",
+        "A0133",
+        "A0134",
+        "A0135",
+        "A0136",
+        "A0137",
+        "A0138",
+        "A0139",
+        "A0140",
+        "A0141",
+        "A0142",
+        "A0143",
+        "A0144",
+        "A0145",
+        "A0146",
+        "A0147",
+        "A0148",
+        "A0149",
+        "A0150"
+      ]
+    },
+    {
+      "shardId": "assertion-06",
+      "startAssertionIndex": 150,
+      "endAssertionIndexExclusive": 180,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0151",
+        "A0152",
+        "A0153",
+        "A0154",
+        "A0155",
+        "A0156",
+        "A0157",
+        "A0158",
+        "A0159",
+        "A0160",
+        "A0161",
+        "A0162",
+        "A0163",
+        "A0164",
+        "A0165",
+        "A0166",
+        "A0167",
+        "A0168",
+        "A0169",
+        "A0170",
+        "A0171",
+        "A0172",
+        "A0173",
+        "A0174",
+        "A0175",
+        "A0176",
+        "A0177",
+        "A0178",
+        "A0179",
+        "A0180"
+      ]
+    },
+    {
+      "shardId": "assertion-07",
+      "startAssertionIndex": 180,
+      "endAssertionIndexExclusive": 210,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0181",
+        "A0182",
+        "A0183",
+        "A0184",
+        "A0185",
+        "A0186",
+        "A0187",
+        "A0188",
+        "A0189",
+        "A0190",
+        "A0191",
+        "A0192",
+        "A0193",
+        "A0194",
+        "A0195",
+        "A0196",
+        "A0197",
+        "A0198",
+        "A0199",
+        "A0200",
+        "A0201",
+        "A0202",
+        "A0203",
+        "A0204",
+        "A0205",
+        "A0206",
+        "A0207",
+        "A0208",
+        "A0209",
+        "A0210"
+      ]
+    },
+    {
+      "shardId": "assertion-08",
+      "startAssertionIndex": 210,
+      "endAssertionIndexExclusive": 240,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0211",
+        "A0212",
+        "A0213",
+        "A0214",
+        "A0215",
+        "A0216",
+        "A0217",
+        "A0218",
+        "A0219",
+        "A0220",
+        "A0221",
+        "A0222",
+        "A0223",
+        "A0224",
+        "A0225",
+        "A0226",
+        "A0227",
+        "A0228",
+        "A0229",
+        "A0230",
+        "A0231",
+        "A0232",
+        "A0233",
+        "A0234",
+        "A0235",
+        "A0236",
+        "A0237",
+        "A0238",
+        "A0239",
+        "A0240"
+      ]
+    },
+    {
+      "shardId": "assertion-09",
+      "startAssertionIndex": 240,
+      "endAssertionIndexExclusive": 270,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0241",
+        "A0242",
+        "A0243",
+        "A0244",
+        "A0245",
+        "A0246",
+        "A0247",
+        "A0248",
+        "A0249",
+        "A0250",
+        "A0251",
+        "A0252",
+        "A0253",
+        "A0254",
+        "A0255",
+        "A0256",
+        "A0257",
+        "A0258",
+        "A0259",
+        "A0260",
+        "A0261",
+        "A0262",
+        "A0263",
+        "A0264",
+        "A0265",
+        "A0266",
+        "A0267",
+        "A0268",
+        "A0269",
+        "A0270"
+      ]
+    },
+    {
+      "shardId": "assertion-10",
+      "startAssertionIndex": 270,
+      "endAssertionIndexExclusive": 300,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0271",
+        "A0272",
+        "A0273",
+        "A0274",
+        "A0275",
+        "A0276",
+        "A0277",
+        "A0278",
+        "A0279",
+        "A0280",
+        "A0281",
+        "A0282",
+        "A0283",
+        "A0284",
+        "A0285",
+        "A0286",
+        "A0287",
+        "A0288",
+        "A0289",
+        "A0290",
+        "A0291",
+        "A0292",
+        "A0293",
+        "A0294",
+        "A0295",
+        "A0296",
+        "A0297",
+        "A0298",
+        "A0299",
+        "A0300"
+      ]
+    },
+    {
+      "shardId": "assertion-11",
+      "startAssertionIndex": 300,
+      "endAssertionIndexExclusive": 330,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0301",
+        "A0302",
+        "A0303",
+        "A0304",
+        "A0305",
+        "A0306",
+        "A0307",
+        "A0308",
+        "A0309",
+        "A0310",
+        "A0311",
+        "A0312",
+        "A0313",
+        "A0314",
+        "A0315",
+        "A0316",
+        "A0317",
+        "A0318",
+        "A0319",
+        "A0320",
+        "A0321",
+        "A0322",
+        "A0323",
+        "A0324",
+        "A0325",
+        "A0326",
+        "A0327",
+        "A0328",
+        "A0329",
+        "A0330"
+      ]
+    },
+    {
+      "shardId": "assertion-12",
+      "startAssertionIndex": 330,
+      "endAssertionIndexExclusive": 360,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0331",
+        "A0332",
+        "A0333",
+        "A0334",
+        "A0335",
+        "A0336",
+        "A0337",
+        "A0338",
+        "A0339",
+        "A0340",
+        "A0341",
+        "A0342",
+        "A0343",
+        "A0344",
+        "A0345",
+        "A0346",
+        "A0347",
+        "A0348",
+        "A0349",
+        "A0350",
+        "A0351",
+        "A0352",
+        "A0353",
+        "A0354",
+        "A0355",
+        "A0356",
+        "A0357",
+        "A0358",
+        "A0359",
+        "A0360"
+      ]
+    },
+    {
+      "shardId": "assertion-13",
+      "startAssertionIndex": 360,
+      "endAssertionIndexExclusive": 390,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0361",
+        "A0362",
+        "A0363",
+        "A0364",
+        "A0365",
+        "A0366",
+        "A0367",
+        "A0368",
+        "A0369",
+        "A0370",
+        "A0371",
+        "A0372",
+        "A0373",
+        "A0374",
+        "A0375",
+        "A0376",
+        "A0377",
+        "A0378",
+        "A0379",
+        "A0380",
+        "A0381",
+        "A0382",
+        "A0383",
+        "A0384",
+        "A0385",
+        "A0386",
+        "A0387",
+        "A0388",
+        "A0389",
+        "A0390"
+      ]
+    },
+    {
+      "shardId": "assertion-14",
+      "startAssertionIndex": 390,
+      "endAssertionIndexExclusive": 420,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0391",
+        "A0392",
+        "A0393",
+        "A0394",
+        "A0395",
+        "A0396",
+        "A0397",
+        "A0398",
+        "A0399",
+        "A0400",
+        "A0401",
+        "A0402",
+        "A0403",
+        "A0404",
+        "A0405",
+        "A0406",
+        "A0407",
+        "A0408",
+        "A0409",
+        "A0410",
+        "A0411",
+        "A0412",
+        "A0413",
+        "A0414",
+        "A0415",
+        "A0416",
+        "A0417",
+        "A0418",
+        "A0419",
+        "A0420"
+      ]
+    },
+    {
+      "shardId": "assertion-15",
+      "startAssertionIndex": 420,
+      "endAssertionIndexExclusive": 450,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0421",
+        "A0422",
+        "A0423",
+        "A0424",
+        "A0425",
+        "A0426",
+        "A0427",
+        "A0428",
+        "A0429",
+        "A0430",
+        "A0431",
+        "A0432",
+        "A0433",
+        "A0434",
+        "A0435",
+        "A0436",
+        "A0437",
+        "A0438",
+        "A0439",
+        "A0440",
+        "A0441",
+        "A0442",
+        "A0443",
+        "A0444",
+        "A0445",
+        "A0446",
+        "A0447",
+        "A0448",
+        "A0449",
+        "A0450"
+      ]
+    },
+    {
+      "shardId": "assertion-16",
+      "startAssertionIndex": 450,
+      "endAssertionIndexExclusive": 480,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0451",
+        "A0452",
+        "A0453",
+        "A0454",
+        "A0455",
+        "A0456",
+        "A0457",
+        "A0458",
+        "A0459",
+        "A0460",
+        "A0461",
+        "A0462",
+        "A0463",
+        "A0464",
+        "A0465",
+        "A0466",
+        "A0467",
+        "A0468",
+        "A0469",
+        "A0470",
+        "A0471",
+        "A0472",
+        "A0473",
+        "A0474",
+        "A0475",
+        "A0476",
+        "A0477",
+        "A0478",
+        "A0479",
+        "A0480"
+      ]
+    },
+    {
+      "shardId": "assertion-17",
+      "startAssertionIndex": 480,
+      "endAssertionIndexExclusive": 510,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0481",
+        "A0482",
+        "A0483",
+        "A0484",
+        "A0485",
+        "A0486",
+        "A0487",
+        "A0488",
+        "A0489",
+        "A0490",
+        "A0491",
+        "A0492",
+        "A0493",
+        "A0494",
+        "A0495",
+        "A0496",
+        "A0497",
+        "A0498",
+        "A0499",
+        "A0500",
+        "A0501",
+        "A0502",
+        "A0503",
+        "A0504",
+        "A0505",
+        "A0506",
+        "A0507",
+        "A0508",
+        "A0509",
+        "A0510"
+      ]
+    },
+    {
+      "shardId": "assertion-18",
+      "startAssertionIndex": 510,
+      "endAssertionIndexExclusive": 540,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0511",
+        "A0512",
+        "A0513",
+        "A0514",
+        "A0515",
+        "A0516",
+        "A0517",
+        "A0518",
+        "A0519",
+        "A0520",
+        "A0521",
+        "A0522",
+        "A0523",
+        "A0524",
+        "A0525",
+        "A0526",
+        "A0527",
+        "A0528",
+        "A0529",
+        "A0530",
+        "A0531",
+        "A0532",
+        "A0533",
+        "A0534",
+        "A0535",
+        "A0536",
+        "A0537",
+        "A0538",
+        "A0539",
+        "A0540"
+      ]
+    },
+    {
+      "shardId": "assertion-19",
+      "startAssertionIndex": 540,
+      "endAssertionIndexExclusive": 570,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0541",
+        "A0542",
+        "A0543",
+        "A0544",
+        "A0545",
+        "A0546",
+        "A0547",
+        "A0548",
+        "A0549",
+        "A0550",
+        "A0551",
+        "A0552",
+        "A0553",
+        "A0554",
+        "A0555",
+        "A0556",
+        "A0557",
+        "A0558",
+        "A0559",
+        "A0560",
+        "A0561",
+        "A0562",
+        "A0563",
+        "A0564",
+        "A0565",
+        "A0566",
+        "A0567",
+        "A0568",
+        "A0569",
+        "A0570"
+      ]
+    },
+    {
+      "shardId": "assertion-20",
+      "startAssertionIndex": 570,
+      "endAssertionIndexExclusive": 600,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0571",
+        "A0572",
+        "A0573",
+        "A0574",
+        "A0575",
+        "A0576",
+        "A0577",
+        "A0578",
+        "A0579",
+        "A0580",
+        "A0581",
+        "A0582",
+        "A0583",
+        "A0584",
+        "A0585",
+        "A0586",
+        "A0587",
+        "A0588",
+        "A0589",
+        "A0590",
+        "A0591",
+        "A0592",
+        "A0593",
+        "A0594",
+        "A0595",
+        "A0596",
+        "A0597",
+        "A0598",
+        "A0599",
+        "A0600"
+      ]
+    },
+    {
+      "shardId": "assertion-21",
+      "startAssertionIndex": 600,
+      "endAssertionIndexExclusive": 630,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0601",
+        "A0602",
+        "A0603",
+        "A0604",
+        "A0605",
+        "A0606",
+        "A0607",
+        "A0608",
+        "A0609",
+        "A0610",
+        "A0611",
+        "A0612",
+        "A0613",
+        "A0614",
+        "A0615",
+        "A0616",
+        "A0617",
+        "A0618",
+        "A0619",
+        "A0620",
+        "A0621",
+        "A0622",
+        "A0623",
+        "A0624",
+        "A0625",
+        "A0626",
+        "A0627",
+        "A0628",
+        "A0629",
+        "A0630"
+      ]
+    },
+    {
+      "shardId": "assertion-22",
+      "startAssertionIndex": 630,
+      "endAssertionIndexExclusive": 660,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0631",
+        "A0632",
+        "A0633",
+        "A0634",
+        "A0635",
+        "A0636",
+        "A0637",
+        "A0638",
+        "A0639",
+        "A0640",
+        "A0641",
+        "A0642",
+        "A0643",
+        "A0644",
+        "A0645",
+        "A0646",
+        "A0647",
+        "A0648",
+        "A0649",
+        "A0650",
+        "A0651",
+        "A0652",
+        "A0653",
+        "A0654",
+        "A0655",
+        "A0656",
+        "A0657",
+        "A0658",
+        "A0659",
+        "A0660"
+      ]
+    },
+    {
+      "shardId": "assertion-23",
+      "startAssertionIndex": 660,
+      "endAssertionIndexExclusive": 690,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0661",
+        "A0662",
+        "A0663",
+        "A0664",
+        "A0665",
+        "A0666",
+        "A0667",
+        "A0668",
+        "A0669",
+        "A0670",
+        "A0671",
+        "A0672",
+        "A0673",
+        "A0674",
+        "A0675",
+        "A0676",
+        "A0677",
+        "A0678",
+        "A0679",
+        "A0680",
+        "A0681",
+        "A0682",
+        "A0683",
+        "A0684",
+        "A0685",
+        "A0686",
+        "A0687",
+        "A0688",
+        "A0689",
+        "A0690"
+      ]
+    },
+    {
+      "shardId": "assertion-24",
+      "startAssertionIndex": 690,
+      "endAssertionIndexExclusive": 720,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0691",
+        "A0692",
+        "A0693",
+        "A0694",
+        "A0695",
+        "A0696",
+        "A0697",
+        "A0698",
+        "A0699",
+        "A0700",
+        "A0701",
+        "A0702",
+        "A0703",
+        "A0704",
+        "A0705",
+        "A0706",
+        "A0707",
+        "A0708",
+        "A0709",
+        "A0710",
+        "A0711",
+        "A0712",
+        "A0713",
+        "A0714",
+        "A0715",
+        "A0716",
+        "A0717",
+        "A0718",
+        "A0719",
+        "A0720"
+      ]
+    },
+    {
+      "shardId": "assertion-25",
+      "startAssertionIndex": 720,
+      "endAssertionIndexExclusive": 750,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0721",
+        "A0722",
+        "A0723",
+        "A0724",
+        "A0725",
+        "A0726",
+        "A0727",
+        "A0728",
+        "A0729",
+        "A0730",
+        "A0731",
+        "A0732",
+        "A0733",
+        "A0734",
+        "A0735",
+        "A0736",
+        "A0737",
+        "A0738",
+        "A0739",
+        "A0740",
+        "A0741",
+        "A0742",
+        "A0743",
+        "A0744",
+        "A0745",
+        "A0746",
+        "A0747",
+        "A0748",
+        "A0749",
+        "A0750"
+      ]
+    },
+    {
+      "shardId": "assertion-26",
+      "startAssertionIndex": 750,
+      "endAssertionIndexExclusive": 780,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0751",
+        "A0752",
+        "A0753",
+        "A0754",
+        "A0755",
+        "A0756",
+        "A0757",
+        "A0758",
+        "A0759",
+        "A0760",
+        "A0761",
+        "A0762",
+        "A0763",
+        "A0764",
+        "A0765",
+        "A0766",
+        "A0767",
+        "A0768",
+        "A0769",
+        "A0770",
+        "A0771",
+        "A0772",
+        "A0773",
+        "A0774",
+        "A0775",
+        "A0776",
+        "A0777",
+        "A0778",
+        "A0779",
+        "A0780"
+      ]
+    },
+    {
+      "shardId": "assertion-27",
+      "startAssertionIndex": 780,
+      "endAssertionIndexExclusive": 810,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0781",
+        "A0782",
+        "A0783",
+        "A0784",
+        "A0785",
+        "A0786",
+        "A0787",
+        "A0788",
+        "A0789",
+        "A0790",
+        "A0791",
+        "A0792",
+        "A0793",
+        "A0794",
+        "A0795",
+        "A0796",
+        "A0797",
+        "A0798",
+        "A0799",
+        "A0800",
+        "A0801",
+        "A0802",
+        "A0803",
+        "A0804",
+        "A0805",
+        "A0806",
+        "A0807",
+        "A0808",
+        "A0809",
+        "A0810"
+      ]
+    },
+    {
+      "shardId": "assertion-28",
+      "startAssertionIndex": 810,
+      "endAssertionIndexExclusive": 840,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0811",
+        "A0812",
+        "A0813",
+        "A0814",
+        "A0815",
+        "A0816",
+        "A0817",
+        "A0818",
+        "A0819",
+        "A0820",
+        "A0821",
+        "A0822",
+        "A0823",
+        "A0824",
+        "A0825",
+        "A0826",
+        "A0827",
+        "A0828",
+        "A0829",
+        "A0830",
+        "A0831",
+        "A0832",
+        "A0833",
+        "A0834",
+        "A0835",
+        "A0836",
+        "A0837",
+        "A0838",
+        "A0839",
+        "A0840"
+      ]
+    },
+    {
+      "shardId": "assertion-29",
+      "startAssertionIndex": 840,
+      "endAssertionIndexExclusive": 870,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0841",
+        "A0842",
+        "A0843",
+        "A0844",
+        "A0845",
+        "A0846",
+        "A0847",
+        "A0848",
+        "A0849",
+        "A0850",
+        "A0851",
+        "A0852",
+        "A0853",
+        "A0854",
+        "A0855",
+        "A0856",
+        "A0857",
+        "A0858",
+        "A0859",
+        "A0860",
+        "A0861",
+        "A0862",
+        "A0863",
+        "A0864",
+        "A0865",
+        "A0866",
+        "A0867",
+        "A0868",
+        "A0869",
+        "A0870"
+      ]
+    },
+    {
+      "shardId": "assertion-30",
+      "startAssertionIndex": 870,
+      "endAssertionIndexExclusive": 900,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0871",
+        "A0872",
+        "A0873",
+        "A0874",
+        "A0875",
+        "A0876",
+        "A0877",
+        "A0878",
+        "A0879",
+        "A0880",
+        "A0881",
+        "A0882",
+        "A0883",
+        "A0884",
+        "A0885",
+        "A0886",
+        "A0887",
+        "A0888",
+        "A0889",
+        "A0890",
+        "A0891",
+        "A0892",
+        "A0893",
+        "A0894",
+        "A0895",
+        "A0896",
+        "A0897",
+        "A0898",
+        "A0899",
+        "A0900"
+      ]
+    },
+    {
+      "shardId": "assertion-31",
+      "startAssertionIndex": 900,
+      "endAssertionIndexExclusive": 930,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0901",
+        "A0902",
+        "A0903",
+        "A0904",
+        "A0905",
+        "A0906",
+        "A0907",
+        "A0908",
+        "A0909",
+        "A0910",
+        "A0911",
+        "A0912",
+        "A0913",
+        "A0914",
+        "A0915",
+        "A0916",
+        "A0917",
+        "A0918",
+        "A0919",
+        "A0920",
+        "A0921",
+        "A0922",
+        "A0923",
+        "A0924",
+        "A0925",
+        "A0926",
+        "A0927",
+        "A0928",
+        "A0929",
+        "A0930"
+      ]
+    },
+    {
+      "shardId": "assertion-32",
+      "startAssertionIndex": 930,
+      "endAssertionIndexExclusive": 960,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0931",
+        "A0932",
+        "A0933",
+        "A0934",
+        "A0935",
+        "A0936",
+        "A0937",
+        "A0938",
+        "A0939",
+        "A0940",
+        "A0941",
+        "A0942",
+        "A0943",
+        "A0944",
+        "A0945",
+        "A0946",
+        "A0947",
+        "A0948",
+        "A0949",
+        "A0950",
+        "A0951",
+        "A0952",
+        "A0953",
+        "A0954",
+        "A0955",
+        "A0956",
+        "A0957",
+        "A0958",
+        "A0959",
+        "A0960"
+      ]
+    },
+    {
+      "shardId": "assertion-33",
+      "startAssertionIndex": 960,
+      "endAssertionIndexExclusive": 990,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0961",
+        "A0962",
+        "A0963",
+        "A0964",
+        "A0965",
+        "A0966",
+        "A0967",
+        "A0968",
+        "A0969",
+        "A0970",
+        "A0971",
+        "A0972",
+        "A0973",
+        "A0974",
+        "A0975",
+        "A0976",
+        "A0977",
+        "A0978",
+        "A0979",
+        "A0980",
+        "A0981",
+        "A0982",
+        "A0983",
+        "A0984",
+        "A0985",
+        "A0986",
+        "A0987",
+        "A0988",
+        "A0989",
+        "A0990"
+      ]
+    },
+    {
+      "shardId": "assertion-34",
+      "startAssertionIndex": 990,
+      "endAssertionIndexExclusive": 1020,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A0991",
+        "A0992",
+        "A0993",
+        "A0994",
+        "A0995",
+        "A0996",
+        "A0997",
+        "A0998",
+        "A0999",
+        "A1000",
+        "A1001",
+        "A1002",
+        "A1003",
+        "A1004",
+        "A1005",
+        "A1006",
+        "A1007",
+        "A1008",
+        "A1009",
+        "A1010",
+        "A1011",
+        "A1012",
+        "A1013",
+        "A1014",
+        "A1015",
+        "A1016",
+        "A1017",
+        "A1018",
+        "A1019",
+        "A1020"
+      ]
+    },
+    {
+      "shardId": "assertion-35",
+      "startAssertionIndex": 1020,
+      "endAssertionIndexExclusive": 1050,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A1021",
+        "A1022",
+        "A1023",
+        "A1024",
+        "A1025",
+        "A1026",
+        "A1027",
+        "A1028",
+        "A1029",
+        "A1030",
+        "A1031",
+        "A1032",
+        "A1033",
+        "A1034",
+        "A1035",
+        "A1036",
+        "A1037",
+        "A1038",
+        "A1039",
+        "A1040",
+        "A1041",
+        "A1042",
+        "A1043",
+        "A1044",
+        "A1045",
+        "A1046",
+        "A1047",
+        "A1048",
+        "A1049",
+        "A1050"
+      ]
+    },
+    {
+      "shardId": "assertion-36",
+      "startAssertionIndex": 1050,
+      "endAssertionIndexExclusive": 1080,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A1051",
+        "A1052",
+        "A1053",
+        "A1054",
+        "A1055",
+        "A1056",
+        "A1057",
+        "A1058",
+        "A1059",
+        "A1060",
+        "A1061",
+        "A1062",
+        "A1063",
+        "A1064",
+        "A1065",
+        "A1066",
+        "A1067",
+        "A1068",
+        "A1069",
+        "A1070",
+        "A1071",
+        "A1072",
+        "A1073",
+        "A1074",
+        "A1075",
+        "A1076",
+        "A1077",
+        "A1078",
+        "A1079",
+        "A1080"
+      ]
+    },
+    {
+      "shardId": "assertion-37",
+      "startAssertionIndex": 1080,
+      "endAssertionIndexExclusive": 1110,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A1081",
+        "A1082",
+        "A1083",
+        "A1084",
+        "A1085",
+        "A1086",
+        "A1087",
+        "A1088",
+        "A1089",
+        "A1090",
+        "A1091",
+        "A1092",
+        "A1093",
+        "A1094",
+        "A1095",
+        "A1096",
+        "A1097",
+        "A1098",
+        "A1099",
+        "A1100",
+        "A1101",
+        "A1102",
+        "A1103",
+        "A1104",
+        "A1105",
+        "A1106",
+        "A1107",
+        "A1108",
+        "A1109",
+        "A1110"
+      ]
+    },
+    {
+      "shardId": "assertion-38",
+      "startAssertionIndex": 1110,
+      "endAssertionIndexExclusive": 1140,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A1111",
+        "A1112",
+        "A1113",
+        "A1114",
+        "A1115",
+        "A1116",
+        "A1117",
+        "A1118",
+        "A1119",
+        "A1120",
+        "A1121",
+        "A1122",
+        "A1123",
+        "A1124",
+        "A1125",
+        "A1126",
+        "A1127",
+        "A1128",
+        "A1129",
+        "A1130",
+        "A1131",
+        "A1132",
+        "A1133",
+        "A1134",
+        "A1135",
+        "A1136",
+        "A1137",
+        "A1138",
+        "A1139",
+        "A1140"
+      ]
+    },
+    {
+      "shardId": "assertion-39",
+      "startAssertionIndex": 1140,
+      "endAssertionIndexExclusive": 1170,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A1141",
+        "A1142",
+        "A1143",
+        "A1144",
+        "A1145",
+        "A1146",
+        "A1147",
+        "A1148",
+        "A1149",
+        "A1150",
+        "A1151",
+        "A1152",
+        "A1153",
+        "A1154",
+        "A1155",
+        "A1156",
+        "A1157",
+        "A1158",
+        "A1159",
+        "A1160",
+        "A1161",
+        "A1162",
+        "A1163",
+        "A1164",
+        "A1165",
+        "A1166",
+        "A1167",
+        "A1168",
+        "A1169",
+        "A1170"
+      ]
+    },
+    {
+      "shardId": "assertion-40",
+      "startAssertionIndex": 1170,
+      "endAssertionIndexExclusive": 1200,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A1171",
+        "A1172",
+        "A1173",
+        "A1174",
+        "A1175",
+        "A1176",
+        "A1177",
+        "A1178",
+        "A1179",
+        "A1180",
+        "A1181",
+        "A1182",
+        "A1183",
+        "A1184",
+        "A1185",
+        "A1186",
+        "A1187",
+        "A1188",
+        "A1189",
+        "A1190",
+        "A1191",
+        "A1192",
+        "A1193",
+        "A1194",
+        "A1195",
+        "A1196",
+        "A1197",
+        "A1198",
+        "A1199",
+        "A1200"
+      ]
+    },
+    {
+      "shardId": "assertion-41",
+      "startAssertionIndex": 1200,
+      "endAssertionIndexExclusive": 1230,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A1201",
+        "A1202",
+        "A1203",
+        "A1204",
+        "A1205",
+        "A1206",
+        "A1207",
+        "A1208",
+        "A1209",
+        "A1210",
+        "A1211",
+        "A1212",
+        "A1213",
+        "A1214",
+        "A1215",
+        "A1216",
+        "A1217",
+        "A1218",
+        "A1219",
+        "A1220",
+        "A1221",
+        "A1222",
+        "A1223",
+        "A1224",
+        "A1225",
+        "A1226",
+        "A1227",
+        "A1228",
+        "A1229",
+        "A1230"
+      ]
+    },
+    {
+      "shardId": "assertion-42",
+      "startAssertionIndex": 1230,
+      "endAssertionIndexExclusive": 1260,
+      "assertionCount": 30,
+      "assertionIds": [
+        "A1231",
+        "A1232",
+        "A1233",
+        "A1234",
+        "A1235",
+        "A1236",
+        "A1237",
+        "A1238",
+        "A1239",
+        "A1240",
+        "A1241",
+        "A1242",
+        "A1243",
+        "A1244",
+        "A1245",
+        "A1246",
+        "A1247",
+        "A1248",
+        "A1249",
+        "A1250",
+        "A1251",
+        "A1252",
+        "A1253",
+        "A1254",
+        "A1255",
+        "A1256",
+        "A1257",
+        "A1258",
+        "A1259",
+        "A1260"
+      ]
+    },
+    {
+      "shardId": "assertion-43",
+      "startAssertionIndex": 1260,
+      "endAssertionIndexExclusive": 1278,
+      "assertionCount": 18,
+      "assertionIds": [
+        "A1261",
+        "A1262",
+        "A1263",
+        "A1264",
+        "A1265",
+        "A1266",
+        "A1267",
+        "A1268",
+        "A1269",
+        "A1270",
+        "A1271",
+        "A1272",
+        "A1273",
+        "A1274",
+        "A1275",
+        "A1276",
+        "A1277",
+        "A1278"
+      ]
+    }
+  ],
+  "gates": {
+    "sequence": [
+      1,
+      3,
+      10,
+      79
+    ],
+    "meaning": "Number of fully completed subjects permitted before advancing to the next checkpoint gate.",
+    "pilot": {
+      "subjects": 1,
+      "requirement": "Inspect state distribution, evidence quality, exact assertion-ID preservation, and absence of target rewriting before advancing."
+    }
+  },
+  "stateContract": {
+    "PRESENT": "The fixed relationshipType + tag assertion is directly supported for the emoji by inherent, conventional, or well-established semantic evidence.",
+    "ABSENT": "The assertion is meaningfully evaluable for the emoji and the fixed relationshipType + tag does not apply.",
+    "UNCERTAIN": "There is genuine plausible support, but ambiguity, conflicting evidence, or context-dependence prevents a reliable PRESENT/ABSENT decision.",
+    "NOT_EVALUATED": "The assertion cannot be responsibly assessed for this emoji from the available subject semantics without inventing context or outside assumptions."
+  },
+  "evaluationRules": [
+    "Evaluate the exact supplied assertionId, relationshipType, and tag. Never substitute a synonym, broaden/narrow the tag, or invent a different target.",
+    "Do not create new relationship types. Step 3 ontology work is sealed.",
+    "Do not change or overwrite locked Step 3 prefill assignments.",
+    "PRESENT requires direct or established semantic support; do not promote merely possible combinations, jokes, hypothetical contexts, or user-created scenarios.",
+    "Use UNCERTAIN only for genuinely plausible ambiguity, not as a substitute for ABSENT.",
+    "Use NOT_EVALUATED when the fixed assertion cannot be judged without context the emoji itself does not provide.",
+    "Preserve concise evidence/reasoning sufficient for later audit.",
+    "A subject-shard result is valid only when every non-prefilled assertionId supplied to the evaluator returns exactly one state.",
+    "Reject output containing unknown assertionIds, rewritten relationship types/tags, duplicate assertionIds, or omitted candidate IDs.",
+    "Checkpoint after every successful subject-shard result and after every completed subject."
+  ],
+  "outputCellSchema": {
+    "required": [
+      "subjectIndex",
+      "assertionId",
+      "state",
+      "confidence",
+      "evidence"
+    ],
+    "stateEnum": [
+      "present",
+      "absent",
+      "uncertain",
+      "not_evaluated"
+    ],
+    "confidenceEnum": [
+      "high",
+      "medium",
+      "low"
+    ],
+    "fixedFieldsFromUniverse": [
+      "relationshipType",
+      "tag"
+    ],
+    "lockedPrefillMayBeOverwritten": false
+  },
+  "checkpointing": {
+    "required": true,
+    "identityKey": "subjectIndex + assertionId",
+    "resumeRule": "Resume only from a checkpoint whose subject order and assertion-universe SHA256 exactly match this run spec.",
+    "duplicateRule": "Never append a second active value for the same subjectIndex + assertionId.",
+    "completionRule": "A subject is complete when all 1,278 assertion IDs are covered by either locked prefill or evaluated Step 4 cells."
+  },
+  "progress": {
+    "totalMatrixCells": 100962,
+    "prefilledAtStart": 1326,
+    "pendingAtStart": 99636,
+    "completedSubjectTarget": 79
+  },
+  "pendingBySubject": [
+    {
+      "subjectIndex": 0,
+      "subject": {
+        "glyph": "😀",
+        "name": "grinning face"
+      },
+      "lockedKnownAssignments": 8,
+      "pendingEvaluations": 1270
+    },
+    {
+      "subjectIndex": 1,
+      "subject": {
+        "glyph": "😭",
+        "name": "loudly crying face"
+      },
+      "lockedKnownAssignments": 22,
+      "pendingEvaluations": 1256
+    },
+    {
+      "subjectIndex": 2,
+      "subject": {
+        "glyph": "🤠",
+        "name": "cowboy hat face"
+      },
+      "lockedKnownAssignments": 5,
+      "pendingEvaluations": 1273
+    },
+    {
+      "subjectIndex": 3,
+      "subject": {
+        "glyph": "🥳",
+        "name": "partying face"
+      },
+      "lockedKnownAssignments": 12,
+      "pendingEvaluations": 1266
+    },
+    {
+      "subjectIndex": 4,
+      "subject": {
+        "glyph": "👩‍⚕️",
+        "name": "woman health worker"
+      },
+      "lockedKnownAssignments": 11,
+      "pendingEvaluations": 1267
+    },
+    {
+      "subjectIndex": 5,
+      "subject": {
+        "glyph": "🧑‍🚀",
+        "name": "astronaut"
+      },
+      "lockedKnownAssignments": 18,
+      "pendingEvaluations": 1260
+    },
+    {
+      "subjectIndex": 6,
+      "subject": {
+        "glyph": "🧙",
+        "name": "mage"
+      },
+      "lockedKnownAssignments": 9,
+      "pendingEvaluations": 1269
+    },
+    {
+      "subjectIndex": 7,
+      "subject": {
+        "glyph": "🧛",
+        "name": "vampire"
+      },
+      "lockedKnownAssignments": 27,
+      "pendingEvaluations": 1251
+    },
+    {
+      "subjectIndex": 8,
+      "subject": {
+        "glyph": "🐝",
+        "name": "honeybee"
+      },
+      "lockedKnownAssignments": 17,
+      "pendingEvaluations": 1261
+    },
+    {
+      "subjectIndex": 9,
+      "subject": {
+        "glyph": "🦡",
+        "name": "badger"
+      },
+      "lockedKnownAssignments": 17,
+      "pendingEvaluations": 1261
+    },
+    {
+      "subjectIndex": 10,
+      "subject": {
+        "glyph": "🐷",
+        "name": "pig face"
+      },
+      "lockedKnownAssignments": 7,
+      "pendingEvaluations": 1271
+    },
+    {
+      "subjectIndex": 11,
+      "subject": {
+        "glyph": "🦇",
+        "name": "bat"
+      },
+      "lockedKnownAssignments": 14,
+      "pendingEvaluations": 1264
+    },
+    {
+      "subjectIndex": 12,
+      "subject": {
+        "glyph": "🦋",
+        "name": "butterfly"
+      },
+      "lockedKnownAssignments": 43,
+      "pendingEvaluations": 1235
+    },
+    {
+      "subjectIndex": 13,
+      "subject": {
+        "glyph": "🐍",
+        "name": "snake"
+      },
+      "lockedKnownAssignments": 7,
+      "pendingEvaluations": 1271
+    },
+    {
+      "subjectIndex": 14,
+      "subject": {
+        "glyph": "🐄",
+        "name": "cow"
+      },
+      "lockedKnownAssignments": 13,
+      "pendingEvaluations": 1265
+    },
+    {
+      "subjectIndex": 15,
+      "subject": {
+        "glyph": "🐑",
+        "name": "ewe"
+      },
+      "lockedKnownAssignments": 13,
+      "pendingEvaluations": 1265
+    },
+    {
+      "subjectIndex": 16,
+      "subject": {
+        "glyph": "🌻",
+        "name": "sunflower"
+      },
+      "lockedKnownAssignments": 22,
+      "pendingEvaluations": 1256
+    },
+    {
+      "subjectIndex": 17,
+      "subject": {
+        "glyph": "🌵",
+        "name": "cactus"
+      },
+      "lockedKnownAssignments": 16,
+      "pendingEvaluations": 1262
+    },
+    {
+      "subjectIndex": 18,
+      "subject": {
+        "glyph": "🍯",
+        "name": "honey pot"
+      },
+      "lockedKnownAssignments": 29,
+      "pendingEvaluations": 1249
+    },
+    {
+      "subjectIndex": 19,
+      "subject": {
+        "glyph": "🥛",
+        "name": "glass of milk"
+      },
+      "lockedKnownAssignments": 8,
+      "pendingEvaluations": 1270
+    },
+    {
+      "subjectIndex": 20,
+      "subject": {
+        "glyph": "🧀",
+        "name": "cheese wedge"
+      },
+      "lockedKnownAssignments": 10,
+      "pendingEvaluations": 1268
+    },
+    {
+      "subjectIndex": 21,
+      "subject": {
+        "glyph": "🥚",
+        "name": "egg"
+      },
+      "lockedKnownAssignments": 34,
+      "pendingEvaluations": 1244
+    },
+    {
+      "subjectIndex": 22,
+      "subject": {
+        "glyph": "🍣",
+        "name": "sushi"
+      },
+      "lockedKnownAssignments": 12,
+      "pendingEvaluations": 1266
+    },
+    {
+      "subjectIndex": 23,
+      "subject": {
+        "glyph": "🌮",
+        "name": "taco"
+      },
+      "lockedKnownAssignments": 24,
+      "pendingEvaluations": 1254
+    },
+    {
+      "subjectIndex": 24,
+      "subject": {
+        "glyph": "🥓",
+        "name": "bacon"
+      },
+      "lockedKnownAssignments": 6,
+      "pendingEvaluations": 1272
+    },
+    {
+      "subjectIndex": 25,
+      "subject": {
+        "glyph": "🍄",
+        "name": "mushroom"
+      },
+      "lockedKnownAssignments": 16,
+      "pendingEvaluations": 1262
+    },
+    {
+      "subjectIndex": 26,
+      "subject": {
+        "glyph": "🍺",
+        "name": "beer mug"
+      },
+      "lockedKnownAssignments": 17,
+      "pendingEvaluations": 1261
+    },
+    {
+      "subjectIndex": 27,
+      "subject": {
+        "glyph": "🏄",
+        "name": "person surfing"
+      },
+      "lockedKnownAssignments": 34,
+      "pendingEvaluations": 1244
+    },
+    {
+      "subjectIndex": 28,
+      "subject": {
+        "glyph": "⚽",
+        "name": "soccer ball"
+      },
+      "lockedKnownAssignments": 11,
+      "pendingEvaluations": 1267
+    },
+    {
+      "subjectIndex": 29,
+      "subject": {
+        "glyph": "🎸",
+        "name": "guitar"
+      },
+      "lockedKnownAssignments": 14,
+      "pendingEvaluations": 1264
+    },
+    {
+      "subjectIndex": 30,
+      "subject": {
+        "glyph": "🎮",
+        "name": "video game"
+      },
+      "lockedKnownAssignments": 19,
+      "pendingEvaluations": 1259
+    },
+    {
+      "subjectIndex": 31,
+      "subject": {
+        "glyph": "🚝",
+        "name": "monorail"
+      },
+      "lockedKnownAssignments": 10,
+      "pendingEvaluations": 1268
+    },
+    {
+      "subjectIndex": 32,
+      "subject": {
+        "glyph": "🚑",
+        "name": "ambulance"
+      },
+      "lockedKnownAssignments": 21,
+      "pendingEvaluations": 1257
+    },
+    {
+      "subjectIndex": 33,
+      "subject": {
+        "glyph": "✈️",
+        "name": "airplane"
+      },
+      "lockedKnownAssignments": 18,
+      "pendingEvaluations": 1260
+    },
+    {
+      "subjectIndex": 34,
+      "subject": {
+        "glyph": "🚲",
+        "name": "bicycle"
+      },
+      "lockedKnownAssignments": 19,
+      "pendingEvaluations": 1259
+    },
+    {
+      "subjectIndex": 35,
+      "subject": {
+        "glyph": "🔋",
+        "name": "battery"
+      },
+      "lockedKnownAssignments": 18,
+      "pendingEvaluations": 1260
+    },
+    {
+      "subjectIndex": 36,
+      "subject": {
+        "glyph": "📱",
+        "name": "mobile phone"
+      },
+      "lockedKnownAssignments": 19,
+      "pendingEvaluations": 1259
+    },
+    {
+      "subjectIndex": 37,
+      "subject": {
+        "glyph": "💻",
+        "name": "laptop"
+      },
+      "lockedKnownAssignments": 24,
+      "pendingEvaluations": 1254
+    },
+    {
+      "subjectIndex": 38,
+      "subject": {
+        "glyph": "🧽",
+        "name": "sponge"
+      },
+      "lockedKnownAssignments": 5,
+      "pendingEvaluations": 1273
+    },
+    {
+      "subjectIndex": 39,
+      "subject": {
+        "glyph": "💊",
+        "name": "pill"
+      },
+      "lockedKnownAssignments": 16,
+      "pendingEvaluations": 1262
+    },
+    {
+      "subjectIndex": 40,
+      "subject": {
+        "glyph": "🩹",
+        "name": "adhesive bandage"
+      },
+      "lockedKnownAssignments": 32,
+      "pendingEvaluations": 1246
+    },
+    {
+      "subjectIndex": 41,
+      "subject": {
+        "glyph": "🧯",
+        "name": "fire extinguisher"
+      },
+      "lockedKnownAssignments": 26,
+      "pendingEvaluations": 1252
+    },
+    {
+      "subjectIndex": 42,
+      "subject": {
+        "glyph": "🛒",
+        "name": "shopping cart"
+      },
+      "lockedKnownAssignments": 18,
+      "pendingEvaluations": 1260
+    },
+    {
+      "subjectIndex": 43,
+      "subject": {
+        "glyph": "💳",
+        "name": "credit card"
+      },
+      "lockedKnownAssignments": 12,
+      "pendingEvaluations": 1266
+    },
+    {
+      "subjectIndex": 44,
+      "subject": {
+        "glyph": "🧳",
+        "name": "luggage"
+      },
+      "lockedKnownAssignments": 8,
+      "pendingEvaluations": 1270
+    },
+    {
+      "subjectIndex": 45,
+      "subject": {
+        "glyph": "🔒",
+        "name": "locked"
+      },
+      "lockedKnownAssignments": 4,
+      "pendingEvaluations": 1274
+    },
+    {
+      "subjectIndex": 46,
+      "subject": {
+        "glyph": "🔓",
+        "name": "unlocked"
+      },
+      "lockedKnownAssignments": 13,
+      "pendingEvaluations": 1265
+    },
+    {
+      "subjectIndex": 47,
+      "subject": {
+        "glyph": "⚠️",
+        "name": "warning"
+      },
+      "lockedKnownAssignments": 12,
+      "pendingEvaluations": 1266
+    },
+    {
+      "subjectIndex": 48,
+      "subject": {
+        "glyph": "♻️",
+        "name": "recycling symbol"
+      },
+      "lockedKnownAssignments": 12,
+      "pendingEvaluations": 1266
+    },
+    {
+      "subjectIndex": 49,
+      "subject": {
+        "glyph": "♌",
+        "name": "Leo"
+      },
+      "lockedKnownAssignments": 8,
+      "pendingEvaluations": 1270
+    },
+    {
+      "subjectIndex": 50,
+      "subject": {
+        "glyph": "🇯🇵",
+        "name": "flag: Japan"
+      },
+      "lockedKnownAssignments": 10,
+      "pendingEvaluations": 1268
+    },
+    {
+      "subjectIndex": 51,
+      "subject": {
+        "glyph": "🇲🇽",
+        "name": "flag: Mexico"
+      },
+      "lockedKnownAssignments": 7,
+      "pendingEvaluations": 1271
+    },
+    {
+      "subjectIndex": 52,
+      "subject": {
+        "glyph": "🏳️‍🌈",
+        "name": "rainbow flag"
+      },
+      "lockedKnownAssignments": 13,
+      "pendingEvaluations": 1265
+    },
+    {
+      "subjectIndex": 53,
+      "subject": {
+        "glyph": "❤️",
+        "name": "red heart"
+      },
+      "lockedKnownAssignments": 9,
+      "pendingEvaluations": 1269
+    },
+    {
+      "subjectIndex": 54,
+      "subject": {
+        "glyph": "💔",
+        "name": "broken heart"
+      },
+      "lockedKnownAssignments": 12,
+      "pendingEvaluations": 1266
+    },
+    {
+      "subjectIndex": 55,
+      "subject": {
+        "glyph": "🎄",
+        "name": "Christmas tree"
+      },
+      "lockedKnownAssignments": 28,
+      "pendingEvaluations": 1250
+    },
+    {
+      "subjectIndex": 56,
+      "subject": {
+        "glyph": "🎃",
+        "name": "jack-o-lantern"
+      },
+      "lockedKnownAssignments": 46,
+      "pendingEvaluations": 1232
+    },
+    {
+      "subjectIndex": 57,
+      "subject": {
+        "glyph": "🎓",
+        "name": "graduation cap"
+      },
+      "lockedKnownAssignments": 15,
+      "pendingEvaluations": 1263
+    },
+    {
+      "subjectIndex": 58,
+      "subject": {
+        "glyph": "🏆",
+        "name": "trophy"
+      },
+      "lockedKnownAssignments": 34,
+      "pendingEvaluations": 1244
+    },
+    {
+      "subjectIndex": 59,
+      "subject": {
+        "glyph": "☔",
+        "name": "umbrella with rain drops"
+      },
+      "lockedKnownAssignments": 22,
+      "pendingEvaluations": 1256
+    },
+    {
+      "subjectIndex": 60,
+      "subject": {
+        "glyph": "📚",
+        "name": "books"
+      },
+      "lockedKnownAssignments": 11,
+      "pendingEvaluations": 1267
+    },
+    {
+      "subjectIndex": 61,
+      "subject": {
+        "glyph": "🛏️",
+        "name": "bed"
+      },
+      "lockedKnownAssignments": 24,
+      "pendingEvaluations": 1254
+    },
+    {
+      "subjectIndex": 62,
+      "subject": {
+        "glyph": "🧼",
+        "name": "soap"
+      },
+      "lockedKnownAssignments": 9,
+      "pendingEvaluations": 1269
+    },
+    {
+      "subjectIndex": 63,
+      "subject": {
+        "glyph": "🧸",
+        "name": "teddy bear"
+      },
+      "lockedKnownAssignments": 7,
+      "pendingEvaluations": 1271
+    },
+    {
+      "subjectIndex": 64,
+      "subject": {
+        "glyph": "🎲",
+        "name": "game die"
+      },
+      "lockedKnownAssignments": 22,
+      "pendingEvaluations": 1256
+    },
+    {
+      "subjectIndex": 65,
+      "subject": {
+        "glyph": "🧪",
+        "name": "test tube"
+      },
+      "lockedKnownAssignments": 10,
+      "pendingEvaluations": 1268
+    },
+    {
+      "subjectIndex": 66,
+      "subject": {
+        "glyph": "⚖️",
+        "name": "balance scale"
+      },
+      "lockedKnownAssignments": 13,
+      "pendingEvaluations": 1265
+    },
+    {
+      "subjectIndex": 67,
+      "subject": {
+        "glyph": "🗽",
+        "name": "Statue of Liberty"
+      },
+      "lockedKnownAssignments": 3,
+      "pendingEvaluations": 1275
+    },
+    {
+      "subjectIndex": 68,
+      "subject": {
+        "glyph": "🏖️",
+        "name": "beach with umbrella"
+      },
+      "lockedKnownAssignments": 9,
+      "pendingEvaluations": 1269
+    },
+    {
+      "subjectIndex": 69,
+      "subject": {
+        "glyph": "🗺️",
+        "name": "world map"
+      },
+      "lockedKnownAssignments": 7,
+      "pendingEvaluations": 1271
+    },
+    {
+      "subjectIndex": 70,
+      "subject": {
+        "glyph": "💈",
+        "name": "barber pole"
+      },
+      "lockedKnownAssignments": 25,
+      "pendingEvaluations": 1253
+    },
+    {
+      "subjectIndex": 71,
+      "subject": {
+        "glyph": "🍆",
+        "name": "eggplant"
+      },
+      "lockedKnownAssignments": 26,
+      "pendingEvaluations": 1252
+    },
+    {
+      "subjectIndex": 72,
+      "subject": {
+        "glyph": "💦",
+        "name": "sweat droplets"
+      },
+      "lockedKnownAssignments": 15,
+      "pendingEvaluations": 1263
+    },
+    {
+      "subjectIndex": 73,
+      "subject": {
+        "glyph": "👠",
+        "name": "high-heeled shoe"
+      },
+      "lockedKnownAssignments": 8,
+      "pendingEvaluations": 1270
+    },
+    {
+      "subjectIndex": 74,
+      "subject": {
+        "glyph": "⛓️",
+        "name": "chains"
+      },
+      "lockedKnownAssignments": 3,
+      "pendingEvaluations": 1275
+    },
+    {
+      "subjectIndex": 75,
+      "subject": {
+        "glyph": "🎀",
+        "name": "ribbon"
+      },
+      "lockedKnownAssignments": 68,
+      "pendingEvaluations": 1210
+    },
+    {
+      "subjectIndex": 76,
+      "subject": {
+        "glyph": "🦅",
+        "name": "eagle"
+      },
+      "lockedKnownAssignments": 23,
+      "pendingEvaluations": 1255
+    },
+    {
+      "subjectIndex": 77,
+      "subject": {
+        "glyph": "🍕",
+        "name": "pizza"
+      },
+      "lockedKnownAssignments": 8,
+      "pendingEvaluations": 1270
+    },
+    {
+      "subjectIndex": 78,
+      "subject": {
+        "glyph": "☕",
+        "name": "hot beverage"
+      },
+      "lockedKnownAssignments": 29,
+      "pendingEvaluations": 1249
+    }
+  ]
+}

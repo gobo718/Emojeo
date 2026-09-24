@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-step4-assertion-universe-audit",
+  "version": "v001",
+  "status": "PASS",
+  "sourceStep3": {
+    "file": "Emojeo_STEP3_CANONICAL_v013_FINAL.json",
+    "sha256": "5c780e20707ddbeefecbd47dd3c18837efa46dedba0e540cf98b751cd41da748"
+  },
+  "outputs": {
+    "assertionUniverse": {
+      "file": "Emojeo_STEP4_Assertion_Universe_v001.json",
+      "sha256": "e6ce04292d86009705814c8b8a09105a58fa5709440d2c11aa3f636641b87a3b"
+    },
+    "prefill": {
+      "file": "Emojeo_STEP4_Prefill_v001.json",
+      "sha256": "e9357684ff237de64c57d4e00d9afc725964947c012fa9e543d2cbca6f864d24"
+    },
+    "runSpec": {
+      "file": "Emojeo_STEP4_RunSpec_v001.json",
+      "sha256": "7c0a1480f76bf0ba2779559d29cc7aa2a0f9c30da526732b9428c32e95dba4ba"
+    }
+  },
+  "validation": {
+    "step3Sealed": true,
+    "step3Subjects": 79,
+    "step3AcceptedAssertions": 1326,
+    "step3PresentAssertions": 1222,
+    "step3UncertainAssertions": 104,
+    "step3UnresolvedNewRelationshipNeeded": 0,
+    "uniqueExactRelationshipTagPairs": 1278,
+    "duplicateUniverseKeys": 0,
+    "prefillAssignments": 1326,
+    "duplicatePrefillSubjectAssertionKeys": 0,
+    "matrixCells": 100962,
+    "pendingCells": 99636,
+    "shardCount": 43,
+    "shardSizeMax": 30,
+    "allUniverseAssertionsHaveSeedProvenance": true
+  },
+  "distribution": {
+    "relationshipTypesRepresentedInAssertionUniverse": 341,
+    "uniqueTagStrings": 1084,
+    "assertionPairsWithOneSeedSource": 1240,
+    "assertionPairsWithMultipleSeedSources": 38,
+    "maxSeedSourceCountForOneAssertionPair": 4,
+    "sourceCountHistogram": {
+      "1": 1240,
+      "2": 29,
+      "3": 8,
+      "4": 1
+    }
+  }
+}
