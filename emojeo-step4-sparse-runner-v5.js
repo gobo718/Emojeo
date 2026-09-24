@@ -1,0 +1,192 @@
+/* Emojeo Step 4 Robust Sparse/Transpose Runner — Pass 68 */
+(()=>{'use strict';
+
+const $=id=>document.getElementById(id), clean=v=>String(v??'').trim(), clone=v=>v==null?v:structuredClone(v);
+const INPUTS={universe:'Emojeo_STEP4_Assertion_Universe_v001.json',prefill:'Emojeo_STEP4_Prefill_v001.json',runSpec:'Emojeo_STEP4_RunSpec_v001.json'};
+const DB_NAME='emojeo-step4-sparse-v2',DB_VERSION=1,JOB_STORE='jobs',SCREEN_STORE='screen',VERIFY_STORE='verify';
+const JOB_ID='step4-sparse-v2:e6ce04292d86009705814c8b8a09105a58fa5709440d2c11aa3f636641b87a3b';
+const SCREEN_BATCH_SIZE=6,VERIFY_BATCH_SIZE=30,CONCURRENCY=4,PILOT_ASSERTIONS=24;
+let universe=null,prefill=null,runSpec=null,assertionById=new Map(),assertionIndexById=new Map(),lockedStateByCell=new Map();
+let job=null,screenRecords=[],verifyRecords=[],running=false,stopRequested=false;
+
+async function fetchText(url){const r=await fetch(url,{cache:'no-cache'});if(!r.ok)throw new Error(`${url} load failed (${r.status})`);return r.text()}
+async function sha256Hex(text){const d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+function openDb(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,DB_VERSION);r.onupgradeneeded=()=>{const db=r.result;if(!db.objectStoreNames.contains(JOB_STORE))db.createObjectStore(JOB_STORE,{keyPath:'id'});if(!db.objectStoreNames.contains(SCREEN_STORE)){const s=db.createObjectStore(SCREEN_STORE,{keyPath:'id'});s.createIndex('jobId','jobId',{unique:false})}if(!db.objectStoreNames.contains(VERIFY_STORE)){const s=db.createObjectStore(VERIFY_STORE,{keyPath:'id'});s.createIndex('jobId','jobId',{unique:false})}};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function dbGet(store,id){const db=await openDb();return new Promise((resolve,reject)=>{const tx=db.transaction(store,'readonly'),r=tx.objectStore(store).get(id);r.onsuccess=()=>resolve(r.result||null);r.onerror=()=>reject(r.error)})}
+async function dbPut(store,value){const db=await openDb();return new Promise((resolve,reject)=>{const tx=db.transaction(store,'readwrite');tx.objectStore(store).put(value);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error)})}
+async function dbGetByJob(store,jobId){const db=await openDb();return new Promise((resolve,reject)=>{const tx=db.transaction(store,'readonly'),r=tx.objectStore(store).index('jobId').getAll(jobId);r.onsuccess=()=>resolve(Array.isArray(r.result)?r.result:[]);r.onerror=()=>reject(r.error)})}
+function cellKey(si,aid){return `${si}|${aid}`} function screenBatchId(start){return `${JOB_ID}|screen|${start}`} function verifyRecordId(si,ids){return `${JOB_ID}|verify|${si}|${ids[0]}|${ids.at(-1)}|${ids.length}`}
+function setStatus(t){$('status').textContent=t} function screenRecordMap(){return new Map(screenRecords.map(r=>[r.startAssertionIndex,r]))}
+function verifiedCellMap(){const m=new Map();for(const r of verifyRecords)for(const v of (r.values||[]))m.set(cellKey(r.subjectIndex,v.assertionId),v);return m}
+function screenedAssertionIds(limit=1278){const out=new Set();for(const r of screenRecords)for(const x of (r.assertions||[])){const ai=assertionIndexById.get(x.assertionId);if(Number.isInteger(ai)&&ai<limit)out.add(x.assertionId)}return out}
+function candidateCellSet(limit=1278){const out=new Set();for(const r of screenRecords)for(const x of (r.assertions||[])){const ai=assertionIndexById.get(x.assertionId);if(!Number.isInteger(ai)||ai>=limit)continue;for(const si of (x.candidateSubjectIndexes||[]))out.add(cellKey(si,x.assertionId))}return out}
+function scopeComplete(limit){if(screenedAssertionIds(limit).size!==limit)return false;const c=candidateCellSet(limit),v=verifiedCellMap();for(const k of c)if(!v.has(k))return false;return true}
+function render(){if(!job||!universe){for(const id of ['pilot','full','stop','download'])$(id).disabled=true;return}const screened=screenedAssertionIds().size,cand=candidateCellSet(),ver=verifiedCellMap();let verified=0;for(const k of cand)if(ver.has(k))verified++;const p=scopeComplete(PILOT_ASSERTIONS),f=scopeComplete(1278);$('summary').innerHTML=`<span class="good">${screened.toLocaleString()}/1,278 assertions screened</span> · ${cand.size.toLocaleString()} sparse candidate cells · ${verified.toLocaleString()} deeply verified · 4-way concurrency · 213 max batch screens`; $('pilot').disabled=running||p;$('full').disabled=running||!p||f;$('stop').disabled=!running;$('download').disabled=screenRecords.length===0}
+function subjectsCompact(){return runSpec.subjects.map((s,i)=>`S${String(i).padStart(2,'0')}=${s.glyph} ${s.name}`).join('\n')}
+function lockedSubjectSet(aid){const s=new Set();for(let si=0;si<79;si++)if(lockedStateByCell.has(cellKey(si,aid)))s.add(si);return s}
+function seedText(a){return (a.seedSources||[]).slice(0,3).map(x=>`${x.subject?.glyph||''} ${x.subject?.name||''}=${String(x.state||'').toUpperCase()}`).join('; ')||'none'}
+function screeningPrompt(assertions,repair=''){
+ return ['EMOJEO STEP 4 HIGH-RECALL SPARSE SCREEN v2','',
+ 'Use the normal Semantic Discovery observation structure. Produce ONE observation per fixed assertion.',
+ 'For each observation: phrase MUST be the assertion ID. dimension MUST be step4_sparse_screen.',
+ 'description MUST contain: C=[subject numbers] ; N=[subject numbers] ; R=brief rationale.',
+ 'C = every NONLOCKED emoji with any plausible support that could end PRESENT or UNCERTAIN after deep verification. HIGH RECALL: when in doubt, include it.',
+ 'N = NONLOCKED emoji that truly cannot be responsibly evaluated without invented context.',
+ 'Every other nonlocked emoji is treated as confidently ABSENT. Do not list locked subjects in C or N.',
+ 'Use numbers 0..78 only inside C/N. Do not create/rename relationships or rewrite tags.',
+ repair?`REPAIR NOTE: ${repair}`:'','SUBJECTS',subjectsCompact(),'','ASSERTIONS',
+ ...assertions.map(a=>`${a.assertionId}|${a.relationshipType}|${a.tag}\nLOCKED=${[...lockedSubjectSet(a.assertionId)].join(',')||'-'}\nSEEDS=${seedText(a)}`)
+ ].filter(Boolean).join('\n')
+}
+function semanticScreenRequest(assertions,repair=''){return{schemaVersion:1,kind:'emojeo-step4-sparse-screen-v2',subject:{id:'step4-sparse-screen',glyph:'🔎',name:'Step 4 sparse screen'},domain:'Step 4 sparse high-recall screen',relationshipTypes:[...new Set(assertions.map(a=>a.relationshipType))],assertionIds:assertions.map(a=>a.assertionId),prompt:screeningPrompt(assertions,repair)}}
+function collectStrings(v,out=[]){if(typeof v==='string'){out.push(v);return out}if(Array.isArray(v)){for(const x of v)collectStrings(x,out);return out}if(v&&typeof v==='object')for(const [k,x] of Object.entries(v)){if(['provider','completedAt','schemaVersion','kind','subject'].includes(k))continue;collectStrings(x,out)}return out}
+function collectObjects(v,out=[]){if(Array.isArray(v)){for(const x of v)collectObjects(x,out);return out}if(v&&typeof v==='object'){out.push(v);for(const x of Object.values(v))collectObjects(x,out)}return out}
+function nums(s){if(!s)return[];return [...new Set((String(s).match(/\b(?:S)?(\d{1,2})\b/g)||[]).map(x=>Number(x.replace(/^S/i,''))).filter(x=>Number.isInteger(x)&&x>=0&&x<=78))].sort((a,b)=>a-b)}
+function parseCN(text){
+ const t=String(text||'');
+ const cm=t.match(/\bC(?:ANDIDATES?)?\s*[:=]\s*\[?([^\];|\n]*)\]?/i);
+ const nm=t.match(/\bN(?:OT[_ -]?EVALUATED)?\s*[:=]\s*\[?([^\];|\n]*)\]?/i);
+ return {C:cm?nums(cm[1]):[],N:nm?nums(nm[1]):[],matched:Boolean(cm||nm)}
+}
+function parseOneAssertionFromEnvelope(envelope,a){
+ const aid=a.assertionId,locked=lockedSubjectSet(aid),chunks=[];
+ for(const o of collectObjects(envelope?.result??envelope,[])){
+   const phrase=clean(o.phrase||o.title||o.name||o.label),desc=clean(o.description||o.summary||o.text||o.note);
+   if(phrase.toUpperCase().includes(aid)||desc.toUpperCase().includes(aid))chunks.push(`${phrase}\n${desc}\n${clean(o.evidence)}`);
+ }
+ for(const s of collectStrings(envelope?.result??envelope,[]))if(String(s).toUpperCase().includes(aid))chunks.push(String(s));
+ if(!chunks.length && a.__singleFallback)chunks.push(...collectStrings(envelope?.result??envelope,[]));
+ for(const chunk of chunks){
+   const p=parseCN(chunk);if(!p.matched)continue;
+   const C=p.C.filter(si=>!locked.has(si)),N=p.N.filter(si=>!locked.has(si)&&!p.C.includes(si));
+   return {assertionId:aid,candidateSubjectIndexes:C,notEvaluatedSubjectIndexes:N,screenRationale:clean(chunk).slice(0,700),screenParseMode:a.__singleFallback?'single-fallback':'native-observation'};
+ }
+ return null
+}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function callSemantic(payload,onRetry){const api=globalThis.GenreactrixCloudApi;if(!api?.emojeoSemanticDiscovery)throw new Error('Semantic Discovery Worker adapter unavailable.');if(!clean(api.getBaseUrl?.()))throw new Error('AI Worker URL is not configured.');if(!clean(api.getKey?.()))throw new Error('Analysis key is not configured.');let n=0;for(;;){try{return await api.emojeoSemanticDiscovery(payload)}catch(e){n++;if(n>=6)throw e;const d=Math.min(30000,2000*Math.pow(2,Math.min(n-1,4)));onRetry?.({attempt:n,delay:d,error:e});await sleep(d)}}}
+async function screenSingleFallback(a){
+ const one={...a,__singleFallback:true};
+ const env=await callSemantic(semanticScreenRequest([one],'Previous multi-assertion screen did not yield a parseable observation for this assertion. This is a ONE-ASSERTION fallback. Put C=[...] and N=[...] in the observation description.'),r=>setStatus(`SCREEN FALLBACK NETWORK RETRY ${r.attempt}/5 · ${a.assertionId}`));
+ const parsed=parseOneAssertionFromEnvelope(env,one);
+ if(parsed)return parsed;
+ // Fail safe: never convert an unparseable screen into false ABSENTs.
+ const locked=lockedSubjectSet(a.assertionId),all=[];for(let si=0;si<79;si++)if(!locked.has(si))all.push(si);
+ return {assertionId:a.assertionId,candidateSubjectIndexes:all,notEvaluatedSubjectIndexes:[],screenRationale:'Pass 65 fail-safe: individual screen remained unparseable, so every nonlocked subject was sent to deep verification.',screenParseMode:'fail-safe-all-candidates'};
+}
+async function screenOneBatch(start,end){
+ const assertions=universe.assertions.slice(start,end);
+ const env=await callSemantic(semanticScreenRequest(assertions),r=>setStatus(`SCREEN NETWORK RETRY ${r.attempt}/5 · assertions ${start+1}-${end}`));
+ const rows=[],missing=[];
+ for(const a of assertions){const p=parseOneAssertionFromEnvelope(env,a);if(p)rows.push(p);else missing.push(a)}
+ for(const a of missing){if(stopRequested)break;rows.push(await screenSingleFallback(a))}
+ if(rows.length!==assertions.length)throw new Error(`Screen ${start+1}-${end} stopped before all assertions were checkpointable.`);
+ rows.sort((a,b)=>assertionIndexById.get(a.assertionId)-assertionIndexById.get(b.assertionId));
+ return{id:screenBatchId(start),kind:'emojeo-step4-sparse-screen-result-v2',jobId:JOB_ID,startAssertionIndex:start,endAssertionIndexExclusive:end,assertions:rows,completedAt:new Date().toISOString()}
+}
+function candidateSubjectIndexesForAssertion(aid,limit){
+  const ai=assertionIndexById.get(aid);if(!Number.isInteger(ai)||ai>=limit)return [];
+  const out=new Set();
+  for(const r of screenRecords)for(const x of (r.assertions||[]))if(x.assertionId===aid){
+    for(const si of (x.candidateSubjectIndexes||[]))if(!lockedStateByCell.has(cellKey(si,aid)))out.add(si);
+  }
+  return [...out].sort((a,b)=>a-b);
+}
+function assertionVerifyRecordId(aid){return `${JOB_ID}|verify68|${aid}`}
+function verifiedCellMap(){
+  const m=new Map();
+  for(const r of verifyRecords){
+    if(Array.isArray(r.cells)){
+      for(const v of r.cells){
+        if(v.verificationParseMode==='provider-failure-fallback-uncertain')continue;
+        m.set(cellKey(v.subjectIndex,v.assertionId),v);
+      }
+    }else if(Number.isInteger(r.subjectIndex)){
+      for(const v of (r.values||[]))m.set(cellKey(r.subjectIndex,v.assertionId),v);
+    }
+  }
+  return m;
+}
+function verificationPromptForAssertion(a,candidateIndexes){
+  const subjects=candidateIndexes.map(si=>`S${si}=${runSpec.subjects[si].glyph} ${runSpec.subjects[si].name}`).join('\n');
+  return [
+    'EMOJEO STEP 4 ASSERTION-CENTRIC VERIFICATION v1',
+    `Assertion: ${a.assertionId}|${a.relationshipType}|${a.tag}`,'',
+    'Evaluate ONLY this exact fixed assertion across the candidate emoji below.',
+    'Use the normal Semantic Discovery observation structure with ONE observation.',
+    `The observation phrase MUST be ${a.assertionId}. dimension MUST be other.`,
+    'The observation description MUST contain:',
+    'P=[subject numbers that are clearly PRESENT]',
+    'U=[subject numbers that are genuinely UNCERTAIN]',
+    'N=[subject numbers that are NOT_EVALUATED because judging them requires invented context]',
+    'R=brief rationale','',
+    'Any candidate omitted from P/U/N is ABSENT after detailed verification.',
+    'Do not rewrite the relationship or tag. Use subject numbers only.','',
+    'CANDIDATE SUBJECTS',subjects
+  ].join('\n');
+}
+function parsePUN(text){
+  const t=String(text||'');
+  const pm=t.match(/\bP\s*[:=]\s*\[?([^;\]\|\r\n]*)\]?/i);
+  const um=t.match(/\bU\s*[:=]\s*\[?([^;\]\|\r\n]*)\]?/i);
+  const nm=t.match(/\bN\s*[:=]\s*\[?([^;\]\|\r\n]*)\]?/i);
+  const P=pm?nums(pm[1]):[],U=um?nums(um[1]):[],N=nm?nums(nm[1]):[];
+  return {P,U,N,matched:/\b(?:P|U|N)\s*[:=]/i.test(t)};
+}
+function parseAssertionVerification(env,a,candidateIndexes){
+  const chunks=[];
+  for(const o of collectObjects(env?.result??env,[])){
+    const phrase=clean(o.phrase||o.title||o.name||o.label),desc=clean(o.description||o.summary||o.text||o.note);
+    if(phrase.toUpperCase().includes(a.assertionId)||desc.toUpperCase().includes(a.assertionId))chunks.push(`${phrase}\n${desc}\n${Array.isArray(o.evidence)?o.evidence.join(' '):clean(o.evidence)}`);
+  }
+  for(const s of collectStrings(env?.result??env,[]))if(String(s).toUpperCase().includes(a.assertionId)||/\bP\s*[:=]/i.test(String(s)))chunks.push(String(s));
+  const allowed=new Set(candidateIndexes);
+  for(const chunk of chunks){
+    const p=parsePUN(chunk);if(!p.matched)continue;
+    const P=p.P.filter(x=>allowed.has(x)),U=p.U.filter(x=>allowed.has(x)&&!P.includes(x)),N=p.N.filter(x=>allowed.has(x)&&!P.includes(x)&&!U.includes(x));
+    return candidateIndexes.map(si=>({
+      subjectIndex:si,assertionId:a.assertionId,
+      state:P.includes(si)?'present':U.includes(si)?'uncertain':N.includes(si)?'not_evaluated':'absent',
+      confidence:P.includes(si)?'high':'medium',
+      evidence:`Assertion-centric verification: ${clean(chunk).slice(0,700)}`,
+      verificationParseMode:'assertion-native-observation'
+    }));
+  }
+  return null;
+}
+async function verifyOneAssertion(aid,limit){
+  const a=assertionById.get(aid),candidateIndexes=candidateSubjectIndexesForAssertion(aid,limit);if(!candidateIndexes.length)return null;
+  let lastError='';
+  for(let attempt=1;attempt<=3;attempt++){
+    try{
+      const env=await callSemantic({schemaVersion:1,kind:'emojeo-step4-assertion-centric-verify',subject:{id:'step4-assertion-verify',glyph:'✅',name:'Step 4 assertion verification'},domain:'Step 4 assertion-centric verification',relationshipTypes:[a.relationshipType],assertionIds:[aid],prompt:verificationPromptForAssertion(a,candidateIndexes)},r=>setStatus(`ASSERTION VERIFY RETRY ${r.attempt}/5 · ${aid}\\n${r.error?.message||r.error}`));
+      const cells=parseAssertionVerification(env,a,candidateIndexes);
+      if(cells)return {id:assertionVerifyRecordId(aid),kind:'emojeo-step4-assertion-verify-result',jobId:JOB_ID,assertionId:aid,candidateSubjectIndexes:candidateIndexes,cells,completedAt:new Date().toISOString()};
+      lastError='provider response contained no parseable P/U/N observation';
+    }catch(e){lastError=clean(e?.message||e)}
+  }
+  return {id:assertionVerifyRecordId(aid),kind:'emojeo-step4-assertion-verify-result',jobId:JOB_ID,assertionId:aid,candidateSubjectIndexes:candidateIndexes,cells:candidateIndexes.map(si=>({subjectIndex:si,assertionId:aid,state:'uncertain',confidence:'low',evidence:`Pass 68 mechanical fail-safe after repeated provider/format failure: ${lastError}`,verificationParseMode:'provider-failure-fallback-uncertain'})),providerFailureFallback:true,completedAt:new Date().toISOString()};
+}
+async function runPool(tasks,worker,label){let next=0,done=0;async function lane(i){while(true){if(stopRequested)return;const n=next++;if(n>=tasks.length)return;setStatus(`${label} · ${done}/${tasks.length} request(s) complete · lane ${i+1}/${CONCURRENCY}`);await worker(tasks[n]);done++;render()}}await Promise.all(Array.from({length:Math.min(CONCURRENCY,tasks.length)},(_,i)=>lane(i)))}
+async function runScreen(limit){const have=screenRecordMap(),tasks=[];for(let start=0;start<limit;start+=SCREEN_BATCH_SIZE)if(!have.has(start))tasks.push({start,end:Math.min(limit,start+SCREEN_BATCH_SIZE)});await runPool(tasks,async t=>{const rec=await screenOneBatch(t.start,t.end);await dbPut(SCREEN_STORE,rec);screenRecords.push(rec);job.lastCompleted={stage:'screen',start:t.start,end:t.end,at:rec.completedAt};await dbPut(JOB_STORE,job)},`ROBUST SPARSE SCREEN through ${limit}`)}
+async function runVerify(limit){
+  const ver=verifiedCellMap(),tasks=[];
+  for(let ai=0;ai<limit;ai++){
+    const aid=universe.assertions[ai].assertionId,candidates=candidateSubjectIndexesForAssertion(aid,limit);
+    if(!candidates.length)continue;
+    if(candidates.every(si=>ver.has(cellKey(si,aid))))continue;
+    tasks.push({aid});
+  }
+  if(!tasks.length)return;
+  await runPool(tasks,async t=>{
+    const rec=await verifyOneAssertion(t.aid,limit);
+    if(rec){await dbPut(VERIFY_STORE,rec);verifyRecords.push(rec);job.lastCompleted={stage:'assertion-verify',assertionId:t.aid,at:rec.completedAt};await dbPut(JOB_STORE,job)}
+  },`ASSERTION-CENTRIC VERIFY through ${limit}`);
+}
+async function runScope(limit){if(running)return;running=true;stopRequested=false;job.runIntent={active:true,limit,requestedAt:new Date().toISOString()};await dbPut(JOB_STORE,job);render();try{await runScreen(limit);if(stopRequested){job.runIntent.active=false;await dbPut(JOB_STORE,job);setStatus('STOPPED · in-flight screens checkpointed.');return}await runVerify(limit);if(stopRequested){job.runIntent.active=false;await dbPut(JOB_STORE,job);setStatus('STOPPED · in-flight verification checkpointed.');return}job.runIntent={active:false,completedAt:new Date().toISOString()};await dbPut(JOB_STORE,job);setStatus(limit===24?'PILOT COMPLETE · 24 assertions × all 79 emoji covered. Download checkpoint JSON.':'STEP 4 COMPLETE · all 1,278 assertions × 79 emoji covered. Download final checkpoint JSON.')}catch(e){job.runIntent={active:true,limit,lastError:clean(e?.message||e),lastErrorAt:new Date().toISOString()};await dbPut(JOB_STORE,job).catch(()=>{});setStatus(`STOPPED ON ERROR · ${e?.message||e}\nRefresh/reopen Pass 68 to resume.`)}finally{running=false;stopRequested=false;render()}}
+function screenByAid(){const m=new Map();for(const r of screenRecords)for(const x of (r.assertions||[]))m.set(x.assertionId,x);return m}
+function buildAssignments(limit){const ver=verifiedCellMap(),sb=screenByAid(),out=[];for(let ai=0;ai<limit;ai++){const a=universe.assertions[ai],s=sb.get(a.assertionId);if(!s)continue;const C=new Set(s.candidateSubjectIndexes||[]),N=new Set(s.notEvaluatedSubjectIndexes||[]);for(let si=0;si<79;si++){const key=cellKey(si,a.assertionId),subject=runSpec.subjects[si],locked=lockedStateByCell.get(key);if(locked){out.push({...clone(locked),subjectIndex:si,subject:{glyph:subject.glyph,name:subject.name},assertionId:a.assertionId,relationshipType:a.relationshipType,tag:a.tag,source:'step3-locked-prefill'});continue}const v=ver.get(key);if(v){out.push({subjectIndex:si,subject:{glyph:subject.glyph,name:subject.name},assertionId:a.assertionId,relationshipType:a.relationshipType,tag:a.tag,state:v.state,confidence:v.confidence,evidence:v.evidence,source:'step4-sparse-deep-verification'});continue}if(C.has(si))continue;out.push({subjectIndex:si,subject:{glyph:subject.glyph,name:subject.name},assertionId:a.assertionId,relationshipType:a.relationshipType,tag:a.tag,state:N.has(si)?'not_evaluated':'absent',confidence:'medium',evidence:`Pass 65 high-recall sparse screen (${s.screenParseMode}): ${s.screenRationale}`,source:'step4-sparse-screen'})}}return out.sort((x,y)=>x.subjectIndex-y.subjectIndex||assertionIndexById.get(x.assertionId)-assertionIndexById.get(y.assertionId))}
+async function downloadCheckpoint(){const full=scopeComplete(1278),pilot=scopeComplete(24),limit=full?1278:(pilot?24:Math.min(24,screenedAssertionIds().size)),assignments=buildAssignments(limit),counts={present:0,absent:0,uncertain:0,not_evaluated:0};for(const a of assignments)counts[a.state]=(counts[a.state]||0)+1;const cand=candidateCellSet(limit),ver=verifiedCellMap();const out={schemaVersion:1,kind:'emojeo-step4-sparse-matrix-checkpoint',runnerVersion:'pass68',createdAt:new Date().toISOString(),strategy:{screening:'Pass 65 native-observation sparse screen',verification:'Pass 68 assertion-centric native-observation verification with corrected P/U/N parser',concurrency:4,pass67FallbackPolicy:'ignored-and-reverified'},inputs:{assertionUniverse:{file:INPUTS.universe,sha256:runSpec.inputs.assertionUniverse.sha256},prefill:{file:INPUTS.prefill,sha256:runSpec.inputs.prefill.sha256}},scopeAssertionCount:limit,scopeMatrixCellCount:limit*79,scopeComplete:scopeComplete(limit),screenedAssertionCount:screenedAssertionIds(limit).size,sparseCandidateCellCount:cand.size,deeplyVerifiedCandidateCellCount:[...cand].filter(k=>ver.has(k)).length,assignmentCount:assignments.length,stateCounts:counts,screenResults:screenRecords.filter(r=>r.startAssertionIndex<limit).sort((a,b)=>a.startAssertionIndex-b.startAssertionIndex),verificationResults:verifyRecords.filter(r=>!(Array.isArray(r.cells)&&r.cells.length&&r.cells.every(v=>v.verificationParseMode==='provider-failure-fallback-uncertain'))),quarantinedPass67FallbackRecordCount:verifyRecords.filter(r=>Array.isArray(r.cells)&&r.cells.length&&r.cells.every(v=>v.verificationParseMode==='provider-failure-fallback-uncertain')).length,assignments};const blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`emojeo-step4-sparse-pass68-${limit}assertions-${new Date().toISOString().replace(/[:.]/g,'-')}.json`;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)}
+async function initialize(){try{const [ut,pt,rt]=await Promise.all([fetchText(INPUTS.universe),fetchText(INPUTS.prefill),fetchText(INPUTS.runSpec)]);universe=JSON.parse(ut);prefill=JSON.parse(pt);runSpec=JSON.parse(rt);if(universe.assertionCount!==1278||prefill.lockedAssignmentCount!==1326||runSpec.scope?.subjectCount!==79)throw new Error('Pass 62 input mismatch.');const [ush,psh]=await Promise.all([sha256Hex(ut),sha256Hex(pt)]);if(ush!==runSpec.inputs.assertionUniverse.sha256||psh!==runSpec.inputs.prefill.sha256)throw new Error('Pass 62 input SHA mismatch.');universe.assertions.forEach((a,i)=>{assertionById.set(a.assertionId,a);assertionIndexById.set(a.assertionId,i)});for(const a of prefill.assignments){const k=cellKey(a.subjectIndex,a.assertionId);if(lockedStateByCell.has(k))throw new Error(`Duplicate locked ${k}`);lockedStateByCell.set(k,clone(a))}job=await dbGet(JOB_STORE,JOB_ID)||{id:JOB_ID,kind:'emojeo-step4-sparse-job-v2',schemaVersion:1,createdAt:new Date().toISOString(),assertionUniverseSha256:ush,prefillSha256:psh,runIntent:{active:false}};await dbPut(JOB_STORE,job);[screenRecords,verifyRecords]=await Promise.all([dbGetByJob(SCREEN_STORE,JOB_ID),dbGetByJob(VERIFY_STORE,JOB_ID)]);job.runIntent={active:false,restoredBy:'pass68',restoredAt:new Date().toISOString()};await dbPut(JOB_STORE,job);const bad67=verifyRecords.filter(r=>Array.isArray(r.cells)&&r.cells.length&&r.cells.every(v=>v.verificationParseMode==='provider-failure-fallback-uncertain')).length;setStatus(`READY · restored ${screenedAssertionIds().size}/1,278 screened assertions.\nIgnored ${bad67} invalid Pass 67 fallback verification record(s) caused by the local P/U/N parser bug.\nFINISH PILOT 24 ASSERTIONS will re-verify those candidate cells with the corrected parser.`);render()}catch(e){job=null;setStatus(`INITIALIZATION FAILED · ${e?.message||e}`);render()}}
+$('pilot').addEventListener('click',()=>runScope(24));$('full').addEventListener('click',()=>runScope(1278));$('stop').addEventListener('click',async()=>{if(!running)return;stopRequested=true;if(job){job.runIntent={active:false,stopRequestedAt:new Date().toISOString()};await dbPut(JOB_STORE,job).catch(()=>{})}setStatus('STOP REQUESTED · no new requests will start; in-flight requests will finish and checkpoint.')});$('download').addEventListener('click',()=>downloadCheckpoint().catch(e=>setStatus(`DOWNLOAD FAILED · ${e?.message||e}`)));render();initialize();
+})();
