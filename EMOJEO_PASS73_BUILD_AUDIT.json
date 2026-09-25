@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-pass73-build-audit",
+  "purpose": "Balanced calibration gate after Pass 72 semantic over-pruning",
+  "fixtureCount": 12,
+  "positiveFixtureCount": 6,
+  "negativeFixtureCount": 6,
+  "screening": false,
+  "adversarialReviewStack": false,
+  "typedEvaluationsPerFixture": 1,
+  "routeCompatibilityGate": true,
+  "ontologyDefinitionAuthoritative": true,
+  "domainHardGate": false,
+  "universalityRequired": false,
+  "largerRunAvailableFromPage": false
+}
