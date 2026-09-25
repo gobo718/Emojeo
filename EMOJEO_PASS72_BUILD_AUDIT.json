@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-pass72-build-audit",
+  "sourceCheckpoint": "emojeo-step4-sparse-pass71-24assertions-2026-09-25T03-45-34-716Z.json",
+  "pass71Mechanical": {
+    "scopeAssertionCount": 24,
+    "scopeMatrixCellCount": 1896,
+    "screenedAssertionCount": 24,
+    "sparseCandidateCellCount": 579,
+    "pass71VerifiedCandidateCellCount": 579,
+    "providerFailurePendingCellCount": 0,
+    "dualReviewerAgreementCellCount": 368,
+    "adjudicatedCellCount": 211,
+    "stateCounts": {
+      "present": 250,
+      "absent": 1644,
+      "uncertain": 2,
+      "not_evaluated": 0
+    }
+  },
+  "pass71SemanticAudit": {
+    "status": "FAIL",
+    "failures": [
+      {
+        "assertionId": "A0017",
+        "subjectIndex": 54,
+        "subject": "\ud83d\udc94 broken heart",
+        "observed": "ABSENT",
+        "issue": "false negative; over-literal HAS_SYMPTOM screening excluded a legitimate heartbreak\u2192sobbing manifestation"
+      },
+      {
+        "assertionId": "A0019",
+        "subjectIndex": 38,
+        "subject": "\ud83e\uddfd sponge",
+        "observed": "PRESENT",
+        "issue": "HAS_OBJECT drifted into a hypothetical functional scenario"
+      },
+      {
+        "assertionId": "A0022",
+        "subjectIndex": 46,
+        "subject": "\ud83d\udd13 unlocked",
+        "observed": "PRESENT",
+        "issue": "HAS_PART reinterpreted an unrelated icon as anatomy"
+      },
+      {
+        "assertionId": "A0021",
+        "subjectIndex": 61,
+        "subject": "\ud83d\udecf\ufe0f bed",
+        "observed": "PRESENT",
+        "issue": "SIMILAR_TO drifted into contextual association"
+      },
+      {
+        "assertionId": "A0013",
+        "subjectIndex": 6,
+        "subject": "\ud83e\uddd9 mage",
+        "observed": "PRESENT",
+        "issue": "broad association was justified with bespoke fantasy lore"
+      }
+    ]
+  },
+  "pass72": {
+    "database": "emojeo-step4-pass72",
+    "pilotAssertions": 24,
+    "screenPassesPerAssertion": 3,
+    "screenPasses": [
+      "direct-recall",
+      "semantic-bridge",
+      "false-negative-challenge"
+    ],
+    "candidatePolicy": "union plus regression fixtures",
+    "reviewersPerCandidate": 2,
+    "disagreementPolicy": "third adjudicator",
+    "presentOrUncertainPolicy": "final validator required",
+    "routeGate": true,
+    "providerFailurePolicy": "pending-not-counted-as-verified",
+    "semanticRegressionFixtureCount": 5,
+    "cellConcurrency": 2,
+    "maxParallelProviderRequests": 4,
+    "fullRunLocked": true,
+    "freshDatabase": true
+  }
+}
