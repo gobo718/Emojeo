@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-pass75-build-audit",
+  "purpose": "Fix persistent Pass 74 parser tail by aligning to the native Worker Semantic Discovery schema",
+  "rootCause": "Pass 74 required a custom verdict sentence inside description although the Worker already returns rawDiscovery summary/observations",
+  "changes": {
+    "nativeRawDiscoveryParser": true,
+    "verdictTokenInSummary": true,
+    "verdictTokenInPhrase": true,
+    "numericNativeConfidence": true,
+    "repairPromptAfterFirstParseMiss": true,
+    "rawFailureCapture": true,
+    "legacyParserFallback": true,
+    "pass74CompletedResultMigration": true,
+    "autoRetryToCompletion": true,
+    "semanticPolicyTightened": false,
+    "routeCanOverrideState": false
+  },
+  "fixtureCount": 12,
+  "hardFixtureCount": 10,
+  "interpretiveFixtureCount": 2,
+  "fullStep4AvailableFromPage": false
+}
