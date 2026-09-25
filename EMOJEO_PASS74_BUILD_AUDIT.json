@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-pass74-build-audit",
+  "purpose": "Auto-retry to completion plus less coercive semantic calibration",
+  "fixtureCount": 12,
+  "hardFixtureCount": 10,
+  "interpretiveFixtureCount": 2,
+  "interpretiveFixtures": [
+    "\ud83e\udd53 CONTRASTS_WITH \u2192 \ud83d\ude0a",
+    "\ud83d\udca6 HAS_SYMPTOM \u2192 sobbing"
+  ],
+  "autoRetry": {
+    "enabled": true,
+    "pendingOnly": true,
+    "maxRounds": null,
+    "backoffCapMs": 30000,
+    "stopControl": true
+  },
+  "semanticChanges": {
+    "routeGateOverridesState": false,
+    "nonPreferredRouteIsDiagnosticOnly": true,
+    "uncertainExplicitlyValid": true,
+    "hardMismatchRequiresBillyReview": true,
+    "interpretiveFixtureRequiresBillyReview": true
+  },
+  "parser": {
+    "acceptStructuredFields": true,
+    "acceptTextBlock": true
+  },
+  "fullStep4AvailableFromPage": false
+}
