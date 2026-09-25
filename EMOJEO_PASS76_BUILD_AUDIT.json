@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-pass76-build-audit",
+  "acceptanceCells": 40,
+  "fullProductionLaunchIncluded": false,
+  "serverOwnedExecution": true,
+  "d1": true,
+  "queue": true,
+  "workersAI": true,
+  "maxConsumerConcurrency": 4,
+  "cellRetryLimit": 8,
+  "outputFields": [
+    "subject",
+    "assertion",
+    "state",
+    "route",
+    "confidence",
+    "description",
+    "evidence",
+    "ambiguities",
+    "rawNotes",
+    "rawDiscovery",
+    "model",
+    "completedAt"
+  ],
+  "security": "existing browser Analysis Key SHA-256 hash stored in D1; plaintext not persisted",
+  "selection": "12 continuity fixtures plus 28 deterministic varied cells across core predicate families"
+}

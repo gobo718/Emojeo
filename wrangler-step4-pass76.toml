@@ -1,0 +1,21 @@
+name = "emojeo-step4-runner"
+main = "worker-step4/index.js"
+compatibility_date = "2026-09-25"
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "STEP4_DB"
+
+[[queues.producers]]
+binding = "STEP4_QUEUE"
+queue = "emojeo-step4-jobs"
+
+[[queues.consumers]]
+queue = "emojeo-step4-jobs"
+max_batch_size = 1
+max_batch_timeout = 1
+max_retries = 20
+max_concurrency = 4
+retry_delay = 10
