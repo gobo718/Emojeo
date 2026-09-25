@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "kind": "emojeo-pass71-build-audit",
+  "sourceCheckpoint": "emojeo-step4-sparse-pass70-24assertions-2026-09-25T00-07-39-309Z.json",
+  "pass70Mechanical": {
+    "scopeAssertionCount": 24,
+    "scopeMatrixCellCount": 1896,
+    "screenedAssertionCount": 24,
+    "sparseCandidateCellCount": 641,
+    "pass70VerifiedCandidateCellCount": 641,
+    "providerFailurePendingCellCount": 0,
+    "stateCounts": {
+      "present": 200,
+      "absent": 1694,
+      "uncertain": 2,
+      "not_evaluated": 0
+    }
+  },
+  "pass70SemanticAudit": {
+    "status": "FAIL",
+    "examples": [
+      {
+        "assertionId": "A0004",
+        "subject": "\ud83e\udd53 bacon",
+        "issue": "CONTRASTS_WITH accepted mere category/domain difference as contrast"
+      },
+      {
+        "assertionId": "A0010",
+        "subject": "\ud83d\udc94 broken heart",
+        "issue": "IMPLIES_SETTING accepted audible-crying environment from a possible consequence"
+      },
+      {
+        "assertionId": "A0011",
+        "subject": "\ud83c\udfb8 guitar",
+        "issue": "HAS_FUNCTION accepted express_distress from possible cathartic use"
+      },
+      {
+        "assertionId": "A0017",
+        "subject": "\ud83d\udc94 broken heart",
+        "issue": "HAS_SYMPTOM sobbing is a desired legitimate conditional semantic link"
+      },
+      {
+        "assertionId": "A0017",
+        "subject": "\ud83d\udca6 sweat droplets",
+        "issue": "HAS_SYMPTOM sobbing drifted from symptom-of-a-condition to co-occurring symptom"
+      }
+    ]
+  },
+  "pass71": {
+    "database": "emojeo-step4-pass71",
+    "pilotAssertions": 24,
+    "screenPassesPerAssertion": 2,
+    "candidatePolicy": "union",
+    "screenNegativePolicy": "ABSENT only if both screens omit the nonlocked cell",
+    "reviewersPerCandidate": 2,
+    "reviewerRoles": [
+      "recall",
+      "predicate-critic"
+    ],
+    "disagreementPolicy": "third adjudicator",
+    "cellConcurrency": 2,
+    "maxParallelProviderRequests": 4,
+    "fullRunLocked": true,
+    "freshDatabase": true
+  }
+}
