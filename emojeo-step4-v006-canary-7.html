@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emojeo · Step 4 v006 Judgment Canary</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:940px;margin:0 auto;padding:18px;background:#111;color:#eee}
+h1{font-size:1.45rem;margin-bottom:4px}
+.version{font-weight:800;color:#a7e7ad}
+.card{border:1px solid #555;border-radius:12px;padding:14px;margin:12px 0;background:#191919}
+button{font:inherit;padding:11px 14px;margin:4px;border-radius:9px;border:1px solid #777;background:#292929;color:#fff}
+button:disabled{opacity:.4}
+.stage{font-weight:900;font-size:1.05rem}
+.status{white-space:pre-wrap;margin-top:6px}
+.small{opacity:.82;font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.metric{background:#222;border-radius:8px;padding:10px;text-align:center}
+.metric b{display:block;font-size:1.2rem}
+.sample{max-height:320px;overflow:auto;line-height:1.45;font-size:.9rem}
+.provider{overflow-wrap:anywhere}
+@media(max-width:650px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<h1>Emojeo · Step 4 v006 Judgment Canary</h1>
+<div id="version" class="version">PASS76 RECOVERY · v006 · 7-CELL CANARY</div>
+
+<div class="card">
+  <b>Purpose</b>
+  <p class="small">Targeted semantic regression only: three hard failures, one rationale failure, one out-but-noted visual case, and two deliberately open judgment cases.</p>
+  <div id="provider" class="provider small">Checking…</div>
+</div>
+
+<div class="card">
+  <div id="stage" class="stage">INITIALIZING</div>
+  <div id="status" class="status">Loading sealed inputs…</div>
+  <div id="updated" class="small">Last update: —</div>
+  <p class="small">Job: <span id="job">—</span></p>
+  <button id="health">CHECK RUNNER</button>
+  <button id="start" disabled>START 7-CELL JUDGMENT CANARY</button>
+  <button id="check">CHECK STATUS</button>
+  <button id="download" disabled>DOWNLOAD RESULTS</button>
+</div>
+
+<div class="card grid">
+  <div class="metric"><b id="progress">0/7</b>complete</div>
+  <div class="metric"><b id="queued">0</b>queued</div>
+  <div class="metric"><b id="processing">0</b>processing</div>
+  <div class="metric"><b id="failed">0</b>failed</div>
+</div>
+
+<div class="card"><b>Canary cells</b><div id="sample" class="sample"></div></div>
+
+<script src="genreactrix-cloud-api.js?v=65"></script>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const VERSION='PASS76 RECOVERY · v006 · 7-CELL CANARY';
+const RUN_KEY='pass76-recovery-v006-judgment-canary-7';
+const KJOB='emojeo-step4-v006-canary-job';
+const fixed=[
+ [24,'A0004'],   // AC08 bacon CONTRASTS_WITH 😊
+ [46,'A0022'],   // AC10 unlocked HAS_PART exaggerated_mouth
+ [7,'A0001'],    // AC13 vampire HAS_EXPRESSION grin
+ [49,'A0971'],   // AC32 Leo CONTRASTS_WITH ☀️
+ [75,'A0132'],   // AC40 ribbon HAS_OBJECT tail
+ [29,'A0011'],   // AC11 guitar HAS_FUNCTION express_distress
+ [0,'A0926']     // AC23 grinning face SYMBOLIZES_ASSOCIATES_WITH achievement
+];
+let U,R,O,A=new Map(),M=new Map(),items=[],pollTimer=null,active=false;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const api=()=>globalThis.GenreactrixCloudApi;
+const RUNNER_BASE='https://emojeo-step4-calibrated.billylabs.workers.dev';
+const base=()=>RUNNER_BASE;
+const key=()=>String(api()?.getKey?.()||'');
+function stamp(){return new Date().toLocaleTimeString()}
+function setStatus(stage,text){$('stage').textContent=stage;$('status').textContent=text;$('updated').textContent=`Last update: ${stamp()}`}
+function make(si,aid,n){
+ const s=R.subjects[si],a=A.get(aid),m=M.get(a.relationshipType)||{};
+ return{caseId:`V006-${String(n).padStart(2,'0')}`,subject:{index:si,glyph:s.glyph,name:s.name},assertion:{assertionId:a.assertionId,relationshipType:a.relationshipType,tag:a.tag,seedSources:Array.isArray(a.seedSources)?a.seedSources:[]},ontology:{domain:m.domain||'',definition:m.definition||''}};
+}
+function build(){
+ items=fixed.map((x,i)=>make(x[0],x[1],i+1));
+ $('sample').innerHTML=items.map(x=>`<div><b>${x.caseId}</b> ${esc(x.subject.glyph)} ${esc(x.subject.name)} · ${esc(x.assertion.relationshipType)} → ${esc(x.assertion.tag)}</div>`).join('');
+}
+async function req(path,opt={}){
+ if(!base())throw new Error('Runner URL is not configured.');
+ if(!key())throw new Error('Genreactrix analysis key is not configured in this browser.');
+ const r=await fetch(base()+path,{...opt,headers:{'content-type':'application/json','x-analysis-key':key(),...(opt.headers||{})}}),j=await r.json().catch(()=>({}));
+ if(!r.ok||j.ok===false)throw new Error(j.error||`HTTP ${r.status}`);
+ return j.result??j;
+}
+function renderJob(j){
+ if(!j)return;
+ $('job').textContent=j.id||'—';
+ $('progress').textContent=`${j.completed||0}/${j.total||0}`;
+ $('queued').textContent=String(j.queued||0);
+ $('processing').textContent=String(j.processing||0);
+ $('failed').textContent=String(j.failed||0);
+ active=['queued','running'].includes(String(j.state||''));
+ $('start').disabled=active;
+ setStatus(String(j.state||'unknown').toUpperCase(),`${j.message||''}\nCompleted ${j.completed||0}/${j.total||0} · queued ${j.queued||0} · processing ${j.processing||0} · failed ${j.failed||0}`);
+ $('download').disabled=!j.id;
+}
+async function health(){
+ const h=await req('/api/emojeo/step4/health');
+ $('provider').textContent=(h.providerOrder||[]).join(' → ');
+ if(!h.ready)throw new Error(`Runner bindings incomplete · D1 ${h.d1?'✓':'✗'} · Queue ${h.queue?'✓':'✗'} · AI ${h.ai?'✓':'✗'}`);
+ if(h.version!=='PASS76-RECOVERY-v006')throw new Error(`Expected PASS76-RECOVERY-v006, got ${h.version}`);
+ setStatus('READY',`${h.version} · D1 ✓ · Queue ✓ · AI ✓`);
+ $('start').disabled=active;
+ return h;
+}
+async function check(){
+ const id=localStorage.getItem(KJOB)||'';
+ if(!id)return null;
+ const x=await req('/api/emojeo/step4/jobs/'+encodeURIComponent(id));
+ renderJob(x.job);
+ return x.job;
+}
+function startPoll(){
+ if(pollTimer)clearInterval(pollTimer);
+ pollTimer=setInterval(()=>{if(active)check().catch(e=>setStatus('STATUS ERROR',e.message))},4000);
+}
+async function start(){
+ $('start').disabled=true;
+ setStatus('SUBMITTING','Sending the 7-cell judgment canary…');
+ try{
+  const x=await req('/api/emojeo/step4/jobs',{method:'POST',body:JSON.stringify({runKey:RUN_KEY,items})});
+  const j=x.job;
+  localStorage.setItem(KJOB,j.id);
+  renderJob(j);
+  if(x.reused)setStatus('RESUMED',`Active job reused instead of creating a duplicate.\n${j.id}`);
+ }catch(e){$('start').disabled=false;setStatus('START FAILED',e.message)}
+}
+async function download(){
+ try{
+  const id=localStorage.getItem(KJOB);
+  if(!id)throw new Error('No job ID');
+  const x=await req('/api/emojeo/step4/jobs/'+encodeURIComponent(id)+'/results');
+  const blob=new Blob([JSON.stringify(x,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`emojeo-step4-v006-canary-${id}.json`;
+  document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1200);
+  setStatus('DOWNLOADED',`${x.job.completed}/${x.job.total} complete · ${x.job.failed} failed.`);
+ }catch(e){setStatus('DOWNLOAD FAILED',e.message)}
+}
+async function init(){
+ $('version').textContent=VERSION;
+ const [u,r,o]=await Promise.all([
+  'Emojeo_STEP4_Assertion_Universe_v001.json',
+  'Emojeo_STEP4_RunSpec_v001.json',
+  'Emojeo_STEP3_Semantic_Inventory_1211_v013.json'
+ ].map(x=>fetch(x,{cache:'no-cache'}).then(y=>{if(!y.ok)throw new Error(`${x} load failed (${y.status})`);return y.json()})));
+ U=u;R=r;O=o;
+ U.assertions.forEach(x=>A.set(x.assertionId,x));
+ O.relationships.forEach(x=>M.set(x.relationshipType,{domain:x.domain||'',definition:x.definition||''}));
+ build();
+ await health();
+ const prior=await check().catch(()=>null);
+ if(prior&&!active)setStatus('READY',`Previous canary ${prior.state}. Start is available for a new run.`);
+ startPoll();
+}
+$('health').onclick=()=>health().catch(e=>setStatus('RUNNER ERROR',e.message));
+$('start').onclick=start;
+$('check').onclick=()=>check().catch(e=>setStatus('STATUS ERROR',e.message));
+$('download').onclick=download;
+init().catch(e=>setStatus('INITIALIZATION FAILED',e.message));
+})();
+</script>
+</body>
+</html>
